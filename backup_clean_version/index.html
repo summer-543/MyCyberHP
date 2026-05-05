@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情報 太郎 | Laboratory Archive</title>
+    <meta name="description" content="ダミー大学 ダミー研究室 情報太郎の自己紹介ページです。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul>
+                    <li><a href="#profile" class="active">Profile</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#favorites">Favorites</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Basic Info Section -->
+        <section id="profile" class="section">
+            <div class="container animate-on-scroll">
+                <div class="profile-header" style="margin-bottom: 2rem;">
+                    <div class="profile-info">
+                        <h1>情報 太郎</h1>
+                        <p class="profile-meta">
+                            ダミー大学 ダミー研究室 学部4年
+                        </p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Profile</h2>
+                <ul class="styled-list">
+                    <li>
+                        <h3>生年月日</h3>
+                        <p>2000年1月1日</p>
+                    </li>
+                    <li>
+                        <h3>出身</h3>
+                        <p>ダミー県 ダミー市</p>
+                    </li>
+                    <li>
+                        <h3>経歴</h3>
+                        <p>2022年4月 ダミー大学入学<br>2025年4月 ダミー研究室配属</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills & Works Section -->
+        <section id="skills" class="section" style="background-color: var(--color-bg-alt);">
+            <div class="container animate-on-scroll">
+                <h2 class="section-title">Skills & Works</h2>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="margin-bottom: 1rem;">Programming Skills</h3>
+                    <p class="card-text" style="margin-bottom: 1rem;">※将来的にアイコン画像（SVG等）を用いて視覚的に表現する予定のエリアです。</p>
+                    <div class="tech-tags">
+                        <span class="tag">🔷 言語A</span>
+                        <span class="tag">🔷 言語B</span>
+                        <span class="tag">🔶 フレームワークA</span>
+                        <span class="tag">🔶 ツールA</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 1rem;">Projects</h3>
+                    <div class="grid">
+                        <div class="card">
+                            <h4 style="margin-bottom: 0.5rem; color: var(--color-heading-3);">ダミーWebアプリ</h4>
+                            <p class="card-text" style="margin-bottom: 1rem;">
+                                研究データの〇〇を可視化・管理するためのWebアプリケーションです。フロントエンドとバックエンドAPIを連携させて構築しました。
+                            </p>
+                            <div style="display: flex; gap: 1.5rem; font-size: 0.95rem; font-weight: 600;">
+                                <a href="#" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer">🌐 Live Demo</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h4 style="margin-bottom: 0.5rem; color: var(--color-heading-3);">ダミー解析ツール</h4>
+                            <p class="card-text" style="margin-bottom: 1rem;">
+                                日々の実験で発生するデータの前処理を自動化するスクリプト群です。手作業での処理時間を大幅に削減しました。
+                            </p>
+                            <div style="display: flex; gap: 1.5rem; font-size: 0.95rem; font-weight: 600;">
+                                <a href="#" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="section">
+            <div class="container animate-on-scroll">
+                <h2 class="section-title">Favorites</h2>
+                <div class="grid">
+                    <a href="travel.html" class="card">
+                        <h3 class="card-title">Travel</h3>
+                        <p class="card-text">訪れた場所の記録と日本地図のアーカイブ。</p>
+                    </a>
+                    <a href="music.html" class="card">
+                        <h3 class="card-title">Music</h3>
+                        <p class="card-text">よく聴くアーティストや楽曲のリスト。</p>
+                    </a>
+                    <a href="game.html" class="card">
+                        <h3 class="card-title">Game</h3>
+                        <p class="card-text">プレイしたタイトルや好きなジャンルの紹介。</p>
+                    </a>
+                    <a href="food.html" class="card">
+                        <h3 class="card-title">Food</h3>
+                        <p class="card-text">好きな食べ物や、行きつけのお店の記録。</p>
+                    </a>
+                    <a href="season.html" class="card">
+                        <h3 class="card-title">Season</h3>
+                        <p class="card-text">一番好きな季節と、その時期の過ごし方。</p>
+                    </a>
+                    <a href="books.html" class="card">
+                        <h3 class="card-title">Books</h3>
+                        <p class="card-text">影響を受けた技術書や、息抜きに読む小説・マンガ。</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section" style="background-color: var(--color-bg-alt);">
+            <div class="container animate-on-scroll">
+                <h2 class="section-title">Contact</h2>
+                <div class="card">
+                    <ul class="styled-list">
+                        <li>
+                            <h3>所在地</h3>
+                            <p class="card-text">ダミー棟 123室</p>
+                        </li>
+                        <li>
+                            <h3>連絡先</h3>
+                            <p class="card-text"><a href="mailto:taro.dummy@example.com" style="color: var(--color-primary); font-weight: 600;">taro.dummy@example.com</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Taro Joho. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

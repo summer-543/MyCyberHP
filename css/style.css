@@ -1,0 +1,865 @@
+/* SFスタイルのデザインを定義するメインスタイルシート */
+
+/* ルート変数：カラーパレットとフォントの定義 */
+:root {
+    --color-primary: #00f3ff;       /* メインカラー（シアン） */
+    --color-primary-hover: #ffffff;
+    --color-primary-dim: rgba(0, 243, 255, 0.2);
+    --color-primary-glow: rgba(0, 243, 255, 0.8);
+    
+    --color-secondary: #00f3ff;     /* セカンダリカラー */
+    --color-accent: #00c3ff;        /* アクセントカラー */
+
+    /* テキストカラー */
+    --color-heading: #00f3ff;       
+    --color-text-main: #e0f8ff;     
+    --color-text-muted: #649eb0;    
+    
+    /* 背景色 */
+    --color-bg-main: #050b14;       
+    --color-bg-alt: #0a1120;        
+    --color-bg-panel: rgba(5, 11, 20, 0.7); 
+    
+    /* ボーダー設定 */
+    --color-border: #113f60;
+    --color-border-glow: #00f3ff;
+    
+    /* フォントと速度 */
+    --font-family-sans: 'Share Tech Mono', 'Orbitron', "Noto Sans JP", monospace;
+    --transition-speed: 0.3s;
+}
+
+/* 画面全体に走査線エフェクトを重ねる */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* 全要素のデフォルト余白をリセット */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* 基本的なレイアウトとタイポグラフィの設定 */
+body {
+    font-family: var(--font-family-sans);
+    line-height: 1.6;
+    color: var(--color-text-main);
+    background-color: var(--color-bg-main);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* カスタムスクロールバー全体の幅 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+/* スクロールバーのトラック部分 */
+::-webkit-scrollbar-track {
+    background: var(--color-bg-main);
+    border-left: 1px solid var(--color-border);
+}
+/* スクロールバーのつまみ部分 */
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-dim);
+    border: 1px solid var(--color-primary);
+    border-radius: 0;
+}
+/* つまみ部分のホバー時 */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+/* 背景のグリッドパターン */
+.cyber-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: -1; 
+    overflow: hidden;
+    background-color: var(--color-bg-main);
+    background-image: 
+        linear-gradient(var(--color-bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-bg-alt) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+}
+
+/* 見出し要素の共通スタイル */
+h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.1em; }
+/* メインタイトル */
+h1 { font-size: 2.5rem; color: #fff; text-shadow: 0 0 15px var(--color-primary-glow); }
+/* セクション見出し */
+h2, .section-title { color: var(--color-heading); text-shadow: 0 0 10px var(--color-primary-glow); display: inline-block; margin-bottom: 2rem; }
+/* 見出し前の装飾記号 */
+.section-title::before { content: "/> "; color: var(--color-accent); text-shadow: 0 0 5px var(--color-accent); }
+/* 小見出し */
+h3 { color: var(--color-heading); text-shadow: 0 0 5px var(--color-primary-glow); }
+
+/* リンクの基本スタイル */
+a { color: var(--color-primary); text-decoration: none; transition: all var(--transition-speed); }
+/* リンクのホバー時 */
+a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+
+/* コンテンツの中央配置用コンテナ */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 10; }
+
+/* ページ上部のナビゲーションヘッダー */
+.header {
+    background-color: rgba(2, 6, 12, 0.85);
+    border-bottom: 2px solid var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary-dim);
+    position: sticky; top: 0; z-index: 100; padding: 1rem 0;
+    backdrop-filter: blur(8px);
+}
+/* ヘッダー内のフレックス配置 */
+.header .container { display: flex; justify-content: center; align-items: center; }
+/* ナビゲーションメニューのリスト */
+.nav ul { list-style: none; display: flex; gap: 2rem; }
+/* ナビゲーションリンク */
+.nav a { font-size: 1rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; padding: 0.5rem 1rem; position: relative; }
+/* 現在のページまたはホバー時のナビリンク */
+.nav a.active, .nav a:hover { color: var(--color-primary); text-shadow: 0 0 8px var(--color-primary-glow); }
+
+/* メインコンテンツエリアの余白 */
+.main-content { padding-top: 3rem; min-height: calc(100vh - 160px); }
+/* 各セクションの余白 */
+.section { padding: 4rem 0; border-bottom: none; }
+
+/* サイバーパンク風のパネル外枠 */
+.hud-panel {
+    background-color: var(--color-bg-panel);
+    border: 1px solid var(--color-border);
+    padding: 2.5rem;
+    position: relative;
+    clip-path: polygon(0 20px, 20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    backdrop-filter: blur(8px);
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.05);
+}
+/* パネル内の内側ライン装飾 */
+.hud-panel::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid var(--color-primary-dim);
+    pointer-events: none;
+    clip-path: polygon(0 20px, 20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+/* リスト形式のスタイルリセット */
+.styled-list { list-style: none; }
+/* リストアイテムのボーダーと配置 */
+.styled-list li { padding: 1.5rem 0; border-bottom: 1px solid var(--color-border); position: relative; }
+/* リストアイテム前の矢印装飾 */
+.styled-list li::before { content: '>'; position: absolute; left: -20px; top: 1.6rem; color: var(--color-accent); font-size: 1.2rem; text-shadow: 0 0 8px var(--color-accent); font-family: monospace; font-weight: bold; }
+/* リスト内の見出し */
+.styled-list h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+/* グリッドレイアウトの定義 */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+/* カード型要素の基本スタイル（ホログラム風） */
+.card {
+    position: relative;
+    padding: 2rem;
+    background: rgba(0, 243, 255, 0.03);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    clip-path: polygon(
+        0 0,
+        calc(100% - 24px) 0,
+        100% 24px,
+        100% 100%,
+        24px 100%,
+        0 calc(100% - 0px)
+    );
+}
+
+/* カード上部のグローバー */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--color-primary) 20%,
+        var(--color-primary) 80%,
+        transparent 100%
+    );
+    box-shadow: 0 0 12px var(--color-primary-glow);
+    z-index: 2;
+}
+
+/* カード内を流れるスキャンラインアニメーション */
+.card::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 243, 255, 0.06) 50%,
+        transparent 100%
+    );
+    animation: card-scan 4s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* スキャンラインの移動アニメーション */
+@keyframes card-scan {
+    0%   { top: -40%; }
+    100% { top: 110%; }
+}
+
+/* カードのラベルテキスト */
+.card-window-label {
+    font-size: 0.6rem;
+    color: var(--color-primary);
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+    margin-bottom: 0.8rem;
+    display: block;
+    font-family: var(--font-family-sans);
+}
+/* ラベルの開始括弧 */
+.card-window-label::before {
+    content: '[ ';
+    opacity: 0.5;
+}
+/* ラベルの終了括弧 */
+.card-window-label::after {
+    content: ' ]';
+    opacity: 0.5;
+}
+
+/* カード右上の角の装飾 */
+.card-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 24px 24px 0;
+    border-color: transparent var(--color-primary) transparent transparent;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+/* カードホバー時の発光と浮き上がり */
+.card:hover {
+    background: rgba(0, 243, 255, 0.07);
+    border-color: var(--color-primary);
+    box-shadow:
+        0 0 25px rgba(0, 243, 255, 0.12),
+        inset 0 0 20px rgba(0, 243, 255, 0.05);
+    transform: translateY(-4px);
+}
+/* ホバー時の角装飾のハイライト */
+.card:hover .card-corner {
+    opacity: 1;
+    border-color: transparent #fff transparent transparent;
+    filter: drop-shadow(0 0 6px var(--color-primary-glow));
+}
+
+/* カードの外枠フレーム */
+.card-frame {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 1px solid var(--color-primary-dim);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    clip-path: polygon(
+        0 0,
+        calc(100% - 20px) 0,
+        100% 20px,
+        100% 100%,
+        20px 100%,
+        0 100%
+    );
+    z-index: 2;
+}
+/* カードホバー時にフレームを表示 */
+.card:hover .card-frame,
+.fav-card:hover .card-frame {
+    opacity: 1;
+}
+
+/* お気に入りセクションのグリッド配置 */
+.fav-scatter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.2rem;
+    row-gap: 0;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+/* お気に入りカードの個別スタイル */
+.fav-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;   
+    padding: 1.6rem;
+    background: rgba(3, 10, 22, 0.88);  
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    clip-path: polygon(
+        0 0,
+        calc(100% - 20px) 0,
+        100% 20px,
+        100% 100%,
+        20px 100%,
+        0 100%
+    );
+    isolation: isolate;
+}
+
+/* お気に入りカード上部のグローバー */
+.fav-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--color-primary) 20%,
+        var(--color-primary) 80%,
+        transparent 100%
+    );
+    box-shadow: 0 0 12px var(--color-primary-glow);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* お気に入りカード内のスキャンライン */
+.fav-card::after {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 243, 255, 0.06) 50%,
+        transparent 100%
+    );
+    animation: card-scan 4s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* お気に入りカードの共通余白設定 */
+.fav-card {
+    margin-top: 0 !important;
+    margin-bottom: 1.5rem !important;
+    z-index: 1 !important;
+}
+
+/* ホバー時に最前面へ浮き上がる効果 */
+.fav-card:hover {
+    z-index: 100 !important;
+    background: rgba(0, 243, 255, 0.07);
+    border-color: var(--color-primary);
+    transform: translateY(-6px);
+    box-shadow:
+        0 0 25px rgba(0, 243, 255, 0.18),
+        inset 0 0 20px rgba(0, 243, 255, 0.05);
+}
+
+/* ホバー時の角の強調 */
+.fav-card:hover .card-corner {
+    opacity: 1;
+    border-color: transparent #fff transparent transparent;
+    filter: drop-shadow(0 0 6px var(--color-primary-glow));
+}
+/* ホバー時のフレーム表示 */
+.fav-card:hover .card-frame {
+    opacity: 1;
+}
+
+/* カード内コンテンツの配置 */
+.fav-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* カード内のタイトルスタイル */
+.fav-card .card-title {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+/* カード内の説明文スタイル */
+.fav-card .card-text {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.6rem;
+}
+
+/* レスポンシブ：中画面でのグリッド調整 */
+@media (max-width: 900px) {
+    .fav-scatter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .fav-card:nth-child(1),
+    .fav-card:nth-child(2),
+    .fav-card:nth-child(3),
+    .fav-card:nth-child(4),
+    .fav-card:nth-child(5),
+    .fav-card:nth-child(6) {
+        margin-top: 0;
+    }
+    .fav-card:nth-child(2), .fav-card:nth-child(4), .fav-card:nth-child(6) {
+        margin-top: 1rem;
+    }
+}
+
+/* レスポンシブ：小画面（モバイル）でのグリッド調整 */
+@media (max-width: 600px) {
+    .fav-scatter-grid {
+        grid-template-columns: 1fr;
+    }
+    .fav-card:nth-child(n) {
+        margin-top: 1rem !important;
+    }
+}
+
+/* 技術タグのリストコンテナ */
+.tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+/* 個別の技術タグ */
+.tag { background-color: var(--color-bg-alt); color: var(--color-primary); padding: 0.4rem 1rem; font-size: 0.85rem; border: 1px solid var(--color-primary-dim); text-transform: uppercase; letter-spacing: 0.1em; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); transition: all 0.2s; font-weight: 700; }
+/* タグのホバー時 */
+.tag:hover { border-color: var(--color-primary); background-color: var(--color-primary); color: var(--color-bg-main); box-shadow: 0 0 10px var(--color-primary-glow); }
+
+/* ページ下部のフッター */
+.footer { background-color: var(--color-bg-alt); padding: 2rem 0; text-align: center; border-top: 1px solid var(--color-primary-dim); color: var(--color-text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; }
+
+/* スクロール時に出現するアニメーション要素 */
+.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+/* 表示状態のアニメーション */
+.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+/* システム初期化風のテキストスタイル */
+.sys-init { font-family: 'Share Tech Mono', monospace; color: #39ff14; font-size: 1rem; margin-bottom: 1rem; text-shadow: 0 0 8px #39ff14; }
+
+/* 時計回り回転アニメーション */
+.spin-cw { animation: spin 40s linear infinite; transform-origin: center; }
+/* 反時計回り回転アニメーション */
+.spin-ccw { animation: spin-reverse 30s linear infinite; transform-origin: center; }
+/* 高速回転アニメーション */
+.spin-cw-fast { animation: spin 15s linear infinite; transform-origin: center; }
+/* 高速逆回転アニメーション */
+.spin-ccw-fast { animation: spin-reverse 10s linear infinite; transform-origin: center; }
+/* 低速回転アニメーション */
+.spin-cw-slow { animation: spin 80s linear infinite; transform-origin: center; }
+
+/* 360度回転のキーフレーム */
+@keyframes spin { 100% { transform: rotate(360deg); } }
+/* 逆360度回転のキーフレーム */
+@keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+
+/* 球体装飾のリングスタイル */
+.sphere .ring {
+    position: absolute; width: 100%; height: 100%; border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow), inset 0 0 15px var(--color-primary-glow);
+    box-sizing: border-box;
+    opacity: 0.4;
+}
+/* 球体回転アニメーションのキーフレーム */
+@keyframes rotate-sphere {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* 波形移動アニメーション */
+@keyframes wave-slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+/* 高さパルスアニメーション */
+@keyframes pulse-height { 0% { height: 10%; opacity: 0.3; } 100% { height: 100%; opacity: 1; } }
+/* 幅パルスアニメーション */
+@keyframes pulse-width { 0% { width: 10%; opacity: 0.3; } 100% { width: 100%; opacity: 1; } }
+
+/* 縦方向に流れるデータストリーム */
+.data-stream {
+    position: absolute; top: 0; right: 10px; width: 80px; height: 100vh;
+    font-family: var(--font-family-sans); font-size: 0.8rem; font-weight: 700;
+    color: var(--color-primary); text-shadow: 0 0 8px var(--color-primary-glow);
+    overflow: hidden; writing-mode: vertical-rl; text-orientation: upright;
+    opacity: 0.5; white-space: nowrap; letter-spacing: 0.4em;
+}
+
+/* モバイル表示時のナビとストリームの調整 */
+@media (max-width: 768px) {
+    .nav ul { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .data-stream { display: none; } 
+}
+
+/* プロフィール情報のグリッド */
+.personnel-grid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 4rem;
+    align-items: flex-start;
+}
+/* モバイルでのプロフィールグリッド調整 */
+@media (max-width: 768px) {
+    .personnel-grid { grid-template-columns: 1fr; }
+}
+
+/* プロフィール写真のコンテナ */
+.personnel-photo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+/* 写真を囲むサイバーフレーム */
+.photo-brackets {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    border: 2px solid var(--color-primary-dim);
+    padding: 10px;
+    background: rgba(0, 243, 255, 0.05);
+}
+/* 四隅のブラケット装飾 */
+.photo-brackets::before, .photo-brackets::after {
+    content: ''; position: absolute; width: 30px; height: 30px; border: 3px solid var(--color-primary); pointer-events: none;
+}
+/* 左上のブラケット */
+.photo-brackets::before { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+/* 右下のブラケット */
+.photo-brackets::after { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+
+/* プロフィール写真自体のスタイル */
+.personnel-photo {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.9;
+}
+/* 写真上を走るスキャンライン */
+.photo-scanline {
+    position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--color-primary); box-shadow: 0 0 10px var(--color-primary);
+    animation: sf-scan-vertical 3s linear infinite; pointer-events: none;
+}
+/* 写真のスキャンアニメーション */
+@keyframes sf-scan-vertical {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+/* 写真に重なるラベルテキスト */
+.photo-overlay-text {
+    position: absolute; bottom: 15px; right: 15px; font-family: var(--font-family-sans); font-size: 0.8rem;
+    color: var(--color-bg-main); background: var(--color-primary); padding: 2px 8px; font-weight: bold;
+}
+/* バーコード風の装飾 */
+.personnel-barcode {
+    opacity: 0.6; padding: 10px; border: 1px solid var(--color-primary-dim); background: rgba(0,255,255,0.05);
+}
+
+/* 個人データのセクション */
+.personnel-data { display: flex; flex-direction: column; gap: 2rem; }
+/* データのヘッダー部分 */
+.data-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;}
+/* ヘッダー内の名前 */
+.data-header h1 { font-size: 2rem; text-shadow: 0 0 10px var(--color-primary-glow); margin: 0; }
+/* ステータスを表示するバッジ */
+.status-badge {
+    background: rgba(0, 243, 255, 0.2); border: 1px solid var(--color-primary); padding: 0.4rem 1rem;
+    font-weight: bold; font-family: var(--font-family-sans); letter-spacing: 0.1em;
+    animation: pulse-opacity 2s infinite; color: var(--color-primary); text-shadow: 0 0 5px var(--color-primary);
+}
+/* バッジの点滅アニメーション */
+@keyframes pulse-opacity { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+/* データ表示用のテーブル */
+.cyber-data-table { width: 100%; border-collapse: collapse; font-family: var(--font-family-sans); }
+/* テーブルのセルスタイル */
+.cyber-data-table th, .cyber-data-table td {
+    padding: 1rem; border-bottom: 1px dashed var(--color-border); text-align: left;
+}
+/* テーブルの見出しセル */
+.cyber-data-table th {
+    color: var(--color-text-muted); font-weight: normal; width: 180px; text-transform: uppercase;
+}
+/* テーブルのデータセル */
+.cyber-data-table td { color: var(--color-text-main); font-family: monospace; font-size: 1.1rem; }
+/* 強調表示されるデータセル */
+.cyber-data-table td.highlight { color: #fff; text-shadow: 0 0 8px var(--color-primary); font-weight: bold; }
+
+/* ページ右上の機密マーク */
+.confidential-mark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 2px solid #ff3333;
+    color: #ff3333;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    font-family: var(--font-family-sans);
+    text-shadow: 0 0 5px rgba(255, 51, 51, 0.8);
+    box-shadow: inset 0 0 5px rgba(255, 51, 51, 0.3), 0 0 5px rgba(255, 51, 51, 0.3);
+    z-index: 10;
+    opacity: 0.8;
+}
+
+/* ステータスグラフのコンテナ */
+.status-graph {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 40px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--color-primary-dim);
+    background: rgba(0, 243, 255, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+/* グラフのホバー時 */
+.status-graph:hover {
+    background: rgba(0, 243, 255, 0.15);
+    box-shadow: 0 0 10px var(--color-primary-dim);
+}
+/* グラフの個別の棒 */
+.graph-bar {
+    width: 6%;
+    background: var(--color-primary);
+    box-shadow: 0 0 5px var(--color-primary);
+    animation: graph-bounce 1.5s infinite alternate ease-in-out;
+}
+/* 各棒の個別アニメーション設定 */
+.graph-bar:nth-child(even) { animation-duration: 2s; animation-direction: alternate-reverse; }
+.graph-bar:nth-child(3n) { animation-duration: 1.2s; }
+.graph-bar:nth-child(5n) { animation-duration: 0.8s; }
+/* グラフのバウンスアニメーション */
+@keyframes graph-bounce {
+    0% { height: 10%; }
+    100% { height: 100%; }
+}
+
+/* レーダーチャート表示用のポップアップ */
+.radar-popup {
+    position: absolute;
+    top: 20%;
+    right: -30px; 
+    width: 280px;
+    padding: 1.5rem;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: var(--color-bg-panel);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 15px var(--color-primary-dim);
+    backdrop-filter: blur(8px);
+}
+/* ポップアップの表示状態 */
+.radar-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+/* 画面幅によるポップアップ位置調整 */
+@media (max-width: 1100px) {
+    .radar-popup { right: 0; }
+}
+/* モバイルでのポップアップ配置 */
+@media (max-width: 768px) {
+    .radar-popup {
+        right: 0;
+        left: 0;
+        margin: auto;
+        top: 30%;
+        width: 90%;
+        max-width: 320px;
+    }
+}
+/* ポップアップ内のタイトル */
+.modal-title {
+    color: var(--color-primary); margin-top: 0; margin-bottom: 1.5rem; font-family: var(--font-family-mono); text-align: center; border-bottom: 1px solid var(--color-primary-dim); padding-bottom: 10px;
+}
+/* レーダーチャートのコンテナ */
+.status-radar-container { width: 100%; aspect-ratio: 1/1; position: relative; }
+/* レーダーデータの点滅アニメーション */
+.radar-data { animation: radar-pulse 2s infinite alternate ease-in-out; }
+/* レーダーパルスのキーフレーム */
+@keyframes radar-pulse { 0% { opacity: 0.5; } 100% { opacity: 1; filter: drop-shadow(0 0 8px var(--color-primary)); } }
+
+/* レーダーチャートのラベル */
+.radar-label {
+    transition: fill 0.3s ease;
+}
+
+/* 赤色の点滅アニメーション */
+@keyframes pulse-red {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(255, 51, 51, 0.8); }
+    50% { opacity: 0.5; text-shadow: 0 0 2px rgba(255, 51, 51, 0.2); }
+}
+
+/* クリック時の波紋エフェクト */
+.click-ripple {
+    position: fixed;
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    animation: ripple-burst 0.8s cubic-bezier(0, 0.3, 0.3, 1) forwards;
+    box-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+/* クリック時のフラッシュエフェクト */
+.click-flash {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    box-shadow: 0 0 15px 2px var(--color-primary);
+    animation: flash-out 0.5s ease-out forwards;
+}
+
+/* 波紋が広がるアニメーション */
+@keyframes ripple-burst {
+    0% { width: 0; height: 0; opacity: 0.8; border-width: 10px; }
+    100% { width: 100px; height: 100px; opacity: 0; border-width: 2px; }
+}
+
+/* フラッシュが消えるアニメーション */
+@keyframes flash-out {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(6); opacity: 0; }
+}
+
+/* 戻るボタンのコンテナ */
+.back-btn-container {
+    padding: 2rem 0 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* サイバーパンク風の戻るボタン */
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 243, 255, 0.06);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    position: relative;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 12px rgba(0, 243, 255, 0.05), 0 0 12px rgba(0, 243, 255, 0.08);
+}
+
+/* ボタン内の光の筋エフェクト */
+.back-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+/* ボタンホバー時のスタイル */
+.back-btn:hover {
+    background: rgba(0, 243, 255, 0.15);
+    box-shadow: 0 0 20px var(--color-primary-dim);
+    transform: translateX(-5px);
+    color: #fff;
+    text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+/* ホバー時に光の筋を移動 */
+.back-btn:hover::before {
+    left: 100%;
+}
+
+/* ボタン内のアイコン */
+.back-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時にアイコンをスライド */
+.back-btn:hover svg {
+    transform: translateX(-3px);
+}
+
+/* ページ遷移時のウィンドウ閉鎖アニメーション */
+@keyframes window-collapse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+}
+
+/* 閉鎖アニメーション中のbody状態 */
+body.closing {
+    animation: window-collapse 0.22s ease-in forwards;
+    overflow: hidden;
+    pointer-events: none;
+    transform-origin: center center;
+}
+
+/* 閉鎖アニメーション時の走査線を非表示 */
+body.closing::before {
+    opacity: 0;
+    transition: none;
+}

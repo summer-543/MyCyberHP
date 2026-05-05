@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- ドキュメント設定とメタ情報 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music | Laboratory Archive</title>
+    <meta name="description" content="よく聴く音楽のアーカイブ">
+    <!-- 外部フォントとスタイルシートの読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- サイバースタイルの背景装飾要素 -->
+    <div id="cyber-bg" class="cyber-bg"></div>
+
+    <!-- ページ上部のナビゲーションヘッダー -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#profile">Profile</a></li>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#works">Works</a></li>
+                    <li><a href="index.html#favorites">Favorites</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- 戻るボタンのエリア -->
+        <div class="container">
+            <div class="back-btn-container">
+                <a href="index.html#favorites" class="back-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                    </svg>
+                    <span>Return to Database</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 音楽アーカイブセクション -->
+        <section class="section">
+            <div class="container animate-on-scroll">
+                <div class="hud-panel">
+                <h2 class="section-title">Music Archive</h2>
+                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+                    作業中やリフレッシュしたい時によく聴く音楽のリストです。
+                </p>
+
+                <!-- 個別の音楽カードリスト -->
+                <div class="grid">
+                    <!-- 音楽カード 01 -->
+                    <div class="card">
+                        <div class="card-corner"></div>
+                        <div class="card-frame"></div>
+                        <h3 class="card-title">アーティストA</h3>
+                        <p class="card-text">
+                            <strong>Favorite Track:</strong> 曲名B<br><br>
+                            研究に行き詰まった時、気分を切り替えるために聴いています。
+                        </p>
+                    </div>
+                    
+                    <!-- 音楽カード 02 -->
+                    <div class="card">
+                        <div class="card-corner"></div>
+                        <div class="card-frame"></div>
+                        <h3 class="card-title">ダミーアーティスト2</h3>
+                        <p class="card-text">
+                            <strong>Favorite Track:</strong> ダミーソング<br><br>
+                            コーディング中など、集中力を高めたい時に聴くインスト楽曲です。
+                        </p>
+                    </div>
+                    
+                    <!-- 音楽カード 03 -->
+                    <div class="card">
+                        <div class="card-corner"></div>
+                        <div class="card-frame"></div>
+                        <h3 class="card-title">ダミーアーティスト3</h3>
+                        <p class="card-text">
+                            <strong>Favorite Track:</strong> サンプルミュージック<br><br>
+                            朝の通学時やモチベーションを上げたい時に聴くことが多いです。
+                        </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ページ下部のフッター -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- スクリプトファイルの読み込み -->
+    <script src="js/script.js"></script>
+</body>
+</html>
