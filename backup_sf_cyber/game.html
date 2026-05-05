@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- ドキュメント設定とメタ情報 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game | Laboratory Archive</title>
     <meta name="description" content="プレイしたゲームのアーカイブ">
+    <!-- 外部フォントとスタイルシートの読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- サイバースタイルの背景装飾要素 -->
+    <div id="cyber-bg" class="cyber-bg"></div>
+
+    <!-- ページ上部のナビゲーションヘッダー -->
     <header class="header">
         <div class="container">
             <nav class="nav">
                 <ul>
                     <li><a href="index.html#profile">Profile</a></li>
+                    <li><a href="index.html#research">Research</a></li>
                     <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#works">Works</a></li>
                     <li><a href="index.html#favorites">Favorites</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
@@ -25,48 +33,75 @@
     </header>
 
     <main class="main-content">
+        <!-- 戻るボタンのエリア -->
+        <div class="container">
+            <div class="back-btn-container">
+                <a href="index.html#favorites" class="back-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                    </svg>
+                    <span>Return to Database</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ゲームアーカイブセクション -->
         <section class="section">
             <div class="container animate-on-scroll">
+                <div class="hud-panel">
                 <h2 class="section-title">Game Archive</h2>
                 <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
                     余暇にプレイしているタイトルや好きなジャンルの紹介です。
                 </p>
 
+                <!-- 個別のゲームカードリスト -->
                 <div class="grid">
+                    <!-- ゲームカード 01 -->
                     <div class="card">
+                        <div class="card-corner"></div>
+                        <div class="card-frame"></div>
                         <h3 class="card-title">タイトルC</h3>
                         <p class="card-text">
                             <strong>Genre:</strong> ジャンルD<br><br>
-                            広大な世界を探索する自由度の高さが魅力的です。研究室のメンバーともマルチプレイで遊ぶことがあります。
+                            広大な世界を探索する自由度の高さが魅力的です。
                         </p>
                     </div>
 
+                    <!-- ゲームカード 02 -->
                     <div class="card">
+                        <div class="card-corner"></div>
+                        <div class="card-frame"></div>
                         <h3 class="card-title">ダミータイトル2</h3>
                         <p class="card-text">
                             <strong>Genre:</strong> パズル・シミュレーション<br><br>
-                            論理的な思考を要求されるため、プログラミングに通じる面白さがあります。短時間で手軽に遊べる点も気に入っています。
+                            論理的な思考を要求されるため、プログラミングに通じる面白さがあります。
                         </p>
                     </div>
 
+                    <!-- ゲームカード 03 -->
                     <div class="card">
+                        <div class="card-corner"></div>
+                        <div class="card-frame"></div>
                         <h3 class="card-title">ダミータイトル3</h3>
                         <p class="card-text">
                             <strong>Genre:</strong> アクションRPG<br><br>
-                            美しいグラフィックと奥深いストーリーに引き込まれました。休日にまとめてプレイすることが多いです。
+                            美しいグラフィックと奥深いストーリーに引き込まれました。
                         </p>
                     </div>
+                </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- ページ下部のフッター -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Taro Joho. All rights reserved.</p>
+            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- スクリプトファイルの読み込み -->
+    <script src="js/script.js"></script>
 </body>
 </html>
