@@ -870,15 +870,14 @@ body.closing::before {
 /* 連絡先情報のグリッドレイアウト：縦一列に変更 */
 .contact-modules-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 常に1列 */
+    grid-template-columns: 1fr;
     gap: 2rem;
-    /* margin-topを削除して、.section-titleのmargin-bottom(2rem)に統一 */
 }
 
 /* 所在地・連絡先の個別サブモジュール */
 .contact-sub-module {
     position: relative;
-    padding: 2rem;
+    padding: 2.5rem;
     background: rgba(0, 243, 255, 0.03);
     border: 1px solid var(--color-border);
     backdrop-filter: blur(8px);
@@ -891,6 +890,254 @@ body.closing::before {
     border-color: var(--color-primary);
     box-shadow: 0 0 20px var(--color-primary-dim);
 }
+
+/* モジュール内のコンテンツ配置用コンテナ */
+.module-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* テキストコンテンツエリア */
+.contact-info-content {
+    flex: 1;
+}
+
+/* SFオブジェクトのコンテナ */
+.sf-object-container {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* SVGベーススタイル */
+.sf-svg-base { width: 100%; height: 100%; overflow: visible; }
+
+/* オブジェクト共通の発光フィルター */
+.sf-holographic-radar,
+.sf-quantum-comm {
+    width: 100%; height: 100%;
+    position: relative;
+    filter: drop-shadow(0 0 8px rgba(0,243,255,0.5));
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* マップオブジェクト（クリック可能） */
+#mapObjectBtn { cursor: pointer; }
+#mapObjectBtn:hover .sf-holographic-radar {
+    filter: drop-shadow(0 0 18px rgba(0,243,255,0.95));
+    transform: scale(1.06);
+}
+#mapObjectBtn:hover .sf-obj-label { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+
+/* オブジェクト下ラベル */
+.sf-obj-label {
+    position: absolute;
+    bottom: -20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    font-family: var(--font-family-mono);
+    color: var(--color-primary-dim);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+.sf-label-bracket { opacity: 0.5; font-size: 0.7em; }
+
+/* オブジェクト内走査線 */
+.sf-obj-scanline {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(0,243,255,0.8), transparent);
+    animation: sf-obj-scan 2.5s linear infinite;
+    pointer-events: none;
+}
+@keyframes sf-obj-scan {
+    0%   { top: 0;    opacity: 0; }
+    5%   { opacity: 1; }
+    95%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* レーダースキャン扇形の回転 */
+.sf-radar-sweep { transform-origin: 60px 60px; animation: sf-radar-rot 3s linear infinite; }
+@keyframes sf-radar-rot { to { transform: rotate(360deg); } }
+
+/* ピングリング */
+.sf-ping-ring { transform-origin: 60px 60px; animation: sf-ping 2s ease-out infinite; }
+@keyframes sf-ping { 0% { transform: scale(1); opacity:1; } 100% { transform: scale(4); opacity:0; } }
+
+/* ブリップ点滅 */
+.sf-blip { animation: sf-blip-flash 2.4s ease-in-out infinite; }
+@keyframes sf-blip-flash { 0%,80%,100% { opacity:0; } 40% { opacity:1; } }
+
+/* 通信アーク */
+.sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2s ease-in-out infinite; }
+@keyframes sf-arc-pulse { 0%,100% { opacity:0; stroke-dashoffset:200; } 50% { opacity:1; stroke-dashoffset:0; } }
+
+/* 通信パルスリング */
+.sf-comm-pulse { transform-origin: 60px 72px; animation: sf-comm-expand 2s ease-out infinite; }
+@keyframes sf-comm-expand { 0% { transform:scale(1); opacity:0.8; } 100% { transform:scale(5); opacity:0; } }
+
+/* 量子ビット */
+.sf-qbit { animation: sf-qbit-blink 1.5s ease-in-out infinite; }
+@keyframes sf-qbit-blink { 0%,100% { opacity:0.3; } 50% { opacity:1; filter:drop-shadow(0 0 4px var(--color-primary)); } }
+
+/* --- SFオブジェクトのアニメーション（既存） --- */
+
+/* パルス透明度 */
+.pulse-op { animation: pulse-op 2s infinite alternate ease-in-out; }
+@keyframes pulse-op { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+/* ===== Googleマップ 近未来HUDモーダル ===== */
+
+/* オーバーレイ背景 */
+.map-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 12, 0.92);
+    backdrop-filter: blur(14px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.map-modal.show { opacity: 1; visibility: visible; }
+
+/* スキャンライン */
+.map-modal-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* モーダルコンテンツ */
+.map-modal-content {
+    position: relative;
+    width: min(92vw, 960px);
+    height: min(88vh, 640px);
+    background: rgba(3, 9, 20, 0.97);
+    border: 1px solid rgba(0,243,255,0.3);
+    box-shadow: 0 0 0 1px rgba(0,243,255,0.08), 0 0 60px rgba(0,243,255,0.12), inset 0 0 40px rgba(0,243,255,0.04);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    animation: map-modal-in 0.4s cubic-bezier(0.2,1,0.2,1) both;
+}
+@keyframes map-modal-in {
+    from { transform: scale(0.94) translateY(20px); opacity: 0; }
+    to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* HUDブラケット */
+.hud-bracket { position: absolute; width: 22px; height: 22px; pointer-events: none; z-index: 10; }
+.hud-tl { top:-1px; left:-1px; border-top:2px solid var(--color-primary); border-left:2px solid var(--color-primary); }
+.hud-tr { top:-1px; right:-1px; border-top:2px solid var(--color-primary); border-right:2px solid var(--color-primary); }
+.hud-bl { bottom:-1px; left:-1px; border-bottom:2px solid var(--color-primary); border-left:2px solid var(--color-primary); }
+.hud-br { bottom:-1px; right:-1px; border-bottom:2px solid var(--color-primary); border-right:2px solid var(--color-primary); }
+
+/* ヘッダーバー */
+.map-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.4rem;
+    border-bottom: 1px solid rgba(0,243,255,0.2);
+    background: rgba(0,243,255,0.04);
+    flex-shrink: 0;
+}
+.map-modal-header-left { display: flex; align-items: center; gap: 1rem; }
+.map-modal-header-right { display: flex; align-items: center; gap: 1.2rem; }
+
+/* ステータスLED */
+.map-status-led {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+    animation: pulse-opacity 1.5s infinite;
+    flex-shrink: 0;
+}
+
+/* タイトルブロック */
+.map-modal-system-id { font-size:0.6rem; color:rgba(0,243,255,0.5); font-family:var(--font-family-mono); letter-spacing:0.2em; margin-bottom:2px; }
+.map-modal-title { font-size:1rem; font-family:'Orbitron',sans-serif; color:var(--color-primary); letter-spacing:0.2em; text-shadow:0 0 10px var(--color-primary-glow); }
+
+/* 座標表示 */
+.map-coord-display { display:flex; flex-direction:column; align-items:center; gap:1px; }
+.map-coord-label { font-size:0.55rem; color:rgba(0,243,255,0.4); font-family:var(--font-family-mono); letter-spacing:0.2em; }
+.map-coord-value { font-size:0.75rem; color:var(--color-primary); font-family:var(--font-family-mono); font-weight:bold; text-shadow:0 0 6px var(--color-primary-glow); }
+
+/* 閉じるボタン */
+.map-close-btn {
+    background: rgba(0,243,255,0.06);
+    border: 1px solid rgba(0,243,255,0.3);
+    color: var(--color-primary);
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+.map-close-btn:hover { background:rgba(255,60,60,0.15); border-color:#ff3c3c; color:#ff3c3c; box-shadow:0 0 12px rgba(255,60,60,0.4); }
+
+/* マップボディ */
+.map-body { display:flex; flex:1; overflow:hidden; }
+
+/* 左サイドパネル */
+.map-side-panel {
+    width: 130px; flex-shrink: 0;
+    border-right: 1px solid rgba(0,243,255,0.15);
+    background: rgba(0,243,255,0.03);
+    padding: 1rem 0.8rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    font-family: var(--font-family-mono); overflow: hidden;
+}
+.map-side-label { font-size:0.5rem; color:rgba(0,243,255,0.4); letter-spacing:0.2em; text-transform:uppercase; margin-top:0.3rem; }
+.map-side-value { font-size:0.68rem; color:var(--color-text-main); letter-spacing:0.05em; line-height:1.5; }
+.map-side-value--active { color:var(--color-primary); display:flex; align-items:center; gap:0.4rem; }
+.map-side-divider { height:1px; background:rgba(0,243,255,0.1); margin:0.3rem 0; }
+.map-status-dot { width:6px; height:6px; border-radius:50%; background:var(--color-primary); box-shadow:0 0 6px var(--color-primary); animation:pulse-opacity 1.5s infinite; flex-shrink:0; }
+
+/* シグナルバー */
+.map-signal-bars { display:flex; align-items:flex-end; gap:3px; height:24px; margin-top:0.3rem; }
+.signal-bar { flex:1; background:var(--color-primary); box-shadow:0 0 4px var(--color-primary); border-radius:1px; animation:pulse-opacity 1.5s infinite; }
+.signal-bar:nth-child(1){animation-delay:0s;} .signal-bar:nth-child(2){animation-delay:0.2s;}
+.signal-bar:nth-child(3){animation-delay:0.4s;} .signal-bar:nth-child(4){animation-delay:0.6s;}
+.signal-bar:nth-child(5){animation-delay:0.8s;}
+
+/* iframeラッパー */
+.map-iframe-wrapper { flex:1; position:relative; overflow:hidden; }
+.map-iframe-wrapper iframe { position:absolute; inset:0; width:100%; height:100%; }
+
+/* iframeオーバーレイブラケット */
+.map-overlay-tl,.map-overlay-tr,.map-overlay-bl,.map-overlay-br { position:absolute; width:16px; height:16px; z-index:5; pointer-events:none; }
+.map-overlay-tl { top:8px; left:8px; border-top:2px solid rgba(0,243,255,0.8); border-left:2px solid rgba(0,243,255,0.8); }
+.map-overlay-tr { top:8px; right:8px; border-top:2px solid rgba(0,243,255,0.8); border-right:2px solid rgba(0,243,255,0.8); }
+.map-overlay-bl { bottom:8px; left:8px; border-bottom:2px solid rgba(0,243,255,0.8); border-left:2px solid rgba(0,243,255,0.8); }
+.map-overlay-br { bottom:8px; right:8px; border-bottom:2px solid rgba(0,243,255,0.8); border-right:2px solid rgba(0,243,255,0.8); }
+
+/* フッターステータス */
+.map-modal-footer {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0.5rem 1.4rem;
+    border-top:1px solid rgba(0,243,255,0.15);
+    background:rgba(0,243,255,0.03);
+    font-family:var(--font-family-mono); font-size:0.6rem;
+    color:rgba(0,243,255,0.4); letter-spacing:0.1em;
+    flex-shrink:0; gap:1rem;
+}
+.map-footer-left { display:flex; align-items:center; gap:0.5rem; flex-shrink:0; }
+.map-footer-dot { width:5px; height:5px; border-radius:50%; background:#39ff14; box-shadow:0 0 6px #39ff14; }
+.map-footer-center { flex:1; text-align:center; color:rgba(0,243,255,0.6); overflow:hidden; white-space:nowrap; }
+.map-footer-right { flex-shrink:0; text-align:right; }
 
 /* 四隅のL字型コーナーブラケット */
 .contact-sub-module::before {
@@ -927,128 +1174,10 @@ body.closing::before {
     padding: 0;
 }
 
-/* --- CONTACTセクション：サイバーUIオブジェクトのスタイル --- */
-
-/* コンテナ内のレイアウト設定 */
-.module-flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-}
-
-/* 1. 日本地図ホログラムのスタイル */
-.hologram-map-wrapper {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    perspective: 800px;
-}
-
-.hologram-map {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    animation: rotate-hologram 15s linear infinite;
-}
-
-.japan-map-svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 10px var(--color-primary-glow));
-}
-
-.map-path {
-    fill: rgba(0, 243, 255, 0.1);
-    stroke: var(--color-primary);
-    stroke-width: 0.8;
-}
-
-/* 福井県位置のハイライト点滅 */
-.map-highlight {
-    fill: #fff;
-    filter: drop-shadow(0 0 5px #fff);
-    animation: map-ping 2s ease-out infinite;
-}
-
-/* ホログラム投影機の土台表現 */
-.hologram-base {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
-    box-shadow: 0 0 15px var(--color-primary-glow);
-    opacity: 0.6;
-}
-
-/* 2. 暗号化モジュールのスタイル */
-.encryption-wrapper {
-    position: relative;
-    width: 110px;
-    height: 110px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 回転するデータストリームリング */
-.data-ring {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    animation: spin 20s linear infinite;
-}
-
-.ring-text {
-    font-family: var(--font-family-mono);
-    font-size: 7px;
-    fill: var(--color-primary);
-    opacity: 0.5;
-    text-transform: uppercase;
-}
-
-.lock-icon {
-    width: 32px;
-    height: 32px;
-    color: var(--color-primary);
-    filter: drop-shadow(0 0 8px var(--color-primary-glow));
-    z-index: 2;
-}
-
-.encryption-tag {
-    position: absolute;
-    bottom: -5px;
-    font-size: 0.6rem;
-    font-family: var(--font-family-mono);
-    color: var(--color-primary);
-    background: rgba(0, 243, 255, 0.1);
-    padding: 2px 6px;
-    letter-spacing: 1px;
-    border-left: 2px solid var(--color-primary);
-}
-
-/* --- アニメーション定義 --- */
-
-/* ホログラムの3D回転 */
-@keyframes rotate-hologram {
-    0%   { transform: rotateX(20deg) rotateY(0deg); }
-    100% { transform: rotateX(20deg) rotateY(360deg); }
-}
-
-/* 地図上のピンポイント点滅 */
-@keyframes map-ping {
-    0%   { r: 1.5; opacity: 1; }
-    100% { r: 5;   opacity: 0; }
-}
-
-/* レスポンシブ調整：画面が狭い場合はUIオブジェクトを非表示または調整 */
+/* レスポンシブ調整 */
 @media (max-width: 600px) {
-    .hologram-map-wrapper, .encryption-wrapper {
-        display: none;
-    }
+    .module-flex-container { flex-direction: column; align-items: center; text-align: center; }
+    .sf-object-container { order: -1; margin-bottom: 1.5rem; }
+    .map-side-panel { display: none; }
+    .map-modal-title { font-size: 0.8rem; }
 }
-
-

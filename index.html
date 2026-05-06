@@ -325,23 +325,47 @@
                                     <h3>LOCATION</h3>
                                     <p class="card-text">〒910-8507<br>福井県福井市文京3-9-1 福井大学工学系3号館4階 3-400室</p>
                                 </div>
-                                <!-- ホログラム日本地図 -->
-                                <div class="hologram-map-wrapper">
-                                    <div class="hologram-map">
-                                        <svg viewBox="0 0 200 160" class="japan-map-svg">
-                                            <!-- 北海道 -->
-                                            <path class="map-path" d="M165.5,10.5l12.1,2.4l8.2,14.1l-4.1,12.2l-14.2,4.1l-16.3-6.1l-2.1-12.2l8.1-14.5H165.5z" />
-                                            <!-- 本州 -->
-                                            <path class="map-path" d="M145.5,45.5l-10.2,14.2l-18.3,12.2l-22.4,12.2l-14.2,18.3l-18.3,22.4l-24.4,20.3l-22.4,14.2l-14.2,6.1l-4.1-4.1l6.1-12.2l14.2-16.3l20.3-24.4l28.5-22.4l32.5-18.3l24.4-14.2l20.3-8.1l14.2-2l8.1,4.1V45.5z" />
-                                            <!-- 四国 -->
-                                            <path class="map-path" d="M65.5,125.5l14.2,6.1l-4.1,12.2l-12.2-2L65.5,125.5z" />
-                                            <!-- 九州 -->
-                                            <path class="map-path" d="M25.5,135.5l16.3,8.1l-4.1,16.3l-14.2-2l-6.1-12.2L25.5,135.5z" />
-                                            <!-- 福井県位置のハイライト -->
-                                            <circle class="map-highlight" cx="102" cy="96" r="1.5" />
+                                <!-- マップ関連SFオブジェクト：ホログラフィックレーダースキャナー -->
+                                <div class="sf-object-container" id="mapObjectBtn">
+                                    <div class="sf-holographic-radar">
+                                        <svg viewBox="0 0 120 120" class="sf-svg-base">
+                                            <!-- 背景の同心円グリッド -->
+                                            <circle cx="60" cy="60" r="55" fill="rgba(0,243,255,0.03)" stroke="var(--color-primary)" stroke-width="0.5" />
+                                            <circle cx="60" cy="60" r="42" fill="none" stroke="var(--color-primary)" stroke-width="0.4" stroke-dasharray="3 3" />
+                                            <circle cx="60" cy="60" r="28" fill="none" stroke="var(--color-primary)" stroke-width="0.4" />
+                                            <circle cx="60" cy="60" r="14" fill="none" stroke="var(--color-primary)" stroke-width="0.4" stroke-dasharray="2 2" />
+                                            <!-- 十字基準線 -->
+                                            <line x1="60" y1="5" x2="60" y2="115" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.4" />
+                                            <line x1="5" y1="60" x2="115" y2="60" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.4" />
+                                            <!-- 対角線 -->
+                                            <line x1="21" y1="21" x2="99" y2="99" stroke="var(--color-primary)" stroke-width="0.3" opacity="0.2" />
+                                            <line x1="99" y1="21" x2="21" y2="99" stroke="var(--color-primary)" stroke-width="0.3" opacity="0.2" />
+                                            <!-- 回転する扇形スキャン -->
+                                            <path d="M 60 60 L 60 5 A 55 55 0 0 1 115 60 Z" fill="url(#radarGradient)" class="sf-radar-sweep" />
+                                            <!-- グラデーション定義 -->
+                                            <defs>
+                                                <radialGradient id="radarGradient" cx="0%" cy="0%" r="100%">
+                                                    <stop offset="0%" style="stop-color:rgba(0,243,255,0.6)" />
+                                                    <stop offset="100%" style="stop-color:rgba(0,243,255,0)" />
+                                                </radialGradient>
+                                            </defs>
+                                            <!-- 回転する外周ティック -->
+                                            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="4 8.85" class="spin-cw" />
+                                            <!-- ロケーションピン -->
+                                            <circle cx="60" cy="60" r="5" fill="var(--color-primary)" />
+                                            <circle cx="60" cy="60" r="9" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-ping-ring" />
+                                            <circle cx="60" cy="60" r="9" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-ping-ring" style="animation-delay:1s" />
+                                            <!-- エコーブリップ -->
+                                            <circle cx="80" cy="38" r="2.5" fill="var(--color-primary)" class="sf-blip" style="animation-delay:0.4s" />
+                                            <circle cx="35" cy="72" r="2" fill="var(--color-primary)" class="sf-blip" style="animation-delay:1.2s" opacity="0.7" />
                                         </svg>
+                                        <div class="sf-obj-scanline"></div>
+                                        <div class="sf-obj-label">
+                                            <span class="sf-label-bracket">[</span>
+                                            GEO_SCAN
+                                            <span class="sf-label-bracket">]</span>
+                                        </div>
                                     </div>
-                                    <div class="hologram-base"></div>
                                 </div>
                             </div>
                         </div>
@@ -353,22 +377,47 @@
                                     <h3>CONTACT INFORMATION</h3>
                                     <p class="card-text"><a href="mailto:sei-o@network.fuis.u-fukui.ac.jp" style="color: inherit; font-weight: 600; text-decoration: none;">sei-o@network.fuis.u-fukui.ac.jp</a></p>
                                 </div>
-                                <!-- 暗号化/複合化モジュール -->
-                                <div class="encryption-wrapper">
-                                    <div class="data-ring">
-                                        <svg viewBox="0 0 100 100">
-                                            <path id="text-curve" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none" />
-                                            <text class="ring-text">
-                                                <textPath href="#text-curve">011010110010101101011011011010110010101101011011</textPath>
-                                            </text>
+                                <!-- メール関連SFオブジェクト：量子通信端末 -->
+                                <div class="sf-object-container">
+                                    <div class="sf-quantum-comm">
+                                        <svg viewBox="0 0 120 120" class="sf-svg-base">
+                                            <defs>
+                                                <!-- 電波放射のグラデーション -->
+                                                <radialGradient id="commGradient" cx="50%" cy="70%" r="60%">
+                                                    <stop offset="0%" style="stop-color:rgba(0,243,255,0.3)" />
+                                                    <stop offset="100%" style="stop-color:rgba(0,243,255,0)" />
+                                                </radialGradient>
+                                            </defs>
+                                            <!-- 放射状のグリッド背景 -->
+                                            <ellipse cx="60" cy="75" rx="50" ry="8" fill="none" stroke="var(--color-primary)" stroke-width="0.5" opacity="0.4" />
+                                            <ellipse cx="60" cy="75" rx="35" ry="6" fill="none" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.3" />
+                                            <!-- 電波放射アーク（下から上） -->
+                                            <path d="M 32 65 Q 60 30, 88 65" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-comm-arc" style="animation-delay:0s" />
+                                            <path d="M 22 72 Q 60 15, 98 72" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-arc" style="animation-delay:0.6s; opacity:0.7" />
+                                            <path d="M 12 78 Q 60 0, 108 78" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-arc" style="animation-delay:1.2s; opacity:0.4" />
+                                            <!-- 送受信ノード（中心） -->
+                                            <polygon points="60,52 65,70 60,67 55,70" fill="var(--color-primary)" class="pulse-op" />
+                                            <circle cx="60" cy="72" r="6" fill="rgba(0,243,255,0.15)" stroke="var(--color-primary)" stroke-width="1.5" />
+                                            <circle cx="60" cy="72" r="2.5" fill="var(--color-primary)" />
+                                            <!-- データパケット移動 -->
+                                            <circle cx="60" cy="72" r="3.5" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-pulse" />
+                                            <circle cx="60" cy="72" r="3.5" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-pulse" style="animation-delay:0.8s" />
+                                            <!-- 外周の量子ビット装飾 -->
+                                            <rect x="20" y="90" width="5" height="5" rx="1" fill="var(--color-primary)" class="sf-qbit" style="animation-delay:0s" />
+                                            <rect x="55" y="95" width="5" height="5" rx="1" fill="var(--color-primary)" class="sf-qbit" style="animation-delay:0.4s" />
+                                            <rect x="90" y="88" width="5" height="5" rx="1" fill="var(--color-primary)" class="sf-qbit" style="animation-delay:0.9s" />
+                                            <!-- 接続ライン -->
+                                            <line x1="25" y1="90" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                                            <line x1="57" y1="95" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                                            <line x1="92" y1="88" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
                                         </svg>
+                                        <div class="sf-obj-scanline"></div>
+                                        <div class="sf-obj-label">
+                                            <span class="sf-label-bracket">[</span>
+                                            Q_COMM
+                                            <span class="sf-label-bracket">]</span>
+                                        </div>
                                     </div>
-                                    <div class="lock-icon">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="encryption-tag">[STAT: ENCRYPTED]</div>
                                 </div>
                             </div>
                         </div>
@@ -376,6 +425,105 @@
                 </div>
             </div>
         </section>
+
+        <!-- Googleマップ表示用モーダル：近未来HUDデザイン -->
+        <div id="mapModal" class="map-modal">
+            <!-- スキャンラインオーバーレイ -->
+            <div class="map-modal-scanlines"></div>
+            
+            <div class="map-modal-content">
+                <!-- 四隅のHUDブラケット装飾 -->
+                <div class="hud-bracket hud-tl"></div>
+                <div class="hud-bracket hud-tr"></div>
+                <div class="hud-bracket hud-bl"></div>
+                <div class="hud-bracket hud-br"></div>
+
+                <!-- モーダルヘッダー -->
+                <div class="map-modal-header">
+                    <div class="map-modal-header-left">
+                        <div class="map-status-led"></div>
+                        <div class="map-modal-title-block">
+                            <div class="map-modal-system-id">SYS::GEO_LOCATE_v2.4</div>
+                            <div class="map-modal-title">GEOLOCATION STATION</div>
+                        </div>
+                    </div>
+                    <div class="map-modal-header-right">
+                        <div class="map-coord-display">
+                            <span class="map-coord-label">LAT</span>
+                            <span class="map-coord-value">36.0822°N</span>
+                        </div>
+                        <div class="map-coord-display">
+                            <span class="map-coord-label">LNG</span>
+                            <span class="map-coord-value">136.2163°E</span>
+                        </div>
+                        <button id="closeMapBtn" class="map-close-btn" aria-label="閉じる">
+                            <svg viewBox="0 0 24 24" width="20" height="20">
+                                <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2"/>
+                                <line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- マップ本体エリア -->
+                <div class="map-body">
+                    <!-- 左サイドのHUDパネル -->
+                    <div class="map-side-panel">
+                        <div class="map-side-label">TARGET</div>
+                        <div class="map-side-value">福井大学<br>工学系3号館</div>
+                        <div class="map-side-divider"></div>
+                        <div class="map-side-label">SECTOR</div>
+                        <div class="map-side-value">BUNKYO<br>FUKUI-SHI</div>
+                        <div class="map-side-divider"></div>
+                        <div class="map-side-label">STATUS</div>
+                        <div class="map-side-value map-side-value--active">
+                            <span class="map-status-dot"></span>ACTIVE
+                        </div>
+                        <div class="map-side-divider"></div>
+                        <div class="map-side-label">SIGNAL</div>
+                        <div class="map-signal-bars">
+                            <div class="signal-bar" style="height:20%"></div>
+                            <div class="signal-bar" style="height:40%"></div>
+                            <div class="signal-bar" style="height:65%"></div>
+                            <div class="signal-bar" style="height:85%"></div>
+                            <div class="signal-bar" style="height:100%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Googleマップiframe -->
+                    <div class="map-iframe-wrapper">
+                        <!-- マップ上のオーバーレイ装飾（角のブラケット） -->
+                        <div class="map-overlay-tl"></div>
+                        <div class="map-overlay-tr"></div>
+                        <div class="map-overlay-bl"></div>
+                        <div class="map-overlay-br"></div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1612.3419107896386!2d136.2133127389283!3d36.07681530229299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8bf4265eb06af%3A0xbaf08356245f1c50!2z56aP5LqV5aSn5a2mIOe3j-WQiOeglOeptuajn-KFpu-8iOW3peWtpuezuzPlj7fppKjvvIk!5e0!3m2!1sja!2sjp!4v1778076832384!5m2!1sja!2sjp"
+                            width="100%" height="100%"
+                            style="border:0; display:block;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="福井大学工学系3号館 位置情報">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- フッターステータスバー -->
+                <div class="map-modal-footer">
+                    <div class="map-footer-left">
+                        <span class="map-footer-dot"></span>
+                        <span>CONNECTION :: SECURE</span>
+                    </div>
+                    <div class="map-footer-center">
+                        <span class="map-footer-ticker" id="mapFooterTicker">RETRIEVING_GEOSPATIAL_DATA...</span>
+                    </div>
+                    <div class="map-footer-right">
+                        <span>〒910-8507 福井市文京3-9-1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- ページ下部のフッター -->

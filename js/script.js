@@ -154,6 +154,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* 背景のサイバーHUD装飾を初期化 */
     initCyberHUD();
+
+    /* Googleマップモーダルの制御 */
+    const mapModal = document.getElementById('mapModal');
+    const mapBtn = document.getElementById('mapObjectBtn');
+    const closeMapBtn = document.getElementById('closeMapBtn');
+
+    if (mapModal && mapBtn && closeMapBtn) {
+        /* オブジェクトクリックでモーダル表示 */
+        mapBtn.addEventListener('click', () => {
+            mapModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // 背景スクロール禁止
+        });
+
+        /* 閉じるボタンでモーダル非表示 */
+        closeMapBtn.addEventListener('click', () => {
+            mapModal.classList.remove('show');
+            document.body.style.overflow = ''; // スクロール再開
+        });
+
+        /* モーダル外をクリックで閉じる */
+        mapModal.addEventListener('click', (e) => {
+            if (e.target === mapModal) {
+                mapModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 });
 
 /* 背景のサイバーパンク風装飾要素を生成・制御する関数 */
@@ -662,3 +689,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => handleBackTransition(e, link));
     });
 });
+
+
+
