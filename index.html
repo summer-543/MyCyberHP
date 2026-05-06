@@ -315,16 +315,64 @@
             <div class="container animate-on-scroll">
                 <div class="hud-panel">
                     <h2 class="section-title">Contact</h2>
-                    <ul class="styled-list">
-                        <li>
-                            <h3>所在地</h3>
-                            <p class="card-text">〒910-8507<br>福井県福井市文京3-9-1 福井大学工学系3号館4階 3-400室</p>
-                        </li>
-                        <li>
-                            <h3>連絡先</h3>
-                            <p class="card-text"><a href="mailto:sei-o@network.fuis.u-fukui.ac.jp" style="color: inherit; font-weight: 600; text-decoration: none;">sei-o@network.fuis.u-fukui.ac.jp</a></p>
-                        </li>
-                    </ul>
+                    
+                    <!-- 所在地と連絡先の2つのサブコンテナに分割 -->
+                    <div class="contact-modules-grid">
+                        <!-- 所在地モジュール -->
+                        <div class="contact-sub-module">
+                            <div class="module-flex-container">
+                                <div class="contact-info-content">
+                                    <h3>LOCATION</h3>
+                                    <p class="card-text">〒910-8507<br>福井県福井市文京3-9-1 福井大学工学系3号館4階 3-400室</p>
+                                </div>
+                                <!-- ホログラム日本地図 -->
+                                <div class="hologram-map-wrapper">
+                                    <div class="hologram-map">
+                                        <svg viewBox="0 0 200 160" class="japan-map-svg">
+                                            <!-- 北海道 -->
+                                            <path class="map-path" d="M165.5,10.5l12.1,2.4l8.2,14.1l-4.1,12.2l-14.2,4.1l-16.3-6.1l-2.1-12.2l8.1-14.5H165.5z" />
+                                            <!-- 本州 -->
+                                            <path class="map-path" d="M145.5,45.5l-10.2,14.2l-18.3,12.2l-22.4,12.2l-14.2,18.3l-18.3,22.4l-24.4,20.3l-22.4,14.2l-14.2,6.1l-4.1-4.1l6.1-12.2l14.2-16.3l20.3-24.4l28.5-22.4l32.5-18.3l24.4-14.2l20.3-8.1l14.2-2l8.1,4.1V45.5z" />
+                                            <!-- 四国 -->
+                                            <path class="map-path" d="M65.5,125.5l14.2,6.1l-4.1,12.2l-12.2-2L65.5,125.5z" />
+                                            <!-- 九州 -->
+                                            <path class="map-path" d="M25.5,135.5l16.3,8.1l-4.1,16.3l-14.2-2l-6.1-12.2L25.5,135.5z" />
+                                            <!-- 福井県位置のハイライト -->
+                                            <circle class="map-highlight" cx="102" cy="96" r="1.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="hologram-base"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 連絡先モジュール -->
+                        <div class="contact-sub-module">
+                            <div class="module-flex-container">
+                                <div class="contact-info-content">
+                                    <h3>CONTACT INFORMATION</h3>
+                                    <p class="card-text"><a href="mailto:sei-o@network.fuis.u-fukui.ac.jp" style="color: inherit; font-weight: 600; text-decoration: none;">sei-o@network.fuis.u-fukui.ac.jp</a></p>
+                                </div>
+                                <!-- 暗号化/複合化モジュール -->
+                                <div class="encryption-wrapper">
+                                    <div class="data-ring">
+                                        <svg viewBox="0 0 100 100">
+                                            <path id="text-curve" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none" />
+                                            <text class="ring-text">
+                                                <textPath href="#text-curve">011010110010101101011011011010110010101101011011</textPath>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                    <div class="lock-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="encryption-tag">[STAT: ENCRYPTED]</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
