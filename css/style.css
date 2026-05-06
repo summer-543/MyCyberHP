@@ -904,6 +904,107 @@ body.closing::before {
     flex: 1;
 }
 
+/* 連絡先詳細の行 */
+.contact-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ラベル (ADDR, MAIL等) */
+.contact-detail-label {
+    font-family: var(--font-family-mono);
+    font-size: 0.65rem;
+    color: rgba(0, 243, 255, 0.65); /* 0.4から0.65へ上げて視認性向上 */
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.contact-detail-label::before {
+    content: '>';
+    color: var(--color-primary);
+}
+
+/* 値の表示 */
+.contact-detail-value {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    padding-left: 1rem;
+    border-left: 1px solid rgba(0, 243, 255, 0.15);
+}
+
+/* サイバーリンク（メールアドレス） */
+.contact-cyber-link {
+    font-family: var(--font-family-mono);
+    font-size: 0.95rem; /* 1remから少し縮小 */
+    color: var(--color-text-main);
+    text-decoration: none;
+    padding: 0.3rem 3rem 0.3rem 1.2rem; /* 右側の余白を大きく確保 */
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 420px; /* 適切な長さに調整 */
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    word-break: break-all;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 右端の控えめなアクセント（タブ装飾） */
+.contact-cyber-link::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--color-primary);
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+}
+
+.contact-cyber-link:hover::after {
+    opacity: 0.8;
+}
+
+.contact-cyber-link:hover {
+    background: rgba(0, 243, 255, 0.12);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-dim);
+    transform: translateX(5px);
+}
+
+/* ステータスバー演出 */
+.contact-status-bar {
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.6rem;
+    opacity: 0.8;
+}
+.status-indicator {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #555;
+}
+.status-indicator.active {
+    background: #39ff14;
+    box-shadow: 0 0 8px #39ff14;
+    animation: pulse-opacity 1.5s infinite;
+}
+.status-text {
+    color: rgba(0, 243, 255, 0.6); /* 少し明るく */
+    letter-spacing: 0.1em;
+}
+
 /* SFオブジェクトのコンテナ */
 .sf-object-container {
     width: 140px;
@@ -939,7 +1040,7 @@ body.closing::before {
     transform: translateX(-50%);
     font-size: 0.6rem;
     font-family: var(--font-family-mono);
-    color: var(--color-primary-dim);
+    color: rgba(0, 243, 255, 0.7); /* 視認性向上のため少し明るく */
     letter-spacing: 0.15em;
     white-space: nowrap;
     transition: all 0.3s ease;
@@ -997,8 +1098,9 @@ body.closing::before {
 .map-modal {
     position: fixed;
     inset: 0;
-    background: rgba(2, 6, 12, 0.92);
-    backdrop-filter: blur(14px);
+    background: rgba(5, 11, 20, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -1009,21 +1111,28 @@ body.closing::before {
 }
 .map-modal.show { opacity: 1; visibility: visible; }
 
-/* スキャンライン */
+/* スキャンライン（モーダル用） */
 .map-modal-scanlines {
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px);
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 1; /* 背景用は低く */
+}
+
+/* モーダル内部のUI要素に乗せるスキャンライン */
+.map-modal-content > .map-modal-scanlines {
+    z-index: 5; /* サイドパネルやヘッダーの上に */
+    border-radius: inherit; /* 親の角丸に合わせる */
 }
 
 /* モーダルコンテンツ */
 .map-modal-content {
     position: relative;
-    width: min(92vw, 960px);
-    height: min(88vh, 640px);
-    background: rgba(3, 9, 20, 0.97);
+    width: min(85vw, 840px); /* 少し小さく */
+    height: min(75vh, 520px); /* 少し小さく */
+    background: rgba(3, 9, 20, 0.92); /* 少し透過 */
     border: 1px solid rgba(0,243,255,0.3);
     box-shadow: 0 0 0 1px rgba(0,243,255,0.08), 0 0 60px rgba(0,243,255,0.12), inset 0 0 40px rgba(0,243,255,0.04);
     display: flex;
@@ -1067,13 +1176,13 @@ body.closing::before {
 }
 
 /* タイトルブロック */
-.map-modal-system-id { font-size:0.6rem; color:rgba(0,243,255,0.5); font-family:var(--font-family-mono); letter-spacing:0.2em; margin-bottom:2px; }
-.map-modal-title { font-size:1rem; font-family:'Orbitron',sans-serif; color:var(--color-primary); letter-spacing:0.2em; text-shadow:0 0 10px var(--color-primary-glow); }
+.map-modal-system-id { font-size:0.75rem; color:rgba(0,243,255,0.5); font-family:var(--font-family-mono); letter-spacing:0.2em; margin-bottom:2px; }
+.map-modal-title { font-size:1.25rem; font-family:'Orbitron',sans-serif; color:var(--color-primary); letter-spacing:0.2em; text-shadow:0 0 10px var(--color-primary-glow); }
 
 /* 座標表示 */
 .map-coord-display { display:flex; flex-direction:column; align-items:center; gap:1px; }
-.map-coord-label { font-size:0.55rem; color:rgba(0,243,255,0.4); font-family:var(--font-family-mono); letter-spacing:0.2em; }
-.map-coord-value { font-size:0.75rem; color:var(--color-primary); font-family:var(--font-family-mono); font-weight:bold; text-shadow:0 0 6px var(--color-primary-glow); }
+.map-coord-label { font-size:0.65rem; color:rgba(0,243,255,0.4); font-family:var(--font-family-mono); letter-spacing:0.2em; }
+.map-coord-value { font-size:0.9rem; color:var(--color-primary); font-family:var(--font-family-mono); font-weight:bold; text-shadow:0 0 6px var(--color-primary-glow); }
 
 /* 閉じるボタン */
 .map-close-btn {
@@ -1093,15 +1202,17 @@ body.closing::before {
 
 /* 左サイドパネル */
 .map-side-panel {
-    width: 130px; flex-shrink: 0;
+    width: 160px; flex-shrink: 0; /* パネルを少し広く */
     border-right: 1px solid rgba(0,243,255,0.15);
     background: rgba(0,243,255,0.03);
-    padding: 1rem 0.8rem;
-    display: flex; flex-direction: column; gap: 0.4rem;
+    padding: 1.2rem 1rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
     font-family: var(--font-family-mono); overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
-.map-side-label { font-size:0.5rem; color:rgba(0,243,255,0.4); letter-spacing:0.2em; text-transform:uppercase; margin-top:0.3rem; }
-.map-side-value { font-size:0.68rem; color:var(--color-text-main); letter-spacing:0.05em; line-height:1.5; }
+.map-side-label { font-size:0.65rem; color:rgba(0,243,255,0.4); letter-spacing:0.2em; text-transform:uppercase; margin-top:0.3rem; }
+.map-side-value { font-size:0.85rem; color:var(--color-text-main); letter-spacing:0.05em; line-height:1.5; }
 .map-side-value--active { color:var(--color-primary); display:flex; align-items:center; gap:0.4rem; }
 .map-side-divider { height:1px; background:rgba(0,243,255,0.1); margin:0.3rem 0; }
 .map-status-dot { width:6px; height:6px; border-radius:50%; background:var(--color-primary); box-shadow:0 0 6px var(--color-primary); animation:pulse-opacity 1.5s infinite; flex-shrink:0; }
@@ -1114,7 +1225,12 @@ body.closing::before {
 .signal-bar:nth-child(5){animation-delay:0.8s;}
 
 /* iframeラッパー */
-.map-iframe-wrapper { flex:1; position:relative; overflow:hidden; }
+.map-iframe-wrapper { 
+    flex: 1; 
+    position: relative; 
+    overflow: hidden;
+    z-index: 10; /* スキャンラインより上に配置 */
+}
 .map-iframe-wrapper iframe { position:absolute; inset:0; width:100%; height:100%; }
 
 /* iframeオーバーレイブラケット */
@@ -1127,10 +1243,10 @@ body.closing::before {
 /* フッターステータス */
 .map-modal-footer {
     display:flex; justify-content:space-between; align-items:center;
-    padding:0.5rem 1.4rem;
+    padding:0.6rem 1.4rem;
     border-top:1px solid rgba(0,243,255,0.15);
     background:rgba(0,243,255,0.03);
-    font-family:var(--font-family-mono); font-size:0.6rem;
+    font-family:var(--font-family-mono); font-size:0.75rem;
     color:rgba(0,243,255,0.4); letter-spacing:0.1em;
     flex-shrink:0; gap:1rem;
 }

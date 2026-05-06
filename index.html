@@ -323,7 +323,14 @@
                             <div class="module-flex-container">
                                 <div class="contact-info-content">
                                     <h3>LOCATION</h3>
-                                    <p class="card-text">〒910-8507<br>福井県福井市文京3-9-1 福井大学工学系3号館4階 3-400室</p>
+                                    <div class="contact-detail-row">
+                                        <span class="contact-detail-label">ADDR</span>
+                                        <div class="contact-detail-value">
+                                            〒910-8507<br>
+                                            福井県福井市文京3-9-1<br>
+                                            福井大学工学系3号館4階 3-400室
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- マップ関連SFオブジェクト：ホログラフィックレーダースキャナー -->
                                 <div class="sf-object-container" id="mapObjectBtn">
@@ -374,8 +381,17 @@
                         <div class="contact-sub-module">
                             <div class="module-flex-container">
                                 <div class="contact-info-content">
-                                    <h3>CONTACT INFORMATION</h3>
-                                    <p class="card-text"><a href="mailto:sei-o@network.fuis.u-fukui.ac.jp" style="color: inherit; font-weight: 600; text-decoration: none;">sei-o@network.fuis.u-fukui.ac.jp</a></p>
+                                    <h3>CONTACT</h3>
+                                    <div class="contact-detail-row">
+                                        <span class="contact-detail-label">MAIL</span>
+                                        <div class="contact-cyber-link" id="copyEmailBtn">
+                                            <span class="email-text">sei-o@network.fuis.u-fukui.ac.jp</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-status-bar">
+                                        <span class="status-indicator active"></span>
+                                        <span class="status-text">COMM_LINK :: READY</span>
+                                    </div>
                                 </div>
                                 <!-- メール関連SFオブジェクト：量子通信端末 -->
                                 <div class="sf-object-container">
@@ -428,10 +444,13 @@
 
         <!-- Googleマップ表示用モーダル：近未来HUDデザイン -->
         <div id="mapModal" class="map-modal">
-            <!-- スキャンラインオーバーレイ -->
+            <!-- 背景用のスキャンライン -->
             <div class="map-modal-scanlines"></div>
             
             <div class="map-modal-content">
+                <!-- UI要素用のスキャンライン（マップを避けるため内部に配置） -->
+                <div class="map-modal-scanlines"></div>
+
                 <!-- 四隅のHUDブラケット装飾 -->
                 <div class="hud-bracket hud-tl"></div>
                 <div class="hud-bracket hud-tr"></div>

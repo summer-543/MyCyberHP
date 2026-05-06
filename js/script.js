@@ -181,6 +181,51 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    /* メールアドレスのコピー機能 */
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    let copyMessageTimeout = null;
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', () => {
+            const emailTextEl = copyEmailBtn.querySelector('.email-text');
+            const email = emailTextEl ? emailTextEl.innerText.trim() : copyEmailBtn.innerText.trim();
+            navigator.clipboard.writeText(email).then(() => {
+                /* フィードバック：一瞬発光させる */
+                copyEmailBtn.style.backgroundColor = 'rgba(0, 243, 255, 0.4)';
+                copyEmailBtn.style.boxShadow = '0 0 25px var(--color-primary)';
+
+                /* メッセージの表示：ステータスバーのテキストを一時的に変更 */
+                const statusText = copyEmailBtn.closest('.contact-info-content').querySelector('.status-text');
+                if (statusText) {
+                    /* 元のテキストを初回のみ保持（連続クリック対策） */
+                    if (!statusText.hasAttribute('data-original')) {
+                        statusText.setAttribute('data-original', statusText.textContent);
+                    }
+                    
+                    /* 既存のタイマーがあればクリア */
+                    if (copyMessageTimeout) clearTimeout(copyMessageTimeout);
+
+                    statusText.textContent = 'COMM_LINK :: ADDR_COPIED';
+                    statusText.style.color = '#fff';
+                    statusText.style.textShadow = '0 0 8px var(--color-primary)';
+
+                    /* 4秒後に元に戻す */
+                    copyMessageTimeout = setTimeout(() => {
+                        statusText.textContent = statusText.getAttribute('data-original');
+                        statusText.style.color = '';
+                        statusText.style.textShadow = '';
+                        copyMessageTimeout = null;
+                    }, 4000);
+                }
+
+                setTimeout(() => {
+                    copyEmailBtn.style.backgroundColor = '';
+                    copyEmailBtn.style.boxShadow = '';
+                }, 200);
+            });
+        });
+    }
 });
 
 /* 背景のサイバーパンク風装飾要素を生成・制御する関数 */
