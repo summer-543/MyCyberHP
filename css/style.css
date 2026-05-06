@@ -270,7 +270,6 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     box-shadow:
         0 0 25px rgba(0, 243, 255, 0.12),
         inset 0 0 20px rgba(0, 243, 255, 0.05);
-    transform: translateY(-4px);
 }
 /* ホバー時の角装飾のハイライト */
 .card:hover .card-corner {
@@ -1297,3 +1296,66 @@ body.closing::before {
     .map-side-panel { display: none; }
     .map-modal-title { font-size: 0.8rem; }
 }
+
+/* --- コンパクト・サイバーボタン (Micro SF) --- */
+/* --- サイバー・GitHubリンクボタン (Scanning Icon) --- */
+.cyber-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.6rem;
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    color: var(--color-primary) !important;
+    font-family: var(--font-family-mono);
+    font-size: 0.95rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.cyber-link-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    transition: all 0.3s ease;
+}
+
+.cyber-link-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary-glow);
+    transition: none;
+}
+
+.cyber-link-btn:hover {
+    border-color: var(--color-primary);
+    background: rgba(0, 243, 255, 0.05);
+    text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.cyber-link-btn:hover svg {
+    filter: drop-shadow(0 0 8px var(--color-primary-glow));
+}
+
+.cyber-link-btn:hover::after {
+    left: 100%;
+    transition: left 0.5s ease-out;
+}
+
+
+
+
+
+
+
+
+
