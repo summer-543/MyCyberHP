@@ -586,7 +586,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     background: rgba(0, 243, 255, 0.08); /* 背景をわずかに明るく */
     position: relative;
     margin-top: auto; /* バーコードを下に寄せる */
-    margin-bottom: 3.5rem; /* 位置を微調整して少し下げる */
+    margin-bottom: 2.5rem; /* 位置をわずかに上に調整 */
 }
 
 /* パネルの上部ヘッダー（タイトルと機密マークを並べる） */
@@ -594,16 +594,18 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding-top: 40px; /* 上端から40pxの位置に設定 */
     margin-bottom: 2rem;
 }
 .panel-header .section-title {
     margin-bottom: 0;
 }
 
-/* ページ右上の機密マーク */
+/* 機密マーク（CONFIDENTIAL）のスタイル定義 */
+/* 機密マーク（CONFIDENTIAL）：水平配置に変更し、サイバーエフェクトを追加 */
 .confidential-mark {
-    /* 絶対座標指定を廃止し、フロー配置へ */
+    position: absolute;
+    top: 25px;
+    right: 25px;
     border: 2px solid #ff3333;
     color: #ff3333;
     padding: 5px 15px;
@@ -611,10 +613,36 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     font-size: 1.2rem;
     letter-spacing: 0.3em;
     font-family: var(--font-family-sans);
-    text-shadow: 0 0 5px rgba(255, 51, 51, 0.8);
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+    box-shadow: inset 0 0 10px rgba(255, 51, 51, 0.2), 0 0 10px rgba(255, 51, 51, 0.2);
+    z-index: 10;
     opacity: 0.8;
-    transform: rotate(-2deg);
-    border-radius: 4px;
+    border-radius: 2px;
+    overflow: hidden; /* スキャンライン用 */
+    animation: confidential-pulse 2s infinite alternate ease-in-out;
+}
+
+/* 内部を流れる赤い光のエフェクト */
+.confidential-mark::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 51, 51, 0.3), transparent);
+    animation: confidential-scan 4s infinite linear;
+}
+
+@keyframes confidential-pulse {
+    0% { opacity: 0.7; box-shadow: inset 0 0 5px rgba(255, 51, 51, 0.2), 0 0 5px rgba(255, 51, 51, 0.2); }
+    100% { opacity: 1; box-shadow: inset 0 0 15px rgba(255, 51, 51, 0.4), 0 0 15px rgba(255, 51, 51, 0.4); text-shadow: 0 0 12px rgba(255, 51, 51, 0.9); }
+}
+
+@keyframes confidential-scan {
+    0% { left: -100%; }
+    25% { left: 100%; }
+    100% { left: 100%; }
 }
 
 .barcode {
@@ -672,23 +700,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 /* 強調表示されるデータセル */
 .cyber-data-table td.highlight { color: #fff; text-shadow: 0 0 8px var(--color-primary); font-weight: bold; }
 
-/* ページ右上の機密マーク */
-.confidential-mark {
-    position: absolute;
-    top: 60px; /* 少し下に下げる */
-    right: 20px;
-    border: 2px solid #ff3333;
-    color: #ff3333;
-    padding: 5px 15px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    letter-spacing: 0.3em;
-    font-family: var(--font-family-sans);
-    text-shadow: 0 0 5px rgba(255, 51, 51, 0.8);
-    box-shadow: inset 0 0 5px rgba(255, 51, 51, 0.3), 0 0 5px rgba(255, 51, 51, 0.3);
-    z-index: 10;
-    opacity: 0.8;
-}
+/* (重複していた定義を削除) */
 
 /* ステータスグラフのコンテナ */
 .status-graph {
@@ -1408,27 +1420,51 @@ body.closing::before {
 
 /* 左サイドパネル */
 .map-side-panel {
-    width: 160px; flex-shrink: 0; /* パネルを少し広く */
+    width: 160px; flex-shrink: 0;
     border-right: 1px solid rgba(0,243,255,0.15);
     background: rgba(0,243,255,0.03);
-    padding: 1.2rem 1rem;
-    display: flex; flex-direction: column; gap: 0.6rem;
-    font-family: var(--font-family-mono); overflow: hidden;
+    padding: 0.8rem 0.6rem;
+    display: flex; flex-direction: column; gap: 0.5rem; /* 余白をさらに最適化 */
+    font-family: var(--font-family-mono); 
+    overflow: hidden;
     position: relative;
     z-index: 1;
 }
-.map-side-label { font-size:0.65rem; color:rgba(0,243,255,0.4); letter-spacing:0.2em; text-transform:uppercase; margin-top:0.3rem; }
-.map-side-value { font-size:0.85rem; color:var(--color-text-main); letter-spacing:0.05em; line-height:1.5; }
+
+.map-side-label { font-size:0.7rem; color:rgba(0,243,255,0.4); letter-spacing:0.15em; text-transform:uppercase; margin-top:0; }
+.map-side-value { font-size:0.9rem; color:var(--color-text-main); letter-spacing:0.02em; line-height:1.4; }
 .map-side-value--active { color:var(--color-primary); display:flex; align-items:center; gap:0.4rem; }
-.map-side-divider { height:1px; background:rgba(0,243,255,0.1); margin:0.3rem 0; }
+.map-side-divider { height:1px; background:rgba(0,243,255,0.1); margin:0.15rem 0; }
 .map-status-dot { width:6px; height:6px; border-radius:50%; background:var(--color-primary); box-shadow:0 0 6px var(--color-primary); animation:pulse-opacity 1.5s infinite; flex-shrink:0; }
 
-/* シグナルバー */
-.map-signal-bars { display:flex; align-items:flex-end; gap:3px; height:24px; margin-top:0.3rem; }
-.signal-bar { flex:1; background:var(--color-primary); box-shadow:0 0 4px var(--color-primary); border-radius:1px; animation:pulse-opacity 1.5s infinite; }
-.signal-bar:nth-child(1){animation-delay:0s;} .signal-bar:nth-child(2){animation-delay:0.2s;}
-.signal-bar:nth-child(3){animation-delay:0.4s;} .signal-bar:nth-child(4){animation-delay:0.6s;}
-.signal-bar:nth-child(5){animation-delay:0.8s;}
+/* シグナルバー：サイズと位置を再調整 */
+.map-signal-bars { 
+    display:flex; 
+    align-items:flex-end; 
+    gap:4px; /* 太くした分、隙間を微調整 */
+    height:24px; 
+    width: 80px; 
+    margin-top:0.5rem; 
+    margin-left: 5px; 
+}
+.signal-bar { 
+    width: 6px; /* バーを太く変更 */
+    background:var(--color-primary); 
+    box-shadow:0 0 3px var(--color-primary); 
+    border-radius:1px; 
+    animation: signal-bounce 1s infinite alternate ease-in-out; 
+}
+
+@keyframes signal-bounce {
+    0% { height: 20%; opacity: 0.4; }
+    50% { height: 80%; opacity: 0.8; }
+    100% { height: 40%; opacity: 0.6; }
+}
+.signal-bar:nth-child(1) { animation-delay: 0.0s; }
+.signal-bar:nth-child(2) { animation-delay: 0.2s; }
+.signal-bar:nth-child(3) { animation-delay: 0.4s; }
+.signal-bar:nth-child(4) { animation-delay: 0.1s; }
+.signal-bar:nth-child(5) { animation-delay: 0.3s; }
 
 /* iframeラッパー */
 .map-iframe-wrapper { 
@@ -1774,11 +1810,13 @@ body.closing::before {
 .name-romaji {
     /* PCでは通常の並びを維持 */
 }
-/* タイムラインの見出しを控えめに調整 */
+/* タイムラインの見出しを控えめに調整（モバイル版と同様の2行レイアウトを採用） */
 .timeline-item {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    margin-bottom: 0.8rem;
 }
 .timeline-label {
     flex-shrink: 0;
@@ -1792,6 +1830,8 @@ body.closing::before {
     font-size: 1.1rem; /* テーブルの他のセル (1.1rem) と完全に統一 */
     color: var(--color-text-main);
     font-family: monospace; /* テーブルセルと同じ等幅フォントを明示 */
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--color-primary-dim);
 }
 
 /* 遷移ページのヘッダー調整 */

@@ -664,7 +664,8 @@ document.addEventListener('DOMContentLoaded', () => {
             position: relative;
             width: 0px; height: 2px;
             background-color: var(--color-primary);
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            overflow: hidden; /* アニメーション中の内容溢れを防止 */
             transition:
                 width 0.3s cubic-bezier(0.1, 1, 0.1, 1),
                 height 0.35s cubic-bezier(0.1, 1, 0.1, 1) 0.3s,
@@ -750,10 +751,11 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.appendChild(sfWindow);
         document.body.appendChild(overlay);
 
-        /* ウィンドウのアニメーションを開始 */
+        /* ウィンドウのアニメーションを開始（レスポンシブ対応） */
         requestAnimationFrame(() => {
-            sfWindow.style.width = 'min(70vw, 700px)';
-            sfWindow.style.height = '55vh';
+            const isMobile = window.innerWidth <= 768;
+            sfWindow.style.width = isMobile ? '90vw' : 'min(70vw, 700px)';
+            sfWindow.style.height = isMobile ? '40vh' : '55vh';
             sfWindow.style.backgroundColor = 'transparent';
             const content = sfWindow.querySelector('div');
             if (content) content.style.opacity = '1';

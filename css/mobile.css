@@ -2,14 +2,14 @@
    MOBILE & RESPONSIVE STYLES - FINAL REFINEMENT
    ========================================================================== */
 
-/* 全体的な文字溢れ・単語途中改行の防止 */
-* {
-    word-break: keep-all;
-    overflow-wrap: anywhere;
-}
-
 /* 950px以下のタブレット・中画面サイズ向け調整 */
 @media (max-width: 950px) {
+    /* 全体的な文字溢れ・単語途中改行の防止 */
+    * {
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+    }
+
     /* プロフィールグリッドを縦並びに切り替え */
     .personnel-grid {
         grid-template-columns: 1fr !important;
@@ -27,30 +27,33 @@
         border-bottom: 2px solid var(--color-primary) !important;
         padding-bottom: 1rem !important;
     }
-    .name-block {
-        display: flex !important;
-        flex-direction: column !important;
-        flex: 1;
-    }
+    /* 名前とローマ字の配置調整：横並び（row）に変更 */
     .data-header h1 {
         font-size: 1.4rem !important;
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important;
+        align-items: baseline !important;
+        gap: 0.8rem !important;
         line-height: 1.2 !important;
         margin: 0 !important;
+        text-align: left !important;
+    }
+    .name-block {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: baseline !important;
+        flex: 1;
+        justify-content: flex-start !important;
     }
     .name-romaji {
-        display: block !important;
-        font-size: 0.85rem !important;
+        display: inline-block !important;
+        font-size: 0.8rem !important;
         opacity: 0.7;
         white-space: nowrap !important;
-        margin-top: 0.3rem !important;
     }
+    /* ステータスバッジを非表示 */
     .status-badge {
-        font-size: 0.65rem !important;
-        padding: 0.2rem 0.5rem !important;
-        margin-top: 0.6rem !important;
-        align-self: flex-start !important;
+        display: none !important;
     }
 
     /* モバイル用ミニ画像も削除 */
@@ -58,9 +61,11 @@
         display: none !important;
     }
 
-    /* プロフィールテーブルの調整 */
+    /* プロフィールテーブルの調整：見出しの折り返しを禁止 */
     .cyber-data-table th {
-        width: 90px !important;
+        width: auto !important;
+        min-width: 100px !important;
+        white-space: nowrap !important;
         padding: 0.8rem 0.4rem !important;
         font-size: 0.75rem !important;
     }
@@ -72,15 +77,32 @@
         white-space: nowrap !important;
     }
 
-    /* 機密マークの縮小 */
+    /* 機密マークを非表示 */
     .confidential-mark {
-        font-size: 0.6rem !important;
-        padding: 2px 6px !important;
-        top: 8px !important;
-        right: 8px !important;
-        opacity: 0.5;
-        letter-spacing: 0.1em !important;
-        border-width: 1px !important;
+        display: none !important;
+    }
+
+    /* タイムラインログのレイアウト修正（学歴など） */
+    .timeline-item {
+        display: flex;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.2rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    .timeline-label,
+    .timeline-content {
+        font-size: 0.9rem !important; /* td (0.9rem) と統一 */
+    }
+    .timeline-content {
+        padding-left: 0.5rem;
+        border-left: 1px solid var(--color-primary-dim);
+    }
+
+    /* リンクボタンのサイズ微調整 */
+    .cyber-link-btn {
+        padding: 0.4rem 1rem !important;
+        font-size: 0.8rem !important;
     }
 }
 
@@ -89,6 +111,12 @@
     .container {
         padding: 0 0.8rem !important;
     }
+
+    /* モバイル版ではメール用のSFオブジェクトコンテナを非表示（空白を削除） */
+    .contact-sub-module:nth-child(2) .sf-object-container {
+        display: none !important;
+    }
+
     .section {
         padding: 1.5rem 0 !important;
     }
@@ -125,11 +153,9 @@
         opacity: 0.2 !important;
     }
 
-    /* 遷移演出のレスポンシブ化 */
+    /* 遷移演出のレスポンシブ化：JSのアニメーションを妨げないよう調整 */
     .sf-transition-window {
-        width: 85vw !important;
-        height: 35vh !important;
-        top: 30% !important;
+        /* サイズと位置はJS側でレスポンシブに制御 */
     }
     .sf-window-inner {
         padding: 8px !important;
@@ -147,6 +173,13 @@
         font-size: 1.3rem !important;
         margin-bottom: 1rem !important;
     }
+
+    /* 連絡先セクションの長くなった見出しの最適化 */
+    .contact-info-content h3 {
+        font-size: 1.0rem !important;
+        margin-bottom: 0.6rem !important;
+        letter-spacing: 0.05em !important;
+    }
 }
 
 /* 600px以下の小型スマホ向け調整 */
@@ -159,33 +192,80 @@
     }
     .back-btn svg { width: 14px !important; height: 14px !important; }
 
+    /* CONTACTセクション：オブジェクトを本文の下に配置 */
+    .module-flex-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1.5rem !important;
+    }
+    .sf-object-container {
+        align-self: center !important;
+        margin-top: 1rem !important;
+    }
+
+    /* ヘッダーの固定と重なり防止 */
+    .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 1000 !important;
+        background: rgba(2, 6, 12, 0.98) !important; /* 不透明度を上げて後ろを隠す */
+    }
+    .main-content {
+        padding-top: 80px !important; /* ヘッダー分の余白を確保 */
+    }
+
     /* 地図モーダル */
     .map-modal-content {
-        width: 96vw !important;
-        height: 80vh !important;
+        width: 95vw !important;
+        height: 85vh !important;
     }
-    .map-modal-header { padding: 0.5rem !important; }
+    .map-modal-header {
+        padding: 0.6rem 0.8rem !important;
+    }
+    .map-modal-title {
+        font-size: 1rem !important;
+        letter-spacing: 0.1em !important;
+    }
+    .map-coord-display {
+        display: none !important; /* モバイルでは座標を非表示にしてスペース確保 */
+    }
+    .map-modal-system-id {
+        font-size: 0.6rem !important;
+    }
+
+    .map-side-panel {
+        display: none !important; /* モバイルでは地図を優先するためサイドパネルを非表示 */
+    }
+
+    .map-modal-footer {
+        flex-direction: column !important;
+        padding: 0.5rem !important;
+        gap: 0.3rem !important;
+        font-size: 0.65rem !important;
+    }
+    .map-footer-center {
+        display: none !important; /* 中央のティッカーを非表示 */
+    }
+    .map-footer-right {
+        text-align: center !important;
+    }
+    .map-footer-left {
+        justify-content: center !important;
+    }
+
+    /* メールアドレスの折り返し防止 */
+    .contact-cyber-link {
+        width: auto !important;
+        max-width: 100% !important;
+        font-size: 0.8rem !important;
+        padding: 0.4rem 1rem !important;
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+        overflow-x: hidden !important;
+        text-overflow: ellipsis !important;
+    }
 }
 
-/* タイムラインログのレイアウト修正（学歴など） */
-.timeline-item {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.2rem !important;
-    margin-bottom: 0.8rem !important;
-}
-.timeline-label {
-    /* フォントサイズ指定を削除し、tdの標準サイズを継承させる */
-}
-.timeline-content {
-    /* フォントサイズ指定を削除し、tdの標準サイズを継承させる */
-    padding-left: 0.5rem;
-    border-left: 1px solid var(--color-primary-dim);
-}
 
-
-/* リンクボタンのサイズ微調整 */
-.cyber-link-btn {
-    padding: 0.4rem 1rem !important;
-    font-size: 0.8rem !important;
-}
