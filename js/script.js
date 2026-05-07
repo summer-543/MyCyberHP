@@ -226,6 +226,44 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    /* スクロールに応じたナビゲーションのハイライト（ScrollSpy） */
+    const navLinks = document.querySelectorAll('.nav a');
+    const sections = document.querySelectorAll('section[id]');
+
+    function scrollSpy() {
+        // 現在のスクロール位置を取得（ヘッダーの高さを考慮）
+        const scrollPos = window.scrollY + 100;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(`#${sectionId}`)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+
+        // ページ最上部（スクロールが少ない時）はプロフィールを確実にアクティブにする
+        if (window.scrollY < 100) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const firstLink = document.querySelector('.nav a[href*="#profile"]');
+            if (firstLink) firstLink.classList.add('active');
+        }
+    }
+
+    // スクロールイベントを監視（メインページの場合のみ実行）
+    if (sections.length > 0 && document.getElementById('profile')) {
+        window.addEventListener('scroll', scrollSpy, { passive: true });
+        // ページ読み込み時にも一度実行して現在の位置に合わせる
+        scrollSpy();
+    }
 });
 
 /* 背景のサイバーパンク風装飾要素を生成・制御する関数 */
@@ -607,6 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /* 画面を覆う半透明のオーバーレイを作成 */
         const overlay = document.createElement('div');
+        overlay.className = 'sf-transition-overlay';
         overlay.style.cssText = `
             position: fixed; top: 0; left: 0;
             width: 100vw; height: 100vh;
@@ -620,6 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /* 中央で展開するSFスタイルのウィンドウを作成 */
         const sfWindow = document.createElement('div');
+        sfWindow.className = 'sf-transition-window';
         sfWindow.style.cssText = `
             position: relative;
             width: 0px; height: 2px;
@@ -646,7 +686,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 display: flex; flex-direction: column; box-sizing: border-box;
                 overflow: hidden;
                 font-family: 'Share Tech Mono', monospace;
-            ">
+            " class="sf-window-inner">
                 <!-- 走査線レイヤー -->
                 <div style="position:absolute; inset:0; background:linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.3) 50%); background-size:100% 4px; pointer-events:none; z-index:10;"></div>
 
@@ -677,8 +717,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     flex-direction:column; padding:0 40px;
                     color:var(--color-primary);
                     position: relative; z-index: 2;
-                ">
-                    <div style="font-size:1.5rem; margin-bottom:14px; letter-spacing:0.06em; animation:sf-glitch-text 3s infinite; text-align:center; text-shadow:0 0 10px rgba(0,243,255,0.5);">
+                " class="sf-window-body">
+                    <div style="font-size:1.5rem; margin-bottom:14px; letter-spacing:0.06em; animation:sf-glitch-text 3s infinite; text-align:center; text-shadow:0 0 10px rgba(0, 243, 255, 0.5);" class="sf-glitch-title">
                         ESTABLISHING SECURE CONNECTION
                     </div>
                     <div style="font-size:0.95rem; opacity:0.6; margin-bottom:28px; letter-spacing:0.12em;">

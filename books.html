@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- ドキュメント設定とメタ情報 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books | Laboratory Archive</title>
-    <meta name="description" content="愛読書やおすすめの書籍">
-    <!-- 外部フォントとスタイルシートの読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
-    <!-- サイバースタイルの背景装飾要素 -->
     <div id="cyber-bg" class="cyber-bg"></div>
-
-    <!-- ページ上部のナビゲーションヘッダー -->
     <header class="header">
         <div class="container">
             <nav class="nav">
@@ -25,83 +20,33 @@
                     <li><a href="index.html#research">Research</a></li>
                     <li><a href="index.html#skills">Skills</a></li>
                     <li><a href="index.html#projects">Projects</a></li>
-                    <li><a href="index.html#favorites">Favorites</a></li>
+                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <main class="main-content">
-        <!-- 戻るボタンのエリア -->
         <div class="container">
             <div class="back-btn-container">
                 <a href="index.html#favorites" class="back-btn">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
-                    </svg>
+                    <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
                     <span>Return to Database</span>
                 </a>
             </div>
-        </div>
-
-        <!-- 書籍アーカイブセクション -->
-        <section class="section">
-            <div class="container animate-on-scroll">
+            <section class="section">
                 <div class="hud-panel">
-                <h2 class="section-title">Books Archive</h2>
-                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
-                    影響を受けた技術書や、息抜きに読む小説・マンガの記録です。
-                </p>
-
-                <!-- 個別の書籍カードリスト -->
-                <div class="grid">
-                    <!-- 技術書カード -->
-                    <div class="card">
-                        <div class="card-corner"></div>
-                        <div class="card-frame"></div>
-                        <h3 class="card-title">技術書 / 専門書</h3>
-                        <p class="card-text">
-                            <strong>Favorite Book:</strong> リーダブルコード<br><br>
-                            プログラミングに対する意識が大きく変わった一冊です。
-                        </p>
-                    </div>
-                    
-                    <!-- 小説カード -->
-                    <div class="card">
-                        <div class="card-corner"></div>
-                        <div class="card-frame"></div>
-                        <h3 class="card-title">小説</h3>
-                        <p class="card-text">
-                            <strong>Favorite Author:</strong> ダミー作家<br><br>
-                            SF小説が好きで、特に宇宙やAIをテーマにした作品をよく読みます。
-                        </p>
-                    </div>
-                    
-                    <!-- マンガカード -->
-                    <div class="card">
-                        <div class="card-corner"></div>
-                        <div class="card-frame"></div>
-                        <h3 class="card-title">マンガ</h3>
-                        <p class="card-text">
-                            <strong>Favorite Genre:</strong> 日常系・ファンタジー<br><br>
-                            研究に行き詰まった時の最高のリフレッシュ手段です。
-                        </p>
+                    <h2 class="section-title">Books Archive</h2>
+                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">技術書や小説などのアーカイブです。</p>
+                    <div class="grid">
+                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">技術書</h3><p class="card-text">専門分野の文献です。</p></div>
+                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">小説</h3><p class="card-text">SFやミステリーを好みます。</p></div>
                     </div>
                 </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ページ下部のフッター -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
+            </section>
         </div>
-    </footer>
-
-    <!-- スクリプトファイルの読み込み -->
+    </main>
+    <footer class="footer"><div class="container"><p>&copy; 2026 Sei Ooe. All rights reserved.</p></div></footer>
     <script src="js/script.js"></script>
 </body>
 </html>

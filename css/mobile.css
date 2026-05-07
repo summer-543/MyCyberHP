@@ -1,170 +1,191 @@
 /* ==========================================================================
-   MOBILE & RESPONSIVE STYLES
+   MOBILE & RESPONSIVE STYLES - FINAL REFINEMENT
    ========================================================================== */
+
+/* 全体的な文字溢れ・単語途中改行の防止 */
+* {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
 
 /* 950px以下のタブレット・中画面サイズ向け調整 */
 @media (max-width: 950px) {
-    /* プロフィールグリッドを縦並びに切り替え（本文の圧迫を回避） */
+    /* プロフィールグリッドを縦並びに切り替え */
     .personnel-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
 
-    /* オブジェクトコンテナのサイズを制限し、中央寄せにする */
+    /* モバイル版ではプロフィール欄の全オブジェクト（写真・グラフ等）を非表示 */
     .personnel-photo-container {
-        max-width: 240px;
-        margin: 0 auto;
-        width: 100%;
+        display: none !important;
     }
 
-    /* データのヘッダー（名前とステータス）を折り返し可能に */
+    /* 名前とローマ字の配置調整 */
     .data-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+        display: block !important; /* 子要素がないためシンプルなブロック配置へ */
+        border-bottom: 2px solid var(--color-primary) !important;
+        padding-bottom: 1rem !important;
+    }
+    .name-block {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1;
+    }
+    .data-header h1 {
+        font-size: 1.4rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+    }
+    .name-romaji {
+        display: block !important;
+        font-size: 0.85rem !important;
+        opacity: 0.7;
+        white-space: nowrap !important;
+        margin-top: 0.3rem !important;
+    }
+    .status-badge {
+        font-size: 0.65rem !important;
+        padding: 0.2rem 0.5rem !important;
+        margin-top: 0.6rem !important;
+        align-self: flex-start !important;
+    }
+
+    /* モバイル用ミニ画像も削除 */
+    .mobile-avatar-mini {
+        display: none !important;
     }
 
     /* プロフィールテーブルの調整 */
     .cyber-data-table th {
-        width: 120px; /* 見出し幅を縮小 */
-        padding: 0.8rem 0.5rem;
+        width: 90px !important;
+        padding: 0.8rem 0.4rem !important;
+        font-size: 0.75rem !important;
     }
     .cyber-data-table td {
-        padding: 0.8rem 0.5rem;
-        font-size: 1rem;
+        padding: 0.8rem 0.4rem !important;
+        font-size: 0.9rem !important;
+    }
+    .no-break {
+        white-space: nowrap !important;
     }
 
-    /* お気に入りカードのグリッド調整 (元style.css 429行目付近) */
-    .fav-scatter-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .fav-card:nth-child(2), .fav-card:nth-child(4), .fav-card:nth-child(6) {
-        margin-top: 1rem;
+    /* 機密マークの縮小 */
+    .confidential-mark {
+        font-size: 0.6rem !important;
+        padding: 2px 6px !important;
+        top: 8px !important;
+        right: 8px !important;
+        opacity: 0.5;
+        letter-spacing: 0.1em !important;
+        border-width: 1px !important;
     }
 }
 
-/* 768px以下の標準的なスマホ・小画面向け調整 */
+/* 768px以下の標準的なスマホ向け調整 */
 @media (max-width: 768px) {
     .container {
-        padding: 0 1.2rem;
+        padding: 0 0.8rem !important;
     }
-
-    /* セクション余白の縮小 */
     .section {
-        padding: 2.5rem 0;
+        padding: 1.5rem 0 !important;
     }
 
-    /* パネルのパディングを縮小 */
-    .hud-panel {
-        padding: 1.5rem;
-        clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
-    }
-    .hud-panel::before {
-        clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
-    }
-
-    /* ナビゲーションを折り返し可能に */
+    /* ヘッダーリンクの 3x2 配置 */
     .nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem 1rem;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-rows: repeat(2, auto) !important;
+        gap: 0.4rem !important;
+        width: 100% !important;
     }
     .nav a {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem !important;
+        padding: 0.3rem 0 !important;
+        letter-spacing: 0 !important;
     }
 
-    /* 背景のストリームを非表示に (元style.css 521行目付近) */
-    .data-stream {
-        display: none;
+    /* 背景HUD要素の重なり回避：位置とサイズを極小化 */
+    #cyber-bg > div {
+        transform: scale(0.6) !important;
+        transform-origin: center !important;
+    }
+    /* 各HUD要素の個別調整（script.jsのインラインスタイルを上書き） */
+    #cyber-bg > div[style*="top: 3%"][style*="left: 3%"] { top: 1% !important; left: 1% !important; opacity: 0.2 !important; }
+    #cyber-bg > div[style*="top: 3%"][style*="right: 3%"] { top: 1% !important; right: 1% !important; opacity: 0.2 !important; }
+    #cyber-bg > div[style*="bottom: 3%"][style*="left: 3%"] { bottom: 1% !important; left: 1% !important; opacity: 0.2 !important; }
+    #cyber-bg > div[style*="bottom: 3%"][style*="right: 3%"] { bottom: 1% !important; right: 1% !important; opacity: 0.2 !important; }
+    
+    /* 中央の球体 */
+    .sphere-container { 
+        width: 200px !important; 
+        height: 200px !important;
+        opacity: 0.2 !important;
     }
 
-    /* レーダーポップアップの調整 (元style.css 901行目付近) */
-    .radar-popup {
-        right: 0;
-        left: 0;
-        margin: auto;
-        top: 25%;
-        width: 90%;
-        max-width: 320px;
+    /* 遷移演出のレスポンシブ化 */
+    .sf-transition-window {
+        width: 85vw !important;
+        height: 35vh !important;
+        top: 30% !important;
+    }
+    .sf-window-inner {
+        padding: 8px !important;
+    }
+    .sf-glitch-title {
+        font-size: 0.9rem !important;
+        margin-bottom: 6px !important;
+    }
+    .sf-window-body {
+        padding: 0 10px !important;
     }
 
-    /* タイムラインログ（学歴など）のフレックス解除 */
-    .cyber-data-table td div[style*="display: flex"] {
-        flex-direction: column !important;
-        margin-bottom: 0.8rem !important;
-    }
-    .cyber-data-table td span[style*="width: 200px"] {
-        width: 100% !important;
-        margin-bottom: 0.2rem;
-        color: var(--color-primary-dim);
+    /* 各ページヘッダー（遷移後ページ）の文字サイズ */
+    .section-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
     }
 }
 
 /* 600px以下の小型スマホ向け調整 */
 @media (max-width: 600px) {
-    /* タイトルサイズの縮小 */
-    h1 { font-size: 1.8rem; }
-    h2, .section-title { font-size: 1.4rem; margin-bottom: 1.5rem; }
+    /* 遷移ページ（food.html等）の戻るボタン配置 */
+    .back-btn {
+        padding: 0.5rem 0.8rem !important;
+        font-size: 0.75rem !important;
+        gap: 6px !important;
+    }
+    .back-btn svg { width: 14px !important; height: 14px !important; }
 
-    /* カード・グリッドの1列化 */
-    .grid, .fav-scatter-grid {
-        grid-template-columns: 1fr;
-    }
-    .fav-card:nth-child(n) {
-        margin-top: 1rem !important;
-    }
-
-    /* コンタクトモジュールのスタック (元style.css 1491行目付近) */
-    .module-flex-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .sf-object-container {
-        order: -1;
-        margin-bottom: 1.5rem;
-    }
-    .contact-cyber-link {
-        padding: 0.5rem 1rem;
-        justify-content: center;
-    }
-    .contact-detail-value {
-        padding-left: 0;
-        border-left: none;
-    }
-
-    /* 地図モーダルのレスポンシブ化 */
+    /* 地図モーダル */
     .map-modal-content {
-        width: 95vw;
-        height: 90vh;
-        max-height: 90vh;
+        width: 96vw !important;
+        height: 80vh !important;
     }
-    .map-modal-header {
-        padding: 0.6rem 0.8rem;
-    }
-    .map-modal-title {
-        font-size: 0.9rem;
-    }
-    .map-coord-display {
-        display: none; /* 座標はスマホでは隠す */
-    }
-    .map-side-panel {
-        display: none; /* サイドパネルを隠して地図を広く */
-    }
-    .map-modal-footer {
-        flex-direction: column;
-        gap: 0.4rem;
-        padding: 0.6rem;
-        font-size: 0.65rem;
-    }
-    .map-footer-center {
-        white-space: normal;
-        text-align: center;
-    }
+    .map-modal-header { padding: 0.5rem !important; }
 }
 
-/* 遷移演出（closing）時のレイアウト崩れ防止 */
-body.closing .main-content {
-    overflow: hidden;
+/* タイムラインログのレイアウト修正（学歴など） */
+.timeline-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.2rem !important;
+    margin-bottom: 0.8rem !important;
+}
+.timeline-label {
+    /* フォントサイズ指定を削除し、tdの標準サイズを継承させる */
+}
+.timeline-content {
+    /* フォントサイズ指定を削除し、tdの標準サイズを継承させる */
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--color-primary-dim);
+}
+
+
+/* リンクボタンのサイズ微調整 */
+.cyber-link-btn {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.8rem !important;
 }

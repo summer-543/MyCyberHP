@@ -126,7 +126,20 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 /* ナビゲーションリンク */
 .nav a { font-size: 1rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; padding: 0.5rem 1rem; position: relative; }
 /* 現在のページまたはホバー時のナビリンク */
-.nav a.active, .nav a:hover { color: var(--color-primary); text-shadow: 0 0 8px var(--color-primary-glow); }
+.nav a.active, .nav a:hover { 
+    color: var(--color-primary); 
+    text-shadow: 0 0 10px var(--color-primary-glow);
+}
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+}
 
 /* メインコンテンツエリアの余白 */
 .main-content { padding-top: 3rem; min-height: calc(100vh - 160px); }
@@ -508,7 +521,10 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 .personnel-photo-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: flex-start; /* 要素を上詰めで配置 */
+    gap: 1.2rem; /* オブジェクト間の余白は固定 */
+    height: 100%;
+    margin-top: 2rem; /* 全体を少し下にずらす */
 }
 /* 写真を囲むサイバーフレーム */
 .photo-brackets {
@@ -569,10 +585,37 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     border: 1px solid var(--color-primary-dim); 
     background: rgba(0, 243, 255, 0.08); /* 背景をわずかに明るく */
     position: relative;
+    margin-top: auto; /* バーコードを下に寄せる */
+    margin-bottom: 3.5rem; /* 位置を微調整して少し下げる */
 }
 
+/* パネルの上部ヘッダー（タイトルと機密マークを並べる） */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 40px; /* 上端から40pxの位置に設定 */
+    margin-bottom: 2rem;
+}
+.panel-header .section-title {
+    margin-bottom: 0;
+}
 
-
+/* ページ右上の機密マーク */
+.confidential-mark {
+    /* 絶対座標指定を廃止し、フロー配置へ */
+    border: 2px solid #ff3333;
+    color: #ff3333;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    font-family: var(--font-family-sans);
+    text-shadow: 0 0 5px rgba(255, 51, 51, 0.8);
+    opacity: 0.8;
+    transform: rotate(-2deg);
+    border-radius: 4px;
+}
 
 .barcode {
     width: 100%;
@@ -592,14 +635,18 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 /* 個人データのセクション */
 .personnel-data { display: flex; flex-direction: column; gap: 2rem; }
 /* データのヘッダー部分 */
-.data-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;}
+.data-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;}
+.name-block { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 /* ヘッダー内の名前 */
 .data-header h1 { font-size: 2rem; text-shadow: 0 0 10px var(--color-primary-glow); margin: 0; }
 /* ステータスを表示するバッジ */
 .status-badge {
-    background: rgba(0, 243, 255, 0.2); border: 1px solid var(--color-primary); padding: 0.4rem 1rem;
+    background: rgba(0, 243, 255, 0.2); border: 1px solid var(--color-primary); padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
     font-weight: bold; font-family: var(--font-family-sans); letter-spacing: 0.1em;
     animation: pulse-opacity 2s infinite; color: var(--color-primary); text-shadow: 0 0 5px var(--color-primary);
+    white-space: nowrap;
+    margin-left: 2.5rem; /* 名前から少し右にずらす */
 }
 /* バッジの点滅アニメーション */
 @keyframes pulse-opacity { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
@@ -614,6 +661,12 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 .cyber-data-table th {
     color: var(--color-text-muted); font-weight: normal; width: 180px; text-transform: uppercase;
 }
+/* 最後の行の境界線を消して余白を調整 */
+.cyber-data-table tr:last-child th, 
+.cyber-data-table tr:last-child td { 
+    border-bottom: none; 
+    padding-bottom: 0.5rem; 
+}
 /* テーブルのデータセル */
 .cyber-data-table td { color: var(--color-text-main); font-family: monospace; font-size: 1.1rem; }
 /* 強調表示されるデータセル */
@@ -622,7 +675,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 /* ページ右上の機密マーク */
 .confidential-mark {
     position: absolute;
-    top: 20px;
+    top: 60px; /* 少し下に下げる */
     right: 20px;
     border: 2px solid #ff3333;
     color: #ff3333;
@@ -1713,4 +1766,47 @@ body.closing::before {
     fill: var(--color-primary);
     opacity: 0.15;
 }
+
+/* モバイル専用要素のデフォルト非表示設定（PC表示を維持するため） */
+.mobile-avatar-mini {
+    display: none;
+}
+.name-romaji {
+    /* PCでは通常の並びを維持 */
+}
+/* タイムラインの見出しを控えめに調整 */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.timeline-label {
+    flex-shrink: 0;
+    color: #00dce6; /* メイン色より「ほんの少し暗く」調整 */
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.timeline-content {
+    font-size: 1.1rem; /* テーブルの他のセル (1.1rem) と完全に統一 */
+    color: var(--color-text-main);
+    font-family: monospace; /* テーブルセルと同じ等幅フォントを明示 */
+}
+
+/* 遷移ページのヘッダー調整 */
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(2, 6, 12, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+.main-content {
+    padding-top: 1.5rem; /* さらなるバランス調整 */
+}
+
+
+
 

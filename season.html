@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- ドキュメント設定とメタ情報 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Season | Laboratory Archive</title>
-    <meta name="description" content="好きな季節とその過ごし方">
-    <!-- 外部フォントとスタイルシートの読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
-    <!-- サイバースタイルの背景装飾要素 -->
     <div id="cyber-bg" class="cyber-bg"></div>
-
-    <!-- ページ上部のナビゲーションヘッダー -->
     <header class="header">
         <div class="container">
             <nav class="nav">
@@ -25,71 +20,33 @@
                     <li><a href="index.html#research">Research</a></li>
                     <li><a href="index.html#skills">Skills</a></li>
                     <li><a href="index.html#projects">Projects</a></li>
-                    <li><a href="index.html#favorites">Favorites</a></li>
+                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <main class="main-content">
-        <!-- 戻るボタンのエリア -->
         <div class="container">
             <div class="back-btn-container">
                 <a href="index.html#favorites" class="back-btn">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
-                    </svg>
+                    <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
                     <span>Return to Database</span>
                 </a>
             </div>
-        </div>
-
-        <!-- 季節アーカイブセクション -->
-        <section class="section">
-            <div class="container animate-on-scroll">
+            <section class="section">
                 <div class="hud-panel">
-                <h2 class="section-title">Season Archive</h2>
-                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
-                    一番好きな季節や、その時期ならではの過ごし方について。
-                </p>
-
-                <!-- 個別の季節・過ごし方カード -->
-                <div class="grid">
-                    <!-- 好きな季節カード -->
-                    <div class="card">
-                        <div class="card-corner"></div>
-                        <div class="card-frame"></div>
-                        <h3 class="card-title">秋 (Autumn)</h3>
-                        <p class="card-text">
-                            一番好きな季節です。暑さも和らぎ、最も集中力が高まり研究が捗ります。
-                        </p>
-                    </div>
-
-                    <!-- 過ごし方カード -->
-                    <div class="card">
-                        <div class="card-corner"></div>
-                        <div class="card-frame"></div>
-                        <h3 class="card-title">秋の過ごし方</h3>
-                        <p class="card-text">
-                            <strong>読書と散歩:</strong><br><br>
-                            週末は散歩に出かけ、公園のベンチで本を読むのが至福のひとときです。
-                        </p>
+                    <h2 class="section-title">Season Archive</h2>
+                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">季節の移ろいや風景のアーカイブです。</p>
+                    <div class="grid">
+                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Spring</h3><p class="card-text">桜と新しい始まりの季節。</p></div>
+                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Winter</h3><p class="card-text">静寂と雪の風景を好みます。</p></div>
                     </div>
                 </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ページ下部のフッター -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
+            </section>
         </div>
-    </footer>
-
-    <!-- スクリプトファイルの読み込み -->
+    </main>
+    <footer class="footer"><div class="container"><p>&copy; 2026 Sei Ooe. All rights reserved.</p></div></footer>
     <script src="js/script.js"></script>
 </body>
 </html>

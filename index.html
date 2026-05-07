@@ -22,7 +22,7 @@
         <div class="container">
             <nav class="nav">
                 <ul>
-                    <li><a href="#profile" class="active">Profile</a></li>
+                    <li><a href="#profile">Profile</a></li>
                     <li><a href="#research">Research</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -38,15 +38,21 @@
         <section id="profile" class="section">
             <div class="container animate-on-scroll" style="position: relative;">
                 <div class="hud-panel cyber-personnel-file" style="position: relative;">
-                    <div class="confidential-mark">CONFIDENTIAL</div>
-                    <h2 class="section-title">PROFILE</h2>
+                    <div class="panel-header">
+                        <h2 class="section-title">PROFILE</h2>
+                        <div class="confidential-mark">CONFIDENTIAL</div>
+                    </div>
                     
                     <div class="personnel-grid">
                         <!-- テキストデータエリア -->
                         <div class="personnel-data">
                             <div class="data-header">
-                                <h1>大江 聖生 / SEI OOE</h1>
-                                <div class="status-badge">STATUS: ACTIVE STUDENT</div>
+                                <div class="name-block">
+                                    <h1>大江 聖生 <span class="name-romaji">/ SEI OOE</span></h1>
+                                    <div class="status-badge">STATUS: ACTIVE STUDENT</div>
+                                </div>
+                                <!-- モバイル専用の小型アバター（PCでは非表示） -->
+                                <div class="mobile-avatar-mini"></div>
                             </div>
                             
                             <table class="cyber-data-table">
@@ -57,7 +63,7 @@
                                     </tr>
                                     <tr>
                                         <th>LABORATORY</th>
-                                        <td>橘研究室 (Tachibana Lab)</td>
+                                        <td><span class="no-break">橘研究室 (Tachibana Lab)</span></td>
                                     </tr>
                                     <tr>
                                         <th>DATE_OF_BIRTH</th>
@@ -70,17 +76,17 @@
                                     <tr>
                                         <th>TIMELINE_LOG</th>
                                         <td>
-                                            <div style="display: flex; margin-bottom: 0.3rem;">
-                                                <span style="width: 200px; flex-shrink: 0;">[2023.03] GRADUATED:</span>
-                                                <span>和歌山県立田辺高等学校</span>
+                                            <div class="timeline-item" style="margin-bottom: 0.5rem;">
+                                                <span class="timeline-label">[2023.03] GRADUATED:</span>
+                                                <span class="timeline-content">和歌山県立田辺高等学校</span>
                                             </div>
-                                            <div style="display: flex; margin-bottom: 0.3rem;">
-                                                <span style="width: 200px; flex-shrink: 0;">[2023.04] ENROLLED:</span>
-                                                <span>福井大学 工学部</span>
+                                            <div class="timeline-item" style="margin-bottom: 0.5rem;">
+                                                <span class="timeline-label">[2023.04] ENROLLED:</span>
+                                                <span class="timeline-content">福井大学 工学部</span>
                                             </div>
-                                            <div style="display: flex;">
-                                                <span style="width: 200px; flex-shrink: 0;">[2026.04] ASSIGNED:</span>
-                                                <span>橘研究室</span>
+                                            <div class="timeline-item">
+                                                <span class="timeline-label">[2026.04] ASSIGNED:</span>
+                                                <span class="timeline-content">橘研究室</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -575,7 +581,7 @@
             <div class="map-modal-scanlines"></div>
             
             <div class="map-modal-content">
-                <!-- UI要素用のスキャンライン（マップを避けるため内部に配置） -->
+                <!-- UI要素用のスキャンライン（地図を避けるため内部に配置） -->
                 <div class="map-modal-scanlines"></div>
 
                 <!-- 四隅のHUDブラケット装飾 -->
