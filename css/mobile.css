@@ -1,0 +1,170 @@
+/* ==========================================================================
+   MOBILE & RESPONSIVE STYLES
+   ========================================================================== */
+
+/* 950px以下のタブレット・中画面サイズ向け調整 */
+@media (max-width: 950px) {
+    /* プロフィールグリッドを縦並びに切り替え（本文の圧迫を回避） */
+    .personnel-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* オブジェクトコンテナのサイズを制限し、中央寄せにする */
+    .personnel-photo-container {
+        max-width: 240px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* データのヘッダー（名前とステータス）を折り返し可能に */
+    .data-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    /* プロフィールテーブルの調整 */
+    .cyber-data-table th {
+        width: 120px; /* 見出し幅を縮小 */
+        padding: 0.8rem 0.5rem;
+    }
+    .cyber-data-table td {
+        padding: 0.8rem 0.5rem;
+        font-size: 1rem;
+    }
+
+    /* お気に入りカードのグリッド調整 (元style.css 429行目付近) */
+    .fav-scatter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .fav-card:nth-child(2), .fav-card:nth-child(4), .fav-card:nth-child(6) {
+        margin-top: 1rem;
+    }
+}
+
+/* 768px以下の標準的なスマホ・小画面向け調整 */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.2rem;
+    }
+
+    /* セクション余白の縮小 */
+    .section {
+        padding: 2.5rem 0;
+    }
+
+    /* パネルのパディングを縮小 */
+    .hud-panel {
+        padding: 1.5rem;
+        clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+    }
+    .hud-panel::before {
+        clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+    }
+
+    /* ナビゲーションを折り返し可能に */
+    .nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+    }
+    .nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    /* 背景のストリームを非表示に (元style.css 521行目付近) */
+    .data-stream {
+        display: none;
+    }
+
+    /* レーダーポップアップの調整 (元style.css 901行目付近) */
+    .radar-popup {
+        right: 0;
+        left: 0;
+        margin: auto;
+        top: 25%;
+        width: 90%;
+        max-width: 320px;
+    }
+
+    /* タイムラインログ（学歴など）のフレックス解除 */
+    .cyber-data-table td div[style*="display: flex"] {
+        flex-direction: column !important;
+        margin-bottom: 0.8rem !important;
+    }
+    .cyber-data-table td span[style*="width: 200px"] {
+        width: 100% !important;
+        margin-bottom: 0.2rem;
+        color: var(--color-primary-dim);
+    }
+}
+
+/* 600px以下の小型スマホ向け調整 */
+@media (max-width: 600px) {
+    /* タイトルサイズの縮小 */
+    h1 { font-size: 1.8rem; }
+    h2, .section-title { font-size: 1.4rem; margin-bottom: 1.5rem; }
+
+    /* カード・グリッドの1列化 */
+    .grid, .fav-scatter-grid {
+        grid-template-columns: 1fr;
+    }
+    .fav-card:nth-child(n) {
+        margin-top: 1rem !important;
+    }
+
+    /* コンタクトモジュールのスタック (元style.css 1491行目付近) */
+    .module-flex-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .sf-object-container {
+        order: -1;
+        margin-bottom: 1.5rem;
+    }
+    .contact-cyber-link {
+        padding: 0.5rem 1rem;
+        justify-content: center;
+    }
+    .contact-detail-value {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    /* 地図モーダルのレスポンシブ化 */
+    .map-modal-content {
+        width: 95vw;
+        height: 90vh;
+        max-height: 90vh;
+    }
+    .map-modal-header {
+        padding: 0.6rem 0.8rem;
+    }
+    .map-modal-title {
+        font-size: 0.9rem;
+    }
+    .map-coord-display {
+        display: none; /* 座標はスマホでは隠す */
+    }
+    .map-side-panel {
+        display: none; /* サイドパネルを隠して地図を広く */
+    }
+    .map-modal-footer {
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.6rem;
+        font-size: 0.65rem;
+    }
+    .map-footer-center {
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+/* 遷移演出（closing）時のレイアウト崩れ防止 */
+body.closing .main-content {
+    overflow: hidden;
+}
