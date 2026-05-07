@@ -244,7 +244,7 @@ function initCyberHUD() {
     giantRing.style.height = '100vw';
     giantRing.style.maxWidth = '1000px';
     giantRing.style.maxHeight = '1000px';
-    giantRing.style.opacity = '0.5';
+    giantRing.style.opacity = '0.3';
     giantRing.style.zIndex = '0'; 
     giantRing.innerHTML = `
         <svg viewBox="0 0 1000 1000" class="hud-ring" style="width: 100%; height: 100%; position: absolute; top:0; left:0; opacity: 1;">
@@ -302,8 +302,8 @@ function initCyberHUD() {
     topLeft.style.left = '3%';
     topLeft.style.width = '250px';
     topLeft.style.height = '250px';
-    topLeft.style.opacity = '0.4';
-    topLeft.style.zIndex = '10';
+    topLeft.style.opacity = '0.5';
+    topLeft.style.zIndex = '20';
     topLeft.innerHTML = `
         <svg viewBox="0 0 300 300" class="hud-ring" style="width: 100%; height: 100%;">
             <circle cx="150" cy="150" r="140" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="40 10 10 10" fill="none" class="spin-cw" />
@@ -322,37 +322,41 @@ function initCyberHUD() {
     bottomLeft.style.left = '3%';
     bottomLeft.style.width = '400px';
     bottomLeft.style.height = '120px';
-    bottomLeft.style.opacity = '0.8';
-    bottomLeft.style.zIndex = '10';
+    bottomLeft.style.opacity = '0.9';
+    bottomLeft.style.zIndex = '20';
     
     bottomLeft.innerHTML = `
         <!-- 背景フレームと固定装飾 -->
         <svg viewBox="0 0 400 120" style="position: absolute; top:0; left:0; width: 100%; height: 100%; filter: drop-shadow(0 0 5px var(--color-primary)); z-index: 1;">
             
-            <!-- 上部装飾バー -->
-            <path d="M 115 25 L 320 25 L 330 35 L 115 35 Z" fill="var(--color-primary-dim)" />
-            <!-- メインプログレスバーの枠線 -->
-            <path d="M 60 35 L 350 35 L 370 55 L 350 75 L 60 75 Z" fill="rgba(0, 243, 255, 0.1)" stroke="var(--color-primary)" stroke-width="2" />
+            <!-- 上部装飾バー（左側に延長し、円形ゲージの下を潜るように配置） -->
+            <path d="M 70 25 L 320 25 L 330 35 L 70 35 Z" fill="var(--color-primary-dim)" />
+            <!-- メインプログレスバーの枠線（背景色をグレー系に調整し、形状を確定） -->
+            <path d="M 74.5 35 L 350 35 L 370 55 L 350 75 L 60 75 Z" fill="rgba(255, 255, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
             <!-- 下部装飾線とテキスト -->
             <path d="M 115 80 L 300 80 L 310 90 L 115 90 Z" fill="none" stroke="var(--color-primary)" stroke-width="1.5" />
             <line x1="120" y1="85" x2="160" y2="85" stroke="var(--color-primary)" stroke-width="3" />
             <text id="dl-status-text" x="170" y="88" fill="var(--color-primary)" font-family="'Share Tech Mono', monospace" font-size="10" letter-spacing="2">LOADING_DATA...</text>
+        </svg>
 
+        <!-- 円形インジケーター用SVG（回転中心を保つため正方形に分離） -->
+        <svg viewBox="0 0 120 120" style="position: absolute; top:0; left:0; width: 120px; height: 120px; z-index: 2;">
             <!-- 円形部分のマスク用背景 -->
             <circle cx="60" cy="60" r="56" fill="var(--color-bg-main)" />
             
-            <!-- 円形装飾（回転アニメーション付き） -->
+            <!-- 円形装飾（自転アニメーション） -->
             <circle cx="60" cy="60" r="55" fill="rgba(0, 243, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
             <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-dasharray="5 5" class="spin-cw-slow" opacity="0.8" />
             <circle cx="60" cy="60" r="48" fill="none" stroke="var(--color-primary-dim)" stroke-width="3" stroke-dasharray="20 10" class="spin-ccw-fast" opacity="0.6"/>
             <circle cx="60" cy="60" r="35" fill="none" stroke="var(--color-primary-dim)" stroke-width="1" />
+            
             <!-- 照準線装飾 -->
             <path d="M 60 20 L 60 30 M 60 90 L 60 100 M 20 60 L 30 60 M 90 60 L 100 60" stroke="var(--color-primary)" stroke-width="1" opacity="0.5" />
-        </svg>
 
-        <!-- 円形の進行状況アーク -->
-        <svg viewBox="0 0 120 120" style="position: absolute; top:0; left:0; width: 120px; height: 120px; transform: rotate(-90deg); z-index: 2;">
-            <circle id="dl-arc" cx="60" cy="60" r="41.5" fill="none" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="261" stroke-dashoffset="261" style="transition: stroke-dashoffset 0.1s linear;" />
+            <!-- 円形の進行状況アーク -->
+            <g style="transform: rotate(-90deg); transform-origin: 60px 60px;">
+                <circle id="dl-arc" cx="60" cy="60" r="41.5" fill="none" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="261" stroke-dashoffset="261" style="transition: stroke-dashoffset 0.1s linear;" />
+            </g>
         </svg>
 
         <!-- パーセント表示テキスト -->
@@ -360,9 +364,9 @@ function initCyberHUD() {
             0%
         </div>
 
-        <!-- セグメント分割されたプログレスバー -->
-        <div style="position: absolute; top: 40px; left: 125px; width: 220px; height: 30px; display: flex; gap: 4px; padding: 5px; box-sizing: border-box; z-index: 2; clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);">
-            <div id="dl-segments" style="display: flex; gap: 4px; width: 100%; height: 100%;"></div>
+        <!-- セグメント分割されたプログレスバー（15個、間隔5px、三角エリア回避） -->
+        <div style="position: absolute; top: 38px; left: 61px; width: 309px; height: 34px; display: flex; gap: 5px; align-items: center; padding: 0 10px 0 62px; box-sizing: border-box; z-index: 2; clip-path: polygon(12.4px 0, 292px 0, 100% 50%, 292px 100%, 0 100%);">
+            <div id="dl-segments" style="display: flex; gap: 5px; align-items: center; width: 100%; height: 100%;"></div>
         </div>
     `;
     bg.appendChild(bottomLeft);
@@ -376,10 +380,12 @@ function initCyberHUD() {
     const totalSegments = 15;
     for(let i=0; i<totalSegments; i++) {
         const seg = document.createElement('div');
-        seg.style.flex = '1';
-        seg.style.backgroundColor = 'var(--color-primary-dim)';
+        seg.style.width = '10px';
+        seg.style.height = '22px';
         seg.style.transform = 'skewX(-20deg)'; 
+        seg.style.backgroundColor = 'var(--color-primary-dim)';
         seg.style.transition = 'background-color 0.1s, box-shadow 0.1s';
+        
         dlSegmentsContainer.appendChild(seg);
     }
 
@@ -477,8 +483,8 @@ function initCyberHUD() {
     topRight.style.right = '3%';
     topRight.style.width = '300px';
     topRight.style.height = '150px';
-    topRight.style.opacity = '0.6';
-    topRight.style.zIndex = '10';
+    topRight.style.opacity = '0.7';
+    topRight.style.zIndex = '20';
     topRight.style.border = '1px solid var(--color-primary)';
     topRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
     topRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
@@ -512,8 +518,8 @@ function initCyberHUD() {
     bottomRight.style.right = '3%';
     bottomRight.style.width = '300px';
     bottomRight.style.height = '150px';
-    bottomRight.style.opacity = '0.6';
-    bottomRight.style.zIndex = '10';
+    bottomRight.style.opacity = '0.7';
+    bottomRight.style.zIndex = '20';
     bottomRight.style.border = '1px solid var(--color-primary)';
     bottomRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
     bottomRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';

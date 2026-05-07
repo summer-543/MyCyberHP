@@ -526,8 +526,8 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 /* プロフィール情報のグリッド */
 .personnel-grid {
     display: grid;
-    grid-template-columns: 1fr 180px;
-    gap: 4rem;
+    grid-template-columns: 1fr 190px;
+    gap: 2.5rem;
     align-items: flex-start;
 }
 /* モバイルでのプロフィールグリッド調整 */
@@ -545,7 +545,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 .photo-brackets {
     position: relative;
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 1 / 1.15;
     border: 2px solid var(--color-primary-dim);
     padding: 10px;
     background: rgba(0, 243, 255, 0.05);
@@ -559,10 +559,21 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 /* 右下のブラケット */
 .photo-brackets::after { bottom: -3px; right: -3px; border-left: none; border-top: none; }
 
-/* プロフィール写真自体のスタイル */
-.personnel-photo {
+/* プロフィール写真・アバターのスタイル */
+.personnel-photo, .personnel-avatar {
     width: 100%; height: 100%; object-fit: cover;
     opacity: 0.9;
+}
+.personnel-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 243, 255, 0.05);
+    overflow: hidden;
+}
+.personnel-avatar svg {
+    width: 100%;
+    height: 100%;
 }
 /* 写真上を走るスキャンライン */
 .photo-scanline {
@@ -582,9 +593,31 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     position: absolute; bottom: 15px; right: 15px; font-family: var(--font-family-sans); font-size: 0.8rem;
     color: var(--color-bg-main); background: var(--color-primary); padding: 2px 8px; font-weight: bold;
 }
-/* バーコード風の装飾 */
-.personnel-barcode {
-    opacity: 0.6; padding: 10px; border: 1px solid var(--color-primary-dim); background: rgba(0,255,255,0.05);
+/* バーコードコンテナ：枠線と背景を調整して明るく */
+.profile-barcode-container {
+    opacity: 1.0; /* 不透明度を最大に */
+    padding: 6px; 
+    border: 1px solid var(--color-primary-dim); 
+    background: rgba(0, 243, 255, 0.08); /* 背景をわずかに明るく */
+    position: relative;
+}
+
+
+
+
+.barcode {
+    width: 100%;
+    height: 32px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--color-primary) 0%, var(--color-primary) 2%,
+        transparent 2%, transparent 4%,
+        var(--color-primary) 4%, var(--color-primary) 5%,
+        transparent 5%, transparent 8%,
+        var(--color-primary) 8%, var(--color-primary) 12%,
+        transparent 12%, transparent 15%
+    );
+    opacity: 1.0; /* 不透明度を最大に */
 }
 
 /* 個人データのセクション */
@@ -640,13 +673,13 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    height: 40px;
-    margin-top: 10px;
-    padding: 10px;
+    height: 32px;
+    padding: 6px;
     border: 1px solid var(--color-primary-dim);
-    background: rgba(0, 243, 255, 0.05);
+    background: rgba(0, 243, 255, 0.02);
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
 }
 /* グラフのホバー時 */
 .status-graph:hover {
@@ -664,6 +697,171 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 .graph-bar:nth-child(even) { animation-duration: 2s; animation-direction: alternate-reverse; }
 .graph-bar:nth-child(3n) { animation-duration: 1.2s; }
 .graph-bar:nth-child(5n) { animation-duration: 0.8s; }
+/* 認証プロ：最高精細のアイデンティティ・マトリクス・コア */
+.personnel-auth-module.pro-mode {
+    width: 100%;
+    height: 130px; /* プロ仕様の存在感を持たせる高さ */
+    background: linear-gradient(135deg, rgba(3, 10, 22, 0.95) 0%, rgba(5, 18, 38, 0.95) 100%);
+    border: 1px solid var(--color-primary-dim);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
+}
+/* 背景：グリッドとパーティクル */
+.auth-pro-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.pro-grid {
+    width: 100%; height: 100%;
+    background-image: 
+        radial-gradient(var(--color-primary-dim) 0.5px, transparent 0.5px);
+    background-size: 10px 10px;
+    opacity: 0.15;
+}
+.pro-particles span {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    animation: pro-float 4s infinite linear;
+    opacity: 0;
+}
+/* パーティクルの個別アニメーション */
+.pro-particles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.pro-particles span:nth-child(2) { left: 40%; animation-delay: 1s; }
+.pro-particles span:nth-child(3) { left: 70%; animation-delay: 2.5s; }
+.pro-particles span:nth-child(4) { left: 25%; animation-delay: 0.5s; }
+.pro-particles span:nth-child(5) { left: 85%; animation-delay: 1.8s; }
+
+@keyframes pro-float {
+    0% { transform: translateY(130px); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(-10px); opacity: 0; }
+}
+/* メインビジュアル：3Dコア */
+.auth-pro-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 800px;
+}
+.core-3d-container {
+    width: 40px; height: 40px;
+    transform-style: preserve-3d;
+}
+.core-hexagon-3d {
+    width: 100%; height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate-core-3d 10s infinite linear;
+}
+.hex-face {
+    position: absolute;
+    width: 100%; height: 100%;
+    border: 1px solid var(--color-primary);
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: inset 0 0 8px var(--color-primary-glow);
+}
+/* 3D立方体（ヘキサゴンコアを模した構造）の各面 */
+.hex-face.front  { transform: translateZ(20px); }
+.hex-face.back   { transform: rotateY(180deg) translateZ(20px); }
+.hex-face.left   { transform: rotateY(-90deg) translateZ(20px); }
+.hex-face.right  { transform: rotateY(90deg) translateZ(20px); }
+.hex-face.top    { transform: rotateX(90deg) translateZ(20px); }
+.hex-face.bottom { transform: rotateX(-90deg) translateZ(20px); }
+
+@keyframes rotate-core-3d {
+    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+}
+/* 周囲の回転リング */
+.core-ring {
+    position: absolute;
+    border: 1px solid var(--color-primary-dim);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+.core-ring.outer { width: 80px; height: 80px; border-style: dashed; animation: spin 15s linear infinite; }
+.core-ring.inner { width: 60px; height: 60px; border-style: dotted; animation: spin-reverse 8s linear infinite; }
+
+/* HUDオーバーレイ */
+.auth-pro-hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.hud-scanline {
+    position: absolute;
+    width: 100%; height: 30%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.05), transparent);
+    animation: scan-vertical 4s ease-in-out infinite;
+}
+@keyframes scan-vertical {
+    0%, 100% { top: -30%; }
+    50% { top: 100%; }
+}
+.hud-corner {
+    position: absolute;
+    width: 15px; height: 15px;
+    border: 1px solid var(--color-primary);
+    opacity: 0.6;
+}
+.hud-corner.top-left { top: 5px; left: 5px; border-right: none; border-bottom: none; }
+.hud-corner.bottom-right { bottom: 5px; right: 5px; border-left: none; border-top: none; }
+
+.hud-data-left, .hud-data-right {
+    position: absolute; top: 15px;
+    display: flex; flex-direction: column; gap: 2px;
+}
+.hud-data-left { left: 15px; }
+.hud-data-right { right: 15px; align-items: flex-end; }
+
+.mini-tag { font-size: 0.45rem; color: var(--color-primary); opacity: 0.5; letter-spacing: 1px; }
+.mini-val { font-size: 0.55rem; color: var(--color-primary); font-family: var(--font-family-mono); opacity: 0.9; text-shadow: 0 0 3px var(--color-primary-glow); }
+
+/* フッター：メインステータス */
+.auth-pro-footer {
+    height: 32px;
+    background: rgba(0, 243, 255, 0.08);
+    border-top: 1px solid var(--color-primary-dim);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    justify-content: space-between;
+    z-index: 5;
+}
+.footer-led {
+    width: 8px; height: 8px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary);
+    animation: pulse-op 1.5s infinite;
+}
+.footer-main-status {
+    font-size: 0.65rem;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-family: var(--font-family-mono);
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--color-primary-glow);
+}
+.footer-id-stamp {
+    font-size: 0.5rem;
+    color: var(--color-primary-dim);
+}
+
+
+
+
+
+
+
 /* グラフのバウンスアニメーション */
 @keyframes graph-bounce {
     0% { height: 10%; }
@@ -1533,4 +1731,36 @@ body.closing::before {
 
 
 
+
+
+
+
+/* --- ミニマル・ノーデータ（究極の簡素化） --- */
+
+/* NO DATAテキストの大胆な強調（高精度・大サイズ） */
+.nodata-label {
+    font-family: var(--font-family-mono);
+    font-size: 14px; /* サイズを大幅に拡大 */
+    fill: var(--color-primary);
+    font-weight: 900;
+    letter-spacing: 1.2px; /* 間隔は自然に保持 */
+    dominant-baseline: central;
+    text-anchor: middle;
+    filter: drop-shadow(0 0 8px var(--color-primary-glow)); /* グローを強化して存在感を出す */
+}
+
+/* タクティカル・アンダーライン（ステータス強調用） */
+.nodata-underline {
+    stroke: var(--color-primary);
+    stroke-width: 0.6;
+    fill: none;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 2px var(--color-primary-glow));
+}
+
+/* アイコンの控えめな表示 */
+.minimal-icon-bg {
+    fill: var(--color-primary);
+    opacity: 0.15;
+}
 
