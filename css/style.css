@@ -1351,6 +1351,181 @@ body.closing::before {
     transition: left 0.5s ease-out;
 }
 
+/* ==========================================================================
+   SKILLS SECTION - STABLE SF HUD DESIGN
+   ========================================================================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* スキルカード：アシンメトリー・カプセルデザイン */
+.skill-card {
+    background: rgba(0, 243, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-left: 2px solid var(--color-primary); /* 左側の強調ライン */
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* カプセル形状の定義 */
+    border-radius: 30px 2px 30px 2px;
+    overflow: hidden;
+}
+
+/* 二重線フレーム効果 */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(0, 243, 255, 0.05);
+    border-radius: 28px 1px 28px 1px;
+    pointer-events: none;
+}
+
+.skill-card:hover {
+    background: rgba(0, 243, 255, 0.08);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 25px var(--color-primary-dim);
+    transform: translateY(-5px);
+}
+
+/* スキルアイコン */
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.skill-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* スキル詳細コンテナ */
+.skill-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* スキル名とバリアント装飾 */
+.skill-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff; /* スキル名を白に設定 */
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* スキル名の装飾を新しいもの（//）に変更 */
+.skill-name::before {
+    content: '// ';
+    color: var(--color-accent);
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* 以前のバリアント装飾を無効化（統一されたため） */
+.name-variant-alpha::before,
+.name-variant-beta::before,
+.name-variant-beta::after,
+.name-variant-gamma::before {
+    display: none;
+}
+
+/* タクティカル・スキルレベルメーター（デザイン改良：歪みによる斜め化） */
+.skill-meter {
+    position: relative;
+    width: calc(100% - 10px);
+    height: 12px;
+    margin-top: 12px;
+    margin-left: 5px; /* 斜め化によるズレの調整 */
+    background: rgba(0, 243, 255, 0.03);
+    border: 1px solid var(--color-border);
+    padding: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* 全体を斜めに歪ませることで、枠・目盛り・進捗端の角度を完全に一致させる */
+    transform: skewX(-15deg);
+}
+
+/* メーター内部のセグメント（背景）：親のskewにより自動的に斜めになる */
+.skill-meter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+    background-size: 10px 100%;
+    z-index: 1;
+}
+
+/* メーターの充填部分：親のskewにより端も自動的に斜めになる */
+.skill-meter span {
+    display: block;
+    height: 100%;
+    width: 0;
+    /* ブロック状セグメント：親のskewにより斜めに表示される */
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-primary) 7px,
+        transparent 7px,
+        transparent 11px
+    );
+    filter: drop-shadow(0 0 8px var(--color-primary-glow));
+    transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    z-index: 2;
+}
+
+/* ホバー時に指定レベルまでチャージ */
+.skill-card:hover .skill-meter span {
+    width: var(--level);
+}
+
+/* スキャン中のような流れる光の演出 */
+.skill-meter span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: scan-light 2s infinite linear;
+}
+
+@keyframes scan-light {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+}
+
+/* ホバー時の全体的な強調 */
+.skill-card:hover .skill-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px var(--color-primary-glow));
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
 
 
 
