@@ -121,6 +121,10 @@
         padding: 1.5rem 0 !important;
     }
 
+    html {
+        background-color: #000 !important; /* ステータスバー領域の色味を統一 */
+    }
+
     body {
         height: 100vh !important;
         height: 100dvh !important; /* iOS Safari用：ツールバーを除いた正確な高さを確保 */
@@ -245,10 +249,10 @@
         background: #000 !important;
     }
 
-    /* プロジェクト説明文等の改行最適化（端で折り返す） */
+    /* プロジェクト説明文等の改行最適化（英単語を極力維持し、端で折り返す） */
     .card-text {
-        word-break: break-all !important;
-        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
     }
     .main-content {
         padding-top: 0 !important; /* Flexboxにより不要になったため削除 */
