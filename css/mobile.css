@@ -121,6 +121,13 @@
         padding: 1.5rem 0 !important;
     }
 
+    /* ヘッダーの発光をモバイル向けに最適化（眩しさを抑える） */
+    .header {
+        box-shadow: 0 1px 10px rgba(0, 243, 255, 0.2) !important;
+        border-bottom: 1px solid rgba(0, 243, 255, 0.4) !important;
+        padding: 0.6rem 0 !important;
+    }
+
     /* ヘッダーリンクをバランス良く一行に集約 */
     .nav ul {
         display: flex !important;

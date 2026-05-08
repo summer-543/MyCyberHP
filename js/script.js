@@ -118,7 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* クリック（マウスダウン）時の波紋エフェクト開始 */
     window.addEventListener('mousedown', (e) => {
-        createRipple(e.clientX, e.clientY);
+        // タッチデバイス以外（マウス操作）の場合のみ実行
+        if (window.matchMedia('(pointer: fine)').matches) {
+            createRipple(e.clientX, e.clientY);
+        }
     });
 
 
