@@ -52,7 +52,11 @@ body {
     color: var(--color-text-main);
     background-color: var(--color-bg-main);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    /* ヘッダーを固定し、スクロール領域をメインコンテンツに限定するための設定 */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* カスタムスクロールバー全体の幅 */
@@ -116,8 +120,10 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     background-color: rgba(2, 6, 12, 0.85);
     border-bottom: 2px solid var(--color-primary);
     box-shadow: 0 0 20px var(--color-primary-dim);
-    position: sticky; top: 0; z-index: 100; padding: 1rem 0;
+    position: relative; /* flex配置で上部に留まるため relative に変更 */
+    z-index: 100; padding: 1rem 0;
     backdrop-filter: blur(8px);
+    flex-shrink: 0; /* ヘッダーの高さを維持 */
 }
 /* ヘッダー内のフレックス配置 */
 .header .container { display: flex; justify-content: center; align-items: center; }
@@ -141,8 +147,13 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     box-shadow: 0 0 10px var(--color-primary);
 }
 
-/* メインコンテンツエリアの余白 */
-.main-content { padding-top: 3rem; min-height: calc(100vh - 160px); }
+/* メインコンテンツエリア：ここがスクロール可能領域となる */
+.main-content { 
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* アンカーリンクのスクロールを滑らかに */
+}
 /* 各セクションの余白 */
 .section { padding: 4rem 0; border-bottom: none; }
 
@@ -1806,9 +1817,6 @@ body.closing::before {
 /* モバイル専用要素のデフォルト非表示設定（PC表示を維持するため） */
 .mobile-avatar-mini {
     display: none;
-}
-.name-romaji {
-    /* PCでは通常の並びを維持 */
 }
 /* タイムラインの見出しを控えめに調整（モバイル版と同様の2行レイアウトを採用） */
 .timeline-item {

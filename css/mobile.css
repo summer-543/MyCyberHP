@@ -121,42 +121,54 @@
         padding: 1.5rem 0 !important;
     }
 
-    /* ヘッダーリンクの 3x2 配置 */
+    /* ヘッダーリンクをバランス良く一行に集約 */
     .nav ul {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        grid-template-rows: repeat(2, auto) !important;
-        gap: 0.4rem !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        gap: 0.8rem !important; /* 隙間を詰めて収まりを良くする */
         width: 100% !important;
+        padding: 0 0.5rem !important;
+        justify-content: center !important; /* 中央揃えに変更 */
+    }
+    .nav ul::-webkit-scrollbar {
+        display: none;
     }
     .nav a {
-        font-size: 0.7rem !important;
-        padding: 0.3rem 0 !important;
-        letter-spacing: 0 !important;
+        font-size: 0.8rem !important; /* 0.7より大きく、0.85より小さいバランスに調整 */
+        padding: 0.5rem 0.1rem !important;
+        letter-spacing: 0.02em !important;
+        white-space: nowrap !important;
     }
 
-    /* 背景HUD要素の重なり回避：位置とサイズを極小化 */
-    #cyber-bg > div {
-        transform: scale(0.6) !important;
-        transform-origin: center !important;
+    /* 背景装飾の最適化：中央のメインオブジェクトのみ表示 */
+    #cyber-bg > div:not(:first-child) {
+        display: none !important;
     }
-    /* 各HUD要素の個別調整（script.jsのインラインスタイルを上書き） */
-    #cyber-bg > div[style*="top: 3%"][style*="left: 3%"] { top: 1% !important; left: 1% !important; opacity: 0.2 !important; }
-    #cyber-bg > div[style*="top: 3%"][style*="right: 3%"] { top: 1% !important; right: 1% !important; opacity: 0.2 !important; }
-    #cyber-bg > div[style*="bottom: 3%"][style*="left: 3%"] { bottom: 1% !important; left: 1% !important; opacity: 0.2 !important; }
-    #cyber-bg > div[style*="bottom: 3%"][style*="right: 3%"] { bottom: 1% !important; right: 1% !important; opacity: 0.2 !important; }
-    
-    /* 中央の球体 */
+    #cyber-bg > div:first-child {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(0.8) !important; /* 少し大きく */
+        width: 100vw !important;
+        height: 100vw !important;
+        max-width: 600px !important;
+        max-height: 600px !important;
+        opacity: 1 !important; /* 個別調整のため親は1に設定 */
+    }
+
+    /* リングと球体の視認性調整 */
+    .hud-ring {
+        opacity: 0.3 !important;
+    }
     .sphere-container { 
-        width: 200px !important; 
-        height: 200px !important;
-        opacity: 0.2 !important;
+        width: 320px !important; 
+        height: 320px !important;
+        opacity: 0.6 !important; /* 球体をはっきり表示 */
     }
 
     /* 遷移演出のレスポンシブ化：JSのアニメーションを妨げないよう調整 */
-    .sf-transition-window {
-        /* サイズと位置はJS側でレスポンシブに制御 */
-    }
     .sf-window-inner {
         padding: 8px !important;
     }
@@ -179,6 +191,15 @@
         font-size: 1.0rem !important;
         margin-bottom: 0.6rem !important;
         letter-spacing: 0.05em !important;
+    }
+
+    /* アクセス制限テキストの改行・サイズ最適化 */
+    .restricted-access-text {
+        font-size: 1.15rem !important; /* 確実に一行に収めるためさらに縮小 */
+        white-space: nowrap !important;
+        display: inline-block;
+        max-width: 100%;
+        letter-spacing: 0.1em !important; /* 文字間隔を少し詰める */
     }
 }
 
@@ -203,17 +224,14 @@
         margin-top: 1rem !important;
     }
 
-    /* ヘッダーの固定と重なり防止 */
+    /* ヘッダーの装飾維持 */
     .header {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
         width: 100% !important;
         z-index: 1000 !important;
-        background: rgba(2, 6, 12, 0.98) !important; /* 不透明度を上げて後ろを隠す */
+        background: rgba(2, 6, 12, 0.98) !important;
     }
     .main-content {
-        padding-top: 80px !important; /* ヘッダー分の余白を確保 */
+        padding-top: 0 !important; /* Flexboxにより不要になったため削除 */
     }
 
     /* 地図モーダル */

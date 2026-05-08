@@ -1,7 +1,7 @@
 /* サイト全体に動きとインタラクションを追加するメインスクリプト */
 
 document.addEventListener('DOMContentLoaded', () => {
-    /* システム起動時のタイピングエフェクトとロード画面 */
+    /* システム起動時のタイピングエフェクトとロード画面 (一時的にコメントアウト)
     if (!sessionStorage.getItem('sysInitDone')) {
         const overlay = document.createElement('div');
         overlay.id = 'loading-overlay';
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentLine = 0;
         let currentChar = 0;
 
-        /* テキストを1文字ずつ表示するタイピング関数 */
         function typeLine() {
             if (currentLine < lines.length) {
                 if (currentChar < lines[currentLine].length) {
@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(typeLine, 300); // 行間の待機時間
                 }
             } else {
-                /* 全行表示後のフェードアウト処理 */
                 setTimeout(() => {
                     overlay.style.opacity = '0';
                     setTimeout(() => {
@@ -66,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(typeLine, 500);
     }
+    */
 
     /* スクロール時に要素をフェードインさせるための監視設定 */
     const observerOptions = {
@@ -122,12 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         createRipple(e.clientX, e.clientY);
     });
 
-    /* タッチ操作時の波紋エフェクト開始 */
-    window.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 0) {
-            createRipple(e.touches[0].clientX, e.touches[0].clientY);
-        }
-    }, { passive: true });
 
     /* 指定座標に波紋とフラッシュを生成する関数 */
     function createRipple(x, y) {
@@ -230,10 +223,13 @@ document.addEventListener('DOMContentLoaded', () => {
     /* スクロールに応じたナビゲーションのハイライト（ScrollSpy） */
     const navLinks = document.querySelectorAll('.nav a');
     const sections = document.querySelectorAll('section[id]');
+    const mainContent = document.querySelector('.main-content');
 
     function scrollSpy() {
-        // 現在のスクロール位置を取得（ヘッダーの高さを考慮）
-        const scrollPos = window.scrollY + 100;
+        if (!mainContent) return;
+        
+        // メインコンテンツ内のスクロール位置を取得（ヘッダーの高さを考慮）
+        const scrollPos = mainContent.scrollTop + 100;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -251,17 +247,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // ページ最上部（スクロールが少ない時）はプロフィールを確実にアクティブにする
-        if (window.scrollY < 100) {
+        if (mainContent.scrollTop < 100) {
             navLinks.forEach(link => link.classList.remove('active'));
             const firstLink = document.querySelector('.nav a[href*="#profile"]');
             if (firstLink) firstLink.classList.add('active');
         }
     }
 
-    // スクロールイベントを監視（メインページの場合のみ実行）
-    if (sections.length > 0 && document.getElementById('profile')) {
-        window.addEventListener('scroll', scrollSpy, { passive: true });
-        // ページ読み込み時にも一度実行して現在の位置に合わせる
+    // スクロールイベントを監視（メインページ：#profileが存在する場合のみ実行）
+    if (mainContent && sections.length > 0 && document.getElementById('profile')) {
+        mainContent.addEventListener('scroll', scrollSpy, { passive: true });
         scrollSpy();
     }
 });
