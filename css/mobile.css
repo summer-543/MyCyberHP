@@ -121,11 +121,18 @@
         padding: 1.5rem 0 !important;
     }
 
-    /* ヘッダーの発光をモバイル向けに最適化（眩しさを抑える） */
+    body {
+        height: 100vh !important;
+        height: 100dvh !important; /* iOS Safari用：ツールバーを除いた正確な高さを確保 */
+    }
+
+    /* ヘッダーの最適化：iPhoneのセーフエリア（ノッチ部分）を黒で埋める */
     .header {
+        background-color: #000 !important;
+        padding-top: calc(env(safe-area-inset-top) + 0.6rem) !important;
+        padding-bottom: 0.6rem !important;
         box-shadow: 0 1px 10px rgba(0, 243, 255, 0.2) !important;
         border-bottom: 1px solid rgba(0, 243, 255, 0.4) !important;
-        padding: 0.6rem 0 !important;
     }
 
     /* ヘッダーリンクをバランス良く一行に集約 */
