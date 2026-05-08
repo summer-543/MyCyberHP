@@ -238,11 +238,17 @@
         margin-top: 1rem !important;
     }
 
-    /* ヘッダーの装飾維持 */
+    /* ヘッダーの装飾維持：ステータスバーとの色を統一 */
     .header {
         width: 100% !important;
         z-index: 1000 !important;
-        background: rgba(2, 6, 12, 0.98) !important;
+        background: #000 !important;
+    }
+
+    /* プロジェクト説明文等の改行最適化（端で折り返す） */
+    .card-text {
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
     }
     .main-content {
         padding-top: 0 !important; /* Flexboxにより不要になったため削除 */
