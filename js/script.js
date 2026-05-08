@@ -365,9 +365,9 @@ function initCyberHUD() {
         <!-- 背景フレームと固定装飾 -->
         <svg viewBox="0 0 400 120" style="position: absolute; top:0; left:0; width: 100%; height: 100%; filter: drop-shadow(0 0 5px var(--color-primary)); z-index: 1;">
             
-            <!-- 上部装飾バー（左側に延長し、円形ゲージの下を潜るように配置） -->
+            <!-- 上部装飾バー -->
             <path d="M 70 25 L 320 25 L 330 35 L 70 35 Z" fill="var(--color-primary-dim)" />
-            <!-- メインプログレスバーの枠線（背景色をグレー系に調整し、形状を確定） -->
+            <!-- メインプログレスバーの枠線 -->
             <path d="M 74.5 35 L 350 35 L 370 55 L 350 75 L 60 75 Z" fill="rgba(255, 255, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
             <!-- 下部装飾線とテキスト -->
             <path d="M 115 80 L 300 80 L 310 90 L 115 90 Z" fill="none" stroke="var(--color-primary)" stroke-width="1.5" />
@@ -434,7 +434,13 @@ function initCyberHUD() {
     setInterval(() => {
         if (isComplete || isWaitingForStart) return;
 
-        dlProgress += Math.random() * 0.3 + 0.1; 
+        // 進捗速度を調整：
+        // 通常時：平均で1秒間に約2%（60msあたり平均 0.12 加算）
+        // 95%以降：停滞感を出すため大幅に減速（1秒間に約0.4%程度）
+        let currentIncrement = (dlProgress < 95) 
+            ? (Math.random() * 0.16 + 0.04)  // 0.04 ~ 0.20 (平均 0.12)
+            : (Math.random() * 0.02 + 0.005); // 0.005 ~ 0.025 (平均 0.015)
+        dlProgress += currentIncrement;
 
         if (dlProgress >= 100) {
             dlProgress = 100;
@@ -458,37 +464,33 @@ function initCyberHUD() {
             if (dlStatusText) {
                 dlStatusText.textContent = 'TRANSFER_COMPLETE';
                 dlStatusText.setAttribute('fill', '#fff');
+                dlStatusText.style.textShadow = '0 0 10px #fff';
             }
 
-            /* 3秒後にリセットしてループさせる */
+            /* 3秒後に「安定状態」へ移行して停止 */
             setTimeout(() => {
-                dlProgress = 0;
-                isComplete = false;
-                isWaitingForStart = true;
-                
-                dlText.textContent = '0%';
+                // 色をサイバーカラーに戻す
                 dlText.style.color = 'var(--color-primary)';
                 dlText.style.textShadow = '0 0 8px var(--color-primary)';
                 
                 dlArc.style.stroke = 'var(--color-primary)';
                 dlArc.style.filter = 'none';
-                dlArc.style.strokeDashoffset = 261;
                 
                 for(let i=0; i<totalSegments; i++) {
-                    children[i].style.backgroundColor = 'var(--color-primary-dim)';
-                    children[i].style.boxShadow = 'none';
+                    children[i].style.backgroundColor = 'var(--color-primary)';
+                    children[i].style.boxShadow = '0 0 5px var(--color-primary)';
+                }
+
+                // ステータスを「完了・保護済み」に変更
+                if (dlStatusText) {
+                    dlStatusText.textContent = 'SYSTEM_SECURED';
+                    dlStatusText.setAttribute('fill', 'var(--color-primary)');
+                    dlStatusText.style.textShadow = 'none';
                 }
                 
-                if (dlStatusText) {
-                    dlStatusText.textContent = 'LOADING_DATA...';
-                    dlStatusText.setAttribute('fill', 'var(--color-primary)');
-                }
-
-                setTimeout(() => {
-                    isWaitingForStart = false;
-                }, 3000);
-
+                // ここでリセット処理を呼ばずに終了することで、100%状態で静止する
             }, 3000);
+
             return;
         }
 
