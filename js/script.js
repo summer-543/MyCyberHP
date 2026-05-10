@@ -517,13 +517,13 @@ function initCyberHUD() {
     /* 右上のシステムリソース監視パネルを生成 */
     const topRight = document.createElement('div');
     topRight.style.position = 'absolute';
-    topRight.style.top = '3%';
+    topRight.style.top = '6%';
     topRight.style.right = '3%';
     topRight.style.width = '300px';
-    topRight.style.height = '150px';
+    topRight.style.height = '130px';
     topRight.style.opacity = '0.7';
     topRight.style.zIndex = '20';
-    topRight.style.border = '1px solid var(--color-primary)';
+    topRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
     topRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
     topRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
     topRight.style.display = 'flex';
@@ -533,61 +533,167 @@ function initCyberHUD() {
 
     /* 内部のグラフバー要素をランダムに生成 */
     let bars = '';
+    const barStates = []; // 各バーの状態を管理
     for(let i=0; i<12; i++) {
-        let delay = Math.random() * 2;
-        let maxWidth = Math.random() * 80 + 20; 
-        bars += `<div style="height: 3px; margin-bottom: 3px; background: var(--color-primary); box-shadow: 0 0 5px var(--color-primary); max-width: ${maxWidth}%; width: 100%; animation: pulse-width 1s ease-in-out infinite alternate ${delay}s;"></div>`;
+        let initialWidth = Math.random() * 50 + 30; 
+        barStates.push({
+            current: initialWidth,
+            target: initialWidth,
+            timer: Math.random() * 100 // 更新タイミングをずらす
+        });
+        bars += `<div class="mem-bar" style="height: 2px; margin-bottom: 4px; background: rgba(0, 243, 255, 0.4); box-shadow: 0 0 2px rgba(0, 243, 255, 0.2); max-width: ${initialWidth}%; width: 100%;"></div>`;
     }
 
     topRight.innerHTML = `
-        <div style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--color-primary); border-bottom: 1px solid var(--color-primary); text-shadow: 0 0 5px var(--color-primary); display: flex; justify-content: space-between;">
+        <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); display: flex; justify-content: space-between;">
             <span>SYS_MEM // ALLOC</span>
-            <span class="pulse-op">94.2%</span>
+            <span class="pulse-op"><span id="mem-val">94.2</span>%</span>
         </div>
-        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; border-left: 2px solid var(--color-primary); margin: 5px 10px;">
-            ${bars}
+        <div style="flex: 1; display: flex; padding: 5px 15px; overflow: hidden;">
+            <div style="width: 2px; height: 85%; background: rgba(0, 243, 255, 0.4); align-self: center;"></div>
+            <div id="mem-bars-container" style="flex: 1; padding: 0 8px; display: flex; flex-direction: column; justify-content: center;">
+                ${bars}
+            </div>
         </div>
     `;
     bg.appendChild(topRight);
 
+    /* システムモニターを連続アニメーションで更新 */
+    function animateSystemMonitor() {
+        const barEls = topRight.querySelectorAll('.mem-bar');
+        const memVal = topRight.querySelector('#mem-val');
+        let totalWidth = 0;
+
+        barEls.forEach((bar, i) => {
+            const state = barStates[i];
+            
+            // 数秒おきにターゲットを更新
+            state.timer++;
+            if (state.timer > 200 + Math.random() * 100) {
+                state.target = Math.random() * 60 + 30;
+                state.timer = 0;
+            }
+
+            // 目標値への緩やかな移動 + 微細なノイズ(jitter)
+            const jitter = (Math.random() - 0.5) * 0.8;
+            state.current += (state.target - state.current) * 0.02;
+            
+            const finalWidth = Math.max(10, Math.min(100, state.current + jitter));
+            bar.style.maxWidth = `${finalWidth}%`;
+            totalWidth += finalWidth;
+        });
+
+        // ％表示もバーの平均値にゆるく連動させる
+        if (memVal && Math.random() > 0.9) {
+            const avg = totalWidth / 12;
+            const displayMem = 85 + (avg / 100) * 15; // 85-100%の範囲にマップ
+            memVal.textContent = displayMem.toFixed(1);
+        }
+
+        requestAnimationFrame(animateSystemMonitor);
+    }
+    animateSystemMonitor();
+
     /* 右下の波形周波数グラフ装飾を生成 */
     const bottomRight = document.createElement('div');
     bottomRight.style.position = 'absolute';
-    bottomRight.style.bottom = '3%';
-    bottomRight.style.right = '3%';
+    bottomRight.style.top = '25%';
+    bottomRight.style.right = '7%';
     bottomRight.style.width = '300px';
-    bottomRight.style.height = '150px';
+    bottomRight.style.height = '130px';
     bottomRight.style.opacity = '0.7';
-    bottomRight.style.zIndex = '20';
-    bottomRight.style.border = '1px solid var(--color-primary)';
+    bottomRight.style.zIndex = '21';
+    bottomRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
     bottomRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
+    bottomRight.style.backdropFilter = 'none';
     bottomRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
     bottomRight.style.display = 'flex';
     bottomRight.style.flexDirection = 'column';
     bottomRight.style.justifyContent = 'flex-end';
     bottomRight.style.overflow = 'hidden';
-    bottomRight.style.transformOrigin = 'bottom right';
+    bottomRight.style.transformOrigin = 'top right';
     
     /* 連続する波形のパスデータを生成 */
-    let wavePath = "M 0 50 ";
-    const peaks = 20; 
-    const step = 30; 
-    for (let i=0; i<peaks; i++) {
-        let sx = i * step;
-        wavePath += `Q ${sx + 7.5} 0, ${sx + 15} 50 T ${sx + 30} 50 `;
-    }
-    
+    const waveSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    waveSvg.setAttribute("viewBox", "0 0 300 100");
+    waveSvg.setAttribute("preserveAspectRatio", "none");
+    waveSvg.style.width = "100%";
+    waveSvg.style.height = "100%";
+    waveSvg.style.position = "absolute";
+    waveSvg.style.left = "0";
+
+    const wavePathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    wavePathEl.setAttribute("fill", "none");
+    wavePathEl.setAttribute("stroke", "var(--color-primary)");
+    wavePathEl.setAttribute("stroke-opacity", "0.35");
+    wavePathEl.setAttribute("stroke-width", "2");
+    wavePathEl.style.filter = "drop-shadow(0 0 3px rgba(0, 243, 255, 0.4))";
+    waveSvg.appendChild(wavePathEl);
+
+    bottomRight.style.overflow = 'visible';
     bottomRight.innerHTML = `
-        <div style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--color-primary); border-bottom: 1px solid var(--color-primary); text-shadow: 0 0 5px var(--color-primary);">
-            FREQ_ANALYSIS // 84.992Mhz
+        <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); background: var(--color-bg-main); position: absolute; top: -26px; left: -1px; width: calc(100% + 2px); height: 32px; border: 1px solid rgba(0, 243, 255, 0.4); border-bottom: 1px solid rgba(0, 243, 255, 0.4); display: flex; align-items: center; box-sizing: border-box; z-index: 2;">
+            FREQ_ANALYSIS // <span id="freq-val" style="margin-left: 5px;">---</span> kHz
         </div>
-        <div style="position: relative; width: 100%; height: 100px; overflow: hidden;">
-            <svg viewBox="0 0 ${peaks*step} 100" preserveAspectRatio="none" style="width: 200%; height: 100%; position: absolute; left: 0; animation: wave-slide 5s linear infinite;">
-                <path d="${wavePath}" fill="none" stroke="var(--color-primary)" stroke-width="2" style="filter: drop-shadow(0 0 5px var(--color-primary));" />
-            </svg>
+        <div id="wave-container" style="position: relative; width: 100%; height: 100%; padding-top: 6px; box-sizing: border-box; display: flex; align-items: center; overflow: hidden; background: transparent;">
         </div>
     `;
+    bottomRight.querySelector('#wave-container').appendChild(waveSvg);
     bg.appendChild(bottomRight);
+
+    /* 連続アニメーション用の変数 */
+    let currentFreq = 2;
+    let targetFreq = 2;
+    let currentAmp = 20;
+    let targetAmp = 20;
+    let currentPhase = 0;
+
+    /* 波形を連続的に描画する関数 */
+    function animateWaveform() {
+        const points = 50; 
+        const width = 300;
+        const step = width / (points - 1);
+        
+        // 目標値への緩やかな補完 (Lerp)
+        currentFreq += (targetFreq - currentFreq) * 0.01;
+        currentAmp += (targetAmp - currentAmp) * 0.01;
+        
+        // 位相を常に進める (動き続ける)
+        currentPhase += 0.05;
+        
+        let d = `M 0 ${50 + Math.sin(currentPhase) * currentAmp} `;
+        for (let i = 1; i < points; i++) {
+            const x = i * step;
+            const y = 50 + Math.sin((i / (points - 1)) * Math.PI * 2 * currentFreq + currentPhase) * currentAmp;
+            d += `L ${x} ${y} `;
+        }
+        wavePathEl.setAttribute('d', d);
+
+        // 数値を現在の周波数と連動させて更新
+        const freqVal = bottomRight.querySelector('#freq-val');
+        if (freqVal) {
+            // currentFreq(1〜5)をスケールアップして表示
+            const displayFreq = (currentFreq * 125.4).toFixed(2);
+            freqVal.textContent = displayFreq;
+        }
+
+        requestAnimationFrame(animateWaveform);
+    }
+
+    /* 10秒ごとに次の目標値を設定 */
+    function pickNewTargets() {
+        targetFreq = Math.random() * 4 + 1;
+        
+        // 30%の確率で振幅を非常に小さく（直線に近く）する
+        if (Math.random() < 0.3) {
+            targetAmp = Math.random() * 4 + 1; // 1〜5の小さな振幅
+        } else {
+            targetAmp = Math.random() * 30 + 15; // 15〜45の通常の振幅
+        }
+    }
+
+    setInterval(pickNewTargets, 10000);
+    animateWaveform();
 
     /* ウィンドウサイズに応じた動的スケール調整処理 */
     function updateHUDScale() {
