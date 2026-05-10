@@ -276,10 +276,8 @@ function initCyberHUD() {
     giantRing.style.top = '50%';
     giantRing.style.left = '50%';
     giantRing.style.transform = 'translate(-50%, -50%)';
-    giantRing.style.width = '100vw';
-    giantRing.style.height = '100vw';
-    giantRing.style.maxWidth = '1000px';
-    giantRing.style.maxHeight = '1000px';
+    giantRing.style.width = '1000px';
+    giantRing.style.height = '1000px';
     giantRing.style.opacity = '0.3';
     giantRing.style.zIndex = '0'; 
     giantRing.innerHTML = `
@@ -340,6 +338,7 @@ function initCyberHUD() {
     topLeft.style.height = '250px';
     topLeft.style.opacity = '0.5';
     topLeft.style.zIndex = '20';
+    topLeft.style.transformOrigin = 'top left';
     topLeft.innerHTML = `
         <svg viewBox="0 0 300 300" class="hud-ring" style="width: 100%; height: 100%;">
             <circle cx="150" cy="150" r="140" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="40 10 10 10" fill="none" class="spin-cw" />
@@ -360,6 +359,7 @@ function initCyberHUD() {
     bottomLeft.style.height = '120px';
     bottomLeft.style.opacity = '0.9';
     bottomLeft.style.zIndex = '20';
+    bottomLeft.style.transformOrigin = 'bottom left';
     
     bottomLeft.innerHTML = `
         <!-- 背景フレームと固定装飾 -->
@@ -529,6 +529,7 @@ function initCyberHUD() {
     topRight.style.display = 'flex';
     topRight.style.flexDirection = 'column';
     topRight.style.overflow = 'hidden';
+    topRight.style.transformOrigin = 'top right';
 
     /* 内部のグラフバー要素をランダムに生成 */
     let bars = '';
@@ -565,6 +566,7 @@ function initCyberHUD() {
     bottomRight.style.flexDirection = 'column';
     bottomRight.style.justifyContent = 'flex-end';
     bottomRight.style.overflow = 'hidden';
+    bottomRight.style.transformOrigin = 'bottom right';
     
     /* 連続する波形のパスデータを生成 */
     let wavePath = "M 0 50 ";
@@ -586,6 +588,27 @@ function initCyberHUD() {
         </div>
     `;
     bg.appendChild(bottomRight);
+
+    /* ウィンドウサイズに応じた動的スケール調整処理 */
+    function updateHUDScale() {
+        const ww = window.innerWidth;
+        const wh = window.innerHeight;
+        // 基準解像度(1920x1080)に対する現在のウィンドウサイズの比率（単位なし数値）
+        const scale = Math.min(ww / 1920, wh / 1080);
+        
+        // 四隅のオブジェクト用に追加の拡大倍率を定義（ここでサイズを調整：1.6倍）
+        const cornerScale = scale * 1.6;
+        
+        giantRing.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        topLeft.style.transform = `scale(${cornerScale})`;
+        bottomLeft.style.transform = `scale(${cornerScale})`;
+        topRight.style.transform = `scale(${cornerScale})`;
+        bottomRight.style.transform = `scale(${cornerScale})`;
+    }
+
+    // 初回実行とリサイズイベントの登録
+    updateHUDScale();
+    window.addEventListener('resize', updateHUDScale);
 }
 
 /* お気に入りや作品リンクをクリックした際のページ遷移演出 */

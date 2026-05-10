@@ -1304,8 +1304,8 @@ body.closing::before {
 @keyframes sf-blip-flash { 0%,80%,100% { opacity:0; } 40% { opacity:1; } }
 
 /* 通信アーク */
-.sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2s ease-in-out infinite; }
-@keyframes sf-arc-pulse { 0%,100% { opacity:0; stroke-dashoffset:200; } 50% { opacity:1; stroke-dashoffset:0; } }
+.sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2.4s ease-in-out infinite; }
+@keyframes sf-arc-pulse { 0%,100% { opacity:0; } 50% { opacity:1; } }
 
 /* 通信パルスリング */
 .sf-comm-pulse { transform-origin: 60px 72px; animation: sf-comm-expand 2s ease-out infinite; }
