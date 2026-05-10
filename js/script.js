@@ -344,7 +344,7 @@ function initCyberHUD() {
             <circle cx="150" cy="150" r="140" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="40 10 10 10" fill="none" class="spin-cw" />
             <circle cx="150" cy="150" r="100" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="5 5" fill="none" class="spin-ccw-fast" />
             <circle cx="150" cy="150" r="70" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="50 150" fill="none" class="spin-cw-fast" />
-            <path d="M 150 0 L 150 300 M 0 150 L 300 150" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"/>
+            <path d="M 150 10 L 150 290 M 10 150 L 290 150" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"/>
             <circle cx="150" cy="150" r="20" stroke="var(--color-primary)" stroke-width="1" fill="none" class="pulse-op"/>
         </svg>
     `;
@@ -680,6 +680,67 @@ function initCyberHUD() {
         requestAnimationFrame(animateWaveform);
     }
 
+    /* 3つ目のオブジェクト: マルチレイヤー・サイバー・ダイヤル (超大型・画面外はみ出し演出) */
+    const dialSize = 500;
+    const cyberDial = document.createElement('div');
+    cyberDial.id = 'cyber-dial';
+    cyberDial.style.position = 'absolute';
+    cyberDial.style.bottom = '-80px';
+    cyberDial.style.right = '-80px';
+    cyberDial.style.width = `${dialSize}px`;
+    cyberDial.style.height = `${dialSize}px`;
+    cyberDial.style.opacity = '0.35';
+    cyberDial.style.zIndex = '18';
+    cyberDial.style.pointerEvents = 'none';
+    cyberDial.style.transformOrigin = 'center center';
+
+    cyberDial.innerHTML = `
+        <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 3px var(--color-primary-dim));">
+            <!-- 背景ドット層 -->
+            <circle cx="50" cy="50" r="49.5" fill="none" stroke="var(--color-primary)" stroke-width="0.3" pathLength="200" stroke-dasharray="0.2, 0.8" stroke-opacity="0.15" style="transform-origin: 50px 50px; animation: rotate-scanner 120s linear infinite;" />
+            
+            <!-- 外側メイン二重構造 (維持) -->
+            <g style="transform-origin: 50px 50px; animation: rotate-scanner 30s linear infinite;">
+                <circle cx="50" cy="50" r="44" fill="none" stroke="var(--color-primary)" stroke-width="4" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.5" />
+                <circle cx="50" cy="50" r="41" fill="none" stroke="var(--color-primary)" stroke-width="1" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.8" />
+            </g>
+            
+            <!-- モールス信号層 A: 複雑な断続パルス (合計86ユニット、pathLengthで補正) -->
+            <circle cx="50" cy="50" r="36" fill="none" stroke="var(--color-primary)" stroke-width="1.5" pathLength="86" stroke-dasharray="20, 5, 2, 5, 2, 5, 30, 10, 2, 5" stroke-opacity="0.6" style="transform-origin: 50px 50px; animation: rotate-scanner 25s linear infinite reverse;" />
+            
+            <!-- モールス信号層 B: 高速ドット通信 (合計22ユニット、5倍の110で補正) -->
+            <circle cx="50" cy="50" r="32" fill="none" stroke="var(--color-primary-dim)" stroke-width="1" pathLength="110" stroke-dasharray="1, 4, 1, 4, 8, 4" stroke-opacity="0.5" style="transform-origin: 50px 50px; animation: rotate-scanner 12s linear infinite;" />
+            
+            <!-- モールス信号層 C: 微細インナーシグナル (合計16ユニット、8倍の128で補正) -->
+            <circle cx="50" cy="50" r="26" fill="none" stroke="var(--color-primary)" stroke-width="0.8" pathLength="128" stroke-dasharray="2, 2, 10, 2" stroke-opacity="0.4" style="transform-origin: 50px 50px; animation: rotate-scanner 40s linear infinite;" />
+            
+            <!-- センター・ソリッド・コア (シンプル) -->
+            <circle cx="50" cy="50" r="3.5" fill="var(--color-primary)" style="animation: hex-pulse 4s ease-in-out infinite alternate; transform-origin: 50px 50px;" />
+        </svg>
+    `;
+    bg.appendChild(cyberDial);
+
+    animateWaveform();
+
+    // ダイヤル回転・パルス用のアニメーションを追加
+    if (!document.getElementById('dial-style')) {
+        const style = document.createElement('style');
+        style.id = 'dial-style';
+        style.textContent = `
+            @keyframes rotate-scanner {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            @keyframes hex-pulse {
+                0% { transform: scale(0.9); opacity: 0.3; }
+                100% { transform: scale(1.1); opacity: 0.8; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    animateWaveform();
+
     /* 10秒ごとに次の目標値を設定 */
     function pickNewTargets() {
         targetFreq = Math.random() * 4 + 1;
@@ -710,6 +771,7 @@ function initCyberHUD() {
         bottomLeft.style.transform = `scale(${cornerScale})`;
         topRight.style.transform = `scale(${cornerScale})`;
         bottomRight.style.transform = `scale(${cornerScale})`;
+        if(netStream) netStream.style.transform = `scale(${cornerScale})`;
     }
 
     // 初回実行とリサイズイベントの登録
