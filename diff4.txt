@@ -1,0 +1,530 @@
+﻿diff --git a/css/mobile.css b/css/mobile.css
+index a006509..34d2d84 100644
+--- a/css/mobile.css
++++ b/css/mobile.css
+@@ -121,6 +121,25 @@
+         padding: 1.5rem 0 !important;
+     }
+ 
++    html {
++        background-color: #000 !important; /* 繧ｹ繝・・繧ｿ繧ｹ繝舌・鬆伜沺縺ｮ濶ｲ蜻ｳ繧堤ｵｱ荳 */
++    }
++
++    body {
++        height: 100vh !important;
++        height: 100dvh !important; /* iOS Safari逕ｨ・壹ヤ繝ｼ繝ｫ繝舌・繧帝勁縺・◆豁｣遒ｺ縺ｪ鬮倥＆繧堤｢ｺ菫・*/
++        background-color: transparent !important; /* 閭梧勹繧ｪ繝悶ず繧ｧ繧ｯ繝医ｒ隕九∴繧九ｈ縺・↓縺吶ｋ */
++    }
++
++    /* 繝倥ャ繝繝ｼ縺ｮ譛驕ｩ蛹厄ｼ喨Phone縺ｮ繧ｻ繝ｼ繝輔お繝ｪ繧｢・医ヮ繝・メ驛ｨ蛻・ｼ峨ｒ鮟偵〒蝓九ａ繧・*/
++    .header {
++        background-color: #000 !important;
++        padding-top: calc(env(safe-area-inset-top) + 0.6rem) !important;
++        padding-bottom: 0.6rem !important;
++        box-shadow: 0 1px 10px rgba(0, 243, 255, 0.2) !important;
++        border-bottom: 1px solid rgba(0, 243, 255, 0.4) !important;
++    }
++
+     /* 繝倥ャ繝繝ｼ繝ｪ繝ｳ繧ｯ繧偵ヰ繝ｩ繝ｳ繧ｹ濶ｯ縺丈ｸ陦後↓髮・ｴ・*/
+     .nav ul {
+         display: flex !important;
+@@ -224,11 +243,17 @@
+         margin-top: 1rem !important;
+     }
+ 
+-    /* 繝倥ャ繝繝ｼ縺ｮ陬・｣ｾ邯ｭ謖・*/
++    /* 繝倥ャ繝繝ｼ縺ｮ陬・｣ｾ邯ｭ謖・ｼ壹せ繝・・繧ｿ繧ｹ繝舌・縺ｨ縺ｮ濶ｲ繧堤ｵｱ荳 */
+     .header {
+         width: 100% !important;
+         z-index: 1000 !important;
+-        background: rgba(2, 6, 12, 0.98) !important;
++        background: #000 !important;
++    }
++
++    /* 繝励Ο繧ｸ繧ｧ繧ｯ繝郁ｪｬ譏取枚遲峨・謾ｹ陦梧怙驕ｩ蛹厄ｼ郁恭蜊倩ｪ槭ｒ讌ｵ蜉帷ｶｭ謖√＠縲∫ｫｯ縺ｧ謚倥ｊ霑斐☆・・*/
++    .card-text {
++        word-break: normal !important;
++        overflow-wrap: break-word !important;
+     }
+     .main-content {
+         padding-top: 0 !important; /* Flexbox縺ｫ繧医ｊ荳崎ｦ√↓縺ｪ縺｣縺溘◆繧∝炎髯､ */
+diff --git a/css/style.css b/css/style.css
+index 3b5c1eb..741f3ed 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -1304,8 +1304,8 @@ body.closing::before {
+ @keyframes sf-blip-flash { 0%,80%,100% { opacity:0; } 40% { opacity:1; } }
+ 
+ /* 騾壻ｿ｡繧｢繝ｼ繧ｯ */
+-.sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2s ease-in-out infinite; }
+-@keyframes sf-arc-pulse { 0%,100% { opacity:0; stroke-dashoffset:200; } 50% { opacity:1; stroke-dashoffset:0; } }
++.sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2.4s ease-in-out infinite; }
++@keyframes sf-arc-pulse { 0%,100% { opacity:0; } 50% { opacity:1; } }
+ 
+ /* 騾壻ｿ｡繝代Ν繧ｹ繝ｪ繝ｳ繧ｰ */
+ .sf-comm-pulse { transform-origin: 60px 72px; animation: sf-comm-expand 2s ease-out infinite; }
+diff --git a/index.html b/index.html
+index a47b5ca..ca84784 100644
+--- a/index.html
++++ b/index.html
+@@ -3,7 +3,8 @@
+ <head>
+     <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>螟ｧ豎・閨也函 | Laboratory Archive</title>
+     <meta name="description" content="遖丈ｺ募､ｧ蟄ｦ 讖倡皮ｩｶ螳､ 螟ｧ豎溯＊逕溘・閾ｪ蟾ｱ邏ｹ莉九・繝ｼ繧ｸ縺ｧ縺吶・>
+     <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+@@ -490,7 +491,7 @@
+                                                 </radialGradient>
+                                             </defs>
+                                             <!-- 蝗櫁ｻ｢縺吶ｋ螟門捉繝・ぅ繝・け -->
+-                                            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="4 8.85" class="spin-cw" />
++                                            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="4 9.05" class="spin-cw" />
+                                             <!-- 繝ｭ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ繝斐Φ -->
+                                             <circle cx="60" cy="60" r="5" fill="var(--color-primary)" />
+                                             <circle cx="60" cy="60" r="9" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-ping-ring" />
+@@ -499,7 +500,7 @@
+                                             <circle cx="80" cy="38" r="2.5" fill="var(--color-primary)" class="sf-blip" style="animation-delay:0.4s" />
+                                             <circle cx="35" cy="72" r="2" fill="var(--color-primary)" class="sf-blip" style="animation-delay:1.2s" opacity="0.7" />
+                                         </svg>
+-                                        <div class="sf-obj-scanline"></div>
++
+                                         <div class="sf-obj-label">
+                                             <span class="sf-label-bracket">[</span>
+                                             GEO_SCAN
+@@ -541,9 +542,9 @@
+                                             <ellipse cx="60" cy="75" rx="50" ry="8" fill="none" stroke="var(--color-primary)" stroke-width="0.5" opacity="0.4" />
+                                             <ellipse cx="60" cy="75" rx="35" ry="6" fill="none" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.3" />
+                                             <!-- 髮ｻ豕｢謾ｾ蟆・い繝ｼ繧ｯ・井ｸ九°繧我ｸ奇ｼ・-->
+-                                            <path d="M 32 65 Q 60 30, 88 65" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-comm-arc" style="animation-delay:0s" />
+-                                            <path d="M 22 72 Q 60 15, 98 72" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-arc" style="animation-delay:0.6s; opacity:0.7" />
+-                                            <path d="M 12 78 Q 60 0, 108 78" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-arc" style="animation-delay:1.2s; opacity:0.4" />
++                                            <path d="M 46 66 Q 60 52, 74 66" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-comm-arc" style="animation-delay:0s" />
++                                            <path d="M 35 58 Q 60 30, 85 58" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-arc" style="animation-delay:0.6s; opacity:0.7" />
++                                            <path d="M 25 45 Q 60 5, 95 45" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-arc" style="animation-delay:1.2s; opacity:0.4" />
+                                             <!-- 騾∝女菫｡繝弱・繝会ｼ井ｸｭ蠢・ｼ・-->
+                                             <polygon points="60,52 65,70 60,67 55,70" fill="var(--color-primary)" class="pulse-op" />
+                                             <circle cx="60" cy="72" r="6" fill="rgba(0,243,255,0.15)" stroke="var(--color-primary)" stroke-width="1.5" />
+@@ -560,7 +561,7 @@
+                                             <line x1="57" y1="95" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                                             <line x1="92" y1="88" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                                         </svg>
+-                                        <div class="sf-obj-scanline"></div>
++
+                                         <div class="sf-obj-label">
+                                             <span class="sf-label-bracket">[</span>
+                                             Q_COMM
+diff --git a/js/script.js b/js/script.js
+index 2015225..57041d7 100644
+--- a/js/script.js
++++ b/js/script.js
+@@ -118,7 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
+ 
+     /* 繧ｯ繝ｪ繝・け・医・繧ｦ繧ｹ繝繧ｦ繝ｳ・画凾縺ｮ豕｢邏九お繝輔ぉ繧ｯ繝磯幕蟋・*/
+     window.addEventListener('mousedown', (e) => {
+-        createRipple(e.clientX, e.clientY);
++        // 繧ｿ繝・メ繝・ヰ繧､繧ｹ莉･螟厄ｼ医・繧ｦ繧ｹ謫堺ｽ懶ｼ峨・蝣ｴ蜷医・縺ｿ螳溯｡・+        if (window.matchMedia('(pointer: fine)').matches) {
++            createRipple(e.clientX, e.clientY);
++        }
+     });
+ 
+ 
+@@ -273,10 +276,8 @@ function initCyberHUD() {
+     giantRing.style.top = '50%';
+     giantRing.style.left = '50%';
+     giantRing.style.transform = 'translate(-50%, -50%)';
+-    giantRing.style.width = '100vw';
+-    giantRing.style.height = '100vw';
+-    giantRing.style.maxWidth = '1000px';
+-    giantRing.style.maxHeight = '1000px';
++    giantRing.style.width = '1000px';
++    giantRing.style.height = '1000px';
+     giantRing.style.opacity = '0.3';
+     giantRing.style.zIndex = '0'; 
+     giantRing.innerHTML = `
+@@ -337,12 +338,13 @@ function initCyberHUD() {
+     topLeft.style.height = '250px';
+     topLeft.style.opacity = '0.5';
+     topLeft.style.zIndex = '20';
++    topLeft.style.transformOrigin = 'top left';
+     topLeft.innerHTML = `
+         <svg viewBox="0 0 300 300" class="hud-ring" style="width: 100%; height: 100%;">
+             <circle cx="150" cy="150" r="140" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="40 10 10 10" fill="none" class="spin-cw" />
+             <circle cx="150" cy="150" r="100" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="5 5" fill="none" class="spin-ccw-fast" />
+             <circle cx="150" cy="150" r="70" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="50 150" fill="none" class="spin-cw-fast" />
+-            <path d="M 150 0 L 150 300 M 0 150 L 300 150" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"/>
++            <path d="M 150 10 L 150 290 M 10 150 L 290 150" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"/>
+             <circle cx="150" cy="150" r="20" stroke="var(--color-primary)" stroke-width="1" fill="none" class="pulse-op"/>
+         </svg>
+     `;
+@@ -357,14 +359,15 @@ function initCyberHUD() {
+     bottomLeft.style.height = '120px';
+     bottomLeft.style.opacity = '0.9';
+     bottomLeft.style.zIndex = '20';
++    bottomLeft.style.transformOrigin = 'bottom left';
+     
+     bottomLeft.innerHTML = `
+         <!-- 閭梧勹繝輔Ξ繝ｼ繝縺ｨ蝗ｺ螳夊｣・｣ｾ -->
+         <svg viewBox="0 0 400 120" style="position: absolute; top:0; left:0; width: 100%; height: 100%; filter: drop-shadow(0 0 5px var(--color-primary)); z-index: 1;">
+             
+-            <!-- 荳企Κ陬・｣ｾ繝舌・・亥ｷｦ蛛ｴ縺ｫ蟒ｶ髟ｷ縺励∝・蠖｢繧ｲ繝ｼ繧ｸ縺ｮ荳九ｒ貎懊ｋ繧医≧縺ｫ驟咲ｽｮ・・-->
++            <!-- 荳企Κ陬・｣ｾ繝舌・ -->
+             <path d="M 70 25 L 320 25 L 330 35 L 70 35 Z" fill="var(--color-primary-dim)" />
+-            <!-- 繝｡繧､繝ｳ繝励Ο繧ｰ繝ｬ繧ｹ繝舌・縺ｮ譫邱夲ｼ郁レ譎ｯ濶ｲ繧偵げ繝ｬ繝ｼ邉ｻ縺ｫ隱ｿ謨ｴ縺励∝ｽ｢迥ｶ繧堤｢ｺ螳夲ｼ・-->
++            <!-- 繝｡繧､繝ｳ繝励Ο繧ｰ繝ｬ繧ｹ繝舌・縺ｮ譫邱・-->
+             <path d="M 74.5 35 L 350 35 L 370 55 L 350 75 L 60 75 Z" fill="rgba(255, 255, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
+             <!-- 荳矩Κ陬・｣ｾ邱壹→繝・く繧ｹ繝・-->
+             <path d="M 115 80 L 300 80 L 310 90 L 115 90 Z" fill="none" stroke="var(--color-primary)" stroke-width="1.5" />
+@@ -431,7 +434,13 @@ function initCyberHUD() {
+     setInterval(() => {
+         if (isComplete || isWaitingForStart) return;
+ 
+-        dlProgress += Math.random() * 0.3 + 0.1; 
++        // 騾ｲ謐鈴溷ｺｦ繧定ｪｿ謨ｴ・・+        // 騾壼ｸｸ譎ゑｼ壼ｹｳ蝮・〒1遘帝俣縺ｫ邏・%・・0ms縺ゅ◆繧雁ｹｳ蝮・0.12 蜉邂暦ｼ・+        // 95%莉･髯搾ｼ壼●貊樊─繧貞・縺吶◆繧∝､ｧ蟷・↓貂幃滂ｼ・遘帝俣縺ｫ邏・.4%遞句ｺｦ・・+        let currentIncrement = (dlProgress < 95) 
++            ? (Math.random() * 0.16 + 0.04)  // 0.04 ~ 0.20 (蟷ｳ蝮・0.12)
++            : (Math.random() * 0.02 + 0.005); // 0.005 ~ 0.025 (蟷ｳ蝮・0.015)
++        dlProgress += currentIncrement;
+ 
+         if (dlProgress >= 100) {
+             dlProgress = 100;
+@@ -455,37 +464,33 @@ function initCyberHUD() {
+             if (dlStatusText) {
+                 dlStatusText.textContent = 'TRANSFER_COMPLETE';
+                 dlStatusText.setAttribute('fill', '#fff');
++                dlStatusText.style.textShadow = '0 0 10px #fff';
+             }
+ 
+-            /* 3遘貞ｾ後↓繝ｪ繧ｻ繝・ヨ縺励※繝ｫ繝ｼ繝励＆縺帙ｋ */
++            /* 3遘貞ｾ後↓縲悟ｮ牙ｮ夂憾諷九阪∈遘ｻ陦後＠縺ｦ蛛懈ｭ｢ */
+             setTimeout(() => {
+-                dlProgress = 0;
+-                isComplete = false;
+-                isWaitingForStart = true;
+-                
+-                dlText.textContent = '0%';
++                // 濶ｲ繧偵し繧､繝舌・繧ｫ繝ｩ繝ｼ縺ｫ謌ｻ縺・                 dlText.style.color = 'var(--color-primary)';
+                 dlText.style.textShadow = '0 0 8px var(--color-primary)';
+                 
+                 dlArc.style.stroke = 'var(--color-primary)';
+                 dlArc.style.filter = 'none';
+-                dlArc.style.strokeDashoffset = 261;
+                 
+                 for(let i=0; i<totalSegments; i++) {
+-                    children[i].style.backgroundColor = 'var(--color-primary-dim)';
+-                    children[i].style.boxShadow = 'none';
++                    children[i].style.backgroundColor = 'var(--color-primary)';
++                    children[i].style.boxShadow = '0 0 5px var(--color-primary)';
+                 }
+-                
++
++                // 繧ｹ繝・・繧ｿ繧ｹ繧偵悟ｮ御ｺ・・菫晁ｭｷ貂医∩縲阪↓螟画峩
+                 if (dlStatusText) {
+-                    dlStatusText.textContent = 'LOADING_DATA...';
++                    dlStatusText.textContent = 'SYSTEM_SECURED';
+                     dlStatusText.setAttribute('fill', 'var(--color-primary)');
++                    dlStatusText.style.textShadow = 'none';
+                 }
+-
+-                setTimeout(() => {
+-                    isWaitingForStart = false;
+-                }, 3000);
+-
++                
++                // 縺薙％縺ｧ繝ｪ繧ｻ繝・ヨ蜃ｦ逅・ｒ蜻ｼ縺ｰ縺壹↓邨ゆｺ・☆繧九％縺ｨ縺ｧ縲・00%迥ｶ諷九〒髱呎ｭ｢縺吶ｋ
+             }, 3000);
++
+             return;
+         }
+ 
+@@ -512,75 +517,266 @@ function initCyberHUD() {
+     /* 蜿ｳ荳翫・繧ｷ繧ｹ繝・Β繝ｪ繧ｽ繝ｼ繧ｹ逶｣隕悶ヱ繝阪Ν繧堤函謌・*/
+     const topRight = document.createElement('div');
+     topRight.style.position = 'absolute';
+-    topRight.style.top = '3%';
++    topRight.style.top = '6%';
+     topRight.style.right = '3%';
+     topRight.style.width = '300px';
+-    topRight.style.height = '150px';
++    topRight.style.height = '130px';
+     topRight.style.opacity = '0.7';
+     topRight.style.zIndex = '20';
+-    topRight.style.border = '1px solid var(--color-primary)';
++    topRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
+     topRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
+     topRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
+     topRight.style.display = 'flex';
+     topRight.style.flexDirection = 'column';
+     topRight.style.overflow = 'hidden';
++    topRight.style.transformOrigin = 'top right';
+ 
+     /* 蜀・Κ縺ｮ繧ｰ繝ｩ繝輔ヰ繝ｼ隕∫ｴ繧偵Λ繝ｳ繝繝縺ｫ逕滓・ */
+     let bars = '';
++    const barStates = []; // 蜷・ヰ繝ｼ縺ｮ迥ｶ諷九ｒ邂｡逅・     for(let i=0; i<12; i++) {
+-        let delay = Math.random() * 2;
+-        let maxWidth = Math.random() * 80 + 20; 
+-        bars += `<div style="height: 3px; margin-bottom: 3px; background: var(--color-primary); box-shadow: 0 0 5px var(--color-primary); max-width: ${maxWidth}%; width: 100%; animation: pulse-width 1s ease-in-out infinite alternate ${delay}s;"></div>`;
++        let initialWidth = Math.random() * 50 + 30; 
++        barStates.push({
++            current: initialWidth,
++            target: initialWidth,
++            timer: Math.random() * 100 // 譖ｴ譁ｰ繧ｿ繧､繝溘Φ繧ｰ繧偵★繧峨☆
++        });
++        bars += `<div class="mem-bar" style="height: 2px; margin-bottom: 4px; background: rgba(0, 243, 255, 0.4); box-shadow: 0 0 2px rgba(0, 243, 255, 0.2); max-width: ${initialWidth}%; width: 100%;"></div>`;
+     }
+ 
+     topRight.innerHTML = `
+-        <div style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--color-primary); border-bottom: 1px solid var(--color-primary); text-shadow: 0 0 5px var(--color-primary); display: flex; justify-content: space-between;">
++        <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); display: flex; justify-content: space-between;">
+             <span>SYS_MEM // ALLOC</span>
+-            <span class="pulse-op">94.2%</span>
++            <span class="pulse-op"><span id="mem-val">94.2</span>%</span>
+         </div>
+-        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; border-left: 2px solid var(--color-primary); margin: 5px 10px;">
+-            ${bars}
++        <div style="flex: 1; display: flex; padding: 5px 15px; overflow: hidden;">
++            <div style="width: 2px; height: 85%; background: rgba(0, 243, 255, 0.4); align-self: center;"></div>
++            <div id="mem-bars-container" style="flex: 1; padding: 0 8px; display: flex; flex-direction: column; justify-content: center;">
++                ${bars}
++            </div>
+         </div>
+     `;
+     bg.appendChild(topRight);
+ 
++    /* 繧ｷ繧ｹ繝・Β繝｢繝九ち繝ｼ繧帝｣邯壹い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ縺ｧ譖ｴ譁ｰ */
++    function animateSystemMonitor() {
++        const barEls = topRight.querySelectorAll('.mem-bar');
++        const memVal = topRight.querySelector('#mem-val');
++        let totalWidth = 0;
++
++        barEls.forEach((bar, i) => {
++            const state = barStates[i];
++            
++            // 謨ｰ遘偵♀縺阪↓繧ｿ繝ｼ繧ｲ繝・ヨ繧呈峩譁ｰ
++            state.timer++;
++            if (state.timer > 200 + Math.random() * 100) {
++                state.target = Math.random() * 60 + 30;
++                state.timer = 0;
++            }
++
++            // 逶ｮ讓吝､縺ｸ縺ｮ邱ｩ繧・°縺ｪ遘ｻ蜍・+ 蠕ｮ邏ｰ縺ｪ繝弱う繧ｺ(jitter)
++            const jitter = (Math.random() - 0.5) * 0.8;
++            state.current += (state.target - state.current) * 0.02;
++            
++            const finalWidth = Math.max(10, Math.min(100, state.current + jitter));
++            bar.style.maxWidth = `${finalWidth}%`;
++            totalWidth += finalWidth;
++        });
++
++        // ・・｡ｨ遉ｺ繧ゅヰ繝ｼ縺ｮ蟷ｳ蝮・､縺ｫ繧・ｋ縺城｣蜍輔＆縺帙ｋ
++        if (memVal && Math.random() > 0.9) {
++            const avg = totalWidth / 12;
++            const displayMem = 85 + (avg / 100) * 15; // 85-100%縺ｮ遽・峇縺ｫ繝槭ャ繝・+            memVal.textContent = displayMem.toFixed(1);
++        }
++
++        requestAnimationFrame(animateSystemMonitor);
++    }
++    animateSystemMonitor();
++
+     /* 蜿ｳ荳九・豕｢蠖｢蜻ｨ豕｢謨ｰ繧ｰ繝ｩ繝戊｣・｣ｾ繧堤函謌・*/
+     const bottomRight = document.createElement('div');
+     bottomRight.style.position = 'absolute';
+-    bottomRight.style.bottom = '3%';
+-    bottomRight.style.right = '3%';
++    bottomRight.style.top = '25%';
++    bottomRight.style.right = '7%';
+     bottomRight.style.width = '300px';
+-    bottomRight.style.height = '150px';
++    bottomRight.style.height = '130px';
+     bottomRight.style.opacity = '0.7';
+-    bottomRight.style.zIndex = '20';
+-    bottomRight.style.border = '1px solid var(--color-primary)';
++    bottomRight.style.zIndex = '21';
++    bottomRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
+     bottomRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
++    bottomRight.style.backdropFilter = 'none';
+     bottomRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
+     bottomRight.style.display = 'flex';
+     bottomRight.style.flexDirection = 'column';
+     bottomRight.style.justifyContent = 'flex-end';
+     bottomRight.style.overflow = 'hidden';
++    bottomRight.style.transformOrigin = 'top right';
+     
+     /* 騾｣邯壹☆繧区ｳ｢蠖｢縺ｮ繝代せ繝・・繧ｿ繧堤函謌・*/
+-    let wavePath = "M 0 50 ";
+-    const peaks = 20; 
+-    const step = 30; 
+-    for (let i=0; i<peaks; i++) {
+-        let sx = i * step;
+-        wavePath += `Q ${sx + 7.5} 0, ${sx + 15} 50 T ${sx + 30} 50 `;
+-    }
+-    
++    const waveSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
++    waveSvg.setAttribute("viewBox", "0 0 300 100");
++    waveSvg.setAttribute("preserveAspectRatio", "none");
++    waveSvg.style.width = "100%";
++    waveSvg.style.height = "100%";
++    waveSvg.style.position = "absolute";
++    waveSvg.style.left = "0";
++
++    const wavePathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
++    wavePathEl.setAttribute("fill", "none");
++    wavePathEl.setAttribute("stroke", "var(--color-primary)");
++    wavePathEl.setAttribute("stroke-opacity", "0.35");
++    wavePathEl.setAttribute("stroke-width", "2");
++    wavePathEl.style.filter = "drop-shadow(0 0 3px rgba(0, 243, 255, 0.4))";
++    waveSvg.appendChild(wavePathEl);
++
++    bottomRight.style.overflow = 'visible';
+     bottomRight.innerHTML = `
+-        <div style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--color-primary); border-bottom: 1px solid var(--color-primary); text-shadow: 0 0 5px var(--color-primary);">
+-            FREQ_ANALYSIS // 84.992Mhz
++        <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); background: var(--color-bg-main); position: absolute; top: -26px; left: -1px; width: calc(100% + 2px); height: 32px; border: 1px solid rgba(0, 243, 255, 0.4); border-bottom: 1px solid rgba(0, 243, 255, 0.4); display: flex; align-items: center; box-sizing: border-box; z-index: 2;">
++            FREQ_ANALYSIS // <span id="freq-val" style="margin-left: 5px;">---</span> kHz
+         </div>
+-        <div style="position: relative; width: 100%; height: 100px; overflow: hidden;">
+-            <svg viewBox="0 0 ${peaks*step} 100" preserveAspectRatio="none" style="width: 200%; height: 100%; position: absolute; left: 0; animation: wave-slide 5s linear infinite;">
+-                <path d="${wavePath}" fill="none" stroke="var(--color-primary)" stroke-width="2" style="filter: drop-shadow(0 0 5px var(--color-primary));" />
+-            </svg>
++        <div id="wave-container" style="position: relative; width: 100%; height: 100%; padding-top: 6px; box-sizing: border-box; display: flex; align-items: center; overflow: hidden; background: transparent;">
+         </div>
+     `;
++    bottomRight.querySelector('#wave-container').appendChild(waveSvg);
+     bg.appendChild(bottomRight);
++
++    /* 騾｣邯壹い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ逕ｨ縺ｮ螟画焚 */
++    let currentFreq = 2;
++    let targetFreq = 2;
++    let currentAmp = 20;
++    let targetAmp = 20;
++    let currentPhase = 0;
++
++    /* 豕｢蠖｢繧帝｣邯夂噪縺ｫ謠冗判縺吶ｋ髢｢謨ｰ */
++    function animateWaveform() {
++        const points = 50; 
++        const width = 300;
++        const step = width / (points - 1);
++        
++        // 逶ｮ讓吝､縺ｸ縺ｮ邱ｩ繧・°縺ｪ陬懷ｮ・(Lerp)
++        currentFreq += (targetFreq - currentFreq) * 0.01;
++        currentAmp += (targetAmp - currentAmp) * 0.01;
++        
++        // 菴咲嶌繧貞ｸｸ縺ｫ騾ｲ繧√ｋ (蜍輔″邯壹￠繧・
++        currentPhase += 0.05;
++        
++        let d = `M 0 ${50 + Math.sin(currentPhase) * currentAmp} `;
++        for (let i = 1; i < points; i++) {
++            const x = i * step;
++            const y = 50 + Math.sin((i / (points - 1)) * Math.PI * 2 * currentFreq + currentPhase) * currentAmp;
++            d += `L ${x} ${y} `;
++        }
++        wavePathEl.setAttribute('d', d);
++
++        // 謨ｰ蛟､繧堤樟蝨ｨ縺ｮ蜻ｨ豕｢謨ｰ縺ｨ騾｣蜍輔＆縺帙※譖ｴ譁ｰ
++        const freqVal = bottomRight.querySelector('#freq-val');
++        if (freqVal) {
++            // currentFreq(1縲・)繧偵せ繧ｱ繝ｼ繝ｫ繧｢繝・・縺励※陦ｨ遉ｺ
++            const displayFreq = (currentFreq * 125.4).toFixed(2);
++            freqVal.textContent = displayFreq;
++        }
++
++        requestAnimationFrame(animateWaveform);
++    }
++
++    /* 3縺､逶ｮ縺ｮ繧ｪ繝悶ず繧ｧ繧ｯ繝・ 繝槭Ν繝√Ξ繧､繝､繝ｼ繝ｻ繧ｵ繧､繝舌・繝ｻ繝繧､繝､繝ｫ (雜・､ｧ蝙九・逕ｻ髱｢螟悶・縺ｿ蜃ｺ縺玲ｼ泌・) */
++    const dialSize = 500;
++    const cyberDial = document.createElement('div');
++    cyberDial.id = 'cyber-dial';
++    cyberDial.style.position = 'absolute';
++    cyberDial.style.bottom = '-80px';
++    cyberDial.style.right = '-80px';
++    cyberDial.style.width = `${dialSize}px`;
++    cyberDial.style.height = `${dialSize}px`;
++    cyberDial.style.opacity = '0.35';
++    cyberDial.style.zIndex = '18';
++    cyberDial.style.pointerEvents = 'none';
++    cyberDial.style.transformOrigin = 'center center';
++
++    cyberDial.innerHTML = `
++        <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 3px var(--color-primary-dim));">
++            <!-- 閭梧勹繝峨ャ繝亥ｱ､ -->
++            <circle cx="50" cy="50" r="49.5" fill="none" stroke="var(--color-primary)" stroke-width="0.3" pathLength="200" stroke-dasharray="0.2, 0.8" stroke-opacity="0.15" style="transform-origin: 50px 50px; animation: rotate-scanner 120s linear infinite;" />
++            
++            <!-- 螟門・繝｡繧､繝ｳ莠碁㍾讒矩 (邯ｭ謖・ -->
++            <g style="transform-origin: 50px 50px; animation: rotate-scanner 30s linear infinite;">
++                <circle cx="50" cy="50" r="44" fill="none" stroke="var(--color-primary)" stroke-width="4" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.5" />
++                <circle cx="50" cy="50" r="41" fill="none" stroke="var(--color-primary)" stroke-width="1" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.8" />
++            </g>
++            
++            <!-- 繝｢繝ｼ繝ｫ繧ｹ菫｡蜿ｷ螻､ A: 隍・尅縺ｪ譁ｭ邯壹ヱ繝ｫ繧ｹ (蜷郁ｨ・6繝ｦ繝九ャ繝医｝athLength縺ｧ陬懈ｭ｣) -->
++            <circle cx="50" cy="50" r="36" fill="none" stroke="var(--color-primary)" stroke-width="1.5" pathLength="86" stroke-dasharray="20, 5, 2, 5, 2, 5, 30, 10, 2, 5" stroke-opacity="0.6" style="transform-origin: 50px 50px; animation: rotate-scanner 25s linear infinite reverse;" />
++            
++            <!-- 繝｢繝ｼ繝ｫ繧ｹ菫｡蜿ｷ螻､ B: 鬮倬溘ラ繝・ヨ騾壻ｿ｡ (蜷郁ｨ・2繝ｦ繝九ャ繝医・蛟阪・110縺ｧ陬懈ｭ｣) -->
++            <circle cx="50" cy="50" r="32" fill="none" stroke="var(--color-primary-dim)" stroke-width="1" pathLength="110" stroke-dasharray="1, 4, 1, 4, 8, 4" stroke-opacity="0.5" style="transform-origin: 50px 50px; animation: rotate-scanner 12s linear infinite;" />
++            
++            <!-- 繝｢繝ｼ繝ｫ繧ｹ菫｡蜿ｷ螻､ C: 蠕ｮ邏ｰ繧､繝ｳ繝翫・繧ｷ繧ｰ繝翫Ν (蜷郁ｨ・6繝ｦ繝九ャ繝医・蛟阪・128縺ｧ陬懈ｭ｣) -->
++            <circle cx="50" cy="50" r="26" fill="none" stroke="var(--color-primary)" stroke-width="0.8" pathLength="128" stroke-dasharray="2, 2, 10, 2" stroke-opacity="0.4" style="transform-origin: 50px 50px; animation: rotate-scanner 40s linear infinite;" />
++            
++            <!-- 繧ｻ繝ｳ繧ｿ繝ｼ繝ｻ繧ｽ繝ｪ繝・ラ繝ｻ繧ｳ繧｢ (繧ｷ繝ｳ繝励Ν) -->
++            <circle cx="50" cy="50" r="3.5" fill="var(--color-primary)" style="animation: hex-pulse 4s ease-in-out infinite alternate; transform-origin: 50px 50px;" />
++        </svg>
++    `;
++    bg.appendChild(cyberDial);
++
++    animateWaveform();
++
++    // 繝繧､繝､繝ｫ蝗櫁ｻ｢繝ｻ繝代Ν繧ｹ逕ｨ縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧定ｿｽ蜉
++    if (!document.getElementById('dial-style')) {
++        const style = document.createElement('style');
++        style.id = 'dial-style';
++        style.textContent = `
++            @keyframes rotate-scanner {
++                from { transform: rotate(0deg); }
++                to { transform: rotate(360deg); }
++            }
++            @keyframes hex-pulse {
++                0% { transform: scale(0.9); opacity: 0.3; }
++                100% { transform: scale(1.1); opacity: 0.8; }
++            }
++        `;
++        document.head.appendChild(style);
++    }
++
++    animateWaveform();
++
++    /* 10遘偵＃縺ｨ縺ｫ谺｡縺ｮ逶ｮ讓吝､繧定ｨｭ螳・*/
++    function pickNewTargets() {
++        targetFreq = Math.random() * 4 + 1;
++        
++        // 30%縺ｮ遒ｺ邇・〒謖ｯ蟷・ｒ髱槫ｸｸ縺ｫ蟆上＆縺擾ｼ育峩邱壹↓霑代￥・峨☆繧・+        if (Math.random() < 0.3) {
++            targetAmp = Math.random() * 4 + 1; // 1縲・縺ｮ蟆上＆縺ｪ謖ｯ蟷・+        } else {
++            targetAmp = Math.random() * 30 + 15; // 15縲・5縺ｮ騾壼ｸｸ縺ｮ謖ｯ蟷・+        }
++    }
++
++    setInterval(pickNewTargets, 10000);
++    animateWaveform();
++
++    /* 繧ｦ繧｣繝ｳ繝峨え繧ｵ繧､繧ｺ縺ｫ蠢懊§縺溷虚逧・せ繧ｱ繝ｼ繝ｫ隱ｿ謨ｴ蜃ｦ逅・*/
++    function updateHUDScale() {
++        const ww = window.innerWidth;
++        const wh = window.innerHeight;
++        // 蝓ｺ貅冶ｧ｣蜒丞ｺｦ(1920x1080)縺ｫ蟇ｾ縺吶ｋ迴ｾ蝨ｨ縺ｮ繧ｦ繧｣繝ｳ繝峨え繧ｵ繧､繧ｺ縺ｮ豈皮紫・亥腰菴阪↑縺玲焚蛟､・・+        const scale = Math.min(ww / 1920, wh / 1080);
++        
++        // 蝗幃嚆縺ｮ繧ｪ繝悶ず繧ｧ繧ｯ繝育畑縺ｫ霑ｽ蜉縺ｮ諡｡螟ｧ蛟咲紫繧貞ｮ夂ｾｩ・医％縺薙〒繧ｵ繧､繧ｺ繧定ｪｿ謨ｴ・・.6蛟搾ｼ・+        const cornerScale = scale * 1.6;
++        
++        giantRing.style.transform = `translate(-50%, -50%) scale(${scale})`;
++        topLeft.style.transform = `scale(${cornerScale})`;
++        bottomLeft.style.transform = `scale(${cornerScale})`;
++        topRight.style.transform = `scale(${cornerScale})`;
++        bottomRight.style.transform = `scale(${cornerScale})`;
++        if(netStream) netStream.style.transform = `scale(${cornerScale})`;
++    }
++
++    // 蛻晏屓螳溯｡後→繝ｪ繧ｵ繧､繧ｺ繧､繝吶Φ繝医・逋ｻ骭ｲ
++    updateHUDScale();
++    window.addEventListener('resize', updateHUDScale);
+ }
+ 
+ /* 縺頑ｰ励↓蜈･繧翫ｄ菴懷刀繝ｪ繝ｳ繧ｯ繧偵け繝ｪ繝・け縺励◆髫帙・繝壹・繧ｸ驕ｷ遘ｻ貍泌・ */

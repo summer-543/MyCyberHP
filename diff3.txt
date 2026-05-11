@@ -1,0 +1,2720 @@
+﻿diff --git a/books.html b/books.html
+index ea2193b..cb0c0ef 100644
+--- a/books.html
++++ b/books.html
+@@ -1,22 +1,18 @@
+ <!DOCTYPE html>
+ <html lang="ja">
+ <head>
+-    <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>Books | Laboratory Archive</title>
+-    <meta name="description" content="諢幄ｪｭ譖ｸ繧・♀縺吶☆繧√・譖ｸ邀・>
+-    <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/style.css">
++    <link rel="stylesheet" href="css/mobile.css">
+ </head>
+ <body>
+-    <!-- 繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ -->
+     <div id="cyber-bg" class="cyber-bg"></div>
+-
+-    <!-- 繝壹・繧ｸ荳企Κ縺ｮ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝倥ャ繝繝ｼ -->
+     <header class="header">
+         <div class="container">
+             <nav class="nav">
+@@ -25,83 +21,33 @@
+                     <li><a href="index.html#research">Research</a></li>
+                     <li><a href="index.html#skills">Skills</a></li>
+                     <li><a href="index.html#projects">Projects</a></li>
+-                    <li><a href="index.html#favorites">Favorites</a></li>
++                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
+                     <li><a href="index.html#contact">Contact</a></li>
+                 </ul>
+             </nav>
+         </div>
+     </header>
+-
+     <main class="main-content">
+-        <!-- 謌ｻ繧九・繧ｿ繝ｳ縺ｮ繧ｨ繝ｪ繧｢ -->
+         <div class="container">
+             <div class="back-btn-container">
+                 <a href="index.html#favorites" class="back-btn">
+-                    <svg viewBox="0 0 24 24">
+-                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+-                    </svg>
++                    <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+                     <span>Return to Database</span>
+                 </a>
+             </div>
+-        </div>
+-
+-        <!-- 譖ｸ邀阪い繝ｼ繧ｫ繧､繝悶そ繧ｯ繧ｷ繝ｧ繝ｳ -->
+-        <section class="section">
+-            <div class="container animate-on-scroll">
++            <section class="section">
+                 <div class="hud-panel">
+-                <h2 class="section-title">Books Archive</h2>
+-                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+-                    蠖ｱ髻ｿ繧貞女縺代◆謚陦捺嶌繧・∵・謚懊″縺ｫ隱ｭ繧蟆剰ｪｬ繝ｻ繝槭Φ繧ｬ縺ｮ險倬鹸縺ｧ縺吶・-                </p>
+-
+-                <!-- 蛟句挨縺ｮ譖ｸ邀阪き繝ｼ繝峨Μ繧ｹ繝・-->
+-                <div class="grid">
+-                    <!-- 謚陦捺嶌繧ｫ繝ｼ繝・-->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">謚陦捺嶌 / 蟆る摩譖ｸ</h3>
+-                        <p class="card-text">
+-                            <strong>Favorite Book:</strong> 繝ｪ繝ｼ繝繝悶Ν繧ｳ繝ｼ繝・br><br>
+-                            繝励Ο繧ｰ繝ｩ繝溘Φ繧ｰ縺ｫ蟇ｾ縺吶ｋ諢剰ｭ倥′螟ｧ縺阪￥螟峨ｏ縺｣縺滉ｸ蜀翫〒縺吶・-                        </p>
+-                    </div>
+-                    
+-                    <!-- 蟆剰ｪｬ繧ｫ繝ｼ繝・-->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">蟆剰ｪｬ</h3>
+-                        <p class="card-text">
+-                            <strong>Favorite Author:</strong> 繝繝溘・菴懷ｮｶ<br><br>
+-                            SF蟆剰ｪｬ縺悟･ｽ縺阪〒縲∫音縺ｫ螳・ｮ吶ｄAI繧偵ユ繝ｼ繝槭↓縺励◆菴懷刀繧偵ｈ縺剰ｪｭ縺ｿ縺ｾ縺吶・-                        </p>
++                    <h2 class="section-title">Books Archive</h2>
++                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">謚陦捺嶌繧・ｰ剰ｪｬ縺ｪ縺ｩ縺ｮ繧｢繝ｼ繧ｫ繧､繝悶〒縺吶・/p>
++                    <div class="grid">
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">謚陦捺嶌</h3><p class="card-text">蟆る摩蛻・㍽縺ｮ譁・鍵縺ｧ縺吶・/p></div>
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">蟆剰ｪｬ</h3><p class="card-text">SF繧・Α繧ｹ繝・Μ繝ｼ繧貞･ｽ縺ｿ縺ｾ縺吶・/p></div>
+                     </div>
+-                    
+-                    <!-- 繝槭Φ繧ｬ繧ｫ繝ｼ繝・-->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">繝槭Φ繧ｬ</h3>
+-                        <p class="card-text">
+-                            <strong>Favorite Genre:</strong> 譌･蟶ｸ邉ｻ繝ｻ繝輔ぃ繝ｳ繧ｿ繧ｸ繝ｼ<br><br>
+-                            遐皮ｩｶ縺ｫ陦後″隧ｰ縺ｾ縺｣縺滓凾縺ｮ譛鬮倥・繝ｪ繝輔Ξ繝・す繝･謇区ｮｵ縺ｧ縺吶・-                        </p>
+-                    </div>
+-                </div>
+                 </div>
+-            </div>
+-        </section>
+-    </main>
+-
+-    <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
+-    <footer class="footer">
+-        <div class="container">
+-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
++            </section>
+         </div>
+-    </footer>
+-
+-    <!-- 繧ｹ繧ｯ繝ｪ繝励ヨ繝輔ぃ繧､繝ｫ縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ -->
++        <footer class="footer"><div class="container"><p>&copy; 2026 Sei Ooe. All rights reserved.</p></div></footer>
++    </main>
+     <script src="js/script.js"></script>
+ </body>
+ </html>
+diff --git a/css/mobile.css b/css/mobile.css
+new file mode 100644
+index 0000000..34d2d84
+--- /dev/null
++++ b/css/mobile.css
+@@ -0,0 +1,314 @@
++/* ==========================================================================
++   MOBILE & RESPONSIVE STYLES - FINAL REFINEMENT
++   ========================================================================== */
++
++/* 950px莉･荳九・繧ｿ繝悶Ξ繝・ヨ繝ｻ荳ｭ逕ｻ髱｢繧ｵ繧､繧ｺ蜷代￠隱ｿ謨ｴ */
++@media (max-width: 950px) {
++    /* 蜈ｨ菴鍋噪縺ｪ譁・ｭ玲ｺ｢繧後・蜊倩ｪ樣比ｸｭ謾ｹ陦後・髦ｲ豁｢ */
++    * {
++        word-break: keep-all;
++        overflow-wrap: anywhere;
++    }
++
++    /* 繝励Ο繝輔ぅ繝ｼ繝ｫ繧ｰ繝ｪ繝・ラ繧堤ｸｦ荳ｦ縺ｳ縺ｫ蛻・ｊ譖ｿ縺・*/
++    .personnel-grid {
++        grid-template-columns: 1fr !important;
++        gap: 2rem !important;
++    }
++
++    /* 繝｢繝舌う繝ｫ迚医〒縺ｯ繝励Ο繝輔ぅ繝ｼ繝ｫ谺・・蜈ｨ繧ｪ繝悶ず繧ｧ繧ｯ繝茨ｼ亥・逵溘・繧ｰ繝ｩ繝慕ｭ会ｼ峨ｒ髱櫁｡ｨ遉ｺ */
++    .personnel-photo-container {
++        display: none !important;
++    }
++
++    /* 蜷榊燕縺ｨ繝ｭ繝ｼ繝槫ｭ励・驟咲ｽｮ隱ｿ謨ｴ */
++    .data-header {
++        display: block !important; /* 蟄占ｦ∫ｴ縺後↑縺・◆繧√す繝ｳ繝励Ν縺ｪ繝悶Ο繝・け驟咲ｽｮ縺ｸ */
++        border-bottom: 2px solid var(--color-primary) !important;
++        padding-bottom: 1rem !important;
++    }
++    /* 蜷榊燕縺ｨ繝ｭ繝ｼ繝槫ｭ励・驟咲ｽｮ隱ｿ謨ｴ・壽ｨｪ荳ｦ縺ｳ・・ow・峨↓螟画峩 */
++    .data-header h1 {
++        font-size: 1.4rem !important;
++        display: flex !important;
++        flex-direction: row !important;
++        align-items: baseline !important;
++        gap: 0.8rem !important;
++        line-height: 1.2 !important;
++        margin: 0 !important;
++        text-align: left !important;
++    }
++    .name-block {
++        display: flex !important;
++        flex-direction: row !important;
++        align-items: baseline !important;
++        flex: 1;
++        justify-content: flex-start !important;
++    }
++    .name-romaji {
++        display: inline-block !important;
++        font-size: 0.8rem !important;
++        opacity: 0.7;
++        white-space: nowrap !important;
++    }
++    /* 繧ｹ繝・・繧ｿ繧ｹ繝舌ャ繧ｸ繧帝撼陦ｨ遉ｺ */
++    .status-badge {
++        display: none !important;
++    }
++
++    /* 繝｢繝舌う繝ｫ逕ｨ繝溘ル逕ｻ蜒上ｂ蜑企勁 */
++    .mobile-avatar-mini {
++        display: none !important;
++    }
++
++    /* 繝励Ο繝輔ぅ繝ｼ繝ｫ繝・・繝悶Ν縺ｮ隱ｿ謨ｴ・夊ｦ句・縺励・謚倥ｊ霑斐＠繧堤ｦ∵ｭ｢ */
++    .cyber-data-table th {
++        width: auto !important;
++        min-width: 100px !important;
++        white-space: nowrap !important;
++        padding: 0.8rem 0.4rem !important;
++        font-size: 0.75rem !important;
++    }
++    .cyber-data-table td {
++        padding: 0.8rem 0.4rem !important;
++        font-size: 0.9rem !important;
++    }
++    .no-break {
++        white-space: nowrap !important;
++    }
++
++    /* 讖溷ｯ・・繝ｼ繧ｯ繧帝撼陦ｨ遉ｺ */
++    .confidential-mark {
++        display: none !important;
++    }
++
++    /* 繧ｿ繧､繝繝ｩ繧､繝ｳ繝ｭ繧ｰ縺ｮ繝ｬ繧､繧｢繧ｦ繝井ｿｮ豁｣・亥ｭｦ豁ｴ縺ｪ縺ｩ・・*/
++    .timeline-item {
++        display: flex;
++        flex-direction: column !important;
++        align-items: flex-start !important;
++        gap: 0.2rem !important;
++        margin-bottom: 0.8rem !important;
++    }
++    .timeline-label,
++    .timeline-content {
++        font-size: 0.9rem !important; /* td (0.9rem) 縺ｨ邨ｱ荳 */
++    }
++    .timeline-content {
++        padding-left: 0.5rem;
++        border-left: 1px solid var(--color-primary-dim);
++    }
++
++    /* 繝ｪ繝ｳ繧ｯ繝懊ち繝ｳ縺ｮ繧ｵ繧､繧ｺ蠕ｮ隱ｿ謨ｴ */
++    .cyber-link-btn {
++        padding: 0.4rem 1rem !important;
++        font-size: 0.8rem !important;
++    }
++}
++
++/* 768px莉･荳九・讓呎ｺ也噪縺ｪ繧ｹ繝槭・蜷代￠隱ｿ謨ｴ */
++@media (max-width: 768px) {
++    .container {
++        padding: 0 0.8rem !important;
++    }
++
++    /* 繝｢繝舌う繝ｫ迚医〒縺ｯ繝｡繝ｼ繝ｫ逕ｨ縺ｮSF繧ｪ繝悶ず繧ｧ繧ｯ繝医さ繝ｳ繝・リ繧帝撼陦ｨ遉ｺ・育ｩｺ逋ｽ繧貞炎髯､・・*/
++    .contact-sub-module:nth-child(2) .sf-object-container {
++        display: none !important;
++    }
++
++    .section {
++        padding: 1.5rem 0 !important;
++    }
++
++    html {
++        background-color: #000 !important; /* 繧ｹ繝・・繧ｿ繧ｹ繝舌・鬆伜沺縺ｮ濶ｲ蜻ｳ繧堤ｵｱ荳 */
++    }
++
++    body {
++        height: 100vh !important;
++        height: 100dvh !important; /* iOS Safari逕ｨ・壹ヤ繝ｼ繝ｫ繝舌・繧帝勁縺・◆豁｣遒ｺ縺ｪ鬮倥＆繧堤｢ｺ菫・*/
++        background-color: transparent !important; /* 閭梧勹繧ｪ繝悶ず繧ｧ繧ｯ繝医ｒ隕九∴繧九ｈ縺・↓縺吶ｋ */
++    }
++
++    /* 繝倥ャ繝繝ｼ縺ｮ譛驕ｩ蛹厄ｼ喨Phone縺ｮ繧ｻ繝ｼ繝輔お繝ｪ繧｢・医ヮ繝・メ驛ｨ蛻・ｼ峨ｒ鮟偵〒蝓九ａ繧・*/
++    .header {
++        background-color: #000 !important;
++        padding-top: calc(env(safe-area-inset-top) + 0.6rem) !important;
++        padding-bottom: 0.6rem !important;
++        box-shadow: 0 1px 10px rgba(0, 243, 255, 0.2) !important;
++        border-bottom: 1px solid rgba(0, 243, 255, 0.4) !important;
++    }
++
++    /* 繝倥ャ繝繝ｼ繝ｪ繝ｳ繧ｯ繧偵ヰ繝ｩ繝ｳ繧ｹ濶ｯ縺丈ｸ陦後↓髮・ｴ・*/
++    .nav ul {
++        display: flex !important;
++        flex-wrap: nowrap !important;
++        overflow-x: auto !important;
++        -ms-overflow-style: none;
++        scrollbar-width: none;
++        gap: 0.8rem !important; /* 髫咎俣繧定ｩｰ繧√※蜿弱∪繧翫ｒ濶ｯ縺上☆繧・*/
++        width: 100% !important;
++        padding: 0 0.5rem !important;
++        justify-content: center !important; /* 荳ｭ螟ｮ謠・∴縺ｫ螟画峩 */
++    }
++    .nav ul::-webkit-scrollbar {
++        display: none;
++    }
++    .nav a {
++        font-size: 0.8rem !important; /* 0.7繧医ｊ螟ｧ縺阪￥縲・.85繧医ｊ蟆上＆縺・ヰ繝ｩ繝ｳ繧ｹ縺ｫ隱ｿ謨ｴ */
++        padding: 0.5rem 0.1rem !important;
++        letter-spacing: 0.02em !important;
++        white-space: nowrap !important;
++    }
++
++    /* 閭梧勹陬・｣ｾ縺ｮ譛驕ｩ蛹厄ｼ壻ｸｭ螟ｮ縺ｮ繝｡繧､繝ｳ繧ｪ繝悶ず繧ｧ繧ｯ繝医・縺ｿ陦ｨ遉ｺ */
++    #cyber-bg > div:not(:first-child) {
++        display: none !important;
++    }
++    #cyber-bg > div:first-child {
++        top: 50% !important;
++        left: 50% !important;
++        transform: translate(-50%, -50%) scale(0.8) !important; /* 蟆代＠螟ｧ縺阪￥ */
++        width: 100vw !important;
++        height: 100vw !important;
++        max-width: 600px !important;
++        max-height: 600px !important;
++        opacity: 1 !important; /* 蛟句挨隱ｿ謨ｴ縺ｮ縺溘ａ隕ｪ縺ｯ1縺ｫ險ｭ螳・*/
++    }
++
++    /* 繝ｪ繝ｳ繧ｰ縺ｨ逅・ｽ薙・隕冶ｪ肴ｧ隱ｿ謨ｴ */
++    .hud-ring {
++        opacity: 0.3 !important;
++    }
++    .sphere-container { 
++        width: 320px !important; 
++        height: 320px !important;
++        opacity: 0.6 !important; /* 逅・ｽ薙ｒ縺ｯ縺｣縺阪ｊ陦ｨ遉ｺ */
++    }
++
++    /* 驕ｷ遘ｻ貍泌・縺ｮ繝ｬ繧ｹ繝昴Φ繧ｷ繝門喧・哽S縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧貞ｦｨ縺偵↑縺・ｈ縺・ｪｿ謨ｴ */
++    .sf-window-inner {
++        padding: 8px !important;
++    }
++    .sf-glitch-title {
++        font-size: 0.9rem !important;
++        margin-bottom: 6px !important;
++    }
++    .sf-window-body {
++        padding: 0 10px !important;
++    }
++
++    /* 蜷・・繝ｼ繧ｸ繝倥ャ繝繝ｼ・磯・遘ｻ蠕後・繝ｼ繧ｸ・峨・譁・ｭ励し繧､繧ｺ */
++    .section-title {
++        font-size: 1.3rem !important;
++        margin-bottom: 1rem !important;
++    }
++
++    /* 騾｣邨｡蜈医そ繧ｯ繧ｷ繝ｧ繝ｳ縺ｮ髟ｷ縺上↑縺｣縺溯ｦ句・縺励・譛驕ｩ蛹・*/
++    .contact-info-content h3 {
++        font-size: 1.0rem !important;
++        margin-bottom: 0.6rem !important;
++        letter-spacing: 0.05em !important;
++    }
++
++    /* 繧｢繧ｯ繧ｻ繧ｹ蛻ｶ髯舌ユ繧ｭ繧ｹ繝医・謾ｹ陦後・繧ｵ繧､繧ｺ譛驕ｩ蛹・*/
++    .restricted-access-text {
++        font-size: 1.15rem !important; /* 遒ｺ螳溘↓荳陦後↓蜿弱ａ繧九◆繧√＆繧峨↓邵ｮ蟆・*/
++        white-space: nowrap !important;
++        display: inline-block;
++        max-width: 100%;
++        letter-spacing: 0.1em !important; /* 譁・ｭ鈴俣髫斐ｒ蟆代＠隧ｰ繧√ｋ */
++    }
++}
++
++/* 600px莉･荳九・蟆丞梛繧ｹ繝槭・蜷代￠隱ｿ謨ｴ */
++@media (max-width: 600px) {
++    /* 驕ｷ遘ｻ繝壹・繧ｸ・・ood.html遲会ｼ峨・謌ｻ繧九・繧ｿ繝ｳ驟咲ｽｮ */
++    .back-btn {
++        padding: 0.5rem 0.8rem !important;
++        font-size: 0.75rem !important;
++        gap: 6px !important;
++    }
++    .back-btn svg { width: 14px !important; height: 14px !important; }
++
++    /* CONTACT繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ・壹が繝悶ず繧ｧ繧ｯ繝医ｒ譛ｬ譁・・荳九↓驟咲ｽｮ */
++    .module-flex-container {
++        flex-direction: column !important;
++        align-items: flex-start !important;
++        gap: 1.5rem !important;
++    }
++    .sf-object-container {
++        align-self: center !important;
++        margin-top: 1rem !important;
++    }
++
++    /* 繝倥ャ繝繝ｼ縺ｮ陬・｣ｾ邯ｭ謖・ｼ壹せ繝・・繧ｿ繧ｹ繝舌・縺ｨ縺ｮ濶ｲ繧堤ｵｱ荳 */
++    .header {
++        width: 100% !important;
++        z-index: 1000 !important;
++        background: #000 !important;
++    }
++
++    /* 繝励Ο繧ｸ繧ｧ繧ｯ繝郁ｪｬ譏取枚遲峨・謾ｹ陦梧怙驕ｩ蛹厄ｼ郁恭蜊倩ｪ槭ｒ讌ｵ蜉帷ｶｭ謖√＠縲∫ｫｯ縺ｧ謚倥ｊ霑斐☆・・*/
++    .card-text {
++        word-break: normal !important;
++        overflow-wrap: break-word !important;
++    }
++    .main-content {
++        padding-top: 0 !important; /* Flexbox縺ｫ繧医ｊ荳崎ｦ√↓縺ｪ縺｣縺溘◆繧∝炎髯､ */
++    }
++
++    /* 蝨ｰ蝗ｳ繝｢繝ｼ繝繝ｫ */
++    .map-modal-content {
++        width: 95vw !important;
++        height: 85vh !important;
++    }
++    .map-modal-header {
++        padding: 0.6rem 0.8rem !important;
++    }
++    .map-modal-title {
++        font-size: 1rem !important;
++        letter-spacing: 0.1em !important;
++    }
++    .map-coord-display {
++        display: none !important; /* 繝｢繝舌う繝ｫ縺ｧ縺ｯ蠎ｧ讓吶ｒ髱櫁｡ｨ遉ｺ縺ｫ縺励※繧ｹ繝壹・繧ｹ遒ｺ菫・*/
++    }
++    .map-modal-system-id {
++        font-size: 0.6rem !important;
++    }
++
++    .map-side-panel {
++        display: none !important; /* 繝｢繝舌う繝ｫ縺ｧ縺ｯ蝨ｰ蝗ｳ繧貞━蜈医☆繧九◆繧√し繧､繝峨ヱ繝阪Ν繧帝撼陦ｨ遉ｺ */
++    }
++
++    .map-modal-footer {
++        flex-direction: column !important;
++        padding: 0.5rem !important;
++        gap: 0.3rem !important;
++        font-size: 0.65rem !important;
++    }
++    .map-footer-center {
++        display: none !important; /* 荳ｭ螟ｮ縺ｮ繝・ぅ繝・き繝ｼ繧帝撼陦ｨ遉ｺ */
++    }
++    .map-footer-right {
++        text-align: center !important;
++    }
++    .map-footer-left {
++        justify-content: center !important;
++    }
++
++    /* 繝｡繝ｼ繝ｫ繧｢繝峨Ξ繧ｹ縺ｮ謚倥ｊ霑斐＠髦ｲ豁｢ */
++    .contact-cyber-link {
++        width: auto !important;
++        max-width: 100% !important;
++        font-size: 0.8rem !important;
++        padding: 0.4rem 1rem !important;
++        white-space: nowrap !important;
++        word-break: keep-all !important;
++        overflow-x: hidden !important;
++        text-overflow: ellipsis !important;
++    }
++}
++
++
+diff --git a/css/style.css b/css/style.css
+index 18f2f3f..741f3ed 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -52,7 +52,11 @@ body {
+     color: var(--color-text-main);
+     background-color: var(--color-bg-main);
+     -webkit-font-smoothing: antialiased;
+-    overflow-x: hidden;
++    /* 繝倥ャ繝繝ｼ繧貞崋螳壹＠縲√せ繧ｯ繝ｭ繝ｼ繝ｫ鬆伜沺繧偵Γ繧､繝ｳ繧ｳ繝ｳ繝・Φ繝・↓髯仙ｮ壹☆繧九◆繧√・險ｭ螳・*/
++    display: flex;
++    flex-direction: column;
++    height: 100vh;
++    overflow: hidden;
+ }
+ 
+ /* 繧ｫ繧ｹ繧ｿ繝繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繝舌・蜈ｨ菴薙・蟷・*/
+@@ -116,8 +120,10 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+     background-color: rgba(2, 6, 12, 0.85);
+     border-bottom: 2px solid var(--color-primary);
+     box-shadow: 0 0 20px var(--color-primary-dim);
+-    position: sticky; top: 0; z-index: 100; padding: 1rem 0;
++    position: relative; /* flex驟咲ｽｮ縺ｧ荳企Κ縺ｫ逡吶∪繧九◆繧・relative 縺ｫ螟画峩 */
++    z-index: 100; padding: 1rem 0;
+     backdrop-filter: blur(8px);
++    flex-shrink: 0; /* 繝倥ャ繝繝ｼ縺ｮ鬮倥＆繧堤ｶｭ謖・*/
+ }
+ /* 繝倥ャ繝繝ｼ蜀・・繝輔Ξ繝・け繧ｹ驟咲ｽｮ */
+ .header .container { display: flex; justify-content: center; align-items: center; }
+@@ -126,10 +132,28 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+ /* 繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝ｪ繝ｳ繧ｯ */
+ .nav a { font-size: 1rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; padding: 0.5rem 1rem; position: relative; }
+ /* 迴ｾ蝨ｨ縺ｮ繝壹・繧ｸ縺ｾ縺溘・繝帙ヰ繝ｼ譎ゅ・繝翫ン繝ｪ繝ｳ繧ｯ */
+-.nav a.active, .nav a:hover { color: var(--color-primary); text-shadow: 0 0 8px var(--color-primary-glow); }
++.nav a.active, .nav a:hover { 
++    color: var(--color-primary); 
++    text-shadow: 0 0 10px var(--color-primary-glow);
++}
++.nav a.active::after {
++    content: '';
++    position: absolute;
++    bottom: 0;
++    left: 1rem;
++    right: 1rem;
++    height: 2px;
++    background: var(--color-primary);
++    box-shadow: 0 0 10px var(--color-primary);
++}
+ 
+-/* 繝｡繧､繝ｳ繧ｳ繝ｳ繝・Φ繝・お繝ｪ繧｢縺ｮ菴咏區 */
+-.main-content { padding-top: 3rem; min-height: calc(100vh - 160px); }
++/* 繝｡繧､繝ｳ繧ｳ繝ｳ繝・Φ繝・お繝ｪ繧｢・壹％縺薙′繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ蜿ｯ閭ｽ鬆伜沺縺ｨ縺ｪ繧・*/
++.main-content { 
++    flex: 1;
++    overflow-y: auto;
++    overflow-x: hidden;
++    scroll-behavior: smooth; /* 繧｢繝ｳ繧ｫ繝ｼ繝ｪ繝ｳ繧ｯ縺ｮ繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繧呈ｻ代ｉ縺九↓ */
++}
+ /* 蜷・そ繧ｯ繧ｷ繝ｧ繝ｳ縺ｮ菴咏區 */
+ .section { padding: 4rem 0; border-bottom: none; }
+ 
+@@ -425,33 +449,9 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+     padding-top: 0.6rem;
+ }
+ 
+-/* 繝ｬ繧ｹ繝昴Φ繧ｷ繝厄ｼ壻ｸｭ逕ｻ髱｢縺ｧ縺ｮ繧ｰ繝ｪ繝・ラ隱ｿ謨ｴ */
+-@media (max-width: 900px) {
+-    .fav-scatter-grid {
+-        grid-template-columns: repeat(2, 1fr);
+-    }
+-    .fav-card:nth-child(1),
+-    .fav-card:nth-child(2),
+-    .fav-card:nth-child(3),
+-    .fav-card:nth-child(4),
+-    .fav-card:nth-child(5),
+-    .fav-card:nth-child(6) {
+-        margin-top: 0;
+-    }
+-    .fav-card:nth-child(2), .fav-card:nth-child(4), .fav-card:nth-child(6) {
+-        margin-top: 1rem;
+-    }
+-}
+ 
+-/* 繝ｬ繧ｹ繝昴Φ繧ｷ繝厄ｼ壼ｰ冗判髱｢・医Δ繝舌う繝ｫ・峨〒縺ｮ繧ｰ繝ｪ繝・ラ隱ｿ謨ｴ */
+-@media (max-width: 600px) {
+-    .fav-scatter-grid {
+-        grid-template-columns: 1fr;
+-    }
+-    .fav-card:nth-child(n) {
+-        margin-top: 1rem !important;
+-    }
+-}
++
++
+ 
+ /* 謚陦薙ち繧ｰ縺ｮ繝ｪ繧ｹ繝医さ繝ｳ繝・リ */
+ .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+@@ -517,35 +517,31 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+     opacity: 0.5; white-space: nowrap; letter-spacing: 0.4em;
+ }
+ 
+-/* 繝｢繝舌う繝ｫ陦ｨ遉ｺ譎ゅ・繝翫ン縺ｨ繧ｹ繝医Μ繝ｼ繝縺ｮ隱ｿ謨ｴ */
+-@media (max-width: 768px) {
+-    .nav ul { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+-    .data-stream { display: none; } 
+-}
++
+ 
+ /* 繝励Ο繝輔ぅ繝ｼ繝ｫ諠・ｱ縺ｮ繧ｰ繝ｪ繝・ラ */
+ .personnel-grid {
+     display: grid;
+-    grid-template-columns: 1fr 180px;
+-    gap: 4rem;
++    grid-template-columns: 1fr 190px;
++    gap: 2.5rem;
+     align-items: flex-start;
+ }
+-/* 繝｢繝舌う繝ｫ縺ｧ縺ｮ繝励Ο繝輔ぅ繝ｼ繝ｫ繧ｰ繝ｪ繝・ラ隱ｿ謨ｴ */
+-@media (max-width: 768px) {
+-    .personnel-grid { grid-template-columns: 1fr; }
+-}
++
+ 
+ /* 繝励Ο繝輔ぅ繝ｼ繝ｫ蜀咏悄縺ｮ繧ｳ繝ｳ繝・リ */
+ .personnel-photo-container {
+     display: flex;
+     flex-direction: column;
+-    gap: 1rem;
++    justify-content: flex-start; /* 隕∫ｴ繧剃ｸ願ｩｰ繧√〒驟咲ｽｮ */
++    gap: 1.2rem; /* 繧ｪ繝悶ず繧ｧ繧ｯ繝磯俣縺ｮ菴咏區縺ｯ蝗ｺ螳・*/
++    height: 100%;
++    margin-top: 2rem; /* 蜈ｨ菴薙ｒ蟆代＠荳九↓縺壹ｉ縺・*/
+ }
+ /* 蜀咏悄繧貞峇繧繧ｵ繧､繝舌・繝輔Ξ繝ｼ繝 */
+ .photo-brackets {
+     position: relative;
+     width: 100%;
+-    aspect-ratio: 3/4;
++    aspect-ratio: 1 / 1.15;
+     border: 2px solid var(--color-primary-dim);
+     padding: 10px;
+     background: rgba(0, 243, 255, 0.05);
+@@ -559,11 +555,22 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+ /* 蜿ｳ荳九・繝悶Λ繧ｱ繝・ヨ */
+ .photo-brackets::after { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+ 
+-/* 繝励Ο繝輔ぅ繝ｼ繝ｫ蜀咏悄閾ｪ菴薙・繧ｹ繧ｿ繧､繝ｫ */
+-.personnel-photo {
++/* 繝励Ο繝輔ぅ繝ｼ繝ｫ蜀咏悄繝ｻ繧｢繝舌ち繝ｼ縺ｮ繧ｹ繧ｿ繧､繝ｫ */
++.personnel-photo, .personnel-avatar {
+     width: 100%; height: 100%; object-fit: cover;
+     opacity: 0.9;
+ }
++.personnel-avatar {
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    background: rgba(0, 243, 255, 0.05);
++    overflow: hidden;
++}
++.personnel-avatar svg {
++    width: 100%;
++    height: 100%;
++}
+ /* 蜀咏悄荳翫ｒ襍ｰ繧九せ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ */
+ .photo-scanline {
+     position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+@@ -582,22 +589,103 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+     position: absolute; bottom: 15px; right: 15px; font-family: var(--font-family-sans); font-size: 0.8rem;
+     color: var(--color-bg-main); background: var(--color-primary); padding: 2px 8px; font-weight: bold;
+ }
+-/* 繝舌・繧ｳ繝ｼ繝蛾｢ｨ縺ｮ陬・｣ｾ */
+-.personnel-barcode {
+-    opacity: 0.6; padding: 10px; border: 1px solid var(--color-primary-dim); background: rgba(0,255,255,0.05);
++/* 繝舌・繧ｳ繝ｼ繝峨さ繝ｳ繝・リ・壽棧邱壹→閭梧勹繧定ｪｿ謨ｴ縺励※譏弱ｋ縺・*/
++.profile-barcode-container {
++    opacity: 1.0; /* 荳埼乗・蠎ｦ繧呈怙螟ｧ縺ｫ */
++    padding: 6px; 
++    border: 1px solid var(--color-primary-dim); 
++    background: rgba(0, 243, 255, 0.08); /* 閭梧勹繧偵ｏ縺壹°縺ｫ譏弱ｋ縺・*/
++    position: relative;
++    margin-top: auto; /* 繝舌・繧ｳ繝ｼ繝峨ｒ荳九↓蟇・○繧・*/
++    margin-bottom: 2.5rem; /* 菴咲ｽｮ繧偵ｏ縺壹°縺ｫ荳翫↓隱ｿ謨ｴ */
++}
++
++/* 繝代ロ繝ｫ縺ｮ荳企Κ繝倥ャ繝繝ｼ・医ち繧､繝医Ν縺ｨ讖溷ｯ・・繝ｼ繧ｯ繧剃ｸｦ縺ｹ繧具ｼ・*/
++.panel-header {
++    display: flex;
++    justify-content: space-between;
++    align-items: flex-start;
++    margin-bottom: 2rem;
++}
++.panel-header .section-title {
++    margin-bottom: 0;
++}
++
++/* 讖溷ｯ・・繝ｼ繧ｯ・・ONFIDENTIAL・峨・繧ｹ繧ｿ繧､繝ｫ螳夂ｾｩ */
++/* 讖溷ｯ・・繝ｼ繧ｯ・・ONFIDENTIAL・会ｼ壽ｰｴ蟷ｳ驟咲ｽｮ縺ｫ螟画峩縺励√し繧､繝舌・繧ｨ繝輔ぉ繧ｯ繝医ｒ霑ｽ蜉 */
++.confidential-mark {
++    position: absolute;
++    top: 25px;
++    right: 25px;
++    border: 2px solid #ff3333;
++    color: #ff3333;
++    padding: 5px 15px;
++    font-weight: bold;
++    font-size: 1.2rem;
++    letter-spacing: 0.3em;
++    font-family: var(--font-family-sans);
++    text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
++    box-shadow: inset 0 0 10px rgba(255, 51, 51, 0.2), 0 0 10px rgba(255, 51, 51, 0.2);
++    z-index: 10;
++    opacity: 0.8;
++    border-radius: 2px;
++    overflow: hidden; /* 繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ逕ｨ */
++    animation: confidential-pulse 2s infinite alternate ease-in-out;
++}
++
++/* 蜀・Κ繧呈ｵ√ｌ繧玖ｵ､縺・・縺ｮ繧ｨ繝輔ぉ繧ｯ繝・*/
++.confidential-mark::after {
++    content: '';
++    position: absolute;
++    top: 0;
++    left: -100%;
++    width: 100%;
++    height: 100%;
++    background: linear-gradient(90deg, transparent, rgba(255, 51, 51, 0.3), transparent);
++    animation: confidential-scan 4s infinite linear;
++}
++
++@keyframes confidential-pulse {
++    0% { opacity: 0.7; box-shadow: inset 0 0 5px rgba(255, 51, 51, 0.2), 0 0 5px rgba(255, 51, 51, 0.2); }
++    100% { opacity: 1; box-shadow: inset 0 0 15px rgba(255, 51, 51, 0.4), 0 0 15px rgba(255, 51, 51, 0.4); text-shadow: 0 0 12px rgba(255, 51, 51, 0.9); }
++}
++
++@keyframes confidential-scan {
++    0% { left: -100%; }
++    25% { left: 100%; }
++    100% { left: 100%; }
++}
++
++.barcode {
++    width: 100%;
++    height: 32px;
++    background-image: repeating-linear-gradient(
++        90deg,
++        var(--color-primary) 0%, var(--color-primary) 2%,
++        transparent 2%, transparent 4%,
++        var(--color-primary) 4%, var(--color-primary) 5%,
++        transparent 5%, transparent 8%,
++        var(--color-primary) 8%, var(--color-primary) 12%,
++        transparent 12%, transparent 15%
++    );
++    opacity: 1.0; /* 荳埼乗・蠎ｦ繧呈怙螟ｧ縺ｫ */
+ }
+ 
+ /* 蛟倶ｺｺ繝・・繧ｿ縺ｮ繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ */
+ .personnel-data { display: flex; flex-direction: column; gap: 2rem; }
+ /* 繝・・繧ｿ縺ｮ繝倥ャ繝繝ｼ驛ｨ蛻・*/
+-.data-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;}
++.data-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;}
++.name-block { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+ /* 繝倥ャ繝繝ｼ蜀・・蜷榊燕 */
+ .data-header h1 { font-size: 2rem; text-shadow: 0 0 10px var(--color-primary-glow); margin: 0; }
+ /* 繧ｹ繝・・繧ｿ繧ｹ繧定｡ｨ遉ｺ縺吶ｋ繝舌ャ繧ｸ */
+ .status-badge {
+-    background: rgba(0, 243, 255, 0.2); border: 1px solid var(--color-primary); padding: 0.4rem 1rem;
++    background: rgba(0, 243, 255, 0.2); border: 1px solid var(--color-primary); padding: 0.3rem 0.8rem;
++    font-size: 0.85rem;
+     font-weight: bold; font-family: var(--font-family-sans); letter-spacing: 0.1em;
+     animation: pulse-opacity 2s infinite; color: var(--color-primary); text-shadow: 0 0 5px var(--color-primary);
++    white-space: nowrap;
++    margin-left: 2.5rem; /* 蜷榊燕縺九ｉ蟆代＠蜿ｳ縺ｫ縺壹ｉ縺・*/
+ }
+ /* 繝舌ャ繧ｸ縺ｮ轤ｹ貊・い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
+ @keyframes pulse-opacity { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+@@ -612,41 +700,31 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+ .cyber-data-table th {
+     color: var(--color-text-muted); font-weight: normal; width: 180px; text-transform: uppercase;
+ }
++/* 譛蠕後・陦後・蠅・阜邱壹ｒ豸医＠縺ｦ菴咏區繧定ｪｿ謨ｴ */
++.cyber-data-table tr:last-child th, 
++.cyber-data-table tr:last-child td { 
++    border-bottom: none; 
++    padding-bottom: 0.5rem; 
++}
+ /* 繝・・繝悶Ν縺ｮ繝・・繧ｿ繧ｻ繝ｫ */
+ .cyber-data-table td { color: var(--color-text-main); font-family: monospace; font-size: 1.1rem; }
+ /* 蠑ｷ隱ｿ陦ｨ遉ｺ縺輔ｌ繧九ョ繝ｼ繧ｿ繧ｻ繝ｫ */
+ .cyber-data-table td.highlight { color: #fff; text-shadow: 0 0 8px var(--color-primary); font-weight: bold; }
+ 
+-/* 繝壹・繧ｸ蜿ｳ荳翫・讖溷ｯ・・繝ｼ繧ｯ */
+-.confidential-mark {
+-    position: absolute;
+-    top: 20px;
+-    right: 20px;
+-    border: 2px solid #ff3333;
+-    color: #ff3333;
+-    padding: 5px 15px;
+-    font-weight: bold;
+-    font-size: 1.2rem;
+-    letter-spacing: 0.3em;
+-    font-family: var(--font-family-sans);
+-    text-shadow: 0 0 5px rgba(255, 51, 51, 0.8);
+-    box-shadow: inset 0 0 5px rgba(255, 51, 51, 0.3), 0 0 5px rgba(255, 51, 51, 0.3);
+-    z-index: 10;
+-    opacity: 0.8;
+-}
++/* (驥崎､・＠縺ｦ縺・◆螳夂ｾｩ繧貞炎髯､) */
+ 
+ /* 繧ｹ繝・・繧ｿ繧ｹ繧ｰ繝ｩ繝輔・繧ｳ繝ｳ繝・リ */
+ .status-graph {
+     display: flex;
+     align-items: flex-end;
+     justify-content: space-between;
+-    height: 40px;
+-    margin-top: 10px;
+-    padding: 10px;
++    height: 32px;
++    padding: 6px;
+     border: 1px solid var(--color-primary-dim);
+-    background: rgba(0, 243, 255, 0.05);
++    background: rgba(0, 243, 255, 0.02);
+     cursor: pointer;
+     transition: all 0.3s ease;
++    position: relative;
+ }
+ /* 繧ｰ繝ｩ繝輔・繝帙ヰ繝ｼ譎・*/
+ .status-graph:hover {
+@@ -664,6 +742,171 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+ .graph-bar:nth-child(even) { animation-duration: 2s; animation-direction: alternate-reverse; }
+ .graph-bar:nth-child(3n) { animation-duration: 1.2s; }
+ .graph-bar:nth-child(5n) { animation-duration: 0.8s; }
++/* 隱崎ｨｼ繝励Ο・壽怙鬮倡ｲｾ邏ｰ縺ｮ繧｢繧､繝・Φ繝・ぅ繝・ぅ繝ｻ繝槭ヨ繝ｪ繧ｯ繧ｹ繝ｻ繧ｳ繧｢ */
++.personnel-auth-module.pro-mode {
++    width: 100%;
++    height: 130px; /* 繝励Ο莉墓ｧ倥・蟄伜惠諢溘ｒ謖√◆縺帙ｋ鬮倥＆ */
++    background: linear-gradient(135deg, rgba(3, 10, 22, 0.95) 0%, rgba(5, 18, 38, 0.95) 100%);
++    border: 1px solid var(--color-primary-dim);
++    position: relative;
++    overflow: hidden;
++    display: flex;
++    flex-direction: column;
++    box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
++}
++/* 閭梧勹・壹げ繝ｪ繝・ラ縺ｨ繝代・繝・ぅ繧ｯ繝ｫ */
++.auth-pro-bg {
++    position: absolute;
++    inset: 0;
++    pointer-events: none;
++}
++.pro-grid {
++    width: 100%; height: 100%;
++    background-image: 
++        radial-gradient(var(--color-primary-dim) 0.5px, transparent 0.5px);
++    background-size: 10px 10px;
++    opacity: 0.15;
++}
++.pro-particles span {
++    position: absolute;
++    width: 2px; height: 2px;
++    background: var(--color-primary);
++    border-radius: 50%;
++    animation: pro-float 4s infinite linear;
++    opacity: 0;
++}
++/* 繝代・繝・ぅ繧ｯ繝ｫ縺ｮ蛟句挨繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
++.pro-particles span:nth-child(1) { left: 10%; animation-delay: 0s; }
++.pro-particles span:nth-child(2) { left: 40%; animation-delay: 1s; }
++.pro-particles span:nth-child(3) { left: 70%; animation-delay: 2.5s; }
++.pro-particles span:nth-child(4) { left: 25%; animation-delay: 0.5s; }
++.pro-particles span:nth-child(5) { left: 85%; animation-delay: 1.8s; }
++
++@keyframes pro-float {
++    0% { transform: translateY(130px); opacity: 0; }
++    50% { opacity: 0.5; }
++    100% { transform: translateY(-10px); opacity: 0; }
++}
++/* 繝｡繧､繝ｳ繝薙ず繝･繧｢繝ｫ・・D繧ｳ繧｢ */
++.auth-pro-visual {
++    flex: 1;
++    position: relative;
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    perspective: 800px;
++}
++.core-3d-container {
++    width: 40px; height: 40px;
++    transform-style: preserve-3d;
++}
++.core-hexagon-3d {
++    width: 100%; height: 100%;
++    position: relative;
++    transform-style: preserve-3d;
++    animation: rotate-core-3d 10s infinite linear;
++}
++.hex-face {
++    position: absolute;
++    width: 100%; height: 100%;
++    border: 1px solid var(--color-primary);
++    background: rgba(0, 243, 255, 0.1);
++    box-shadow: inset 0 0 8px var(--color-primary-glow);
++}
++/* 3D遶区婿菴難ｼ医・繧ｭ繧ｵ繧ｴ繝ｳ繧ｳ繧｢繧呈ｨ｡縺励◆讒矩・峨・蜷・擇 */
++.hex-face.front  { transform: translateZ(20px); }
++.hex-face.back   { transform: rotateY(180deg) translateZ(20px); }
++.hex-face.left   { transform: rotateY(-90deg) translateZ(20px); }
++.hex-face.right  { transform: rotateY(90deg) translateZ(20px); }
++.hex-face.top    { transform: rotateX(90deg) translateZ(20px); }
++.hex-face.bottom { transform: rotateX(-90deg) translateZ(20px); }
++
++@keyframes rotate-core-3d {
++    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
++    100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
++}
++/* 蜻ｨ蝗ｲ縺ｮ蝗櫁ｻ｢繝ｪ繝ｳ繧ｰ */
++.core-ring {
++    position: absolute;
++    border: 1px solid var(--color-primary-dim);
++    border-radius: 50%;
++    opacity: 0.4;
++}
++.core-ring.outer { width: 80px; height: 80px; border-style: dashed; animation: spin 15s linear infinite; }
++.core-ring.inner { width: 60px; height: 60px; border-style: dotted; animation: spin-reverse 8s linear infinite; }
++
++/* HUD繧ｪ繝ｼ繝舌・繝ｬ繧､ */
++.auth-pro-hud {
++    position: absolute;
++    inset: 0;
++    pointer-events: none;
++}
++.hud-scanline {
++    position: absolute;
++    width: 100%; height: 30%;
++    background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.05), transparent);
++    animation: scan-vertical 4s ease-in-out infinite;
++}
++@keyframes scan-vertical {
++    0%, 100% { top: -30%; }
++    50% { top: 100%; }
++}
++.hud-corner {
++    position: absolute;
++    width: 15px; height: 15px;
++    border: 1px solid var(--color-primary);
++    opacity: 0.6;
++}
++.hud-corner.top-left { top: 5px; left: 5px; border-right: none; border-bottom: none; }
++.hud-corner.bottom-right { bottom: 5px; right: 5px; border-left: none; border-top: none; }
++
++.hud-data-left, .hud-data-right {
++    position: absolute; top: 15px;
++    display: flex; flex-direction: column; gap: 2px;
++}
++.hud-data-left { left: 15px; }
++.hud-data-right { right: 15px; align-items: flex-end; }
++
++.mini-tag { font-size: 0.45rem; color: var(--color-primary); opacity: 0.5; letter-spacing: 1px; }
++.mini-val { font-size: 0.55rem; color: var(--color-primary); font-family: var(--font-family-mono); opacity: 0.9; text-shadow: 0 0 3px var(--color-primary-glow); }
++
++/* 繝輔ャ繧ｿ繝ｼ・壹Γ繧､繝ｳ繧ｹ繝・・繧ｿ繧ｹ */
++.auth-pro-footer {
++    height: 32px;
++    background: rgba(0, 243, 255, 0.08);
++    border-top: 1px solid var(--color-primary-dim);
++    display: flex;
++    align-items: center;
++    padding: 0 12px;
++    justify-content: space-between;
++    z-index: 5;
++}
++.footer-led {
++    width: 8px; height: 8px;
++    background: var(--color-primary);
++    border-radius: 50%;
++    box-shadow: 0 0 10px var(--color-primary);
++    animation: pulse-op 1.5s infinite;
++}
++.footer-main-status {
++    font-size: 0.65rem;
++    color: var(--color-primary);
++    font-weight: bold;
++    font-family: var(--font-family-mono);
++    letter-spacing: 2px;
++    text-shadow: 0 0 5px var(--color-primary-glow);
++}
++.footer-id-stamp {
++    font-size: 0.5rem;
++    color: var(--color-primary-dim);
++}
++
++
++
++
++
++
++
+ /* 繧ｰ繝ｩ繝輔・繝舌え繝ｳ繧ｹ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
+ @keyframes graph-bounce {
+     0% { height: 10%; }
+@@ -695,21 +938,8 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
+     transform: translateX(0);
+     pointer-events: auto;
+ }
+-/* 逕ｻ髱｢蟷・↓繧医ｋ繝昴ャ繝励い繝・・菴咲ｽｮ隱ｿ謨ｴ */
+-@media (max-width: 1100px) {
+-    .radar-popup { right: 0; }
+-}
+-/* 繝｢繝舌う繝ｫ縺ｧ縺ｮ繝昴ャ繝励い繝・・驟咲ｽｮ */
+-@media (max-width: 768px) {
+-    .radar-popup {
+-        right: 0;
+-        left: 0;
+-        margin: auto;
+-        top: 30%;
+-        width: 90%;
+-        max-width: 320px;
+-    }
+-}
++
++
+ /* 繝昴ャ繝励い繝・・蜀・・繧ｿ繧､繝医Ν */
+ .modal-title {
+     color: var(--color-primary); margin-top: 0; margin-bottom: 1.5rem; font-family: var(--font-family-mono); text-align: center; border-bottom: 1px solid var(--color-primary-dim); padding-bottom: 10px;
+@@ -1074,8 +1304,8 @@ body.closing::before {
+ @keyframes sf-blip-flash { 0%,80%,100% { opacity:0; } 40% { opacity:1; } }
+ 
+ /* 騾壻ｿ｡繧｢繝ｼ繧ｯ */
+-.sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2s ease-in-out infinite; }
+-@keyframes sf-arc-pulse { 0%,100% { opacity:0; stroke-dashoffset:200; } 50% { opacity:1; stroke-dashoffset:0; } }
++.sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2.4s ease-in-out infinite; }
++@keyframes sf-arc-pulse { 0%,100% { opacity:0; } 50% { opacity:1; } }
+ 
+ /* 騾壻ｿ｡繝代Ν繧ｹ繝ｪ繝ｳ繧ｰ */
+ .sf-comm-pulse { transform-origin: 60px 72px; animation: sf-comm-expand 2s ease-out infinite; }
+@@ -1201,27 +1431,51 @@ body.closing::before {
+ 
+ /* 蟾ｦ繧ｵ繧､繝峨ヱ繝阪Ν */
+ .map-side-panel {
+-    width: 160px; flex-shrink: 0; /* 繝代ロ繝ｫ繧貞ｰ代＠蠎・￥ */
++    width: 160px; flex-shrink: 0;
+     border-right: 1px solid rgba(0,243,255,0.15);
+     background: rgba(0,243,255,0.03);
+-    padding: 1.2rem 1rem;
+-    display: flex; flex-direction: column; gap: 0.6rem;
+-    font-family: var(--font-family-mono); overflow: hidden;
++    padding: 0.8rem 0.6rem;
++    display: flex; flex-direction: column; gap: 0.5rem; /* 菴咏區繧偵＆繧峨↓譛驕ｩ蛹・*/
++    font-family: var(--font-family-mono); 
++    overflow: hidden;
+     position: relative;
+     z-index: 1;
+ }
+-.map-side-label { font-size:0.65rem; color:rgba(0,243,255,0.4); letter-spacing:0.2em; text-transform:uppercase; margin-top:0.3rem; }
+-.map-side-value { font-size:0.85rem; color:var(--color-text-main); letter-spacing:0.05em; line-height:1.5; }
++
++.map-side-label { font-size:0.7rem; color:rgba(0,243,255,0.4); letter-spacing:0.15em; text-transform:uppercase; margin-top:0; }
++.map-side-value { font-size:0.9rem; color:var(--color-text-main); letter-spacing:0.02em; line-height:1.4; }
+ .map-side-value--active { color:var(--color-primary); display:flex; align-items:center; gap:0.4rem; }
+-.map-side-divider { height:1px; background:rgba(0,243,255,0.1); margin:0.3rem 0; }
++.map-side-divider { height:1px; background:rgba(0,243,255,0.1); margin:0.15rem 0; }
+ .map-status-dot { width:6px; height:6px; border-radius:50%; background:var(--color-primary); box-shadow:0 0 6px var(--color-primary); animation:pulse-opacity 1.5s infinite; flex-shrink:0; }
+ 
+-/* 繧ｷ繧ｰ繝翫Ν繝舌・ */
+-.map-signal-bars { display:flex; align-items:flex-end; gap:3px; height:24px; margin-top:0.3rem; }
+-.signal-bar { flex:1; background:var(--color-primary); box-shadow:0 0 4px var(--color-primary); border-radius:1px; animation:pulse-opacity 1.5s infinite; }
+-.signal-bar:nth-child(1){animation-delay:0s;} .signal-bar:nth-child(2){animation-delay:0.2s;}
+-.signal-bar:nth-child(3){animation-delay:0.4s;} .signal-bar:nth-child(4){animation-delay:0.6s;}
+-.signal-bar:nth-child(5){animation-delay:0.8s;}
++/* 繧ｷ繧ｰ繝翫Ν繝舌・・壹し繧､繧ｺ縺ｨ菴咲ｽｮ繧貞・隱ｿ謨ｴ */
++.map-signal-bars { 
++    display:flex; 
++    align-items:flex-end; 
++    gap:4px; /* 螟ｪ縺上＠縺溷・縲・囮髢薙ｒ蠕ｮ隱ｿ謨ｴ */
++    height:24px; 
++    width: 80px; 
++    margin-top:0.5rem; 
++    margin-left: 5px; 
++}
++.signal-bar { 
++    width: 6px; /* 繝舌・繧貞､ｪ縺丞､画峩 */
++    background:var(--color-primary); 
++    box-shadow:0 0 3px var(--color-primary); 
++    border-radius:1px; 
++    animation: signal-bounce 1s infinite alternate ease-in-out; 
++}
++
++@keyframes signal-bounce {
++    0% { height: 20%; opacity: 0.4; }
++    50% { height: 80%; opacity: 0.8; }
++    100% { height: 40%; opacity: 0.6; }
++}
++.signal-bar:nth-child(1) { animation-delay: 0.0s; }
++.signal-bar:nth-child(2) { animation-delay: 0.2s; }
++.signal-bar:nth-child(3) { animation-delay: 0.4s; }
++.signal-bar:nth-child(4) { animation-delay: 0.1s; }
++.signal-bar:nth-child(5) { animation-delay: 0.3s; }
+ 
+ /* iframe繝ｩ繝・ヱ繝ｼ */
+ .map-iframe-wrapper { 
+@@ -1289,13 +1543,7 @@ body.closing::before {
+     padding: 0;
+ }
+ 
+-/* 繝ｬ繧ｹ繝昴Φ繧ｷ繝冶ｪｿ謨ｴ */
+-@media (max-width: 600px) {
+-    .module-flex-container { flex-direction: column; align-items: center; text-align: center; }
+-    .sf-object-container { order: -1; margin-bottom: 1.5rem; }
+-    .map-side-panel { display: none; }
+-    .map-modal-title { font-size: 0.8rem; }
+-}
++
+ 
+ /* --- 繧ｳ繝ｳ繝代け繝医・繧ｵ繧､繝舌・繝懊ち繝ｳ (Micro SF) --- */
+ /* --- 繧ｵ繧､繝舌・繝ｻGitHub繝ｪ繝ｳ繧ｯ繝懊ち繝ｳ (Scanning Icon) --- */
+@@ -1534,3 +1782,79 @@ body.closing::before {
+ 
+ 
+ 
++
++
++
++/* --- 繝溘ル繝槭Ν繝ｻ繝弱・繝・・繧ｿ・育ｩｶ讌ｵ縺ｮ邁｡邏蛹厄ｼ・--- */
++
++/* NO DATA繝・く繧ｹ繝医・螟ｧ閭・↑蠑ｷ隱ｿ・磯ｫ倡ｲｾ蠎ｦ繝ｻ螟ｧ繧ｵ繧､繧ｺ・・*/
++.nodata-label {
++    font-family: var(--font-family-mono);
++    font-size: 14px; /* 繧ｵ繧､繧ｺ繧貞､ｧ蟷・↓諡｡螟ｧ */
++    fill: var(--color-primary);
++    font-weight: 900;
++    letter-spacing: 1.2px; /* 髢馴囈縺ｯ閾ｪ辟ｶ縺ｫ菫晄戟 */
++    dominant-baseline: central;
++    text-anchor: middle;
++    filter: drop-shadow(0 0 8px var(--color-primary-glow)); /* 繧ｰ繝ｭ繝ｼ繧貞ｼｷ蛹悶＠縺ｦ蟄伜惠諢溘ｒ蜃ｺ縺・*/
++}
++
++/* 繧ｿ繧ｯ繝・ぅ繧ｫ繝ｫ繝ｻ繧｢繝ｳ繝繝ｼ繝ｩ繧､繝ｳ・医せ繝・・繧ｿ繧ｹ蠑ｷ隱ｿ逕ｨ・・*/
++.nodata-underline {
++    stroke: var(--color-primary);
++    stroke-width: 0.6;
++    fill: none;
++    opacity: 0.6;
++    filter: drop-shadow(0 0 2px var(--color-primary-glow));
++}
++
++/* 繧｢繧､繧ｳ繝ｳ縺ｮ謗ｧ縺医ａ縺ｪ陦ｨ遉ｺ */
++.minimal-icon-bg {
++    fill: var(--color-primary);
++    opacity: 0.15;
++}
++
++/* 繝｢繝舌う繝ｫ蟆ら畑隕∫ｴ縺ｮ繝・ヵ繧ｩ繝ｫ繝磯撼陦ｨ遉ｺ險ｭ螳夲ｼ・C陦ｨ遉ｺ繧堤ｶｭ謖√☆繧九◆繧・ｼ・*/
++.mobile-avatar-mini {
++    display: none;
++}
++/* 繧ｿ繧､繝繝ｩ繧､繝ｳ縺ｮ隕句・縺励ｒ謗ｧ縺医ａ縺ｫ隱ｿ謨ｴ・医Δ繝舌う繝ｫ迚医→蜷梧ｧ倥・2陦後Ξ繧､繧｢繧ｦ繝医ｒ謗｡逕ｨ・・*/
++.timeline-item {
++    display: flex;
++    flex-direction: column;
++    align-items: flex-start;
++    gap: 0.2rem;
++    margin-bottom: 0.8rem;
++}
++.timeline-label {
++    flex-shrink: 0;
++    color: #00dce6; /* 繝｡繧､繝ｳ濶ｲ繧医ｊ縲後⊇繧薙・蟆代＠證励￥縲崎ｪｿ謨ｴ */
++    font-size: 1.1rem;
++    font-weight: bold;
++    letter-spacing: 0.5px;
++    text-transform: uppercase;
++}
++.timeline-content {
++    font-size: 1.1rem; /* 繝・・繝悶Ν縺ｮ莉悶・繧ｻ繝ｫ (1.1rem) 縺ｨ螳悟・縺ｫ邨ｱ荳 */
++    color: var(--color-text-main);
++    font-family: monospace; /* 繝・・繝悶Ν繧ｻ繝ｫ縺ｨ蜷後§遲牙ｹ・ヵ繧ｩ繝ｳ繝医ｒ譏守､ｺ */
++    padding-left: 0.5rem;
++    border-left: 1px solid var(--color-primary-dim);
++}
++
++/* 驕ｷ遘ｻ繝壹・繧ｸ縺ｮ繝倥ャ繝繝ｼ隱ｿ謨ｴ */
++.header {
++    position: sticky;
++    top: 0;
++    width: 100%;
++    background: rgba(2, 6, 12, 0.95);
++    backdrop-filter: blur(5px);
++    z-index: 100;
++}
++.main-content {
++    padding-top: 1.5rem; /* 縺輔ｉ縺ｪ繧九ヰ繝ｩ繝ｳ繧ｹ隱ｿ謨ｴ */
++}
++
++
++
++
+diff --git a/food.html b/food.html
+index 9884782..42d2823 100644
+--- a/food.html
++++ b/food.html
+@@ -3,7 +3,8 @@
+ <head>
+     <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>Food | Laboratory Archive</title>
+     <meta name="description" content="螂ｽ縺阪↑鬟溘∋迚ｩ繧・♀蠎励・險倬鹸">
+     <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+@@ -11,6 +12,7 @@
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/style.css">
++    <link rel="stylesheet" href="css/mobile.css">
+ </head>
+ <body>
+     <!-- 繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ -->
+@@ -25,7 +27,7 @@
+                     <li><a href="index.html#research">Research</a></li>
+                     <li><a href="index.html#skills">Skills</a></li>
+                     <li><a href="index.html#projects">Projects</a></li>
+-                    <li><a href="index.html#favorites">Favorites</a></li>
++                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
+                     <li><a href="index.html#contact">Contact</a></li>
+                 </ul>
+             </nav>
+@@ -51,7 +53,7 @@
+                 <div class="hud-panel">
+                 <h2 class="section-title">Food Archive</h2>
+                 <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+-                    螂ｽ縺阪↑鬟溘∋迚ｩ繧・∫皮ｩｶ縺ｮ蜷磯俣縺ｫ陦後″縺､縺代↓縺励※縺・ｋ縺雁ｺ励・險倬鹸縺ｧ縺吶・+                    螂ｽ縺阪↑鬟溘∋迚ｩ繧・皮ｩｶ縺ｮ蜷磯俣縺ｫ陦後″縺､縺代↓縺励※縺・ｋ縺雁ｺ励・險倬鹸縺ｧ縺吶・                 </p>
+ 
+                 <!-- 蛟句挨縺ｮ鬟溘∋迚ｩ繧ｫ繝ｼ繝峨Μ繧ｹ繝・-->
+@@ -63,7 +65,7 @@
+                         <h3 class="card-title">繝ｩ繝ｼ繝｡繝ｳ</h3>
+                         <p class="card-text">
+                             <strong>Favorite Shop:</strong> 繝繝溘・螳ｶ<br><br>
+-                            螟ｧ蟄ｦ霑代￥縺ｫ縺ゅｋ螳ｶ邉ｻ繝ｩ繝ｼ繝｡繝ｳ縲る≦縺・律縺ｮ螟暮｣ｯ縺ｮ螳夂分縺ｧ縺吶・+                            螟ｧ蟄ｦ霑代￥縺ｫ縺ゅｋ螳ｶ邉ｻ繝ｩ繝ｼ繝｡繝ｳ縲る≦繧√・螟暮｣ｯ縺ｮ螳夂分縺ｧ縺吶・                         </p>
+                     </div>
+                     
+@@ -85,22 +87,21 @@
+                         <h3 class="card-title">繧ｫ繝ｬ繝ｼ</h3>
+                         <p class="card-text">
+                             <strong>Favorite Style:</strong> 繧ｹ繝代う繧ｹ繧ｫ繝ｬ繝ｼ<br><br>
+-                            莨第律縺ｫ縺ｯ隍・焚縺ｮ繧ｹ繝代う繧ｹ繧定ｪｿ蜷医＠縺ｦ閾ｪ菴懊☆繧九⊇縺ｩ繝上・縺｣縺ｦ縺・∪縺吶・+                            莨第律縺ｫ縺ｯ謨ｰ遞ｮ鬘槭・繧ｹ繝代う繧ｹ繧定ｪｿ蜷医＠縺ｦ閾ｪ菴懊☆繧九⊇縺ｩ繝上・縺｣縺ｦ縺・∪縺吶・                         </p>
+                     </div>
+                 </div>
+                 </div>
+             </div>
+         </section>
++        <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
++        <footer class="footer">
++            <div class="container">
++                <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
++            </div>
++        </footer>
+     </main>
+ 
+-    <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
+-    <footer class="footer">
+-        <div class="container">
+-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
+-        </div>
+-    </footer>
+-
+     <!-- 繧ｹ繧ｯ繝ｪ繝励ヨ繝輔ぃ繧､繝ｫ縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ -->
+     <script src="js/script.js"></script>
+ </body>
+diff --git a/game.html b/game.html
+index 18818c7..1530909 100644
+--- a/game.html
++++ b/game.html
+@@ -1,22 +1,18 @@
+ <!DOCTYPE html>
+ <html lang="ja">
+ <head>
+-    <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>Game | Laboratory Archive</title>
+-    <meta name="description" content="繝励Ξ繧､縺励◆繧ｲ繝ｼ繝縺ｮ繧｢繝ｼ繧ｫ繧､繝・>
+-    <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/style.css">
++    <link rel="stylesheet" href="css/mobile.css">
+ </head>
+ <body>
+-    <!-- 繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ -->
+     <div id="cyber-bg" class="cyber-bg"></div>
+-
+-    <!-- 繝壹・繧ｸ荳企Κ縺ｮ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝倥ャ繝繝ｼ -->
+     <header class="header">
+         <div class="container">
+             <nav class="nav">
+@@ -25,83 +21,33 @@
+                     <li><a href="index.html#research">Research</a></li>
+                     <li><a href="index.html#skills">Skills</a></li>
+                     <li><a href="index.html#projects">Projects</a></li>
+-                    <li><a href="index.html#favorites">Favorites</a></li>
++                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
+                     <li><a href="index.html#contact">Contact</a></li>
+                 </ul>
+             </nav>
+         </div>
+     </header>
+-
+     <main class="main-content">
+-        <!-- 謌ｻ繧九・繧ｿ繝ｳ縺ｮ繧ｨ繝ｪ繧｢ -->
+         <div class="container">
+             <div class="back-btn-container">
+                 <a href="index.html#favorites" class="back-btn">
+-                    <svg viewBox="0 0 24 24">
+-                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+-                    </svg>
++                    <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+                     <span>Return to Database</span>
+                 </a>
+             </div>
+-        </div>
+-
+-        <!-- 繧ｲ繝ｼ繝繧｢繝ｼ繧ｫ繧､繝悶そ繧ｯ繧ｷ繝ｧ繝ｳ -->
+-        <section class="section">
+-            <div class="container animate-on-scroll">
++            <section class="section">
+                 <div class="hud-panel">
+-                <h2 class="section-title">Game Archive</h2>
+-                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+-                    菴呎嚊縺ｫ繝励Ξ繧､縺励※縺・ｋ繧ｿ繧､繝医Ν繧・･ｽ縺阪↑繧ｸ繝｣繝ｳ繝ｫ縺ｮ邏ｹ莉九〒縺吶・-                </p>
+-
+-                <!-- 蛟句挨縺ｮ繧ｲ繝ｼ繝繧ｫ繝ｼ繝峨Μ繧ｹ繝・-->
+-                <div class="grid">
+-                    <!-- 繧ｲ繝ｼ繝繧ｫ繝ｼ繝・01 -->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">繧ｿ繧､繝医ΝC</h3>
+-                        <p class="card-text">
+-                            <strong>Genre:</strong> 繧ｸ繝｣繝ｳ繝ｫD<br><br>
+-                            蠎・､ｧ縺ｪ荳也阜繧呈爾邏｢縺吶ｋ閾ｪ逕ｱ蠎ｦ縺ｮ鬮倥＆縺碁ｭ・鴨逧・〒縺吶・-                        </p>
+-                    </div>
+-
+-                    <!-- 繧ｲ繝ｼ繝繧ｫ繝ｼ繝・02 -->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">繝繝溘・繧ｿ繧､繝医Ν2</h3>
+-                        <p class="card-text">
+-                            <strong>Genre:</strong> 繝代ぜ繝ｫ繝ｻ繧ｷ繝溘Η繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ<br><br>
+-                            隲也炊逧・↑諤晁・ｒ隕∵ｱゅ＆繧後ｋ縺溘ａ縲√・繝ｭ繧ｰ繝ｩ繝溘Φ繧ｰ縺ｫ騾壹§繧矩擇逋ｽ縺輔′縺ゅｊ縺ｾ縺吶・-                        </p>
++                    <h2 class="section-title">Game Archive</h2>
++                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">雜｣蜻ｳ縺ｮ繧ｲ繝ｼ繝縺ｫ髢｢縺吶ｋ繧｢繝ｼ繧ｫ繧､繝悶〒縺吶・/p>
++                    <div class="grid">
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">RPG</h3><p class="card-text">繧ｹ繝医・繝ｪ繝ｼ驥崎ｦ悶・菴懷刀繧貞･ｽ縺ｿ縺ｾ縺吶・/p></div>
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">FPS</h3><p class="card-text">遶ｶ謚逧・↑繧ｿ繧､繝医Ν繧ゅ・繝ｬ繧､縺励∪縺吶・/p></div>
+                     </div>
+-
+-                    <!-- 繧ｲ繝ｼ繝繧ｫ繝ｼ繝・03 -->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">繝繝溘・繧ｿ繧､繝医Ν3</h3>
+-                        <p class="card-text">
+-                            <strong>Genre:</strong> 繧｢繧ｯ繧ｷ繝ｧ繝ｳRPG<br><br>
+-                            鄒弱＠縺・げ繝ｩ繝輔ぅ繝・け縺ｨ螂･豺ｱ縺・せ繝医・繝ｪ繝ｼ縺ｫ蠑輔″霎ｼ縺ｾ繧後∪縺励◆縲・-                        </p>
+-                    </div>
+-                </div>
+                 </div>
+-            </div>
+-        </section>
+-    </main>
+-
+-    <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
+-    <footer class="footer">
+-        <div class="container">
+-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
++            </section>
+         </div>
+-    </footer>
+-
+-    <!-- 繧ｹ繧ｯ繝ｪ繝励ヨ繝輔ぃ繧､繝ｫ縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ -->
++        <footer class="footer"><div class="container"><p>&copy; 2026 Sei Ooe. All rights reserved.</p></div></footer>
++    </main>
+     <script src="js/script.js"></script>
+ </body>
+ </html>
+diff --git a/index.html b/index.html
+index 09cc0f3..ca84784 100644
+--- a/index.html
++++ b/index.html
+@@ -3,7 +3,8 @@
+ <head>
+     <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>螟ｧ豎・閨也函 | Laboratory Archive</title>
+     <meta name="description" content="遖丈ｺ募､ｧ蟄ｦ 讖倡皮ｩｶ螳､ 螟ｧ豎溯＊逕溘・閾ｪ蟾ｱ邏ｹ莉九・繝ｼ繧ｸ縺ｧ縺吶・>
+     <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+@@ -11,6 +12,7 @@
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/style.css">
++    <link rel="stylesheet" href="css/mobile.css">
+ </head>
+ <body>
+     <!-- 繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ -->
+@@ -21,7 +23,7 @@
+         <div class="container">
+             <nav class="nav">
+                 <ul>
+-                    <li><a href="#profile" class="active">Profile</a></li>
++                    <li><a href="#profile">Profile</a></li>
+                     <li><a href="#research">Research</a></li>
+                     <li><a href="#skills">Skills</a></li>
+                     <li><a href="#projects">Projects</a></li>
+@@ -37,15 +39,21 @@
+         <section id="profile" class="section">
+             <div class="container animate-on-scroll" style="position: relative;">
+                 <div class="hud-panel cyber-personnel-file" style="position: relative;">
+-                    <div class="confidential-mark">CONFIDENTIAL</div>
+-                    <h2 class="section-title">PROFILE</h2>
++                    <div class="panel-header">
++                        <h2 class="section-title">PROFILE</h2>
++                        <div class="confidential-mark">CONFIDENTIAL</div>
++                    </div>
+                     
+                     <div class="personnel-grid">
+                         <!-- 繝・く繧ｹ繝医ョ繝ｼ繧ｿ繧ｨ繝ｪ繧｢ -->
+                         <div class="personnel-data">
+                             <div class="data-header">
+-                                <h1>螟ｧ豎・閨也函 / SEI OOE</h1>
+-                                <div class="status-badge">STATUS: ACTIVE STUDENT</div>
++                                <div class="name-block">
++                                    <h1>螟ｧ豎・閨也函 <span class="name-romaji">/ SEI OOE</span></h1>
++                                    <div class="status-badge">STATUS: ACTIVE STUDENT</div>
++                                </div>
++                                <!-- 繝｢繝舌う繝ｫ蟆ら畑縺ｮ蟆丞梛繧｢繝舌ち繝ｼ・・C縺ｧ縺ｯ髱櫁｡ｨ遉ｺ・・-->
++                                <div class="mobile-avatar-mini"></div>
+                             </div>
+                             
+                             <table class="cyber-data-table">
+@@ -56,7 +64,7 @@
+                                     </tr>
+                                     <tr>
+                                         <th>LABORATORY</th>
+-                                        <td>讖倡皮ｩｶ螳､ (Tachibana Lab)</td>
++                                        <td><span class="no-break">讖倡皮ｩｶ螳､ (Tachibana Lab)</span></td>
+                                     </tr>
+                                     <tr>
+                                         <th>DATE_OF_BIRTH</th>
+@@ -69,17 +77,17 @@
+                                     <tr>
+                                         <th>TIMELINE_LOG</th>
+                                         <td>
+-                                            <div style="display: flex; margin-bottom: 0.3rem;">
+-                                                <span style="width: 200px; flex-shrink: 0;">[2023.03] GRADUATED:</span>
+-                                                <span>蜥梧ｭ悟ｱｱ逵檎ｫ狗伐霎ｺ鬮倡ｭ牙ｭｦ譬｡</span>
++                                            <div class="timeline-item" style="margin-bottom: 0.5rem;">
++                                                <span class="timeline-label">[2023.03] GRADUATED:</span>
++                                                <span class="timeline-content">蜥梧ｭ悟ｱｱ逵檎ｫ狗伐霎ｺ鬮倡ｭ牙ｭｦ譬｡</span>
+                                             </div>
+-                                            <div style="display: flex; margin-bottom: 0.3rem;">
+-                                                <span style="width: 200px; flex-shrink: 0;">[2023.04] ENROLLED:</span>
+-                                                <span>遖丈ｺ募､ｧ蟄ｦ 蟾･蟄ｦ驛ｨ</span>
++                                            <div class="timeline-item" style="margin-bottom: 0.5rem;">
++                                                <span class="timeline-label">[2023.04] ENROLLED:</span>
++                                                <span class="timeline-content">遖丈ｺ募､ｧ蟄ｦ 蟾･蟄ｦ驛ｨ</span>
+                                             </div>
+-                                            <div style="display: flex;">
+-                                                <span style="width: 200px; flex-shrink: 0;">[2026.04] ASSIGNED:</span>
+-                                                <span>讖倡皮ｩｶ螳､</span>
++                                            <div class="timeline-item">
++                                                <span class="timeline-label">[2026.04] ASSIGNED:</span>
++                                                <span class="timeline-content">讖倡皮ｩｶ螳､</span>
+                                             </div>
+                                         </td>
+                                     </tr>
+@@ -90,34 +98,46 @@
+                         <!-- 蜀咏悄縺ｨ陬・｣ｾ・医ヰ繝ｼ繧ｳ繝ｼ繝峨・繧ｰ繝ｩ繝包ｼ峨お繝ｪ繧｢ -->
+                         <div class="personnel-photo-container">
+                             <div class="photo-brackets">
+-                                <img src="images/profile_placeholder.png" alt="Profile Photo" class="personnel-photo" />
+-                                <div class="photo-scanline"></div>
+-                                <div class="photo-overlay-text">ID: 489-XYZ-01</div>
+-                            </div>
+-                            <div class="personnel-barcode">
+-                                <svg width="100%" height="30" viewBox="0 0 200 30" preserveAspectRatio="none">
+-                                    <rect x="0" y="0" width="4" height="30" fill="var(--color-primary)" />
+-                                    <rect x="8" y="0" width="2" height="30" fill="var(--color-primary)" />
+-                                    <rect x="14" y="0" width="8" height="30" fill="var(--color-primary)" />
+-                                    <rect x="26" y="0" width="2" height="30" fill="var(--color-primary)" />
+-                                    <rect x="32" y="0" width="12" height="30" fill="var(--color-primary)" />
+-                                    <rect x="48" y="0" width="4" height="30" fill="var(--color-primary)" />
+-                                    <rect x="56" y="0" width="8" height="30" fill="var(--color-primary)" />
+-                                    <rect x="68" y="0" width="2" height="30" fill="var(--color-primary)" />
+-                                    <rect x="74" y="0" width="18" height="30" fill="var(--color-primary)" />
+-                                    <rect x="96" y="0" width="4" height="30" fill="var(--color-primary)" />
+-                                    <rect x="104" y="0" width="10" height="30" fill="var(--color-primary)" />
+-                                    <rect x="118" y="0" width="6" height="30" fill="var(--color-primary)" />
+-                                    <rect x="128" y="0" width="2" height="30" fill="var(--color-primary)" />
+-                                    <rect x="134" y="0" width="14" height="30" fill="var(--color-primary)" />
+-                                    <rect x="152" y="0" width="8" height="30" fill="var(--color-primary)" />
+-                                    <rect x="164" y="0" width="4" height="30" fill="var(--color-primary)" />
+-                                    <rect x="172" y="0" width="12" height="30" fill="var(--color-primary)" />
+-                                    <rect x="188" y="0" width="2" height="30" fill="var(--color-primary)" />
+-                                    <rect x="194" y="0" width="6" height="30" fill="var(--color-primary)" />
++                            <!-- 鬮倡ｲｾ邏ｰ縺ｪ逕滉ｽ楢ｪ崎ｨｼ繝ｻ鬘碑ｪ崎ｭ倥せ繧ｭ繝｣繝ｳ陦ｨ迴ｾ -->
++                            <div class="personnel-avatar">
++                                <svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMin slice">
++                                    <defs>
++                                        <!-- 鬮伜刀菴阪げ繝ｭ繝ｼ蜉ｹ譫・-->
++                                        <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
++                                            <feGaussianBlur stdDeviation="1.5" result="blur" />
++                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
++                                        </filter>
++                                        
++                                        <!-- 莠ｺ蝙句梛謚懊″逕ｨ繝槭せ繧ｯ・磯・ｺ擾ｼ壼・竊剃ｺｺ蝙句・繧頑栢縺坂・譁懃ｷ夐㍾縺ｭ / 荳ｭ螟ｮ驟咲ｽｮ・・-->
++                                        <mask id="personMask">
++                                            <rect width="100" height="120" fill="black" />
++                                            <!-- 1. 繝吶・繧ｹ縺ｮ螳滉ｽ灘・・育區・・-->
++                                            <circle cx="50" cy="60" r="32" fill="white" />
++                                            
++                                            <!-- 2. 莠ｺ蝙九ｒ蛻・ｊ謚懊￥・磯ｻ抵ｼ・-->
++                                            <g transform="translate(50, 61.6) scale(3.58) translate(-12, -12.5)">
++                                                <path d="M12 6C13.66 6 15 7.34 15 9C15 10.66 13.66 12 12 12C10.34 12 9 10.66 9 9C9 7.34 10.34 6 12 6ZM12 20C9.33 20 6.99 18.66 5.6 16.63C5.64 14.5 9.87 13.33 12 13.33C14.13 13.33 18.36 14.5 18.4 16.63C17.01 18.66 14.67 20 12 20Z" fill="black" />
++                                            </g>
++                                            
++                                            <!-- 3. 譁懃ｷ壹ｒ驥阪・繧具ｼ育區 / 蟇ｾ隗堤ｷ夲ｼ・-->
++                                            <line x1="80" y1="30" x2="20" y2="90" stroke="white" stroke-width="4.5" stroke-linecap="round" />
++                                        </mask>
++                                    </defs>
++                                    
++                                    <!-- 閭梧勹・壽･ｵ繧√※阮・＞繝吶・繧ｹ -->
++                                    <rect width="100%" height="100%" fill="rgba(0, 243, 255, 0.02)" />
++                                    
++                                    <!-- 荳ｭ螟ｮ驟咲ｽｮ・壻ｻ｣譖ｿ繧｢繧､繧ｳ繝ｳ・医せ繝・Φ繧ｷ繝ｫ・区怙蜑埼擇繧ｹ繝ｩ繝・す繝･迚茨ｼ・-->
++                                    <g filter="url(#glowEffect)">
++                                        <!-- 蝙区栢縺阪＆繧後◆邨ｱ蜷医が繝悶ず繧ｧ繧ｯ繝・-->
++                                        <rect x="0" y="0" width="100" height="120" fill="var(--color-primary)" mask="url(#personMask)" opacity="0.4" />
++                                    </g>
+                                 </svg>
++                                <!-- 繧｢繧､繧ｳ繝ｳ荳翫ｒ襍ｰ繧九せ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ -->
++                                <div class="photo-scanline"></div>
+                             </div>
+-                            <!-- 繧ｯ繝ｪ繝・け蜿ｯ閭ｽ縺ｪ繧ｹ繝・・繧ｿ繧ｹ繧ｰ繝ｩ繝・-->
++                        </div>
++                            <!-- 繧ｯ繝ｪ繝・け蜿ｯ閭ｽ縺ｪ繧ｹ繝・・繧ｿ繧ｹ繧ｰ繝ｩ繝包ｼ医ヰ繧､繧ｿ繝ｫ繝・・繧ｿ・・-->
+                             <div class="status-graph" id="statusGraphBtn">
+                                 <div class="graph-bar"></div>
+                                 <div class="graph-bar"></div>
+@@ -130,6 +150,69 @@
+                                 <div class="graph-bar"></div>
+                                 <div class="graph-bar"></div>
+                             </div>
++
++                            <!-- 繝励Ο繝輔ぉ繝・す繝ｧ繝翫Ν莉墓ｧ假ｼ壹い繧､繝・Φ繝・ぅ繝・ぅ繝ｻ繝槭ヨ繝ｪ繧ｯ繧ｹ繝ｻ繧ｳ繧｢ (Identity Matrix Core) -->
++                            <div class="personnel-auth-module pro-mode">
++                                <!-- 閭梧勹繝ｬ繧､繝､繝ｼ・壹げ繝ｪ繝・ラ縺ｨ繝代・繝・ぅ繧ｯ繝ｫ -->
++                                <div class="auth-pro-bg">
++                                    <div class="pro-grid"></div>
++                                    <div class="pro-particles">
++                                        <span></span><span></span><span></span><span></span><span></span>
++                                    </div>
++                                </div>
++                                
++                                <!-- 繝｡繧､繝ｳ繝薙ず繝･繧｢繝ｫ・・D蝗櫁ｻ｢縺吶ｋ繝倥く繧ｵ繧ｴ繝ｳ繧ｳ繧｢ -->
++                                <div class="auth-pro-visual">
++                                    <div class="core-3d-container">
++                                        <div class="core-hexagon-3d">
++                                            <div class="hex-face front"></div>
++                                            <div class="hex-face back"></div>
++                                            <div class="hex-face left"></div>
++                                            <div class="hex-face right"></div>
++                                            <div class="hex-face top"></div>
++                                            <div class="hex-face bottom"></div>
++                                        </div>
++                                    </div>
++                                    <!-- 繧ｳ繧｢繧貞峇繧蝗櫁ｻ｢繝ｪ繝ｳ繧ｰ -->
++                                    <div class="core-ring outer"></div>
++                                    <div class="core-ring inner"></div>
++                                </div>
++
++                                <!-- HUD繧ｪ繝ｼ繝舌・繝ｬ繧､・壹・繧､繧ｯ繝ｭ繝・・繧ｿ縺ｨ繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ -->
++                                <div class="auth-pro-hud">
++                                    <div class="hud-scanline"></div>
++                                    <div class="hud-corner top-left"></div>
++                                    <div class="hud-corner bottom-right"></div>
++                                    
++                                    <!-- 蟾ｦ蜿ｳ縺ｮ蠕ｮ邏ｰ繝・・繧ｿ陦ｨ遉ｺ・郁｣・｣ｾ逧・ｼ・-->
++                                    <div class="hud-data-left">
++                                        <div class="mini-tag">ID_SEQ</div>
++                                        <div class="mini-val">s-543</div>
++                                    </div>
++                                    <div class="hud-data-right">
++                                        <div class="mini-tag">SYNC</div>
++                                        <div class="mini-val">99.8%</div>
++                                    </div>
++                                </div>
++
++                                <!-- 繝輔ャ繧ｿ繝ｼ・夂峡遶九＠縺溘Γ繧､繝ｳ繧ｹ繝・・繧ｿ繧ｹ陦ｨ遉ｺ -->
++                                <div class="auth-pro-footer">
++                                    <div class="footer-led"></div>
++                                    <div class="footer-main-status">IDENTITY_SECURED</div>
++                                    <div class="footer-id-stamp"></div>
++                                </div>
++                            </div>
++
++
++
++
++
++
++
++                            <!-- 繝舌・繧ｳ繝ｼ繝会ｼ亥倶ｽ楢ｭ伜挨繧ｳ繝ｼ繝会ｼ・-->
++                            <div class="profile-barcode-container">
++                                <div class="barcode"></div>
++                            </div>
+                         </div>
+                     </div>
+                 </div>
+@@ -171,7 +254,7 @@
+                     <h2 class="section-title">Research</h2>
+                     <div style="text-align: center; padding: 4rem 1rem;">
+                         <h3 style="color: #ff3333; font-size: 1.8rem; margin-bottom: 1.5rem; font-family: var(--font-family-mono); letter-spacing: 0.2em;">
+-                            <span style="animation: pulse-red 1.5s infinite;">[ ACCESS RESTRICTED ]</span>
++                            <span class="restricted-access-text" style="animation: pulse-red 1.5s infinite;">[ ACCESS RESTRICTED ]</span>
+                         </h3>
+                         <p style="color: var(--color-text-muted); font-family: var(--font-family-mono); line-height: 1.8; letter-spacing: 0.1em; font-size: 0.9rem;">
+                             ERROR CODE: 403_FORBIDDEN<br>
+@@ -408,7 +491,7 @@
+                                                 </radialGradient>
+                                             </defs>
+                                             <!-- 蝗櫁ｻ｢縺吶ｋ螟門捉繝・ぅ繝・け -->
+-                                            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="4 8.85" class="spin-cw" />
++                                            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="4 9.05" class="spin-cw" />
+                                             <!-- 繝ｭ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ繝斐Φ -->
+                                             <circle cx="60" cy="60" r="5" fill="var(--color-primary)" />
+                                             <circle cx="60" cy="60" r="9" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-ping-ring" />
+@@ -417,7 +500,7 @@
+                                             <circle cx="80" cy="38" r="2.5" fill="var(--color-primary)" class="sf-blip" style="animation-delay:0.4s" />
+                                             <circle cx="35" cy="72" r="2" fill="var(--color-primary)" class="sf-blip" style="animation-delay:1.2s" opacity="0.7" />
+                                         </svg>
+-                                        <div class="sf-obj-scanline"></div>
++
+                                         <div class="sf-obj-label">
+                                             <span class="sf-label-bracket">[</span>
+                                             GEO_SCAN
+@@ -432,7 +515,7 @@
+                         <div class="contact-sub-module">
+                             <div class="module-flex-container">
+                                 <div class="contact-info-content">
+-                                    <h3>CONTACT</h3>
++                                    <h3>CONTACT INFORMATION</h3>
+                                     <div class="contact-detail-row">
+                                         <span class="contact-detail-label">MAIL</span>
+                                         <div class="contact-cyber-link" id="copyEmailBtn">
+@@ -459,9 +542,9 @@
+                                             <ellipse cx="60" cy="75" rx="50" ry="8" fill="none" stroke="var(--color-primary)" stroke-width="0.5" opacity="0.4" />
+                                             <ellipse cx="60" cy="75" rx="35" ry="6" fill="none" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.3" />
+                                             <!-- 髮ｻ豕｢謾ｾ蟆・い繝ｼ繧ｯ・井ｸ九°繧我ｸ奇ｼ・-->
+-                                            <path d="M 32 65 Q 60 30, 88 65" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-comm-arc" style="animation-delay:0s" />
+-                                            <path d="M 22 72 Q 60 15, 98 72" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-arc" style="animation-delay:0.6s; opacity:0.7" />
+-                                            <path d="M 12 78 Q 60 0, 108 78" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-arc" style="animation-delay:1.2s; opacity:0.4" />
++                                            <path d="M 46 66 Q 60 52, 74 66" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-comm-arc" style="animation-delay:0s" />
++                                            <path d="M 35 58 Q 60 30, 85 58" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-arc" style="animation-delay:0.6s; opacity:0.7" />
++                                            <path d="M 25 45 Q 60 5, 95 45" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-arc" style="animation-delay:1.2s; opacity:0.4" />
+                                             <!-- 騾∝女菫｡繝弱・繝会ｼ井ｸｭ蠢・ｼ・-->
+                                             <polygon points="60,52 65,70 60,67 55,70" fill="var(--color-primary)" class="pulse-op" />
+                                             <circle cx="60" cy="72" r="6" fill="rgba(0,243,255,0.15)" stroke="var(--color-primary)" stroke-width="1.5" />
+@@ -478,7 +561,7 @@
+                                             <line x1="57" y1="95" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                                             <line x1="92" y1="88" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                                         </svg>
+-                                        <div class="sf-obj-scanline"></div>
++
+                                         <div class="sf-obj-label">
+                                             <span class="sf-label-bracket">[</span>
+                                             Q_COMM
+@@ -499,7 +582,7 @@
+             <div class="map-modal-scanlines"></div>
+             
+             <div class="map-modal-content">
+-                <!-- UI隕∫ｴ逕ｨ縺ｮ繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ・医・繝・・繧帝∩縺代ｋ縺溘ａ蜀・Κ縺ｫ驟咲ｽｮ・・-->
++                <!-- UI隕∫ｴ逕ｨ縺ｮ繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ・亥慍蝗ｳ繧帝∩縺代ｋ縺溘ａ蜀・Κ縺ｫ驟咲ｽｮ・・-->
+                 <div class="map-modal-scanlines"></div>
+ 
+                 <!-- 蝗幃嚆縺ｮHUD繝悶Λ繧ｱ繝・ヨ陬・｣ｾ -->
+@@ -553,9 +636,9 @@
+                         <div class="map-side-label">SIGNAL</div>
+                         <div class="map-signal-bars">
+                             <div class="signal-bar" style="height:20%"></div>
+-                            <div class="signal-bar" style="height:40%"></div>
+-                            <div class="signal-bar" style="height:65%"></div>
+-                            <div class="signal-bar" style="height:85%"></div>
++                            <div class="signal-bar" style="height:45%"></div>
++                            <div class="signal-bar" style="height:70%"></div>
++                            <div class="signal-bar" style="height:90%"></div>
+                             <div class="signal-bar" style="height:100%"></div>
+                         </div>
+                     </div>
+@@ -594,15 +677,14 @@
+                 </div>
+             </div>
+         </div>
++        <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
++        <footer class="footer">
++            <div class="container">
++                <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
++            </div>
++        </footer>
+     </main>
+ 
+-    <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
+-    <footer class="footer">
+-        <div class="container">
+-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
+-        </div>
+-    </footer>
+-
+     <!-- 繧ｹ繧ｯ繝ｪ繝励ヨ繝輔ぃ繧､繝ｫ縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ -->
+     <script src="js/script.js"></script>
+ </body>
+diff --git a/js/script.js b/js/script.js
+index 0ec3408..57041d7 100644
+--- a/js/script.js
++++ b/js/script.js
+@@ -1,7 +1,7 @@
+ /* 繧ｵ繧､繝亥・菴薙↓蜍輔″縺ｨ繧､繝ｳ繧ｿ繝ｩ繧ｯ繧ｷ繝ｧ繝ｳ繧定ｿｽ蜉縺吶ｋ繝｡繧､繝ｳ繧ｹ繧ｯ繝ｪ繝励ヨ */
+ 
+ document.addEventListener('DOMContentLoaded', () => {
+-    /* 繧ｷ繧ｹ繝・Β襍ｷ蜍墓凾縺ｮ繧ｿ繧､繝斐Φ繧ｰ繧ｨ繝輔ぉ繧ｯ繝医→繝ｭ繝ｼ繝臥判髱｢ */
++    /* 繧ｷ繧ｹ繝・Β襍ｷ蜍墓凾縺ｮ繧ｿ繧､繝斐Φ繧ｰ繧ｨ繝輔ぉ繧ｯ繝医→繝ｭ繝ｼ繝臥判髱｢ (荳譎ら噪縺ｫ繧ｳ繝｡繝ｳ繝医い繧ｦ繝・
+     if (!sessionStorage.getItem('sysInitDone')) {
+         const overlay = document.createElement('div');
+         overlay.id = 'loading-overlay';
+@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
+         let currentLine = 0;
+         let currentChar = 0;
+ 
+-        /* 繝・く繧ｹ繝医ｒ1譁・ｭ励★縺､陦ｨ遉ｺ縺吶ｋ繧ｿ繧､繝斐Φ繧ｰ髢｢謨ｰ */
+         function typeLine() {
+             if (currentLine < lines.length) {
+                 if (currentChar < lines[currentLine].length) {
+@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
+                     setTimeout(typeLine, 300); // 陦碁俣縺ｮ蠕・ｩ滓凾髢・                 }
+             } else {
+-                /* 蜈ｨ陦瑚｡ｨ遉ｺ蠕後・繝輔ぉ繝ｼ繝峨い繧ｦ繝亥・逅・*/
+                 setTimeout(() => {
+                     overlay.style.opacity = '0';
+                     setTimeout(() => {
+@@ -66,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
+         
+         setTimeout(typeLine, 500);
+     }
++    */
+ 
+     /* 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ譎ゅ↓隕∫ｴ繧偵ヵ繧ｧ繝ｼ繝峨う繝ｳ縺輔○繧九◆繧√・逶｣隕冶ｨｭ螳・*/
+     const observerOptions = {
+@@ -119,15 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
+ 
+     /* 繧ｯ繝ｪ繝・け・医・繧ｦ繧ｹ繝繧ｦ繝ｳ・画凾縺ｮ豕｢邏九お繝輔ぉ繧ｯ繝磯幕蟋・*/
+     window.addEventListener('mousedown', (e) => {
+-        createRipple(e.clientX, e.clientY);
++        // 繧ｿ繝・メ繝・ヰ繧､繧ｹ莉･螟厄ｼ医・繧ｦ繧ｹ謫堺ｽ懶ｼ峨・蝣ｴ蜷医・縺ｿ螳溯｡・+        if (window.matchMedia('(pointer: fine)').matches) {
++            createRipple(e.clientX, e.clientY);
++        }
+     });
+ 
+-    /* 繧ｿ繝・メ謫堺ｽ懈凾縺ｮ豕｢邏九お繝輔ぉ繧ｯ繝磯幕蟋・*/
+-    window.addEventListener('touchstart', (e) => {
+-        if (e.touches.length > 0) {
+-            createRipple(e.touches[0].clientX, e.touches[0].clientY);
+-        }
+-    }, { passive: true });
+ 
+     /* 謖・ｮ壼ｺｧ讓吶↓豕｢邏九→繝輔Λ繝・す繝･繧堤函謌舌☆繧矩未謨ｰ */
+     function createRipple(x, y) {
+@@ -226,6 +222,46 @@ document.addEventListener('DOMContentLoaded', () => {
+             });
+         });
+     }
++
++    /* 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ縺ｫ蠢懊§縺溘リ繝薙ご繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ繝上う繝ｩ繧､繝茨ｼ・crollSpy・・*/
++    const navLinks = document.querySelectorAll('.nav a');
++    const sections = document.querySelectorAll('section[id]');
++    const mainContent = document.querySelector('.main-content');
++
++    function scrollSpy() {
++        if (!mainContent) return;
++        
++        // 繝｡繧､繝ｳ繧ｳ繝ｳ繝・Φ繝・・縺ｮ繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ菴咲ｽｮ繧貞叙蠕暦ｼ医・繝・ム繝ｼ縺ｮ鬮倥＆繧定・・・・+        const scrollPos = mainContent.scrollTop + 100;
++
++        sections.forEach(section => {
++            const sectionTop = section.offsetTop;
++            const sectionHeight = section.offsetHeight;
++            const sectionId = section.getAttribute('id');
++
++            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
++                navLinks.forEach(link => {
++                    link.classList.remove('active');
++                    if (link.getAttribute('href').includes(`#${sectionId}`)) {
++                        link.classList.add('active');
++                    }
++                });
++            }
++        });
++
++        // 繝壹・繧ｸ譛荳企Κ・医せ繧ｯ繝ｭ繝ｼ繝ｫ縺悟ｰ代↑縺・凾・峨・繝励Ο繝輔ぅ繝ｼ繝ｫ繧堤｢ｺ螳溘↓繧｢繧ｯ繝・ぅ繝悶↓縺吶ｋ
++        if (mainContent.scrollTop < 100) {
++            navLinks.forEach(link => link.classList.remove('active'));
++            const firstLink = document.querySelector('.nav a[href*="#profile"]');
++            if (firstLink) firstLink.classList.add('active');
++        }
++    }
++
++    // 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繧､繝吶Φ繝医ｒ逶｣隕厄ｼ医Γ繧､繝ｳ繝壹・繧ｸ・・profile縺悟ｭ伜惠縺吶ｋ蝣ｴ蜷医・縺ｿ螳溯｡鯉ｼ・+    if (mainContent && sections.length > 0 && document.getElementById('profile')) {
++        mainContent.addEventListener('scroll', scrollSpy, { passive: true });
++        scrollSpy();
++    }
+ });
+ 
+ /* 閭梧勹縺ｮ繧ｵ繧､繝舌・繝代Φ繧ｯ鬚ｨ陬・｣ｾ隕∫ｴ繧堤函謌舌・蛻ｶ蠕｡縺吶ｋ髢｢謨ｰ */
+@@ -240,11 +276,9 @@ function initCyberHUD() {
+     giantRing.style.top = '50%';
+     giantRing.style.left = '50%';
+     giantRing.style.transform = 'translate(-50%, -50%)';
+-    giantRing.style.width = '100vw';
+-    giantRing.style.height = '100vw';
+-    giantRing.style.maxWidth = '1000px';
+-    giantRing.style.maxHeight = '1000px';
+-    giantRing.style.opacity = '0.5';
++    giantRing.style.width = '1000px';
++    giantRing.style.height = '1000px';
++    giantRing.style.opacity = '0.3';
+     giantRing.style.zIndex = '0'; 
+     giantRing.innerHTML = `
+         <svg viewBox="0 0 1000 1000" class="hud-ring" style="width: 100%; height: 100%; position: absolute; top:0; left:0; opacity: 1;">
+@@ -302,14 +336,15 @@ function initCyberHUD() {
+     topLeft.style.left = '3%';
+     topLeft.style.width = '250px';
+     topLeft.style.height = '250px';
+-    topLeft.style.opacity = '0.4';
+-    topLeft.style.zIndex = '10';
++    topLeft.style.opacity = '0.5';
++    topLeft.style.zIndex = '20';
++    topLeft.style.transformOrigin = 'top left';
+     topLeft.innerHTML = `
+         <svg viewBox="0 0 300 300" class="hud-ring" style="width: 100%; height: 100%;">
+             <circle cx="150" cy="150" r="140" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="40 10 10 10" fill="none" class="spin-cw" />
+             <circle cx="150" cy="150" r="100" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="5 5" fill="none" class="spin-ccw-fast" />
+             <circle cx="150" cy="150" r="70" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="50 150" fill="none" class="spin-cw-fast" />
+-            <path d="M 150 0 L 150 300 M 0 150 L 300 150" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"/>
++            <path d="M 150 10 L 150 290 M 10 150 L 290 150" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"/>
+             <circle cx="150" cy="150" r="20" stroke="var(--color-primary)" stroke-width="1" fill="none" class="pulse-op"/>
+         </svg>
+     `;
+@@ -322,37 +357,42 @@ function initCyberHUD() {
+     bottomLeft.style.left = '3%';
+     bottomLeft.style.width = '400px';
+     bottomLeft.style.height = '120px';
+-    bottomLeft.style.opacity = '0.8';
+-    bottomLeft.style.zIndex = '10';
++    bottomLeft.style.opacity = '0.9';
++    bottomLeft.style.zIndex = '20';
++    bottomLeft.style.transformOrigin = 'bottom left';
+     
+     bottomLeft.innerHTML = `
+         <!-- 閭梧勹繝輔Ξ繝ｼ繝縺ｨ蝗ｺ螳夊｣・｣ｾ -->
+         <svg viewBox="0 0 400 120" style="position: absolute; top:0; left:0; width: 100%; height: 100%; filter: drop-shadow(0 0 5px var(--color-primary)); z-index: 1;">
+             
+             <!-- 荳企Κ陬・｣ｾ繝舌・ -->
+-            <path d="M 115 25 L 320 25 L 330 35 L 115 35 Z" fill="var(--color-primary-dim)" />
++            <path d="M 70 25 L 320 25 L 330 35 L 70 35 Z" fill="var(--color-primary-dim)" />
+             <!-- 繝｡繧､繝ｳ繝励Ο繧ｰ繝ｬ繧ｹ繝舌・縺ｮ譫邱・-->
+-            <path d="M 60 35 L 350 35 L 370 55 L 350 75 L 60 75 Z" fill="rgba(0, 243, 255, 0.1)" stroke="var(--color-primary)" stroke-width="2" />
++            <path d="M 74.5 35 L 350 35 L 370 55 L 350 75 L 60 75 Z" fill="rgba(255, 255, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
+             <!-- 荳矩Κ陬・｣ｾ邱壹→繝・く繧ｹ繝・-->
+             <path d="M 115 80 L 300 80 L 310 90 L 115 90 Z" fill="none" stroke="var(--color-primary)" stroke-width="1.5" />
+             <line x1="120" y1="85" x2="160" y2="85" stroke="var(--color-primary)" stroke-width="3" />
+             <text id="dl-status-text" x="170" y="88" fill="var(--color-primary)" font-family="'Share Tech Mono', monospace" font-size="10" letter-spacing="2">LOADING_DATA...</text>
++        </svg>
+ 
++        <!-- 蜀・ｽ｢繧､繝ｳ繧ｸ繧ｱ繝ｼ繧ｿ繝ｼ逕ｨSVG・亥屓霆｢荳ｭ蠢・ｒ菫昴▽縺溘ａ豁｣譁ｹ蠖｢縺ｫ蛻・屬・・-->
++        <svg viewBox="0 0 120 120" style="position: absolute; top:0; left:0; width: 120px; height: 120px; z-index: 2;">
+             <!-- 蜀・ｽ｢驛ｨ蛻・・繝槭せ繧ｯ逕ｨ閭梧勹 -->
+             <circle cx="60" cy="60" r="56" fill="var(--color-bg-main)" />
+             
+-            <!-- 蜀・ｽ｢陬・｣ｾ・亥屓霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ莉倥″・・-->
++            <!-- 蜀・ｽ｢陬・｣ｾ・郁・霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ・・-->
+             <circle cx="60" cy="60" r="55" fill="rgba(0, 243, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
+             <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-dasharray="5 5" class="spin-cw-slow" opacity="0.8" />
+             <circle cx="60" cy="60" r="48" fill="none" stroke="var(--color-primary-dim)" stroke-width="3" stroke-dasharray="20 10" class="spin-ccw-fast" opacity="0.6"/>
+             <circle cx="60" cy="60" r="35" fill="none" stroke="var(--color-primary-dim)" stroke-width="1" />
++            
+             <!-- 辣ｧ貅也ｷ夊｣・｣ｾ -->
+             <path d="M 60 20 L 60 30 M 60 90 L 60 100 M 20 60 L 30 60 M 90 60 L 100 60" stroke="var(--color-primary)" stroke-width="1" opacity="0.5" />
+-        </svg>
+ 
+-        <!-- 蜀・ｽ｢縺ｮ騾ｲ陦檎憾豕√い繝ｼ繧ｯ -->
+-        <svg viewBox="0 0 120 120" style="position: absolute; top:0; left:0; width: 120px; height: 120px; transform: rotate(-90deg); z-index: 2;">
+-            <circle id="dl-arc" cx="60" cy="60" r="41.5" fill="none" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="261" stroke-dashoffset="261" style="transition: stroke-dashoffset 0.1s linear;" />
++            <!-- 蜀・ｽ｢縺ｮ騾ｲ陦檎憾豕√い繝ｼ繧ｯ -->
++            <g style="transform: rotate(-90deg); transform-origin: 60px 60px;">
++                <circle id="dl-arc" cx="60" cy="60" r="41.5" fill="none" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="261" stroke-dashoffset="261" style="transition: stroke-dashoffset 0.1s linear;" />
++            </g>
+         </svg>
+ 
+         <!-- 繝代・繧ｻ繝ｳ繝郁｡ｨ遉ｺ繝・く繧ｹ繝・-->
+@@ -360,9 +400,9 @@ function initCyberHUD() {
+             0%
+         </div>
+ 
+-        <!-- 繧ｻ繧ｰ繝｡繝ｳ繝亥・蜑ｲ縺輔ｌ縺溘・繝ｭ繧ｰ繝ｬ繧ｹ繝舌・ -->
+-        <div style="position: absolute; top: 40px; left: 125px; width: 220px; height: 30px; display: flex; gap: 4px; padding: 5px; box-sizing: border-box; z-index: 2; clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);">
+-            <div id="dl-segments" style="display: flex; gap: 4px; width: 100%; height: 100%;"></div>
++        <!-- 繧ｻ繧ｰ繝｡繝ｳ繝亥・蜑ｲ縺輔ｌ縺溘・繝ｭ繧ｰ繝ｬ繧ｹ繝舌・・・5蛟九・俣髫・px縲∽ｸ芽ｧ偵お繝ｪ繧｢蝗樣∩・・-->
++        <div style="position: absolute; top: 38px; left: 61px; width: 309px; height: 34px; display: flex; gap: 5px; align-items: center; padding: 0 10px 0 62px; box-sizing: border-box; z-index: 2; clip-path: polygon(12.4px 0, 292px 0, 100% 50%, 292px 100%, 0 100%);">
++            <div id="dl-segments" style="display: flex; gap: 5px; align-items: center; width: 100%; height: 100%;"></div>
+         </div>
+     `;
+     bg.appendChild(bottomLeft);
+@@ -376,10 +416,12 @@ function initCyberHUD() {
+     const totalSegments = 15;
+     for(let i=0; i<totalSegments; i++) {
+         const seg = document.createElement('div');
+-        seg.style.flex = '1';
+-        seg.style.backgroundColor = 'var(--color-primary-dim)';
++        seg.style.width = '10px';
++        seg.style.height = '22px';
+         seg.style.transform = 'skewX(-20deg)'; 
++        seg.style.backgroundColor = 'var(--color-primary-dim)';
+         seg.style.transition = 'background-color 0.1s, box-shadow 0.1s';
++        
+         dlSegmentsContainer.appendChild(seg);
+     }
+ 
+@@ -392,7 +434,13 @@ function initCyberHUD() {
+     setInterval(() => {
+         if (isComplete || isWaitingForStart) return;
+ 
+-        dlProgress += Math.random() * 0.3 + 0.1; 
++        // 騾ｲ謐鈴溷ｺｦ繧定ｪｿ謨ｴ・・+        // 騾壼ｸｸ譎ゑｼ壼ｹｳ蝮・〒1遘帝俣縺ｫ邏・%・・0ms縺ゅ◆繧雁ｹｳ蝮・0.12 蜉邂暦ｼ・+        // 95%莉･髯搾ｼ壼●貊樊─繧貞・縺吶◆繧∝､ｧ蟷・↓貂幃滂ｼ・遘帝俣縺ｫ邏・.4%遞句ｺｦ・・+        let currentIncrement = (dlProgress < 95) 
++            ? (Math.random() * 0.16 + 0.04)  // 0.04 ~ 0.20 (蟷ｳ蝮・0.12)
++            : (Math.random() * 0.02 + 0.005); // 0.005 ~ 0.025 (蟷ｳ蝮・0.015)
++        dlProgress += currentIncrement;
+ 
+         if (dlProgress >= 100) {
+             dlProgress = 100;
+@@ -416,37 +464,33 @@ function initCyberHUD() {
+             if (dlStatusText) {
+                 dlStatusText.textContent = 'TRANSFER_COMPLETE';
+                 dlStatusText.setAttribute('fill', '#fff');
++                dlStatusText.style.textShadow = '0 0 10px #fff';
+             }
+ 
+-            /* 3遘貞ｾ後↓繝ｪ繧ｻ繝・ヨ縺励※繝ｫ繝ｼ繝励＆縺帙ｋ */
++            /* 3遘貞ｾ後↓縲悟ｮ牙ｮ夂憾諷九阪∈遘ｻ陦後＠縺ｦ蛛懈ｭ｢ */
+             setTimeout(() => {
+-                dlProgress = 0;
+-                isComplete = false;
+-                isWaitingForStart = true;
+-                
+-                dlText.textContent = '0%';
++                // 濶ｲ繧偵し繧､繝舌・繧ｫ繝ｩ繝ｼ縺ｫ謌ｻ縺・                 dlText.style.color = 'var(--color-primary)';
+                 dlText.style.textShadow = '0 0 8px var(--color-primary)';
+                 
+                 dlArc.style.stroke = 'var(--color-primary)';
+                 dlArc.style.filter = 'none';
+-                dlArc.style.strokeDashoffset = 261;
+                 
+                 for(let i=0; i<totalSegments; i++) {
+-                    children[i].style.backgroundColor = 'var(--color-primary-dim)';
+-                    children[i].style.boxShadow = 'none';
++                    children[i].style.backgroundColor = 'var(--color-primary)';
++                    children[i].style.boxShadow = '0 0 5px var(--color-primary)';
+                 }
+-                
++
++                // 繧ｹ繝・・繧ｿ繧ｹ繧偵悟ｮ御ｺ・・菫晁ｭｷ貂医∩縲阪↓螟画峩
+                 if (dlStatusText) {
+-                    dlStatusText.textContent = 'LOADING_DATA...';
++                    dlStatusText.textContent = 'SYSTEM_SECURED';
+                     dlStatusText.setAttribute('fill', 'var(--color-primary)');
++                    dlStatusText.style.textShadow = 'none';
+                 }
+-
+-                setTimeout(() => {
+-                    isWaitingForStart = false;
+-                }, 3000);
+-
++                
++                // 縺薙％縺ｧ繝ｪ繧ｻ繝・ヨ蜃ｦ逅・ｒ蜻ｼ縺ｰ縺壹↓邨ゆｺ・☆繧九％縺ｨ縺ｧ縲・00%迥ｶ諷九〒髱呎ｭ｢縺吶ｋ
+             }, 3000);
++
+             return;
+         }
+ 
+@@ -473,75 +517,266 @@ function initCyberHUD() {
+     /* 蜿ｳ荳翫・繧ｷ繧ｹ繝・Β繝ｪ繧ｽ繝ｼ繧ｹ逶｣隕悶ヱ繝阪Ν繧堤函謌・*/
+     const topRight = document.createElement('div');
+     topRight.style.position = 'absolute';
+-    topRight.style.top = '3%';
++    topRight.style.top = '6%';
+     topRight.style.right = '3%';
+     topRight.style.width = '300px';
+-    topRight.style.height = '150px';
+-    topRight.style.opacity = '0.6';
+-    topRight.style.zIndex = '10';
+-    topRight.style.border = '1px solid var(--color-primary)';
++    topRight.style.height = '130px';
++    topRight.style.opacity = '0.7';
++    topRight.style.zIndex = '20';
++    topRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
+     topRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
+     topRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
+     topRight.style.display = 'flex';
+     topRight.style.flexDirection = 'column';
+     topRight.style.overflow = 'hidden';
++    topRight.style.transformOrigin = 'top right';
+ 
+     /* 蜀・Κ縺ｮ繧ｰ繝ｩ繝輔ヰ繝ｼ隕∫ｴ繧偵Λ繝ｳ繝繝縺ｫ逕滓・ */
+     let bars = '';
++    const barStates = []; // 蜷・ヰ繝ｼ縺ｮ迥ｶ諷九ｒ邂｡逅・     for(let i=0; i<12; i++) {
+-        let delay = Math.random() * 2;
+-        let maxWidth = Math.random() * 80 + 20; 
+-        bars += `<div style="height: 3px; margin-bottom: 3px; background: var(--color-primary); box-shadow: 0 0 5px var(--color-primary); max-width: ${maxWidth}%; width: 100%; animation: pulse-width 1s ease-in-out infinite alternate ${delay}s;"></div>`;
++        let initialWidth = Math.random() * 50 + 30; 
++        barStates.push({
++            current: initialWidth,
++            target: initialWidth,
++            timer: Math.random() * 100 // 譖ｴ譁ｰ繧ｿ繧､繝溘Φ繧ｰ繧偵★繧峨☆
++        });
++        bars += `<div class="mem-bar" style="height: 2px; margin-bottom: 4px; background: rgba(0, 243, 255, 0.4); box-shadow: 0 0 2px rgba(0, 243, 255, 0.2); max-width: ${initialWidth}%; width: 100%;"></div>`;
+     }
+ 
+     topRight.innerHTML = `
+-        <div style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--color-primary); border-bottom: 1px solid var(--color-primary); text-shadow: 0 0 5px var(--color-primary); display: flex; justify-content: space-between;">
++        <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); display: flex; justify-content: space-between;">
+             <span>SYS_MEM // ALLOC</span>
+-            <span class="pulse-op">94.2%</span>
++            <span class="pulse-op"><span id="mem-val">94.2</span>%</span>
+         </div>
+-        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; border-left: 2px solid var(--color-primary); margin: 5px 10px;">
+-            ${bars}
++        <div style="flex: 1; display: flex; padding: 5px 15px; overflow: hidden;">
++            <div style="width: 2px; height: 85%; background: rgba(0, 243, 255, 0.4); align-self: center;"></div>
++            <div id="mem-bars-container" style="flex: 1; padding: 0 8px; display: flex; flex-direction: column; justify-content: center;">
++                ${bars}
++            </div>
+         </div>
+     `;
+     bg.appendChild(topRight);
+ 
++    /* 繧ｷ繧ｹ繝・Β繝｢繝九ち繝ｼ繧帝｣邯壹い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ縺ｧ譖ｴ譁ｰ */
++    function animateSystemMonitor() {
++        const barEls = topRight.querySelectorAll('.mem-bar');
++        const memVal = topRight.querySelector('#mem-val');
++        let totalWidth = 0;
++
++        barEls.forEach((bar, i) => {
++            const state = barStates[i];
++            
++            // 謨ｰ遘偵♀縺阪↓繧ｿ繝ｼ繧ｲ繝・ヨ繧呈峩譁ｰ
++            state.timer++;
++            if (state.timer > 200 + Math.random() * 100) {
++                state.target = Math.random() * 60 + 30;
++                state.timer = 0;
++            }
++
++            // 逶ｮ讓吝､縺ｸ縺ｮ邱ｩ繧・°縺ｪ遘ｻ蜍・+ 蠕ｮ邏ｰ縺ｪ繝弱う繧ｺ(jitter)
++            const jitter = (Math.random() - 0.5) * 0.8;
++            state.current += (state.target - state.current) * 0.02;
++            
++            const finalWidth = Math.max(10, Math.min(100, state.current + jitter));
++            bar.style.maxWidth = `${finalWidth}%`;
++            totalWidth += finalWidth;
++        });
++
++        // ・・｡ｨ遉ｺ繧ゅヰ繝ｼ縺ｮ蟷ｳ蝮・､縺ｫ繧・ｋ縺城｣蜍輔＆縺帙ｋ
++        if (memVal && Math.random() > 0.9) {
++            const avg = totalWidth / 12;
++            const displayMem = 85 + (avg / 100) * 15; // 85-100%縺ｮ遽・峇縺ｫ繝槭ャ繝・+            memVal.textContent = displayMem.toFixed(1);
++        }
++
++        requestAnimationFrame(animateSystemMonitor);
++    }
++    animateSystemMonitor();
++
+     /* 蜿ｳ荳九・豕｢蠖｢蜻ｨ豕｢謨ｰ繧ｰ繝ｩ繝戊｣・｣ｾ繧堤函謌・*/
+     const bottomRight = document.createElement('div');
+     bottomRight.style.position = 'absolute';
+-    bottomRight.style.bottom = '3%';
+-    bottomRight.style.right = '3%';
++    bottomRight.style.top = '25%';
++    bottomRight.style.right = '7%';
+     bottomRight.style.width = '300px';
+-    bottomRight.style.height = '150px';
+-    bottomRight.style.opacity = '0.6';
+-    bottomRight.style.zIndex = '10';
+-    bottomRight.style.border = '1px solid var(--color-primary)';
++    bottomRight.style.height = '130px';
++    bottomRight.style.opacity = '0.7';
++    bottomRight.style.zIndex = '21';
++    bottomRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
+     bottomRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
++    bottomRight.style.backdropFilter = 'none';
+     bottomRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
+     bottomRight.style.display = 'flex';
+     bottomRight.style.flexDirection = 'column';
+     bottomRight.style.justifyContent = 'flex-end';
+     bottomRight.style.overflow = 'hidden';
++    bottomRight.style.transformOrigin = 'top right';
+     
+     /* 騾｣邯壹☆繧区ｳ｢蠖｢縺ｮ繝代せ繝・・繧ｿ繧堤函謌・*/
+-    let wavePath = "M 0 50 ";
+-    const peaks = 20; 
+-    const step = 30; 
+-    for (let i=0; i<peaks; i++) {
+-        let sx = i * step;
+-        wavePath += `Q ${sx + 7.5} 0, ${sx + 15} 50 T ${sx + 30} 50 `;
+-    }
+-    
++    const waveSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
++    waveSvg.setAttribute("viewBox", "0 0 300 100");
++    waveSvg.setAttribute("preserveAspectRatio", "none");
++    waveSvg.style.width = "100%";
++    waveSvg.style.height = "100%";
++    waveSvg.style.position = "absolute";
++    waveSvg.style.left = "0";
++
++    const wavePathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
++    wavePathEl.setAttribute("fill", "none");
++    wavePathEl.setAttribute("stroke", "var(--color-primary)");
++    wavePathEl.setAttribute("stroke-opacity", "0.35");
++    wavePathEl.setAttribute("stroke-width", "2");
++    wavePathEl.style.filter = "drop-shadow(0 0 3px rgba(0, 243, 255, 0.4))";
++    waveSvg.appendChild(wavePathEl);
++
++    bottomRight.style.overflow = 'visible';
+     bottomRight.innerHTML = `
+-        <div style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--color-primary); border-bottom: 1px solid var(--color-primary); text-shadow: 0 0 5px var(--color-primary);">
+-            FREQ_ANALYSIS // 84.992Mhz
++        <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); background: var(--color-bg-main); position: absolute; top: -26px; left: -1px; width: calc(100% + 2px); height: 32px; border: 1px solid rgba(0, 243, 255, 0.4); border-bottom: 1px solid rgba(0, 243, 255, 0.4); display: flex; align-items: center; box-sizing: border-box; z-index: 2;">
++            FREQ_ANALYSIS // <span id="freq-val" style="margin-left: 5px;">---</span> kHz
+         </div>
+-        <div style="position: relative; width: 100%; height: 100px; overflow: hidden;">
+-            <svg viewBox="0 0 ${peaks*step} 100" preserveAspectRatio="none" style="width: 200%; height: 100%; position: absolute; left: 0; animation: wave-slide 5s linear infinite;">
+-                <path d="${wavePath}" fill="none" stroke="var(--color-primary)" stroke-width="2" style="filter: drop-shadow(0 0 5px var(--color-primary));" />
+-            </svg>
++        <div id="wave-container" style="position: relative; width: 100%; height: 100%; padding-top: 6px; box-sizing: border-box; display: flex; align-items: center; overflow: hidden; background: transparent;">
+         </div>
+     `;
++    bottomRight.querySelector('#wave-container').appendChild(waveSvg);
+     bg.appendChild(bottomRight);
++
++    /* 騾｣邯壹い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ逕ｨ縺ｮ螟画焚 */
++    let currentFreq = 2;
++    let targetFreq = 2;
++    let currentAmp = 20;
++    let targetAmp = 20;
++    let currentPhase = 0;
++
++    /* 豕｢蠖｢繧帝｣邯夂噪縺ｫ謠冗判縺吶ｋ髢｢謨ｰ */
++    function animateWaveform() {
++        const points = 50; 
++        const width = 300;
++        const step = width / (points - 1);
++        
++        // 逶ｮ讓吝､縺ｸ縺ｮ邱ｩ繧・°縺ｪ陬懷ｮ・(Lerp)
++        currentFreq += (targetFreq - currentFreq) * 0.01;
++        currentAmp += (targetAmp - currentAmp) * 0.01;
++        
++        // 菴咲嶌繧貞ｸｸ縺ｫ騾ｲ繧√ｋ (蜍輔″邯壹￠繧・
++        currentPhase += 0.05;
++        
++        let d = `M 0 ${50 + Math.sin(currentPhase) * currentAmp} `;
++        for (let i = 1; i < points; i++) {
++            const x = i * step;
++            const y = 50 + Math.sin((i / (points - 1)) * Math.PI * 2 * currentFreq + currentPhase) * currentAmp;
++            d += `L ${x} ${y} `;
++        }
++        wavePathEl.setAttribute('d', d);
++
++        // 謨ｰ蛟､繧堤樟蝨ｨ縺ｮ蜻ｨ豕｢謨ｰ縺ｨ騾｣蜍輔＆縺帙※譖ｴ譁ｰ
++        const freqVal = bottomRight.querySelector('#freq-val');
++        if (freqVal) {
++            // currentFreq(1縲・)繧偵せ繧ｱ繝ｼ繝ｫ繧｢繝・・縺励※陦ｨ遉ｺ
++            const displayFreq = (currentFreq * 125.4).toFixed(2);
++            freqVal.textContent = displayFreq;
++        }
++
++        requestAnimationFrame(animateWaveform);
++    }
++
++    /* 3縺､逶ｮ縺ｮ繧ｪ繝悶ず繧ｧ繧ｯ繝・ 繝槭Ν繝√Ξ繧､繝､繝ｼ繝ｻ繧ｵ繧､繝舌・繝ｻ繝繧､繝､繝ｫ (雜・､ｧ蝙九・逕ｻ髱｢螟悶・縺ｿ蜃ｺ縺玲ｼ泌・) */
++    const dialSize = 500;
++    const cyberDial = document.createElement('div');
++    cyberDial.id = 'cyber-dial';
++    cyberDial.style.position = 'absolute';
++    cyberDial.style.bottom = '-80px';
++    cyberDial.style.right = '-80px';
++    cyberDial.style.width = `${dialSize}px`;
++    cyberDial.style.height = `${dialSize}px`;
++    cyberDial.style.opacity = '0.35';
++    cyberDial.style.zIndex = '18';
++    cyberDial.style.pointerEvents = 'none';
++    cyberDial.style.transformOrigin = 'center center';
++
++    cyberDial.innerHTML = `
++        <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 3px var(--color-primary-dim));">
++            <!-- 閭梧勹繝峨ャ繝亥ｱ､ -->
++            <circle cx="50" cy="50" r="49.5" fill="none" stroke="var(--color-primary)" stroke-width="0.3" pathLength="200" stroke-dasharray="0.2, 0.8" stroke-opacity="0.15" style="transform-origin: 50px 50px; animation: rotate-scanner 120s linear infinite;" />
++            
++            <!-- 螟門・繝｡繧､繝ｳ莠碁㍾讒矩 (邯ｭ謖・ -->
++            <g style="transform-origin: 50px 50px; animation: rotate-scanner 30s linear infinite;">
++                <circle cx="50" cy="50" r="44" fill="none" stroke="var(--color-primary)" stroke-width="4" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.5" />
++                <circle cx="50" cy="50" r="41" fill="none" stroke="var(--color-primary)" stroke-width="1" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.8" />
++            </g>
++            
++            <!-- 繝｢繝ｼ繝ｫ繧ｹ菫｡蜿ｷ螻､ A: 隍・尅縺ｪ譁ｭ邯壹ヱ繝ｫ繧ｹ (蜷郁ｨ・6繝ｦ繝九ャ繝医｝athLength縺ｧ陬懈ｭ｣) -->
++            <circle cx="50" cy="50" r="36" fill="none" stroke="var(--color-primary)" stroke-width="1.5" pathLength="86" stroke-dasharray="20, 5, 2, 5, 2, 5, 30, 10, 2, 5" stroke-opacity="0.6" style="transform-origin: 50px 50px; animation: rotate-scanner 25s linear infinite reverse;" />
++            
++            <!-- 繝｢繝ｼ繝ｫ繧ｹ菫｡蜿ｷ螻､ B: 鬮倬溘ラ繝・ヨ騾壻ｿ｡ (蜷郁ｨ・2繝ｦ繝九ャ繝医・蛟阪・110縺ｧ陬懈ｭ｣) -->
++            <circle cx="50" cy="50" r="32" fill="none" stroke="var(--color-primary-dim)" stroke-width="1" pathLength="110" stroke-dasharray="1, 4, 1, 4, 8, 4" stroke-opacity="0.5" style="transform-origin: 50px 50px; animation: rotate-scanner 12s linear infinite;" />
++            
++            <!-- 繝｢繝ｼ繝ｫ繧ｹ菫｡蜿ｷ螻､ C: 蠕ｮ邏ｰ繧､繝ｳ繝翫・繧ｷ繧ｰ繝翫Ν (蜷郁ｨ・6繝ｦ繝九ャ繝医・蛟阪・128縺ｧ陬懈ｭ｣) -->
++            <circle cx="50" cy="50" r="26" fill="none" stroke="var(--color-primary)" stroke-width="0.8" pathLength="128" stroke-dasharray="2, 2, 10, 2" stroke-opacity="0.4" style="transform-origin: 50px 50px; animation: rotate-scanner 40s linear infinite;" />
++            
++            <!-- 繧ｻ繝ｳ繧ｿ繝ｼ繝ｻ繧ｽ繝ｪ繝・ラ繝ｻ繧ｳ繧｢ (繧ｷ繝ｳ繝励Ν) -->
++            <circle cx="50" cy="50" r="3.5" fill="var(--color-primary)" style="animation: hex-pulse 4s ease-in-out infinite alternate; transform-origin: 50px 50px;" />
++        </svg>
++    `;
++    bg.appendChild(cyberDial);
++
++    animateWaveform();
++
++    // 繝繧､繝､繝ｫ蝗櫁ｻ｢繝ｻ繝代Ν繧ｹ逕ｨ縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧定ｿｽ蜉
++    if (!document.getElementById('dial-style')) {
++        const style = document.createElement('style');
++        style.id = 'dial-style';
++        style.textContent = `
++            @keyframes rotate-scanner {
++                from { transform: rotate(0deg); }
++                to { transform: rotate(360deg); }
++            }
++            @keyframes hex-pulse {
++                0% { transform: scale(0.9); opacity: 0.3; }
++                100% { transform: scale(1.1); opacity: 0.8; }
++            }
++        `;
++        document.head.appendChild(style);
++    }
++
++    animateWaveform();
++
++    /* 10遘偵＃縺ｨ縺ｫ谺｡縺ｮ逶ｮ讓吝､繧定ｨｭ螳・*/
++    function pickNewTargets() {
++        targetFreq = Math.random() * 4 + 1;
++        
++        // 30%縺ｮ遒ｺ邇・〒謖ｯ蟷・ｒ髱槫ｸｸ縺ｫ蟆上＆縺擾ｼ育峩邱壹↓霑代￥・峨☆繧・+        if (Math.random() < 0.3) {
++            targetAmp = Math.random() * 4 + 1; // 1縲・縺ｮ蟆上＆縺ｪ謖ｯ蟷・+        } else {
++            targetAmp = Math.random() * 30 + 15; // 15縲・5縺ｮ騾壼ｸｸ縺ｮ謖ｯ蟷・+        }
++    }
++
++    setInterval(pickNewTargets, 10000);
++    animateWaveform();
++
++    /* 繧ｦ繧｣繝ｳ繝峨え繧ｵ繧､繧ｺ縺ｫ蠢懊§縺溷虚逧・せ繧ｱ繝ｼ繝ｫ隱ｿ謨ｴ蜃ｦ逅・*/
++    function updateHUDScale() {
++        const ww = window.innerWidth;
++        const wh = window.innerHeight;
++        // 蝓ｺ貅冶ｧ｣蜒丞ｺｦ(1920x1080)縺ｫ蟇ｾ縺吶ｋ迴ｾ蝨ｨ縺ｮ繧ｦ繧｣繝ｳ繝峨え繧ｵ繧､繧ｺ縺ｮ豈皮紫・亥腰菴阪↑縺玲焚蛟､・・+        const scale = Math.min(ww / 1920, wh / 1080);
++        
++        // 蝗幃嚆縺ｮ繧ｪ繝悶ず繧ｧ繧ｯ繝育畑縺ｫ霑ｽ蜉縺ｮ諡｡螟ｧ蛟咲紫繧貞ｮ夂ｾｩ・医％縺薙〒繧ｵ繧､繧ｺ繧定ｪｿ謨ｴ・・.6蛟搾ｼ・+        const cornerScale = scale * 1.6;
++        
++        giantRing.style.transform = `translate(-50%, -50%) scale(${scale})`;
++        topLeft.style.transform = `scale(${cornerScale})`;
++        bottomLeft.style.transform = `scale(${cornerScale})`;
++        topRight.style.transform = `scale(${cornerScale})`;
++        bottomRight.style.transform = `scale(${cornerScale})`;
++        if(netStream) netStream.style.transform = `scale(${cornerScale})`;
++    }
++
++    // 蛻晏屓螳溯｡後→繝ｪ繧ｵ繧､繧ｺ繧､繝吶Φ繝医・逋ｻ骭ｲ
++    updateHUDScale();
++    window.addEventListener('resize', updateHUDScale);
+ }
+ 
+ /* 縺頑ｰ励↓蜈･繧翫ｄ菴懷刀繝ｪ繝ｳ繧ｯ繧偵け繝ｪ繝・け縺励◆髫帙・繝壹・繧ｸ驕ｷ遘ｻ貍泌・ */
+@@ -601,6 +836,7 @@ document.addEventListener('DOMContentLoaded', () => {
+ 
+         /* 逕ｻ髱｢繧定ｦ・≧蜊企乗・縺ｮ繧ｪ繝ｼ繝舌・繝ｬ繧､繧剃ｽ懈・ */
+         const overlay = document.createElement('div');
++        overlay.className = 'sf-transition-overlay';
+         overlay.style.cssText = `
+             position: fixed; top: 0; left: 0;
+             width: 100vw; height: 100vh;
+@@ -614,11 +850,13 @@ document.addEventListener('DOMContentLoaded', () => {
+ 
+         /* 荳ｭ螟ｮ縺ｧ螻暮幕縺吶ｋSF繧ｹ繧ｿ繧､繝ｫ縺ｮ繧ｦ繧｣繝ｳ繝峨え繧剃ｽ懈・ */
+         const sfWindow = document.createElement('div');
++        sfWindow.className = 'sf-transition-window';
+         sfWindow.style.cssText = `
+             position: relative;
+             width: 0px; height: 2px;
+             background-color: var(--color-primary);
+-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
++            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
++            overflow: hidden; /* 繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ荳ｭ縺ｮ蜀・ｮｹ貅｢繧後ｒ髦ｲ豁｢ */
+             transition:
+                 width 0.3s cubic-bezier(0.1, 1, 0.1, 1),
+                 height 0.35s cubic-bezier(0.1, 1, 0.1, 1) 0.3s,
+@@ -640,7 +878,7 @@ document.addEventListener('DOMContentLoaded', () => {
+                 display: flex; flex-direction: column; box-sizing: border-box;
+                 overflow: hidden;
+                 font-family: 'Share Tech Mono', monospace;
+-            ">
++            " class="sf-window-inner">
+                 <!-- 襍ｰ譟ｻ邱壹Ξ繧､繝､繝ｼ -->
+                 <div style="position:absolute; inset:0; background:linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.3) 50%); background-size:100% 4px; pointer-events:none; z-index:10;"></div>
+ 
+@@ -671,8 +909,8 @@ document.addEventListener('DOMContentLoaded', () => {
+                     flex-direction:column; padding:0 40px;
+                     color:var(--color-primary);
+                     position: relative; z-index: 2;
+-                ">
+-                    <div style="font-size:1.5rem; margin-bottom:14px; letter-spacing:0.06em; animation:sf-glitch-text 3s infinite; text-align:center; text-shadow:0 0 10px rgba(0,243,255,0.5);">
++                " class="sf-window-body">
++                    <div style="font-size:1.5rem; margin-bottom:14px; letter-spacing:0.06em; animation:sf-glitch-text 3s infinite; text-align:center; text-shadow:0 0 10px rgba(0, 243, 255, 0.5);" class="sf-glitch-title">
+                         ESTABLISHING SECURE CONNECTION
+                     </div>
+                     <div style="font-size:0.95rem; opacity:0.6; margin-bottom:28px; letter-spacing:0.12em;">
+@@ -704,10 +942,11 @@ document.addEventListener('DOMContentLoaded', () => {
+         overlay.appendChild(sfWindow);
+         document.body.appendChild(overlay);
+ 
+-        /* 繧ｦ繧｣繝ｳ繝峨え縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧帝幕蟋・*/
++        /* 繧ｦ繧｣繝ｳ繝峨え縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧帝幕蟋具ｼ医Ξ繧ｹ繝昴Φ繧ｷ繝門ｯｾ蠢懶ｼ・*/
+         requestAnimationFrame(() => {
+-            sfWindow.style.width = 'min(70vw, 700px)';
+-            sfWindow.style.height = '55vh';
++            const isMobile = window.innerWidth <= 768;
++            sfWindow.style.width = isMobile ? '90vw' : 'min(70vw, 700px)';
++            sfWindow.style.height = isMobile ? '40vh' : '55vh';
+             sfWindow.style.backgroundColor = 'transparent';
+             const content = sfWindow.querySelector('div');
+             if (content) content.style.opacity = '1';
+diff --git a/music.html b/music.html
+index eca1adb..e196572 100644
+--- a/music.html
++++ b/music.html
+@@ -1,22 +1,18 @@
+ <!DOCTYPE html>
+ <html lang="ja">
+ <head>
+-    <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>Music | Laboratory Archive</title>
+-    <meta name="description" content="繧医￥閨ｴ縺城浹讌ｽ縺ｮ繧｢繝ｼ繧ｫ繧､繝・>
+-    <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/style.css">
++    <link rel="stylesheet" href="css/mobile.css">
+ </head>
+ <body>
+-    <!-- 繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ -->
+     <div id="cyber-bg" class="cyber-bg"></div>
+-
+-    <!-- 繝壹・繧ｸ荳企Κ縺ｮ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝倥ャ繝繝ｼ -->
+     <header class="header">
+         <div class="container">
+             <nav class="nav">
+@@ -25,83 +21,33 @@
+                     <li><a href="index.html#research">Research</a></li>
+                     <li><a href="index.html#skills">Skills</a></li>
+                     <li><a href="index.html#projects">Projects</a></li>
+-                    <li><a href="index.html#favorites">Favorites</a></li>
++                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
+                     <li><a href="index.html#contact">Contact</a></li>
+                 </ul>
+             </nav>
+         </div>
+     </header>
+-
+     <main class="main-content">
+-        <!-- 謌ｻ繧九・繧ｿ繝ｳ縺ｮ繧ｨ繝ｪ繧｢ -->
+         <div class="container">
+             <div class="back-btn-container">
+                 <a href="index.html#favorites" class="back-btn">
+-                    <svg viewBox="0 0 24 24">
+-                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+-                    </svg>
++                    <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+                     <span>Return to Database</span>
+                 </a>
+             </div>
+-        </div>
+-
+-        <!-- 髻ｳ讌ｽ繧｢繝ｼ繧ｫ繧､繝悶そ繧ｯ繧ｷ繝ｧ繝ｳ -->
+-        <section class="section">
+-            <div class="container animate-on-scroll">
++            <section class="section">
+                 <div class="hud-panel">
+-                <h2 class="section-title">Music Archive</h2>
+-                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+-                    菴懈･ｭ荳ｭ繧・Μ繝輔Ξ繝・す繝･縺励◆縺・凾縺ｫ繧医￥閨ｴ縺城浹讌ｽ縺ｮ繝ｪ繧ｹ繝医〒縺吶・-                </p>
+-
+-                <!-- 蛟句挨縺ｮ髻ｳ讌ｽ繧ｫ繝ｼ繝峨Μ繧ｹ繝・-->
+-                <div class="grid">
+-                    <!-- 髻ｳ讌ｽ繧ｫ繝ｼ繝・01 -->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">繧｢繝ｼ繝・ぅ繧ｹ繝・</h3>
+-                        <p class="card-text">
+-                            <strong>Favorite Track:</strong> 譖ｲ蜷坑<br><br>
+-                            遐皮ｩｶ縺ｫ陦後″隧ｰ縺ｾ縺｣縺滓凾縲∵ｰ怜・繧貞・繧頑崛縺医ｋ縺溘ａ縺ｫ閨ｴ縺・※縺・∪縺吶・-                        </p>
+-                    </div>
+-                    
+-                    <!-- 髻ｳ讌ｽ繧ｫ繝ｼ繝・02 -->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">繝繝溘・繧｢繝ｼ繝・ぅ繧ｹ繝・</h3>
+-                        <p class="card-text">
+-                            <strong>Favorite Track:</strong> 繝繝溘・繧ｽ繝ｳ繧ｰ<br><br>
+-                            繧ｳ繝ｼ繝・ぅ繝ｳ繧ｰ荳ｭ縺ｪ縺ｩ縲・寔荳ｭ蜉帙ｒ鬮倥ａ縺溘＞譎ゅ↓閨ｴ縺上う繝ｳ繧ｹ繝域･ｽ譖ｲ縺ｧ縺吶・-                        </p>
++                    <h2 class="section-title">Music Archive</h2>
++                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">螂ｽ縺阪↑髻ｳ讌ｽ繧・い繝ｼ繝・ぅ繧ｹ繝医・繧｢繝ｼ繧ｫ繧､繝悶〒縺吶・/p>
++                    <div class="grid">
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Electronic</h3><p class="card-text">繧ｵ繧､繝舌・繝代Φ繧ｯ縺ｪ髮ｰ蝗ｲ豌励・讌ｽ譖ｲ繧貞･ｽ縺ｿ縺ｾ縺吶・/p></div>
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Jazz</h3><p class="card-text">遐皮ｩｶ荳ｭ縺ｮ繝ｪ繝ｩ繝・け繧ｹ縺ｫ譛驕ｩ縺ｧ縺吶・/p></div>
+                     </div>
+-                    
+-                    <!-- 髻ｳ讌ｽ繧ｫ繝ｼ繝・03 -->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">繝繝溘・繧｢繝ｼ繝・ぅ繧ｹ繝・</h3>
+-                        <p class="card-text">
+-                            <strong>Favorite Track:</strong> 繧ｵ繝ｳ繝励Ν繝溘Η繝ｼ繧ｸ繝・け<br><br>
+-                            譛昴・騾壼ｭｦ譎ゅｄ繝｢繝√・繝ｼ繧ｷ繝ｧ繝ｳ繧剃ｸ翫￡縺溘＞譎ゅ↓閨ｴ縺上％縺ｨ縺悟､壹＞縺ｧ縺吶・-                        </p>
+-                    </div>
+-                </div>
+                 </div>
+-            </div>
+-        </section>
+-    </main>
+-
+-    <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
+-    <footer class="footer">
+-        <div class="container">
+-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
++            </section>
+         </div>
+-    </footer>
+-
+-    <!-- 繧ｹ繧ｯ繝ｪ繝励ヨ繝輔ぃ繧､繝ｫ縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ -->
++        <footer class="footer"><div class="container"><p>&copy; 2026 Sei Ooe. All rights reserved.</p></div></footer>
++    </main>
+     <script src="js/script.js"></script>
+ </body>
+ </html>
+diff --git a/scratch/batch_fix_html.py b/scratch/batch_fix_html.py
+new file mode 100644
+index 0000000..0fef3e8
+--- /dev/null
++++ b/scratch/batch_fix_html.py
+@@ -0,0 +1,51 @@
++import os
++
++# 菫ｮ豁｣逕ｨ繝槭ャ繝斐Φ繧ｰ
++replacements = {
++    '諠・': '諠・ｱ',
++    '陬・': '陬・｣ｾ',
++    '繝哘繧ｸ': '繝壹・繧ｸ',
++    'E繧ｿ繝ｳ': '繝懊ち繝ｳ',
++    '繝・': '繝・,
++    '縺・': '縺・,
++    '繧・': '繧・,
++    '蠎勇': '蠎励・',
++    'E': '縺ｮ',
++    '繧ｯ繝ｪ繝・': '繧ｯ繝ｪ繝・け',
++    '繧ｳ繝ｳ繝・': '繧ｳ繝ｳ繝・Φ繝・,
++    '繝峨Μ繝・': '繝峨Μ繝・・',
++    'E蛻・': '閾ｪ蛻・,
++    '隍・': '謨ｰ',
++    '繝拾': '繝上・',
++    '繝・繝ｭ繝・': '繧ｳ繝ｳ繝医Ο繝ｼ繝ｩ繝ｼ',
++    '譌・': '譌・｡・,
++    '縲・': '縲・,
++    '': '',
++    '`n    <link rel="stylesheet" href="css/mobile.css">': '', # 莠碁㍾繝ｪ繝ｳ繧ｯ髦ｲ豁｢
++}
++
++files = [f for f in os.listdir('.') if f.endswith('.html')]
++
++for filename in files:
++    try:
++        # 縺ｾ縺壹・UTF-8縺ｧ隱ｭ縺ｿ霎ｼ縺ｿ繧定ｩｦ縺ｿ繧・+        with open(filename, 'r', encoding='utf-8') as f:
++            content = f.read()
++    except UnicodeDecodeError:
++        # 螟ｱ謨励＠縺溷ｴ蜷医・latin-1縺ｪ縺ｩ縺ｧ隱ｭ縺ｿ霎ｼ縺ｿ繧定ｩｦ縺ｿ繧具ｼ医ヰ繧､繝翫Μ逧・↓菫晄戟・・+        with open(filename, 'r', encoding='latin-1') as f:
++            content = f.read()
++
++    # 鄂ｮ謠・+    for old, new in replacements.items():
++        content = content.replace(old, new)
++    
++    # mobile.css縺ｮ繝ｪ繝ｳ繧ｯ縺梧ｶ医∴縺ｦ縺励∪縺｣縺溷ｴ蜷医・菫晞匱
++    if 'css/mobile.css' not in content:
++        content = content.replace('css/style.css">', 'css/style.css">\n    <link rel="stylesheet" href="css/mobile.css">')
++
++    # 譖ｸ縺榊・縺・+    with open(filename, 'w', encoding='utf-8', newline='\n') as f:
++        f.write(content)
++
++print("Batch fix completed.")
+diff --git a/scratch/fix_html.py b/scratch/fix_html.py
+new file mode 100644
+index 0000000..5124a60
+--- /dev/null
++++ b/scratch/fix_html.py
+@@ -0,0 +1,27 @@
++import os
++import re
++
++files = [f for f in os.listdir('.') if f.endswith('.html')]
++
++for filename in files:
++    with open(filename, 'rb') as f:
++        content = f.read()
++    
++    # Try to decode as UTF-8, if fails try Shift-JIS
++    try:
++        text = content.decode('utf-8')
++    except UnicodeDecodeError:
++        text = content.decode('shift-jis')
++    
++    # Remove the broken link string
++    text = text.replace('`n    <link rel="stylesheet" href="css/mobile.css">', '')
++    
++    # Add the correct link if not present
++    if 'css/mobile.css' not in text:
++        text = text.replace('css/style.css">', 'css/style.css">\n    <link rel="stylesheet" href="css/mobile.css">')
++    
++    # Write back as UTF-8
++    with open(filename, 'w', encoding='utf-8', newline='\n') as f:
++        f.write(text)
++
++print("Done fixing HTML files.")
+diff --git a/scratch/restore_html.py b/scratch/restore_html.py
+new file mode 100644
+index 0000000..2cc9d79
+--- /dev/null
++++ b/scratch/restore_html.py
+@@ -0,0 +1,50 @@
++import os
++
++# Original content parts for index.html (reconstructed from history and my edits)
++# I will use a simplified approach: Read the file, replace known corrupted sequences.
++
++replacements = {
++    '諠・': '諠・ｱ',
++    '繝・繧､繝ｳ': '繝・じ繧､繝ｳ',
++    '繝・': '繝・,
++    '繝哘繧ｸ': '繝壹・繧ｸ',
++    'E繧ｿ繝ｳ': '繝懊ち繝ｳ',
++    '陬・': '陬・｣ｾ',
++    '蜀・': '蜀・Κ',
++    '繧ｹ繝・E繧ｿ繧ｹ繝職': '繧ｹ繝・・繧ｿ繧ｹ繝舌・',
++    '繧ｪ繝ｼ繝職繝ｬ繧､': '繧ｪ繝ｼ繝舌・繝ｬ繧､',
++    '縲・10-8507': '縲・10-8507',
++    '髢峨§繧・': '髢峨§繧・,
++    '郢ｧ・ｵ郢ｧ・､郢晁・繝ｻ郢ｧ・ｹ郢ｧ・ｿ郢ｧ・､郢晢ｽｫ邵ｺ・ｮ髢ｭ譴ｧ蜍ｹ髯ｬ繝ｻ・｣・ｾ髫補悪・ｴ': '繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ',
++    '邵ｺ髮√・邵ｺ・ｫ陷茨ｽ･郢ｧ鄙ｫ縺晉ｹｧ・ｯ郢ｧ・ｷ郢晢ｽｧ郢晢ｽｳ': '縺頑ｰ励↓蜈･繧翫そ繧ｯ繧ｷ繝ｧ繝ｳ',
++    'E': '縺ｮ', # Common fallback for corrupted 'no'
++    '諠・': '蝣ｱ'
++}
++
++files = [f for f in os.listdir('.') if f.endswith('.html')]
++
++for filename in files:
++    with open(filename, 'rb') as f:
++        content = f.read()
++    
++    # Try to fix by decoding as Latin-1 and then encoding/decoding if it was interpreted as Shift-JIS
++    # Actually, simpler: search and replace in the string
++    try:
++        text = content.decode('utf-8', errors='replace')
++    except:
++        text = content.decode('latin-1', errors='replace')
++
++    for old, new in replacements.items():
++        text = text.replace(old, new)
++    
++    # Final cleanup of any weird residues from the failed powershell command
++    text = text.replace('`n    <link rel="stylesheet" href="css/mobile.css">', '')
++    
++    # Ensure correct link
++    if 'css/mobile.css' not in text:
++        text = text.replace('css/style.css">', 'css/style.css">\n    <link rel="stylesheet" href="css/mobile.css">')
++
++    with open(filename, 'w', encoding='utf-8', newline='\n') as f:
++        f.write(text)
++
++print("Restoration attempted.")
+diff --git a/season.html b/season.html
+index ae0a450..02eeb56 100644
+--- a/season.html
++++ b/season.html
+@@ -1,22 +1,18 @@
+ <!DOCTYPE html>
+ <html lang="ja">
+ <head>
+-    <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>Season | Laboratory Archive</title>
+-    <meta name="description" content="螂ｽ縺阪↑蟄｣遽縺ｨ縺昴・驕弱＃縺玲婿">
+-    <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/style.css">
++    <link rel="stylesheet" href="css/mobile.css">
+ </head>
+ <body>
+-    <!-- 繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ -->
+     <div id="cyber-bg" class="cyber-bg"></div>
+-
+-    <!-- 繝壹・繧ｸ荳企Κ縺ｮ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝倥ャ繝繝ｼ -->
+     <header class="header">
+         <div class="container">
+             <nav class="nav">
+@@ -25,71 +21,33 @@
+                     <li><a href="index.html#research">Research</a></li>
+                     <li><a href="index.html#skills">Skills</a></li>
+                     <li><a href="index.html#projects">Projects</a></li>
+-                    <li><a href="index.html#favorites">Favorites</a></li>
++                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
+                     <li><a href="index.html#contact">Contact</a></li>
+                 </ul>
+             </nav>
+         </div>
+     </header>
+-
+     <main class="main-content">
+-        <!-- 謌ｻ繧九・繧ｿ繝ｳ縺ｮ繧ｨ繝ｪ繧｢ -->
+         <div class="container">
+             <div class="back-btn-container">
+                 <a href="index.html#favorites" class="back-btn">
+-                    <svg viewBox="0 0 24 24">
+-                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+-                    </svg>
++                    <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+                     <span>Return to Database</span>
+                 </a>
+             </div>
+-        </div>
+-
+-        <!-- 蟄｣遽繧｢繝ｼ繧ｫ繧､繝悶そ繧ｯ繧ｷ繝ｧ繝ｳ -->
+-        <section class="section">
+-            <div class="container animate-on-scroll">
++            <section class="section">
+                 <div class="hud-panel">
+-                <h2 class="section-title">Season Archive</h2>
+-                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+-                    荳逡ｪ螂ｽ縺阪↑蟄｣遽繧・√◎縺ｮ譎よ悄縺ｪ繧峨〒縺ｯ縺ｮ驕弱＃縺玲婿縺ｫ縺､縺・※縲・-                </p>
+-
+-                <!-- 蛟句挨縺ｮ蟄｣遽繝ｻ驕弱＃縺玲婿繧ｫ繝ｼ繝・-->
+-                <div class="grid">
+-                    <!-- 螂ｽ縺阪↑蟄｣遽繧ｫ繝ｼ繝・-->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">遘・(Autumn)</h3>
+-                        <p class="card-text">
+-                            荳逡ｪ螂ｽ縺阪↑蟄｣遽縺ｧ縺吶よ囁縺輔ｂ蜥後ｉ縺弱∵怙繧る寔荳ｭ蜉帙′鬮倥∪繧顔皮ｩｶ縺梧漉繧翫∪縺吶・-                        </p>
+-                    </div>
+-
+-                    <!-- 驕弱＃縺玲婿繧ｫ繝ｼ繝・-->
+-                    <div class="card">
+-                        <div class="card-corner"></div>
+-                        <div class="card-frame"></div>
+-                        <h3 class="card-title">遘九・驕弱＃縺玲婿</h3>
+-                        <p class="card-text">
+-                            <strong>隱ｭ譖ｸ縺ｨ謨｣豁ｩ:</strong><br><br>
+-                            騾ｱ譛ｫ縺ｯ謨｣豁ｩ縺ｫ蜃ｺ縺九￠縲∝・蝨偵・繝吶Φ繝√〒譛ｬ繧定ｪｭ繧縺ｮ縺瑚・遖上・縺ｲ縺ｨ縺ｨ縺阪〒縺吶・-                        </p>
++                    <h2 class="section-title">Season Archive</h2>
++                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">蟄｣遽縺ｮ遘ｻ繧阪＞繧・｢ｨ譎ｯ縺ｮ繧｢繝ｼ繧ｫ繧､繝悶〒縺吶・/p>
++                    <div class="grid">
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Spring</h3><p class="card-text">譯懊→譁ｰ縺励＞蟋九∪繧翫・蟄｣遽縲・/p></div>
++                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Winter</h3><p class="card-text">髱吝ｯゅ→髮ｪ縺ｮ鬚ｨ譎ｯ繧貞･ｽ縺ｿ縺ｾ縺吶・/p></div>
+                     </div>
+                 </div>
+-                </div>
+-            </div>
+-        </section>
+-    </main>
+-
+-    <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
+-    <footer class="footer">
+-        <div class="container">
+-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
++            </section>
+         </div>
+-    </footer>
+-
+-    <!-- 繧ｹ繧ｯ繝ｪ繝励ヨ繝輔ぃ繧､繝ｫ縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ -->
++        <footer class="footer"><div class="container"><p>&copy; 2026 Sei Ooe. All rights reserved.</p></div></footer>
++    </main>
+     <script src="js/script.js"></script>
+ </body>
+ </html>
+diff --git a/travel.html b/travel.html
+index 82ab733..d9e55eb 100644
+--- a/travel.html
++++ b/travel.html
+@@ -3,7 +3,8 @@
+ <head>
+     <!-- 繝峨く繝･繝｡繝ｳ繝郁ｨｭ螳壹→繝｡繧ｿ諠・ｱ -->
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
++    <meta name="theme-color" content="#000000">
+     <title>Travel | Laboratory Archive</title>
+     <meta name="description" content="譌・｡後・險倬鹸縺ｨ譌･譛ｬ蝨ｰ蝗ｳ">
+     <!-- 螟夜Κ繝輔か繝ｳ繝医→繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝医・隱ｭ縺ｿ霎ｼ縺ｿ -->
+@@ -11,6 +12,7 @@
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/style.css">
++    <link rel="stylesheet" href="css/mobile.css">
+ </head>
+ <body>
+     <!-- 繧ｵ繧､繝舌・繧ｹ繧ｿ繧､繝ｫ縺ｮ閭梧勹陬・｣ｾ隕∫ｴ -->
+@@ -25,7 +27,7 @@
+                     <li><a href="index.html#research">Research</a></li>
+                     <li><a href="index.html#skills">Skills</a></li>
+                     <li><a href="index.html#projects">Projects</a></li>
+-                    <li><a href="index.html#favorites">Favorites</a></li>
++                    <li><a href="index.html#favorites" class="active">Favorites</a></li>
+                     <li><a href="index.html#contact">Contact</a></li>
+                 </ul>
+             </nav>
+@@ -76,15 +78,14 @@
+                 </div>
+             </div>
+         </section>
++        <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
++        <footer class="footer">
++            <div class="container">
++                <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
++            </div>
++        </footer>
+     </main>
+ 
+-    <!-- 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ -->
+-    <footer class="footer">
+-        <div class="container">
+-            <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
+-        </div>
+-    </footer>
+-
+     <!-- 繧ｹ繧ｯ繝ｪ繝励ヨ繝輔ぃ繧､繝ｫ縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ -->
+     <script src="js/script.js"></script>
+     <script src="js/map.js"></script>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF-Style Objects Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #00f3ff;
+            --color-primary-dim: rgba(0, 243, 255, 0.2);
+            --color-primary-glow: rgba(0, 243, 255, 0.8);
+            --color-accent: #00c3ff;
+            --color-bg-main: #050b14;
+            --color-bg-alt: #0a1120;
+            --color-border: #113f60;
+            --font-family-sans: 'Share Tech Mono', 'Orbitron', "Noto Sans JP", monospace;
+            --font-family-mono: 'Share Tech Mono', monospace;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--color-bg-main);
+            color: #fff;
+            font-family: var(--font-family-sans);
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(var(--color-bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--color-bg-alt) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--color-primary);
+            text-shadow: 0 0 15px var(--color-primary-glow);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        .object-box {
+            background: rgba(5, 11, 20, 0.7);
+            border: 1px solid var(--color-border);
+            padding: 40px 20px;
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            clip-path: polygon(0 24px, 24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
+        }
+
+        .object-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid var(--color-primary-dim);
+            pointer-events: none;
+            clip-path: polygon(0 24px, 24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
+        }
+
+        .object-label {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 10;
+            font-family: var(--font-family-mono);
+        }
+
+        /* --- Global Animations --- */
+        .spin-cw { animation: spin 40s linear infinite; transform-origin: center; }
+        .spin-ccw { animation: spin-reverse 30s linear infinite; transform-origin: center; }
+        .spin-cw-fast { animation: spin 15s linear infinite; transform-origin: center; }
+        .spin-ccw-fast { animation: spin-reverse 10s linear infinite; transform-origin: center; }
+        .spin-cw-slow { animation: spin 80s linear infinite; transform-origin: center; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+        
+        .pulse-op { animation: pulse-op 2s infinite alternate ease-in-out; }
+        @keyframes pulse-op { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        /* --- 01. Giant Ring & Sphere --- */
+        .sphere-container { perspective: 800px; }
+        .sphere .ring {
+            position: absolute; width: 100%; height: 100%; border-radius: 50%;
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 0 15px var(--color-primary-glow), inset 0 0 15px var(--color-primary-glow);
+            box-sizing: border-box;
+            opacity: 0.4;
+        }
+        @keyframes rotate-sphere {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        /* --- 06. Cyber Dial --- */
+        @keyframes rotate-scanner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes hex-pulse { 0% { transform: scale(0.9); opacity: 0.3; } 100% { transform: scale(1.1); opacity: 0.8; } }
+
+        /* --- 08 & 09. Holographic Radar & Quantum Comm --- */
+        .sf-object-container { width: 140px; height: 140px; flex-shrink: 0; position: relative; }
+        .sf-svg-base { width: 100%; height: 100%; overflow: visible; }
+        .sf-holographic-radar, .sf-quantum-comm {
+            width: 100%; height: 100%; position: relative; filter: drop-shadow(0 0 8px rgba(0,243,255,0.5)); transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .sf-obj-label {
+            position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 0.6rem;
+            font-family: var(--font-family-mono); color: rgba(0, 243, 255, 0.7); letter-spacing: 0.15em; white-space: nowrap; transition: all 0.3s ease;
+        }
+        .sf-label-bracket { opacity: 0.5; font-size: 0.7em; }
+        .sf-radar-sweep { transform-origin: 60px 60px; animation: sf-radar-rot 3s linear infinite; }
+        @keyframes sf-radar-rot { to { transform: rotate(360deg); } }
+        .sf-ping-ring { transform-origin: 60px 60px; animation: sf-ping 2s ease-out infinite; }
+        @keyframes sf-ping { 0% { transform: scale(1); opacity:1; } 100% { transform: scale(4); opacity:0; } }
+        .sf-blip { animation: sf-blip-flash 2.4s ease-in-out infinite; }
+        @keyframes sf-blip-flash { 0%,80%,100% { opacity:0; } 40% { opacity:1; } }
+        .sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2.4s ease-in-out infinite; }
+        @keyframes sf-arc-pulse { 0%,100% { opacity:0; } 50% { opacity:1; } }
+        .sf-comm-pulse { transform-origin: 60px 72px; animation: sf-comm-expand 2s ease-out infinite; }
+        @keyframes sf-comm-expand { 0% { transform:scale(1); opacity:0.8; } 100% { transform:scale(5); opacity:0; } }
+        .sf-qbit { animation: sf-qbit-blink 1.5s ease-in-out infinite; }
+        @keyframes sf-qbit-blink { 0%,100% { opacity:0.3; } 50% { opacity:1; filter:drop-shadow(0 0 4px var(--color-primary)); } }
+
+        /* --- 10. Identity Matrix Core (Pro Mode) --- */
+        .personnel-auth-module.pro-mode {
+            width: 100%; height: 130px; background: linear-gradient(135deg, rgba(3, 10, 22, 0.95) 0%, rgba(5, 18, 38, 0.95) 100%);
+            border: 1px solid var(--color-primary-dim); position: relative; overflow: hidden; display: flex; flex-direction: column; box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
+        }
+        .auth-pro-bg { position: absolute; inset: 0; pointer-events: none; }
+        .pro-grid { width: 100%; height: 100%; background-image: radial-gradient(var(--color-primary-dim) 0.5px, transparent 0.5px); background-size: 10px 10px; opacity: 0.15; }
+        .pro-particles span { position: absolute; width: 2px; height: 2px; background: var(--color-primary); border-radius: 50%; animation: pro-float 4s infinite linear; opacity: 0; }
+        .pro-particles span:nth-child(1) { left: 10%; animation-delay: 0s; } .pro-particles span:nth-child(2) { left: 40%; animation-delay: 1s; }
+        .pro-particles span:nth-child(3) { left: 70%; animation-delay: 2.5s; } .pro-particles span:nth-child(4) { left: 25%; animation-delay: 0.5s; }
+        .pro-particles span:nth-child(5) { left: 85%; animation-delay: 1.8s; }
+        @keyframes pro-float { 0% { transform: translateY(130px); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: translateY(-10px); opacity: 0; } }
+        .auth-pro-visual { flex: 1; position: relative; display: flex; justify-content: center; align-items: center; perspective: 800px; }
+        .core-3d-container { width: 40px; height: 40px; transform-style: preserve-3d; }
+        .core-hexagon-3d { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: rotate-core-3d 10s infinite linear; }
+        .hex-face { position: absolute; width: 100%; height: 100%; border: 1px solid var(--color-primary); background: rgba(0, 243, 255, 0.1); box-shadow: inset 0 0 8px var(--color-primary-glow); }
+        .hex-face.front  { transform: translateZ(20px); } .hex-face.back   { transform: rotateY(180deg) translateZ(20px); }
+        .hex-face.left   { transform: rotateY(-90deg) translateZ(20px); } .hex-face.right  { transform: rotateY(90deg) translateZ(20px); }
+        .hex-face.top    { transform: rotateX(90deg) translateZ(20px); } .hex-face.bottom { transform: rotateX(-90deg) translateZ(20px); }
+        @keyframes rotate-core-3d { 0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); } 100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); } }
+        .core-ring { position: absolute; border: 1px solid var(--color-primary-dim); border-radius: 50%; opacity: 0.4; }
+        .core-ring.outer { width: 80px; height: 80px; border-style: dashed; animation: spin 15s linear infinite; }
+        .core-ring.inner { width: 60px; height: 60px; border-style: dotted; animation: spin-reverse 8s linear infinite; }
+        .auth-pro-hud { position: absolute; inset: 0; pointer-events: none; }
+        .hud-scanline { position: absolute; width: 100%; height: 30%; background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.05), transparent); animation: scan-vertical 4s ease-in-out infinite; }
+        @keyframes scan-vertical { 0%, 100% { top: -30%; } 50% { top: 100%; } }
+        .hud-corner { position: absolute; width: 15px; height: 15px; border: 1px solid var(--color-primary); opacity: 0.6; }
+        .hud-corner.top-left { top: 5px; left: 5px; border-right: none; border-bottom: none; } .hud-corner.bottom-right { bottom: 5px; right: 5px; border-left: none; border-top: none; }
+        .hud-data-left, .hud-data-right { position: absolute; top: 15px; display: flex; flex-direction: column; gap: 2px; }
+        .hud-data-left { left: 15px; } .hud-data-right { right: 15px; align-items: flex-end; }
+        .mini-tag { font-size: 0.45rem; color: var(--color-primary); opacity: 0.5; letter-spacing: 1px; }
+        .mini-val { font-size: 0.55rem; color: var(--color-primary); font-family: var(--font-family-mono); opacity: 0.9; text-shadow: 0 0 3px var(--color-primary-glow); }
+        .auth-pro-footer { height: 32px; background: rgba(0, 243, 255, 0.08); border-top: 1px solid var(--color-primary-dim); display: flex; align-items: center; padding: 0 12px; justify-content: space-between; z-index: 5; }
+        .footer-led { width: 8px; height: 8px; background: var(--color-primary); border-radius: 50%; box-shadow: 0 0 10px var(--color-primary); animation: pulse-op 1.5s infinite; }
+        .footer-main-status { font-size: 0.65rem; color: var(--color-primary); font-weight: bold; font-family: var(--font-family-mono); letter-spacing: 2px; text-shadow: 0 0 5px var(--color-primary-glow); }
+
+        /* --- 07. SF Window Trigger --- */
+        .cyber-link-btn {
+            display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1.6rem; border: 1px solid rgba(0, 243, 255, 0.15);
+            color: var(--color-primary) !important; font-family: var(--font-family-mono); font-size: 0.95rem; text-decoration: none; position: relative; overflow: hidden; transition: all 0.3s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;
+            background: transparent;
+        }
+        .cyber-link-btn::after { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: var(--color-primary); box-shadow: 0 0 10px var(--color-primary-glow); transition: none; }
+        .cyber-link-btn:hover { border-color: var(--color-primary); background: rgba(0, 243, 255, 0.05); text-shadow: 0 0 8px var(--color-primary-glow); }
+        .cyber-link-btn:hover::after { left: 100%; transition: left 0.5s ease-out; }
+
+        @keyframes sf-glitch-text { 0% { opacity: 1; transform: translateX(0); } 10% { opacity: 0.8; transform: translateX(-2px); } 20% { opacity: 1; transform: translateX(2px); } 30% { opacity: 0.9; transform: translateX(-1px); } 100% { opacity: 1; transform: translateX(0); } }
+        .sf-scanning-bar { position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.8), transparent); animation: sf-scan-line 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+        @keyframes sf-scan-line { 0% { left: -100%; } 100% { left: 100%; } }
+
+        /* --- 11 & 12. Avatar & Skills (High-Fidelity Replication) --- */
+        .photo-brackets {
+            position: relative; width: 200px; aspect-ratio: 1 / 1.15;
+            border: 2px solid var(--color-primary-dim); padding: 10px;
+            background: rgba(0, 243, 255, 0.05); margin: 20px auto;
+        }
+        .photo-brackets::before, .photo-brackets::after {
+            content: ''; position: absolute; width: 30px; height: 30px; border: 3px solid var(--color-primary); pointer-events: none;
+        }
+        .photo-brackets::before { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+        .photo-brackets::after { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+        .personnel-avatar { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: rgba(0, 243, 255, 0.05); overflow: hidden; }
+        .photo-scanline { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--color-primary); box-shadow: 0 0 10px var(--color-primary); animation: sf-scan-vertical 3s linear infinite; pointer-events: none; }
+        @keyframes sf-scan-vertical { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+        .skill-card {
+            background: rgba(0, 243, 255, 0.03); border: 1px solid var(--color-border); border-left: 2px solid var(--color-primary);
+            padding: 12px 15px; display: flex; align-items: center; gap: 12px; position: relative;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); border-radius: 20px 2px 20px 2px; overflow: hidden;
+            width: 260px; cursor: pointer; margin: 0 auto;
+        }
+        .skill-card::before { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(0, 243, 255, 0.05); border-radius: 18px 1px 18px 1px; pointer-events: none; }
+        .skill-card:hover { background: rgba(0, 243, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 25px var(--color-primary-dim); transform: translateY(-3px); }
+        .skill-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: all 0.3s ease; flex-shrink: 0; }
+        .skill-card:hover .skill-icon { opacity: 1; filter: drop-shadow(0 0 10px var(--color-primary-glow)); }
+        .skill-details { flex-grow: 1; display: flex; flex-direction: column; min-width: 0; }
+        .skill-name { font-size: 0.85rem; font-weight: 700; color: #ffffff; letter-spacing: 1px; position: relative; display: inline-block; padding-bottom: 2px; text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .skill-name::before { content: '// '; color: var(--color-accent); opacity: 0.9; font-weight: 400; }
+        .skill-meter { position: relative; width: 100%; height: 8px; margin-top: 8px; background: rgba(0, 243, 255, 0.03); border: 1px solid var(--color-border); padding: 1px; box-sizing: border-box; overflow: hidden; transform: skewX(-15deg); }
+        .skill-meter::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px); background-size: 10px 100%; z-index: 1; }
+        .skill-meter span { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, var(--color-primary), var(--color-primary) 7px, transparent 7px, transparent 11px); filter: drop-shadow(0 0 8px var(--color-primary-glow)); transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1); position: relative; z-index: 2; }
+        .skill-card:hover .skill-meter span { width: var(--level); }
+        .skill-meter span::after { content: ''; position: absolute; top: 0; left: 0; width: 30px; height: 100%; background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent); animation: scan-light 2s infinite linear; }
+        @keyframes scan-light { 0% { transform: translateX(-100%); } 100% { transform: translateX(400%); } }
+    </style>
+</head>
+<body>
+    <h1>SF-Style Objects Collection</h1>
+
+    <div class="container">
+        <!-- 01. Giant Ring & Sphere -->
+        <div class="object-box" id="container-01">
+            <span class="object-label">01 // GIANT_RING_SPHERE</span>
+            <!-- JS Inject -->
+        </div>
+
+        <!-- 02. Sub Radar -->
+        <div class="object-box" id="container-02">
+            <span class="object-label">02 // SUB_RADAR</span>
+            <!-- JS Inject -->
+        </div>
+
+        <!-- 03. Download Bar -->
+        <div class="object-box" id="container-03">
+            <span class="object-label">03 // DATA_TRANSFER_GAUGE</span>
+            <!-- JS Inject -->
+        </div>
+
+        <!-- 04. System Resource Monitor -->
+        <div class="object-box" id="container-04">
+            <span class="object-label">04 // SYS_RESOURCE_MONITOR</span>
+            <!-- JS Inject -->
+        </div>
+
+        <!-- 05. Waveform Frequency Analysis -->
+        <div class="object-box" id="container-05">
+            <span class="object-label">05 // FREQ_ANALYSIS_WAVE</span>
+            <!-- JS Inject -->
+        </div>
+
+        <!-- 06. Multi-layer Cyber Dial -->
+        <div class="object-box" id="container-06">
+            <span class="object-label">06 // MULTI_LAYER_DIAL</span>
+            <!-- JS Inject -->
+        </div>
+
+        <!-- 07. Holographic Radar (Geo Scan) -->
+        <div class="object-box">
+            <span class="object-label">07 // HOLOGRAPHIC_RADAR</span>
+            <div class="sf-object-container" id="mapObjectBtn" style="transform: scale(1.5);">
+                <div class="sf-holographic-radar">
+                    <svg viewBox="0 0 120 120" class="sf-svg-base">
+                        <circle cx="60" cy="60" r="55" fill="rgba(0,243,255,0.03)" stroke="var(--color-primary)" stroke-width="0.5" />
+                        <circle cx="60" cy="60" r="42" fill="none" stroke="var(--color-primary)" stroke-width="0.4" stroke-dasharray="3 3" />
+                        <circle cx="60" cy="60" r="28" fill="none" stroke="var(--color-primary)" stroke-width="0.4" />
+                        <circle cx="60" cy="60" r="14" fill="none" stroke="var(--color-primary)" stroke-width="0.4" stroke-dasharray="2 2" />
+                        <line x1="60" y1="5" x2="60" y2="115" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.4" />
+                        <line x1="5" y1="60" x2="115" y2="60" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.4" />
+                        <line x1="21" y1="21" x2="99" y2="99" stroke="var(--color-primary)" stroke-width="0.3" opacity="0.2" />
+                        <line x1="99" y1="21" x2="21" y2="99" stroke="var(--color-primary)" stroke-width="0.3" opacity="0.2" />
+                        <path d="M 60 60 L 60 5 A 55 55 0 0 1 115 60 Z" fill="url(#radarGradient)" class="sf-radar-sweep" />
+                        <defs>
+                            <radialGradient id="radarGradient" cx="0%" cy="0%" r="100%">
+                                <stop offset="0%" style="stop-color:rgba(0,243,255,0.6)" />
+                                <stop offset="100%" style="stop-color:rgba(0,243,255,0)" />
+                            </radialGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="4 9.05" class="spin-cw" />
+                        <circle cx="60" cy="60" r="5" fill="var(--color-primary)" />
+                        <circle cx="60" cy="60" r="9" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-ping-ring" />
+                        <circle cx="60" cy="60" r="9" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-ping-ring" style="animation-delay:1s" />
+                        <circle cx="80" cy="38" r="2.5" fill="var(--color-primary)" class="sf-blip" style="animation-delay:0.4s" />
+                        <circle cx="35" cy="72" r="2" fill="var(--color-primary)" class="sf-blip" style="animation-delay:1.2s" opacity="0.7" />
+                    </svg>
+                    <div class="sf-obj-label">
+                        <span class="sf-label-bracket">[</span> GEO_SCAN <span class="sf-label-bracket">]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 08. Quantum Comm -->
+        <div class="object-box">
+            <span class="object-label">08 // QUANTUM_COMM_TERMINAL</span>
+            <div class="sf-object-container" style="transform: scale(1.5);">
+                <div class="sf-quantum-comm">
+                    <svg viewBox="0 0 120 120" class="sf-svg-base">
+                        <defs>
+                            <radialGradient id="commGradient" cx="50%" cy="70%" r="60%">
+                                <stop offset="0%" style="stop-color:rgba(0,243,255,0.3)" />
+                                <stop offset="100%" style="stop-color:rgba(0,243,255,0)" />
+                            </radialGradient>
+                        </defs>
+                        <ellipse cx="60" cy="75" rx="50" ry="8" fill="none" stroke="var(--color-primary)" stroke-width="0.5" opacity="0.4" />
+                        <ellipse cx="60" cy="75" rx="35" ry="6" fill="none" stroke="var(--color-primary)" stroke-width="0.4" opacity="0.3" />
+                        <path d="M 46 66 Q 60 52, 74 66" fill="none" stroke="var(--color-primary)" stroke-width="1.5" class="sf-comm-arc" style="animation-delay:0s" />
+                        <path d="M 35 58 Q 60 30, 85 58" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-arc" style="animation-delay:0.6s; opacity:0.7" />
+                        <path d="M 25 45 Q 60 5, 95 45" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-arc" style="animation-delay:1.2s; opacity:0.4" />
+                        <polygon points="60,52 65,70 60,67 55,70" fill="var(--color-primary)" class="pulse-op" />
+                        <circle cx="60" cy="72" r="6" fill="rgba(0,243,255,0.15)" stroke="var(--color-primary)" stroke-width="1.5" />
+                        <circle cx="60" cy="72" r="2.5" fill="var(--color-primary)" />
+                        <circle cx="60" cy="72" r="3.5" fill="none" stroke="var(--color-primary)" stroke-width="1" class="sf-comm-pulse" />
+                        <circle cx="60" cy="72" r="3.5" fill="none" stroke="var(--color-primary)" stroke-width="0.7" class="sf-comm-pulse" style="animation-delay:0.8s" />
+                        <rect x="20" y="90" width="5" height="5" rx="1" fill="var(--color-primary)" class="sf-qbit" style="animation-delay:0s" />
+                        <rect x="55" y="95" width="5" height="5" rx="1" fill="var(--color-primary)" class="sf-qbit" style="animation-delay:0.4s" />
+                        <rect x="90" y="88" width="5" height="5" rx="1" fill="var(--color-primary)" class="sf-qbit" style="animation-delay:0.9s" />
+                        <line x1="25" y1="90" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                        <line x1="57" y1="95" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                        <line x1="92" y1="88" x2="60" y2="72" stroke="var(--color-primary)" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4" />
+                    </svg>
+                    <div class="sf-obj-label">
+                        <span class="sf-label-bracket">[</span> Q_COMM <span class="sf-label-bracket">]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 09. Identity Matrix Core -->
+        <div class="object-box">
+            <span class="object-label">09 // IDENTITY_MATRIX_CORE</span>
+            <div class="personnel-auth-module pro-mode" style="width: 300px; height: 160px;">
+                <div class="auth-pro-bg">
+                    <div class="pro-grid"></div>
+                    <div class="pro-particles">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="auth-pro-visual">
+                    <div class="core-3d-container">
+                        <div class="core-hexagon-3d">
+                            <div class="hex-face front"></div><div class="hex-face back"></div>
+                            <div class="hex-face left"></div><div class="hex-face right"></div>
+                            <div class="hex-face top"></div><div class="hex-face bottom"></div>
+                        </div>
+                    </div>
+                    <div class="core-ring outer"></div>
+                    <div class="core-ring inner"></div>
+                </div>
+                <div class="auth-pro-hud">
+                    <div class="hud-scanline"></div>
+                    <div class="hud-corner top-left"></div>
+                    <div class="hud-corner bottom-right"></div>
+                    <div class="hud-data-left"><div class="mini-tag">ID_SEQ</div><div class="mini-val">X-777</div></div>
+                    <div class="hud-data-right"><div class="mini-tag">SYNC</div><div class="mini-val">ALPHA</div></div>
+                </div>
+                <div class="auth-pro-footer">
+                    <div class="footer-led"></div>
+                    <div class="footer-main-status">IDENTITY_SECURED</div>
+                    <div class="footer-id-stamp"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. SF Window Trigger -->
+        <div class="object-box">
+            <span class="object-label">10 // TRANSITION_WINDOW</span>
+            <button class="cyber-link-btn" onclick="triggerSFWindow()">LAUNCH WINDOW</button>
+        </div>
+
+        <!-- 11. Avatar Bio-Scan -->
+        <div class="object-box">
+            <span class="object-label">11 // AVATAR_BIO_SCAN</span>
+            <div class="photo-brackets">
+                <div class="personnel-avatar">
+                    <svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMin slice">
+                        <defs>
+                            <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                            <mask id="personMask">
+                                <rect width="100" height="120" fill="black" />
+                                <circle cx="50" cy="60" r="32" fill="white" />
+                                <g transform="translate(50, 61.6) scale(3.58) translate(-12, -12.5)">
+                                    <path d="M12 6C13.66 6 15 7.34 15 9C15 10.66 13.66 12 12 12C10.34 12 9 10.66 9 9C9 7.34 10.34 6 12 6ZM12 20C9.33 20 6.99 18.66 5.6 16.63C5.64 14.5 9.87 13.33 12 13.33C14.13 13.33 18.36 14.5 18.4 16.63C17.01 18.66 14.67 20 12 20Z" fill="black" />
+                                </g>
+                                <line x1="80" y1="30" x2="20" y2="90" stroke="white" stroke-width="4.5" stroke-linecap="round" />
+                            </mask>
+                        </defs>
+                        <rect width="100%" height="100%" fill="rgba(0, 243, 255, 0.02)" />
+                        <g filter="url(#glowEffect)">
+                            <rect x="0" y="0" width="100" height="120" fill="var(--color-primary)" mask="url(#personMask)" opacity="0.4" />
+                        </g>
+                    </svg>
+                    <div class="photo-scanline"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Skill Matrix Cards -->
+        <div class="object-box">
+            <span class="object-label">12 // SKILL_MATRICES</span>
+            <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; align-items: center;">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="var(--color-primary)"><path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"/></svg>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-name">NEURAL_LINK_v4.2</span>
+                        <div class="skill-meter" style="--level: 85%;"><span></span></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="var(--color-primary)"><path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5Z"/></svg>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-name">QUANTUM_ENCRYPT</span>
+                        <div class="skill-meter" style="--level: 70%;"><span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JS injected from script.js perfectly
+        const c1 = document.getElementById('container-01');
+        const giantRing = document.createElement('div');
+        giantRing.style.position = 'relative';
+        giantRing.style.width = '1000px';
+        giantRing.style.height = '1000px';
+        giantRing.style.transform = 'scale(0.35)';
+        giantRing.style.margin = '-300px'; // 余白削減のためのネガティブマージン
+        giantRing.innerHTML = `
+            <svg viewBox="0 0 1000 1000" class="hud-ring" style="width: 100%; height: 100%; position: absolute; top:0; left:0; opacity: 1;">
+                <circle cx="500" cy="500" r="480" fill="var(--color-bg-main)" stroke="var(--color-border)" stroke-width="2" />
+                <circle cx="500" cy="500" r="460" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="10 30" fill="none" class="spin-cw-slow" />
+                <circle cx="500" cy="500" r="420" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="2 8" fill="none" class="spin-ccw" />
+                <circle cx="500" cy="500" r="380" stroke="var(--color-accent)" stroke-width="20" stroke-dasharray="150 40 20 40 100 80" fill="none" class="spin-cw" opacity="0.5"/>
+                <circle cx="500" cy="500" r="320" stroke="var(--color-primary)" stroke-width="1" stroke-dasharray="5 5" fill="none" class="spin-ccw-fast" />
+                <path d="M 500 20 L 500 980 M 20 500 L 980 500" stroke="var(--color-primary)" stroke-width="1" stroke-dasharray="2 10" opacity="0.5" />
+                <circle cx="500" cy="500" r="300" stroke="var(--color-primary)" stroke-width="1" fill="none" opacity="0.3"/>
+            </svg>
+
+            <div class="sphere-container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; perspective: 800px;">
+                <div class="sphere" style="width: 100%; height: 100%; transform-style: preserve-3d; animation: rotate-sphere 20s linear infinite;">
+                    <div class="ring" style="transform: rotateY(0deg);"></div>
+                    <div class="ring" style="transform: rotateY(15deg);"></div>
+                    <div class="ring" style="transform: rotateY(30deg);"></div>
+                    <div class="ring" style="transform: rotateY(45deg);"></div>
+                    <div class="ring" style="transform: rotateY(60deg);"></div>
+                    <div class="ring" style="transform: rotateY(75deg);"></div>
+                    <div class="ring" style="transform: rotateY(90deg);"></div>
+                    <div class="ring" style="transform: rotateY(105deg);"></div>
+                    <div class="ring" style="transform: rotateY(120deg);"></div>
+                    <div class="ring" style="transform: rotateY(135deg);"></div>
+                    <div class="ring" style="transform: rotateY(150deg);"></div>
+                    <div class="ring" style="transform: rotateY(165deg);"></div>
+                    
+                    <div class="ring" style="transform: rotateX(90deg);"></div>
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(51.8px) scale(0.966);"></div>
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(-51.8px) scale(0.966);"></div> 
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(100px) scale(0.866);"></div>
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(-100px) scale(0.866);"></div> 
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(141.4px) scale(0.707);"></div>
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(-141.4px) scale(0.707);"></div> 
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(173.2px) scale(0.5);"></div>
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(-173.2px) scale(0.5);"></div> 
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(193.2px) scale(0.259);"></div>
+                    <div class="ring" style="transform: rotateX(90deg) translateZ(-193.2px) scale(0.259);"></div> 
+                </div>
+            </div>
+        `;
+        c1.appendChild(giantRing);
+
+        const c2 = document.getElementById('container-02');
+        const topLeft = document.createElement('div');
+        topLeft.style.position = 'relative';
+        topLeft.style.width = '280px';
+        topLeft.style.height = '280px';
+        topLeft.innerHTML = `
+            <svg viewBox="0 0 300 300" class="hud-ring" style="width: 100%; height: 100%;">
+                <circle cx="150" cy="150" r="140" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="40 10 10 10" fill="none" class="spin-cw" />
+                <circle cx="150" cy="150" r="100" stroke="var(--color-primary)" stroke-width="2" stroke-dasharray="5 5" fill="none" class="spin-ccw-fast" />
+                <circle cx="150" cy="150" r="70" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="50 150" fill="none" class="spin-cw-fast" />
+                <path d="M 150 10 L 150 290 M 10 150 L 290 150" stroke="var(--color-primary)" stroke-width="1" opacity="0.5"/>
+                <circle cx="150" cy="150" r="20" stroke="var(--color-primary)" stroke-width="1" fill="none" class="pulse-op"/>
+            </svg>
+        `;
+        c2.appendChild(topLeft);
+
+        const c3 = document.getElementById('container-03');
+        const bottomLeft = document.createElement('div');
+        bottomLeft.style.position = 'relative';
+        bottomLeft.style.width = '400px';
+        bottomLeft.style.height = '120px';
+        bottomLeft.style.transform = 'scale(0.9)';
+        bottomLeft.innerHTML = `
+            <svg viewBox="0 0 400 120" style="position: absolute; top:0; left:0; width: 100%; height: 100%; filter: drop-shadow(0 0 5px var(--color-primary)); z-index: 1;">
+                <path d="M 70 25 L 320 25 L 330 35 L 70 35 Z" fill="var(--color-primary-dim)" />
+                <path d="M 74.5 35 L 350 35 L 370 55 L 350 75 L 60 75 Z" fill="rgba(255, 255, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
+                <path d="M 115 80 L 300 80 L 310 90 L 115 90 Z" fill="none" stroke="var(--color-primary)" stroke-width="1.5" />
+                <line x1="120" y1="85" x2="160" y2="85" stroke="var(--color-primary)" stroke-width="3" />
+                <text id="dl-status-text" x="170" y="88" fill="var(--color-primary)" font-family="'Share Tech Mono', monospace" font-size="10" letter-spacing="2">LOADING_DATA...</text>
+            </svg>
+            <svg viewBox="0 0 120 120" style="position: absolute; top:0; left:0; width: 120px; height: 120px; z-index: 2;">
+                <circle cx="60" cy="60" r="56" fill="var(--color-bg-main)" />
+                <circle cx="60" cy="60" r="55" fill="rgba(0, 243, 255, 0.05)" stroke="var(--color-primary)" stroke-width="2" />
+                <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-dasharray="5 5" class="spin-cw-slow" opacity="0.8" />
+                <circle cx="60" cy="60" r="48" fill="none" stroke="var(--color-primary-dim)" stroke-width="3" stroke-dasharray="20 10" class="spin-ccw-fast" opacity="0.6"/>
+                <circle cx="60" cy="60" r="35" fill="none" stroke="var(--color-primary-dim)" stroke-width="1" />
+                <path d="M 60 20 L 60 30 M 60 90 L 60 100 M 20 60 L 30 60 M 90 60 L 100 60" stroke="var(--color-primary)" stroke-width="1" opacity="0.5" />
+                <g style="transform: rotate(-90deg); transform-origin: 60px 60px;">
+                    <circle id="dl-arc" cx="60" cy="60" r="41.5" fill="none" stroke="var(--color-primary)" stroke-width="10" stroke-dasharray="261" stroke-dashoffset="261" style="transition: stroke-dashoffset 0.1s linear;" />
+                </g>
+            </svg>
+            <div id="dl-text" style="position: absolute; top: 0; left: 0; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; font-family: 'Share Tech Mono', monospace; font-size: 1.5rem; font-weight: bold; color: var(--color-primary); text-shadow: 0 0 8px var(--color-primary); z-index: 3;">0%</div>
+            <div style="position: absolute; top: 38px; left: 61px; width: 309px; height: 34px; display: flex; gap: 5px; align-items: center; padding: 0 10px 0 62px; box-sizing: border-box; z-index: 2; clip-path: polygon(12.4px 0, 292px 0, 100% 50%, 292px 100%, 0 100%);">
+                <div id="dl-segments" style="display: flex; gap: 5px; align-items: center; width: 100%; height: 100%;"></div>
+            </div>
+            <button onclick="resetDownload()" style="position: absolute; bottom: -45px; right: 20px; background: rgba(0, 243, 255, 0.05); border: 1px solid var(--color-primary-dim); color: var(--color-primary); font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; padding: 4px 12px; cursor: pointer; transition: all 0.2s; z-index: 5; letter-spacing: 2px; clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">RESET</button>
+        `;
+        c3.appendChild(bottomLeft);
+
+        const dlSegmentsContainer = bottomLeft.querySelector('#dl-segments');
+        const dlText = bottomLeft.querySelector('#dl-text');
+        const dlArc = bottomLeft.querySelector('#dl-arc');
+        const totalSegments = 15;
+        for(let i=0; i<totalSegments; i++) {
+            const seg = document.createElement('div');
+            seg.style.width = '10px'; seg.style.height = '22px'; seg.style.transform = 'skewX(-20deg)'; 
+            seg.style.backgroundColor = 'var(--color-primary-dim)'; seg.style.transition = 'background-color 0.1s, box-shadow 0.1s';
+            dlSegmentsContainer.appendChild(seg);
+        }
+        let dlProgress = 0; let isComplete = false;
+        setInterval(() => {
+            if (isComplete) return;
+            dlProgress += (dlProgress < 95) ? (Math.random() * 0.16 + 0.04) : (Math.random() * 0.02 + 0.005);
+            if (dlProgress >= 100) {
+                dlProgress = 100; isComplete = true;
+                dlText.textContent = '100%'; dlText.style.color = '#fff'; dlText.style.textShadow = '0 0 15px #fff, 0 0 30px var(--color-primary)';
+                dlArc.style.stroke = '#fff'; dlArc.style.filter = 'drop-shadow(0 0 10px #fff)'; dlArc.style.strokeDashoffset = 0;
+                const children = dlSegmentsContainer.children;
+                for(let i=0; i<totalSegments; i++) { children[i].style.backgroundColor = '#fff'; children[i].style.boxShadow = '0 0 15px #fff, 0 0 30px var(--color-primary)'; }
+                const dlStatusText = bottomLeft.querySelector('#dl-status-text');
+                if(dlStatusText) { dlStatusText.textContent = 'TRANSFER_COMPLETE'; dlStatusText.setAttribute('fill', '#fff'); dlStatusText.style.textShadow = '0 0 10px #fff'; }
+                setTimeout(() => {
+                    dlText.style.color = 'var(--color-primary)'; dlText.style.textShadow = '0 0 8px var(--color-primary)';
+                    dlArc.style.stroke = 'var(--color-primary)'; dlArc.style.filter = 'none';
+                    for(let i=0; i<totalSegments; i++) { children[i].style.backgroundColor = 'var(--color-primary)'; children[i].style.boxShadow = '0 0 5px var(--color-primary)'; }
+                    if(dlStatusText) { dlStatusText.textContent = 'SYSTEM_SECURED'; dlStatusText.setAttribute('fill', 'var(--color-primary)'); dlStatusText.style.textShadow = 'none'; }
+                }, 3000);
+                return;
+            }
+            const displayProgress = Math.floor(dlProgress);
+            dlText.textContent = displayProgress + '%';
+            dlArc.style.strokeDashoffset = 261 - (261 * (displayProgress / 100));
+            const activeSegments = Math.floor((displayProgress / 100) * totalSegments);
+            const children = dlSegmentsContainer.children;
+            for(let i=0; i<totalSegments; i++) {
+                children[i].style.backgroundColor = (i < activeSegments) ? 'var(--color-primary)' : 'var(--color-primary-dim)';
+                children[i].style.boxShadow = (i < activeSegments) ? '0 0 5px var(--color-primary)' : 'none';
+            }
+        }, 60);
+
+        window.resetDownload = function() {
+            dlProgress = 0;
+            isComplete = false;
+            const dlStatusText = bottomLeft.querySelector('#dl-status-text');
+            if(dlStatusText) { 
+                dlStatusText.textContent = 'REBOOTING_BUFFER...';
+                dlStatusText.setAttribute('fill', 'var(--color-primary)');
+                dlStatusText.style.textShadow = 'none';
+            }
+            dlText.style.color = 'var(--color-primary)';
+            dlArc.style.stroke = 'var(--color-primary)';
+            dlArc.style.filter = 'none';
+        };
+
+        const c4 = document.getElementById('container-04');
+        const topRight = document.createElement('div');
+        topRight.style.position = 'relative';
+        topRight.style.width = '300px';
+        topRight.style.height = '130px';
+        topRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
+        topRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
+        topRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
+        topRight.style.display = 'flex'; topRight.style.flexDirection = 'column';
+        let bars = ''; const barStates = [];
+        for(let i=0; i<12; i++) {
+            let initialWidth = Math.random() * 50 + 30; 
+            barStates.push({ current: initialWidth, target: initialWidth, timer: Math.random() * 100 });
+            bars += `<div class="mem-bar" style="height: 2px; margin-bottom: 4px; background: rgba(0, 243, 255, 0.4); box-shadow: 0 0 2px rgba(0, 243, 255, 0.2); max-width: ${initialWidth}%; width: 100%;"></div>`;
+        }
+        topRight.innerHTML = `
+            <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); display: flex; justify-content: space-between;">
+                <span>SYS_MEM // ALLOC</span><span class="pulse-op"><span id="mem-val">94.2</span>%</span>
+            </div>
+            <div style="flex: 1; display: flex; padding: 5px 15px; overflow: hidden;">
+                <div style="width: 2px; height: 85%; background: rgba(0, 243, 255, 0.4); align-self: center;"></div>
+                <div id="mem-bars-container" style="flex: 1; padding: 0 8px; display: flex; flex-direction: column; justify-content: center;">${bars}</div>
+            </div>
+        `;
+        c4.appendChild(topRight);
+        function animateSystemMonitor() {
+            const barEls = topRight.querySelectorAll('.mem-bar');
+            const memVal = topRight.querySelector('#mem-val');
+            let totalWidth = 0;
+            barEls.forEach((bar, i) => {
+                const state = barStates[i];
+                state.timer++;
+                if (state.timer > 200 + Math.random() * 100) { state.target = Math.random() * 60 + 30; state.timer = 0; }
+                const jitter = (Math.random() - 0.5) * 0.8;
+                state.current += (state.target - state.current) * 0.02;
+                const finalWidth = Math.max(10, Math.min(100, state.current + jitter));
+                bar.style.maxWidth = `${finalWidth}%`;
+                totalWidth += finalWidth;
+            });
+            if (memVal && Math.random() > 0.9) {
+                const avg = totalWidth / 12; const displayMem = 85 + (avg / 100) * 15;
+                memVal.textContent = displayMem.toFixed(1);
+            }
+            requestAnimationFrame(animateSystemMonitor);
+        }
+        animateSystemMonitor();
+
+        const c5 = document.getElementById('container-05');
+        const bottomRight = document.createElement('div');
+        bottomRight.style.position = 'relative';
+        bottomRight.style.width = '300px';
+        bottomRight.style.height = '130px';
+        bottomRight.style.border = '1px solid rgba(0, 243, 255, 0.4)';
+        bottomRight.style.backgroundColor = 'rgba(0, 243, 255, 0.05)';
+        bottomRight.style.boxShadow = 'inset 0 0 15px rgba(0, 243, 255, 0.2)';
+        bottomRight.style.display = 'flex'; bottomRight.style.flexDirection = 'column';
+        bottomRight.style.justifyContent = 'flex-end';
+        const waveSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        waveSvg.setAttribute("viewBox", "0 0 300 100"); waveSvg.setAttribute("preserveAspectRatio", "none");
+        waveSvg.style.width = "100%"; waveSvg.style.height = "100%"; waveSvg.style.position = "absolute"; waveSvg.style.left = "0";
+        const wavePathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        wavePathEl.setAttribute("fill", "none"); wavePathEl.setAttribute("stroke", "var(--color-primary)");
+        wavePathEl.setAttribute("stroke-opacity", "0.35"); wavePathEl.setAttribute("stroke-width", "2");
+        wavePathEl.style.filter = "drop-shadow(0 0 3px rgba(0, 243, 255, 0.4))";
+        waveSvg.appendChild(wavePathEl);
+        bottomRight.innerHTML = `
+            <div style="padding: 4px 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: rgba(0, 243, 255, 0.6); border-bottom: 1px solid rgba(0, 243, 255, 0.3); text-shadow: 0 0 2px rgba(0, 243, 255, 0.3); background: var(--color-bg-main); position: absolute; top: -26px; left: -1px; width: calc(100% + 2px); height: 32px; border: 1px solid rgba(0, 243, 255, 0.4); border-bottom: 1px solid rgba(0, 243, 255, 0.4); display: flex; align-items: center; box-sizing: border-box; z-index: 2;">
+                FREQ_ANALYSIS // <span id="freq-val" style="margin-left: 5px;">---</span> kHz
+            </div>
+            <div id="wave-container" style="position: relative; width: 100%; height: 100%; padding-top: 6px; box-sizing: border-box; display: flex; align-items: center; overflow: hidden; background: transparent;">
+            </div>
+        `;
+        bottomRight.querySelector('#wave-container').appendChild(waveSvg);
+        c5.appendChild(bottomRight);
+        
+        let currentFreq = 2; let targetFreq = 2; let currentAmp = 20; let targetAmp = 20; let currentPhase = 0;
+        function animateWaveform() {
+            const points = 50; const width = 300; const step = width / (points - 1);
+            currentFreq += (targetFreq - currentFreq) * 0.01; currentAmp += (targetAmp - currentAmp) * 0.01; currentPhase += 0.05;
+            let d = `M 0 ${50 + Math.sin(currentPhase) * currentAmp} `;
+            for (let i = 1; i < points; i++) {
+                const x = i * step; const y = 50 + Math.sin((i / (points - 1)) * Math.PI * 2 * currentFreq + currentPhase) * currentAmp;
+                d += `L ${x} ${y} `;
+            }
+            wavePathEl.setAttribute('d', d);
+            const freqVal = bottomRight.querySelector('#freq-val');
+            if (freqVal) freqVal.textContent = (currentFreq * 125.4).toFixed(2);
+            requestAnimationFrame(animateWaveform);
+        }
+        setInterval(() => {
+            targetFreq = Math.random() * 4 + 1;
+            targetAmp = Math.random() < 0.3 ? (Math.random() * 4 + 1) : (Math.random() * 30 + 15);
+        }, 10000);
+        animateWaveform();
+
+        const c6 = document.getElementById('container-06');
+        const cyberDial = document.createElement('div');
+        cyberDial.style.position = 'relative';
+        cyberDial.style.width = '300px';
+        cyberDial.style.height = '300px';
+        cyberDial.innerHTML = `
+            <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 3px var(--color-primary-dim));">
+                <circle cx="50" cy="50" r="49.5" fill="none" stroke="var(--color-primary)" stroke-width="0.3" pathLength="200" stroke-dasharray="0.2, 0.8" stroke-opacity="0.15" style="transform-origin: 50px 50px; animation: rotate-scanner 120s linear infinite;" />
+                <g style="transform-origin: 50px 50px; animation: rotate-scanner 30s linear infinite;">
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="var(--color-primary)" stroke-width="4" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.5" />
+                    <circle cx="50" cy="50" r="41" fill="none" stroke="var(--color-primary)" stroke-width="1" pathLength="300" stroke-dasharray="70, 30" stroke-opacity="0.8" />
+                </g>
+                <circle cx="50" cy="50" r="36" fill="none" stroke="var(--color-primary)" stroke-width="1.5" pathLength="86" stroke-dasharray="20, 5, 2, 5, 2, 5, 30, 10, 2, 5" stroke-opacity="0.6" style="transform-origin: 50px 50px; animation: rotate-scanner 25s linear infinite reverse;" />
+                <circle cx="50" cy="50" r="32" fill="none" stroke="var(--color-primary-dim)" stroke-width="1" pathLength="110" stroke-dasharray="1, 4, 1, 4, 8, 4" stroke-opacity="0.5" style="transform-origin: 50px 50px; animation: rotate-scanner 12s linear infinite;" />
+                <circle cx="50" cy="50" r="26" fill="none" stroke="var(--color-primary)" stroke-width="0.8" pathLength="128" stroke-dasharray="2, 2, 10, 2" stroke-opacity="0.4" style="transform-origin: 50px 50px; animation: rotate-scanner 40s linear infinite;" />
+                <circle cx="50" cy="50" r="3.5" fill="var(--color-primary)" style="animation: hex-pulse 4s ease-in-out infinite alternate; transform-origin: 50px 50px;" />
+            </svg>
+        `;
+        c6.appendChild(cyberDial);
+
+        function triggerSFWindow() {
+            const overlay = document.createElement('div');
+            overlay.style.cssText = "position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5, 11, 20, 0.6); backdrop-filter: blur(10px); z-index: 10000; display: flex; align-items: center; justify-content: center;";
+            const sfWindow = document.createElement('div');
+            sfWindow.style.cssText = "position: relative; width: 0px; height: 2px; background: var(--color-primary); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); transition: width 0.3s, height 0.35s 0.3s;";
+            sfWindow.innerHTML = `
+                <div style="width: 100%; height: 100%; border: 1px solid rgba(0, 243, 255, 0.4); background: rgba(3, 10, 22, 0.9); padding: 20px; display: flex; flex-direction: column; box-sizing: border-box; opacity: 0; transition: opacity 0.2s 0.6s; position: relative;">
+                    <button class="cyber-link-btn" onclick="this.closest('.sf-transition-overlay').remove()" style="position: absolute; bottom: -45px; right: 0; font-size: 0.7rem; padding: 0.3rem 1rem;">CLOSE</button>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0, 243, 255, 0.2); padding-bottom: 10px; margin-bottom: 20px;">
+                        <span style="color: #fff; font-weight: bold; font-family: var(--font-family-sans); letter-spacing: 2px;">> PREVIEW_MODE</span>
+                        <span style="font-size: 0.7rem; color: var(--color-primary); font-family: var(--font-family-mono);">ID: COLLECT_01</span>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-primary);">
+                        <div style="font-size: 1.2rem; margin-bottom: 10px; letter-spacing: 2px; font-family: var(--font-family-sans); animation: sf-glitch-text 3s infinite;">COLLECTION LOADED</div>
+                        <div style="width: 200px; height: 2px; background: rgba(0, 243, 255, 0.1); position: relative; overflow: hidden;">
+                            <div class="sf-scanning-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            overlay.className = 'sf-transition-overlay';
+            overlay.appendChild(sfWindow);
+            document.body.appendChild(overlay);
+            requestAnimationFrame(() => {
+                sfWindow.style.width = "min(80vw, 500px)";
+                sfWindow.style.height = "min(50vh, 300px)";
+                sfWindow.querySelector('div').style.opacity = "1";
+            });
+        }
+    </script>
+</body>
+</html>
