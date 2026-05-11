@@ -341,7 +341,7 @@ function initCyberHUD() {
     topLeft.style.left = '3%';
     topLeft.style.width = '250px';
     topLeft.style.height = '250px';
-    topLeft.style.opacity = '0.5';
+    topLeft.style.opacity = '0.2';
     topLeft.style.zIndex = '20';
     topLeft.style.transformOrigin = 'top left';
     topLeft.innerHTML = `
@@ -362,7 +362,7 @@ function initCyberHUD() {
     bottomLeft.style.left = '3%';
     bottomLeft.style.width = '400px';
     bottomLeft.style.height = '120px';
-    bottomLeft.style.opacity = '0.9';
+    bottomLeft.style.opacity = '0.6';
     bottomLeft.style.zIndex = '20';
     bottomLeft.style.transformOrigin = 'bottom left';
     
@@ -453,23 +453,23 @@ function initCyberHUD() {
 
             /* 100%完了時のエフェクト実行 */
             dlText.textContent = '100%';
-            dlText.style.color = '#fff';
-            dlText.style.textShadow = '0 0 15px #fff, 0 0 30px var(--color-primary)';
+            dlText.style.color = 'var(--color-primary)';
+            dlText.style.textShadow = '0 0 10px var(--color-primary)';
             
-            dlArc.style.stroke = '#fff';
-            dlArc.style.filter = 'drop-shadow(0 0 10px #fff)';
+            dlArc.style.stroke = 'var(--color-primary)';
+            dlArc.style.filter = 'drop-shadow(0 0 5px var(--color-primary))';
             dlArc.style.strokeDashoffset = 0;
 
             const children = dlSegmentsContainer.children;
             for(let i=0; i<totalSegments; i++) {
-                children[i].style.backgroundColor = '#fff';
-                children[i].style.boxShadow = '0 0 15px #fff, 0 0 30px var(--color-primary)';
+                children[i].style.backgroundColor = 'var(--color-primary)';
+                children[i].style.boxShadow = '0 0 8px var(--color-primary)';
             }
 
             if (dlStatusText) {
                 dlStatusText.textContent = 'TRANSFER_COMPLETE';
-                dlStatusText.setAttribute('fill', '#fff');
-                dlStatusText.style.textShadow = '0 0 10px #fff';
+                dlStatusText.setAttribute('fill', 'var(--color-primary)');
+                dlStatusText.style.textShadow = '0 0 5px var(--color-primary)';
             }
 
             /* 3秒後に「安定状態」へ移行して停止 */
@@ -771,7 +771,7 @@ function initCyberHUD() {
         // 四隅のオブジェクト用に追加の拡大倍率を定義（ここでサイズを調整：1.6倍）
         const cornerScale = scale * 1.6;
         
-        giantRing.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        giantRing.style.transform = `translate(-50%, -50%) scale(${scale * 1.15})`;
         topLeft.style.transform = `scale(${cornerScale})`;
         bottomLeft.style.transform = `scale(${cornerScale})`;
         topRight.style.transform = `scale(${cornerScale})`;
