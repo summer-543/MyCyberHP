@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -7,10 +8,13 @@
     <title>Game | Laboratory Archive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mobile.css">
 </head>
+
 <body>
     <div id="cyber-bg" class="cyber-bg"></div>
     <header class="header">
@@ -30,7 +34,8 @@
         <button id="hudToggleBtn" class="hud-toggle-btn" aria-label="Toggle HUD">
             <svg viewBox="0 0 24 24" width="20" height="20">
                 <!-- 目のアイコン (Eye Icon) -->
-                <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                <path fill="currentColor"
+                    d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
             </svg>
         </button>
     </header>
@@ -38,23 +43,70 @@
         <div class="container">
             <div class="back-btn-container">
                 <a href="index.html#favorites" class="back-btn">
-                    <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                    </svg>
                     <span>Return to Database</span>
                 </a>
             </div>
             <section class="section">
                 <div class="hud-panel">
                     <h2 class="section-title">Game Archive</h2>
-                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">趣味のゲームに関するアーカイブです。</p>
+                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+                        好きなゲームを少しだけ。積みゲー消化頑張ります。
+                    </p>
+
                     <div class="grid">
-                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">RPG</h3><p class="card-text">ストーリー重視の作品を好みます。</p></div>
-                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">FPS</h3><p class="card-text">競技的なタイトルもプレイします。</p></div>
+                        <!-- Key作品紹介 (Novel games) -->
+                        <div class="card"
+                            style="grid-column: 1 / -1; border: 1px solid var(--color-primary-dim); border-top: 2px solid var(--color-primary); background: rgba(0, 243, 255, 0.02);">
+                            <div class="card-corner"></div>
+                            <div class="card-frame"></div>
+                            <h3 class="card-title"
+                                style="margin-bottom: 1rem; font-size: 1.5rem; color: var(--color-primary);">Novel games
+                            </h3>
+                            <p class="card-text" style="margin-bottom: 1.5rem; line-height: 1.8;">
+                                中でもKeyの作品が好きです。感動的なシナリオに声や音楽が加わることで物語に深く引き込まれ、その感動には計り知れないものがあります。今の私の感性にも大きな影響を与えた作品たちです。
+                            </p>
+                            <div class="tech-tags" style="gap: 0.8rem; text-transform: none;">
+                                <span class="tag" style="text-transform: none;">Summer Pockets</span>
+                                <span class="tag" style="text-transform: none;">LOOPERS</span>
+                                <span class="tag" style="text-transform: none;">Rewrite</span>
+                                <span class="tag" style="text-transform: none;">CLANNAD</span>
+                                <span class="tag" style="text-transform: none;">リトルバスターズ！</span>
+                                <span class="tag" style="text-transform: none;">虹彩都市</span>
+                                <span class="tag" style="text-transform: none;">LUNARiA</span>
+                            </div>
+                        </div>
+
+                        <!-- FPS / MOBA -->
+                        <div class="card"
+                            style="border: 1px solid var(--color-primary-dim); border-top: 2px solid var(--color-primary); background: rgba(0, 243, 255, 0.02);">
+                            <div class="card-corner"></div>
+                            <div class="card-frame"></div>
+                            <h3 class="card-title" style="margin-bottom: 1rem;">FPS / MOBA</h3>
+                            <p class="card-text">FPSやMOBAは友人とプレイしており、競技性の高さが大きな魅力です。e-sportsの観戦も友人と一緒に楽しんでいます。</p>
+                        </div>
+
+                        <!-- Puzzle / RPG -->
+                        <div class="card"
+                            style="border: 1px solid var(--color-primary-dim); border-top: 2px solid var(--color-primary); background: rgba(0, 243, 255, 0.02);">
+                            <div class="card-corner"></div>
+                            <div class="card-frame"></div>
+                            <h3 class="card-title" style="margin-bottom: 1rem;">Puzzle / RPG</h3>
+                            <p class="card-text">パズルやRPGといったジャンルは、一人でじっくりとやり込むスタイルで楽しんでいます。ドラクエ12を待ち続けています。</p>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
-        <footer class="footer"><div class="container"><p>&copy; 2026 Sei Ooe. All rights reserved.</p></div></footer>
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 Sei Ooe. All rights reserved.</p>
+            </div>
+        </footer>
     </main>
     <script src="js/script.js"></script>
 </body>
+
 </html>
