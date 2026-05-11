@@ -274,6 +274,9 @@ function initCyberHUD() {
     const bg = document.getElementById('cyber-bg');
     if (!bg) return;
     bg.innerHTML = ''; 
+    
+    let extraObjectsInitialized = false;
+    let topLeft, bottomLeft, topRight, bottomRight, cyberDial;
 
     /* 背景中央の巨大なリングと3D球体装飾を生成 */
     const giantRing = document.createElement('div');
@@ -334,8 +337,12 @@ function initCyberHUD() {
     `;
     bg.appendChild(giantRing);
 
-    /* 左上のサブレーダー装飾を生成 */
-    const topLeft = document.createElement('div');
+    function initExtraObjects() {
+        if (extraObjectsInitialized) return;
+        extraObjectsInitialized = true;
+
+        /* 左上のサブレーダー装飾を生成 */
+        topLeft = document.createElement('div');
     topLeft.style.position = 'absolute';
     topLeft.style.top = '3%';
     topLeft.style.left = '3%';
@@ -356,7 +363,7 @@ function initCyberHUD() {
     bg.appendChild(topLeft);
 
     /* 左下の多機能データ転送ゲージ（ダウンロードバー）を生成 */
-    const bottomLeft = document.createElement('div');
+    bottomLeft = document.createElement('div');
     bottomLeft.style.position = 'absolute';
     bottomLeft.style.bottom = '3%';
     bottomLeft.style.left = '3%';
@@ -520,7 +527,7 @@ function initCyberHUD() {
     }, 60);
 
     /* 右上のシステムリソース監視パネルを生成 */
-    const topRight = document.createElement('div');
+    topRight = document.createElement('div');
     topRight.style.position = 'absolute';
     topRight.style.top = '6%';
     topRight.style.right = '3%';
@@ -600,7 +607,7 @@ function initCyberHUD() {
     animateSystemMonitor();
 
     /* 右下の波形周波数グラフ装飾を生成 */
-    const bottomRight = document.createElement('div');
+    bottomRight = document.createElement('div');
     bottomRight.style.position = 'absolute';
     bottomRight.style.top = '25%';
     bottomRight.style.right = '7%';
@@ -687,7 +694,7 @@ function initCyberHUD() {
 
     /* 3つ目のオブジェクト: マルチレイヤー・サイバー・ダイヤル (超大型・画面外はみ出し演出) */
     const dialSize = 500;
-    const cyberDial = document.createElement('div');
+    cyberDial = document.createElement('div');
     cyberDial.id = 'cyber-dial';
     cyberDial.style.position = 'absolute';
     cyberDial.style.bottom = '-80px';
@@ -759,7 +766,11 @@ function initCyberHUD() {
     }
 
     setInterval(pickNewTargets, 10000);
-    animateWaveform();
+        animateWaveform();
+        
+        // 初回表示時のスケール適用
+        updateHUDScale();
+    }
 
     /* ウィンドウサイズに応じた動的スケール調整処理 */
     function updateHUDScale() {
@@ -771,17 +782,33 @@ function initCyberHUD() {
         // 四隅のオブジェクト用に追加の拡大倍率を定義（ここでサイズを調整：1.6倍）
         const cornerScale = scale * 1.6;
         
-        giantRing.style.transform = `translate(-50%, -50%) scale(${scale * 1.15})`;
-        topLeft.style.transform = `scale(${cornerScale})`;
-        bottomLeft.style.transform = `scale(${cornerScale})`;
-        topRight.style.transform = `scale(${cornerScale})`;
-        bottomRight.style.transform = `scale(${cornerScale})`;
+        if (giantRing) giantRing.style.transform = `translate(-50%, -50%) scale(${scale * 1.15})`;
+        if (topLeft) topLeft.style.transform = `scale(${cornerScale})`;
+        if (bottomLeft) bottomLeft.style.transform = `scale(${cornerScale})`;
+        if (topRight) topRight.style.transform = `scale(${cornerScale})`;
+        if (bottomRight) bottomRight.style.transform = `scale(${cornerScale})`;
         if(typeof netStream !== 'undefined' && netStream) netStream.style.transform = `scale(${cornerScale})`;
     }
 
     // 初回実行とリサイズイベントの登録
     updateHUDScale();
     window.addEventListener('resize', updateHUDScale);
+
+    // 背景HUDのトグル機能（PC版専用）
+    bg.classList.add('hud-hidden'); // 初期状態を非表示にする
+    const hudToggleBtn = document.getElementById('hudToggleBtn');
+    if (hudToggleBtn) {
+        hudToggleBtn.classList.add('off'); // 初期状態は非表示
+        hudToggleBtn.addEventListener('click', () => {
+            if (!extraObjectsInitialized) {
+                initExtraObjects();
+                // DOM追加後にフェードを効かせるための強制リフロー
+                void bg.offsetWidth;
+            }
+            bg.classList.toggle('hud-hidden');
+            hudToggleBtn.classList.toggle('off');
+        });
+    }
 }
 
 /* お気に入りや作品リンクをクリックした際のページ遷移演出 */

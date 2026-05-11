@@ -96,6 +96,18 @@ body {
     background-position: center center;
 }
 
+/* PC版用：背景オブジェクトの初期非表示状態 */
+#cyber-bg.hud-hidden > div:not(:first-child) {
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#cyber-bg > div:not(:first-child) {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
 /* 隕句・縺苓ｦ∫ｴ�縺ｮ蜈ｱ騾壹せ繧ｿ繧､繝ｫ */
 h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.1em; }
 /* 繝｡繧､繝ｳ繧ｿ繧､繝医Ν */
@@ -145,6 +157,35 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     height: 2px;
     background: var(--color-primary);
     box-shadow: 0 0 10px var(--color-primary);
+}
+
+/* PC版専用：背景HUD切替ボタン */
+.hud-toggle-btn {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 1px solid var(--color-primary-dim);
+    color: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.hud-toggle-btn.off {
+    color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.hud-toggle-btn:hover {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 10px var(--color-primary-dim);
+    color: #fff;
+    border-color: var(--color-primary-dim);
 }
 
 /* 繝｡繧､繝ｳ繧ｳ繝ｳ繝・Φ繝・お繝ｪ繧｢・壹％縺薙′繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ蜿ｯ閭ｽ鬆伜沺縺ｨ縺ｪ繧・*/
