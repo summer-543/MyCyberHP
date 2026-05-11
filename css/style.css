@@ -125,7 +125,7 @@ a { color: var(--color-primary); text-decoration: none; transition: all var(--tr
 a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 
 /* 繧ｳ繝ｳ繝・Φ繝・・荳ｭ螟ｮ驟咲ｽｮ逕ｨ繧ｳ繝ｳ繝・リ */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 10; }
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 10; }
 
 /* 繝壹・繧ｸ荳企Κ縺ｮ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝倥ャ繝繝ｼ */
 .header {
@@ -194,7 +194,12 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth; /* 繧｢繝ｳ繧ｫ繝ｼ繝ｪ繝ｳ繧ｯ縺ｮ繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繧呈ｻ代ｉ縺九↓ */
+    
+    /* スティッキーフッターのためのFlex設定 */
+    display: flex;
+    flex-direction: column;
 }
+
 /* 蜷・そ繧ｯ繧ｷ繝ｧ繝ｳ縺ｮ菴咏區 */
 .section { padding: 4rem 0; border-bottom: none; }
 
@@ -502,7 +507,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 .tag:hover { border-color: var(--color-primary); background-color: rgba(0, 243, 255, 0.1); color: #fff; box-shadow: 0 0 10px var(--color-primary-dim); }
 
 /* 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ */
-.footer { background-color: var(--color-bg-alt); padding: 2rem 0; margin-top: 4rem; text-align: center; border-top: 1px solid var(--color-primary-dim); color: var(--color-text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; }
+.footer { background-color: var(--color-bg-alt); padding: 2rem 0; margin-top: auto; text-align: center; border-top: 1px solid var(--color-primary-dim); color: var(--color-text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; }
 
 /* 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ譎ゅ↓蜃ｺ迴ｾ縺吶ｋ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ隕∫ｴ� */
 .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
