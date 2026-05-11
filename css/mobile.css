@@ -314,6 +314,45 @@
         overflow-x: hidden !important;
         text-overflow: ellipsis !important;
     }
+
+    /* MUSIC PAGE - ARTIST PANEL MOBILE */
+    .artist-panel {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        margin-bottom: 3rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .artist-media {
+        width: 100% !important;
+        max-width: 380px !important;
+        height: auto !important;
+        margin: 0 auto;
+        padding: 0.5rem !important;
+    }
+    .artist-media iframe {
+        width: 100% !important;
+        aspect-ratio: 350 / 515;
+        height: auto !important;
+    }
+    .artist-name {
+        font-size: 1.6rem !important;
+        text-align: center;
+    }
+    .artist-description {
+        font-size: 0.85rem !important;
+        text-align: center;
+    }
+    .track-name {
+        font-size: 0.95rem !important;
+    }
+    .link-btn-container {
+        display: flex;
+        justify-content: center;
+    }
+    .artist-link-btn {
+        padding: 0.8rem 1.5rem !important;
+        font-size: 0.85rem !important;
+    }
 }
 
 

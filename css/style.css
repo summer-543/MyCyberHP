@@ -1666,7 +1666,7 @@ body.closing::before {
     overflow: hidden;
 }
 
-/* 莠碁㍾邱壹ヵ繝ｬ繝ｼ繝�蜉ｹ譫・*/
+/* 莠碁㍾邱壹ヵ繝ｬ繝ｼ繝蜉ｹ譫・*/
 .skill-card::before {
     content: '';
     position: absolute;
@@ -1726,7 +1726,7 @@ body.closing::before {
     font-weight: 400;
 }
 
-/* 莉･蜑阪・繝舌Μ繧｢繝ｳ繝郁｣・｣ｾ繧堤┌蜉ｹ蛹厄ｼ育ｵｱ荳縺輔ｌ縺溘◆繧・ｼ・*/
+/* 莉･蜑阪・繝舌Μ繧｢繝ｳ繝郁｣・｣ｾ繧堤┌蜉ｹ蛹厄ｼ育ｵｱ荳€縺輔ｌ縺溘◆繧・ｼ・*/
 .name-variant-alpha::before,
 .name-variant-beta::before,
 .name-variant-beta::after,
@@ -1746,7 +1746,7 @@ body.closing::before {
     padding: 2px;
     box-sizing: border-box;
     overflow: hidden;
-    /* 蜈ｨ菴薙ｒ譁懊ａ縺ｫ豁ｪ縺ｾ縺帙ｋ縺薙→縺ｧ縲∵棧繝ｻ逶ｮ逶帙ｊ繝ｻ騾ｲ謐礼ｫｯ縺ｮ隗貞ｺｦ繧貞ｮ悟・縺ｫ荳閾ｴ縺輔○繧・*/
+    /* 蜈ｨ菴薙ｒ譁懊ａ縺ｫ豁ｪ縺ｾ縺帙ｋ縺薙→縺ｧ縲∵棧繝ｻ逶ｮ逶帙ｊ繝ｻ騾ｲ謐礼ｫｯ縺ｮ隗貞ｺｦ繧貞ｮ悟・縺ｫ荳€閾ｴ縺輔○繧・*/
     transform: skewX(-15deg);
 }
 
@@ -1826,7 +1826,7 @@ body.closing::before {
 
 
 
-/* --- 繝溘ル繝槭Ν繝ｻ繝弱・繝・・繧ｿ・育ｩｶ讌ｵ縺ｮ邁｡邏�蛹厄ｼ・--- */
+/* --- 繝溘ル繝槭Ν繝ｻ繝弱・繝・・繧ｿ・育ｩｶ讌ｵ縺ｮ邁｡邏蛹厄ｼ・--- */
 
 /* NO DATA繝・く繧ｹ繝医・螟ｧ閭・↑蠑ｷ隱ｿ・磯ｫ倡ｲｾ蠎ｦ繝ｻ螟ｧ繧ｵ繧､繧ｺ・・*/
 .nodata-label {
@@ -1840,7 +1840,7 @@ body.closing::before {
     filter: drop-shadow(0 0 8px var(--color-primary-glow)); /* 繧ｰ繝ｭ繝ｼ繧貞ｼｷ蛹悶＠縺ｦ蟄伜惠諢溘ｒ蜃ｺ縺・*/
 }
 
-/* 繧ｿ繧ｯ繝・ぅ繧ｫ繝ｫ繝ｻ繧｢繝ｳ繝繝ｼ繝ｩ繧､繝ｳ・医せ繝・・繧ｿ繧ｹ蠑ｷ隱ｿ逕ｨ・・*/
+/* 繧ｿ繧ｯ繝・ぅ繧ｫ繝ｫ繝ｻ繧｢繝ｳ繝€繝ｼ繝ｩ繧､繝ｳ・医せ繝・・繧ｿ繧ｹ蠑ｷ隱ｿ逕ｨ・・*/
 .nodata-underline {
     stroke: var(--color-primary);
     stroke-width: 0.6;
@@ -1855,11 +1855,11 @@ body.closing::before {
     opacity: 0.15;
 }
 
-/* 繝｢繝舌う繝ｫ蟆ら畑隕∫ｴ�縺ｮ繝・ヵ繧ｩ繝ｫ繝磯撼陦ｨ遉ｺ險ｭ螳夲ｼ・C陦ｨ遉ｺ繧堤ｶｭ謖√☆繧九◆繧・ｼ・*/
+/* 繝｢繝舌う繝ｫ蟆ら畑隕∫ｴ縺ｮ繝・ヵ繧ｩ繝ｫ繝磯撼陦ｨ遉ｺ險ｭ螳夲ｼ・C陦ｨ遉ｺ繧堤ｶｭ謖√☆繧九◆繧・ｼ・*/
 .mobile-avatar-mini {
     display: none;
 }
-/* 繧ｿ繧､繝�繝ｩ繧､繝ｳ縺ｮ隕句・縺励ｒ謗ｧ縺医ａ縺ｫ隱ｿ謨ｴ・医Δ繝舌う繝ｫ迚医→蜷梧ｧ倥・2陦後Ξ繧､繧｢繧ｦ繝医ｒ謗｡逕ｨ・・*/
+/* 繧ｿ繧､繝繝ｩ繧､繝ｳ縺ｮ隕句・縺励ｒ謗ｧ縺医ａ縺ｫ隱ｿ謨ｴ・医Δ繝舌う繝ｫ迚医→蜷梧ｧ倥・2陦後Ξ繧､繧｢繧ｦ繝医ｒ謗｡逕ｨ・・*/
 .timeline-item {
     display: flex;
     flex-direction: column;
@@ -1876,14 +1876,14 @@ body.closing::before {
     text-transform: uppercase;
 }
 .timeline-content {
-    font-size: 1.1rem; /* 繝・・繝悶Ν縺ｮ莉悶・繧ｻ繝ｫ (1.1rem) 縺ｨ螳悟・縺ｫ邨ｱ荳 */
+    font-size: 1.1rem; /* 繝・・繝悶Ν縺ｮ莉悶・繧ｻ繝ｫ (1.1rem) 縺ｨ螳悟・縺ｫ邨ｱ荳€ */
     color: var(--color-text-main);
     font-family: monospace; /* 繝・・繝悶Ν繧ｻ繝ｫ縺ｨ蜷後§遲牙ｹ・ヵ繧ｩ繝ｳ繝医ｒ譏守､ｺ */
     padding-left: 0.5rem;
     border-left: 1px solid var(--color-primary-dim);
 }
 
-/* 驕ｷ遘ｻ繝壹・繧ｸ縺ｮ繝倥ャ繝繝ｼ隱ｿ謨ｴ */
+/* 驕ｷ遘ｻ繝壹・繧ｸ縺ｮ繝倥ャ繝€繝ｼ隱ｿ謨ｴ */
 .header {
     position: sticky;
     top: 0;
@@ -1959,7 +1959,7 @@ body.closing::before {
     flex-direction: row-reverse;
 }
 
-/* 譌・｡檎判蜒上せ繝ｩ繧､繝繝ｼ縺ｮ繧ｳ繝ｳ繝・リ */
+/* 譌・｡檎判蜒上せ繝ｩ繧､繝€繝ｼ縺ｮ繧ｳ繝ｳ繝・リ */
 .travel-slider-container {
     flex: 1;
     max-width: 450px;
@@ -1995,7 +1995,6 @@ body.closing::before {
     filter: saturate(1.1);
 }
 
-/* 繧ｹ繝ｩ繧､繝繝ｼ縺ｮ荳矩Κ繧ｳ繝ｳ繝医Ο繝ｼ繝ｫ */
 .slider-controls-bottom {
     display: flex;
     align-items: center;
@@ -2032,7 +2031,7 @@ body.closing::before {
     fill: currentColor;
 }
 
-/* 繧ｹ繝ｩ繧､繝繝ｼ繧､繝ｳ繧ｸ繧ｱ繝ｼ繧ｿ繝ｼ・医ラ繝・ヨ・・*/
+/* 繧ｹ繝ｩ繧､繝€繝ｼ繧､繝ｳ繧ｸ繧ｱ繝ｼ繧ｿ繝ｼ・医ラ繝・ヨ・・*/
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -2074,6 +2073,37 @@ body.closing::before {
     height: 1px;
     background: linear-gradient(90deg, var(--color-primary), transparent);
     box-shadow: 0 0 10px var(--color-primary);
+}
+
+/* Artist Sub Window (Simpler Design) */
+.artist-sub-window {
+    background: transparent;
+    border: 1px solid rgba(0, 243, 255, 0.25);
+    padding: 2.5rem 3rem; /* パディングを拡大 1.5 -> 2.5/3 */
+    margin-bottom: 4.5rem; /* 子ウィンドウ間のマージンを拡大 2.5 -> 4.5 */
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.artist-sub-window:hover {
+    border-color: rgba(0, 243, 255, 0.5);
+    
+}
+
+.artist-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem; /* 下部との間隔を拡大 1.5 -> 2.5 */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+}
+
+.artist-title-group {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* タグとの間隔を拡大 1.2 -> 1.5 */
 }
 
 .travel-card.layout-right .travel-card-header::after {
@@ -2263,5 +2293,427 @@ body.closing::before {
         height: 44px;
         font-size: 32px;
     }
+}
+
+/* ==========================================================================
+   MUSIC PAGE - ARTIST PANEL STYLES
+   ========================================================================== */
+
+.artist-panel {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.artist-panel:last-child {
+    border-bottom: none;
+    margin-bottom: 2rem;
+}
+
+.artist-media {
+    width: 350px;
+    min-height: 515px; /* 高さの最小値を設定 */
+    background: rgba(0, 243, 255, 0.03);
+    border: 1px solid var(--color-primary-dim);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 上揃えに変更 */
+    padding: 1rem;
+    box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
+}
+
+.media-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+/* 背景のノイズテクスチャ */
+.artist-media::before {
+    content: "NO_SIGNAL";
+    position: absolute;
+    font-family: var(--font-family-mono);
+    font-size: 0.7rem;
+    color: var(--color-primary-dim);
+    letter-spacing: 0.5em;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.artist-media iframe {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+}
+
+.artist-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.artist-name {
+    font-size: 2.2rem;
+    color: #fff;
+    text-shadow: 0 0 15px var(--color-primary-glow);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: none; /* 大文字強制を解除 */
+}
+
+.artist-description {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.track-list-title {
+    font-size: 1rem;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary-dim);
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.track-list-title::before {
+    content: "[ TRACK_LIST ]";
+    font-size: 0.6rem;
+    opacity: 0.5;
+}
+
+.track-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.track-item {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.track-item:hover {
+    background: rgba(0, 243, 255, 0.03);
+    padding-left: 0.5rem;
+}
+
+.track-item:last-child {
+    border-bottom: none;
+}
+
+.track-name {
+    font-size: 1.05rem;
+    color: var(--color-text-main);
+    font-family: var(--font-family-sans);
+}
+
+.track-name::before {
+    content: "> ";
+    color: var(--color-primary);
+    font-family: var(--font-family-mono);
+}
+
+.link-btn-container {
+    margin-top: 2rem;
+}
+
+.artist-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 2.5rem;
+    background: rgba(0, 243, 255, 0.08);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-decoration: none;
+    position: relative;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.artist-link-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.artist-link-btn:hover {
+    background: rgba(0, 243, 255, 0.2);
+    box-shadow: 0 0 25px var(--color-primary-dim);
+    color: #fff;
+    text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.artist-link-btn:hover::after {
+    left: 100%;
+}
+
+.artist-link-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* ==========================================================================
+   MUSIC PAGE - CYBER PLAYLIST STYLES
+   ========================================================================== */
+
+.cyber-playlist {
+    background: rgba(0, 243, 255, 0.02);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.playlist-header {
+    display: grid;
+    grid-template-columns: 50px 1fr 80px; /* 幅を調整 */
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 243, 255, 0.1);
+    border-bottom: 1px solid var(--color-primary-dim);
+    font-family: var(--font-family-mono);
+    font-size: 0.7rem;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+}
+
+.col-link {
+    text-align: center; /* 中央揃え */
+}
+
+.playlist-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-item {
+    display: grid;
+    grid-template-columns: 50px 1fr 80px; /* 幅を調整 */
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.05);
+    align-items: center;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.playlist-item:last-child {
+    border-bottom: none;
+}
+
+.playlist-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: var(--color-primary);
+    transition: width 0.2s ease;
+    opacity: 0.3;
+}
+
+.playlist-item:hover {
+    background: rgba(0, 243, 255, 0.08);
+}
+
+.playlist-item:hover::before {
+    width: 4px;
+}
+
+.item-index {
+    font-family: var(--font-family-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.playlist-item:hover .item-index {
+    color: var(--color-primary);
+    text-shadow: 0 0 5px var(--color-primary);
+}
+
+.item-title {
+    font-size: 1.05rem;
+    color: var(--color-text-main);
+    letter-spacing: 1px;
+}
+
+.playlist-item:hover .item-title {
+    color: #fff;
+    text-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+.item-link-label {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 中央揃え */
+}
+
+.play-btn-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--color-primary-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 243, 255, 0.05);
+    color: var(--color-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.play-btn-circle svg {
+    width: 18px !important;
+    height: 18px !important;
+    fill: currentColor;
+}
+
+.playlist-item:hover .play-btn-circle {
+    background: rgba(0, 243, 255, 0.2);
+    color: var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+    text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.play-btn-circle.disabled {
+    opacity: 0.3;
+    border-color: var(--color-text-muted);
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 600px) {
+    .playlist-header {
+        grid-template-columns: 40px 1fr;
+        padding: 0.8rem 1rem;
+    }
+    .col-link { display: none; }
+    
+    .playlist-item {
+        grid-template-columns: 40px 1fr;
+        padding: 1rem 1rem;
+    }
+    .item-link-label { display: none; }
+}
+
+
+/* Artist Sub Window (Simpler Design) */
+.artist-sub-window {
+    background: transparent;
+    border: 1px solid rgba(0, 243, 255, 0.25);
+    padding: 3rem;
+    margin-bottom: 5.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* L字装飾の追加 */
+.artist-sub-window::before,
+.artist-sub-window::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--color-primary);
+    pointer-events: none;
+    z-index: 2;
+    filter: drop-shadow(0 0 5px var(--color-primary-glow));
+}
+
+.artist-sub-window::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.artist-sub-window::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+}
+
+/* ホバー時に枠線のみが明るくなる演出 */
+.artist-sub-window:hover {
+    border-color: var(--color-primary);
+}
+
+.artist-header-row {
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+}
+
+.item-title {
+    font-size: 1.05rem;
+    color: var(--color-text-main);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 1rem;
+}
+
+
+.artist-name {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 15px var(--color-primary-glow);
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+    .artist-header-row {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .artist-name {
+        font-size: 1.6rem;
+    }
+}
+
+
+.artist-status-tag {
+    display: none;
+}
+
+.artist-panel-inner {
+    width: 100%;
 }
 

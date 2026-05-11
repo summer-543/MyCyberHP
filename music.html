@@ -30,7 +30,7 @@
         <button id="hudToggleBtn" class="hud-toggle-btn" aria-label="Toggle HUD">
             <svg viewBox="0 0 24 24" width="20" height="20">
                 <!-- 目のアイコン (Eye Icon) -->
-                <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
             </svg>
         </button>
     </header>
@@ -42,13 +42,216 @@
                     <span>Return to Database</span>
                 </a>
             </div>
+
             <section class="section">
-                <div class="hud-panel">
-                    <h2 class="section-title">Music Archive</h2>
-                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">好きな音楽やアーティストのアーカイブです。</p>
-                    <div class="grid">
-                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Electronic</h3><p class="card-text">サイバーパンクな雰囲気の楽曲を好みます。</p></div>
-                        <div class="card"><div class="card-corner"></div><div class="card-frame"></div><h3 class="card-title">Jazz</h3><p class="card-text">研究中のリラックスに最適です。</p></div>
+                <div class="hud-panel animate-on-scroll" style="padding: 4rem;">
+                    <h2 class="section-title" style="margin-bottom: 3rem;">Music Archive</h2>
+                    
+                    <!-- *Luna -->
+                    <div class="artist-sub-window">
+                        <div class="artist-panel-inner">
+                            <div class="artist-header-row">
+                                <div class="artist-title-group">
+                                    <h3 class="artist-name">*Luna</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="cyber-playlist">
+                                <div class="playlist-header">
+                                    <span class="col-index">#</span>
+                                    <span class="col-title">TRACK_TITLE</span>
+                                    <span class="col-link">PLAY</span>
+                                </div>
+                                <div class="playlist-items">
+                                    <a href="https://n0.com/s/4h3dq1wii7zd" class="playlist-item" target="_blank">
+                                        <span class="item-index">01</span>
+                                        <span class="item-title">あの夏のいつかは</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/7trctwiuwyun" class="playlist-item" target="_blank">
+                                        <span class="item-index">02</span>
+                                        <span class="item-title">Heal Me</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/a/msz7r73kx5pk" class="playlist-item" target="_blank">
+                                        <span class="item-index">03</span>
+                                        <span class="item-title">Stray</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/9i3k0dt15ydk" class="playlist-item" target="_blank">
+                                        <span class="item-index">04</span>
+                                        <span class="item-title">INNITE</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/a/u111jrenfnwb" class="playlist-item" target="_blank">
+                                        <span class="item-index">05</span>
+                                        <span class="item-title">イグニッション</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/i64ifub1vcjs" class="playlist-item" target="_blank">
+                                        <span class="item-index">06</span>
+                                        <span class="item-title">霞む夏の灯</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orangestar -->
+                    <div class="artist-sub-window">
+                        <div class="artist-panel-inner">
+                            <div class="artist-header-row">
+                                <div class="artist-title-group">
+                                    <h3 class="artist-name">Orangestar</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="cyber-playlist">
+                                <div class="playlist-header">
+                                    <span class="col-index">#</span>
+                                    <span class="col-title">TRACK_TITLE</span>
+                                    <span class="col-link">PLAY</span>
+                                </div>
+                                <div class="playlist-items">
+                                    <a href="https://n0.com/s/j5qi3b13dfcq" class="playlist-item" target="_blank">
+                                        <span class="item-index">01</span>
+                                        <span class="item-title">アスノヨゾラ哨戒班</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/zq6vps3h0949" class="playlist-item" target="_blank">
+                                        <span class="item-index">02</span>
+                                        <span class="item-title">空奏列車</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/79nfudjk27zr" class="playlist-item" target="_blank">
+                                        <span class="item-index">03</span>
+                                        <span class="item-title">残灯花火</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/afx9wgmspqyh" class="playlist-item" target="_blank">
+                                        <span class="item-index">04</span>
+                                        <span class="item-title">花と記憶</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/mw0vthbddg8n" class="playlist-item" target="_blank">
+                                        <span class="item-index">05</span>
+                                        <span class="item-title">Alice in 冷凍庫</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/rmpvziv2t0de" class="playlist-item" target="_blank">
+                                        <span class="item-index">06</span>
+                                        <span class="item-title">快晴</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EGOIST -->
+                    <div class="artist-sub-window" style="margin-bottom: 0;">
+                        <div class="artist-panel-inner">
+                            <div class="artist-header-row">
+                                <div class="artist-title-group">
+                                    <h3 class="artist-name">EGOIST</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="cyber-playlist">
+                                <div class="playlist-header">
+                                    <span class="col-index">#</span>
+                                    <span class="col-title">TRACK_TITLE</span>
+                                    <span class="col-link">PLAY</span>
+                                </div>
+                                <div class="playlist-items">
+                                    <a href="https://n0.com/s/9j2ey9ftsgmm" class="playlist-item" target="_blank">
+                                        <span class="item-index">01</span>
+                                        <span class="item-title">エウテルペ</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/mxprr07i6mq9" class="playlist-item" target="_blank">
+                                        <span class="item-index">02</span>
+                                        <span class="item-title">Departures 〜あなたにおくるアイの歌〜</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/f54weuwebbzs" class="playlist-item" target="_blank">
+                                        <span class="item-index">03</span>
+                                        <span class="item-title">名前のない怪物</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://n0.com/s/vxb1w5r0v2s8" class="playlist-item" target="_blank">
+                                        <span class="item-index">04</span>
+                                        <span class="item-title">当事者</span>
+                                        <div class="item-link-label">
+                                            <div class="play-btn-circle">
+                                                <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
