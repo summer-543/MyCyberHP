@@ -771,7 +771,7 @@ function initCyberHUD() {
         bottomLeft.style.transform = `scale(${cornerScale})`;
         topRight.style.transform = `scale(${cornerScale})`;
         bottomRight.style.transform = `scale(${cornerScale})`;
-        if(netStream) netStream.style.transform = `scale(${cornerScale})`;
+        if(typeof netStream !== 'undefined' && netStream) netStream.style.transform = `scale(${cornerScale})`;
     }
 
     // 初回実行とリサイズイベントの登録
