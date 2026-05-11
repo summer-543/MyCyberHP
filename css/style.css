@@ -1,36 +1,36 @@
-/* SFスタイルのデザインを定義するメインスタイルシート */
+/* SF繧ｹ繧ｿ繧､繝ｫ縺ｮ繝・じ繧､繝ｳ繧貞ｮ夂ｾｩ縺吶ｋ繝｡繧､繝ｳ繧ｹ繧ｿ繧､繝ｫ繧ｷ繝ｼ繝・*/
 
-/* ルート変数：カラーパレットとフォントの定義 */
+/* 繝ｫ繝ｼ繝亥､画焚・壹き繝ｩ繝ｼ繝代Ξ繝・ヨ縺ｨ繝輔か繝ｳ繝医・螳夂ｾｩ */
 :root {
-    --color-primary: #00f3ff;       /* メインカラー（シアン） */
+    --color-primary: #00f3ff;       /* 繝｡繧､繝ｳ繧ｫ繝ｩ繝ｼ・医す繧｢繝ｳ・・*/
     --color-primary-hover: #ffffff;
     --color-primary-dim: rgba(0, 243, 255, 0.2);
     --color-primary-glow: rgba(0, 243, 255, 0.8);
     
-    --color-secondary: #00f3ff;     /* セカンダリカラー */
-    --color-accent: #00c3ff;        /* アクセントカラー */
+    --color-secondary: #00f3ff;     /* 繧ｻ繧ｫ繝ｳ繝繝ｪ繧ｫ繝ｩ繝ｼ */
+    --color-accent: #00c3ff;        /* 繧｢繧ｯ繧ｻ繝ｳ繝医き繝ｩ繝ｼ */
 
-    /* テキストカラー */
+    /* 繝・く繧ｹ繝医き繝ｩ繝ｼ */
     --color-heading: #00f3ff;       
     --color-text-main: #e0f8ff;     
     --color-text-muted: #649eb0;    
     
-    /* 背景色 */
+    /* 閭梧勹濶ｲ */
     --color-bg-main: #050b14;       
     --color-bg-alt: #0a1120;        
     --color-bg-panel: rgba(5, 11, 20, 0.7); 
     
-    /* ボーダー設定 */
+    /* 繝懊・繝繝ｼ險ｭ螳・*/
     --color-border: #113f60;
     --color-border-glow: #00f3ff;
     
-    /* フォントと速度 */
+    /* 繝輔か繝ｳ繝医→騾溷ｺｦ */
     --font-family-sans: 'Share Tech Mono', 'Orbitron', "Noto Sans JP", monospace;
     --font-family-mono: 'Share Tech Mono', monospace;
     --transition-speed: 0.3s;
 }
 
-/* 画面全体に走査線エフェクトを重ねる */
+/* 逕ｻ髱｢蜈ｨ菴薙↓襍ｰ譟ｻ邱壹お繝輔ぉ繧ｯ繝医ｒ驥阪・繧・*/
 body::before {
     content: " ";
     display: block;
@@ -42,45 +42,45 @@ body::before {
     pointer-events: none;
 }
 
-/* 全要素のデフォルト余白をリセット */
+/* 蜈ｨ隕∫ｴ�縺ｮ繝・ヵ繧ｩ繝ｫ繝井ｽ咏區繧偵Μ繧ｻ繝・ヨ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* 基本的なレイアウトとタイポグラフィの設定 */
+/* 蝓ｺ譛ｬ逧・↑繝ｬ繧､繧｢繧ｦ繝医→繧ｿ繧､繝昴げ繝ｩ繝輔ぅ縺ｮ險ｭ螳・*/
 body {
     font-family: var(--font-family-sans);
     line-height: 1.6;
     color: var(--color-text-main);
     background-color: var(--color-bg-main);
     -webkit-font-smoothing: antialiased;
-    /* ヘッダーを固定し、スクロール領域をメインコンテンツに限定するための設定 */
+    /* 繝倥ャ繝繝ｼ繧貞崋螳壹＠縲√せ繧ｯ繝ｭ繝ｼ繝ｫ鬆伜沺繧偵Γ繧､繝ｳ繧ｳ繝ｳ繝・Φ繝・↓髯仙ｮ壹☆繧九◆繧√・險ｭ螳・*/
     display: flex;
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
 }
 
-/* カスタムスクロールバー全体の幅 */
+/* 繧ｫ繧ｹ繧ｿ繝�繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繝舌・蜈ｨ菴薙・蟷・*/
 ::-webkit-scrollbar {
     width: 8px;
 }
-/* スクロールバーのトラック部分 */
+/* 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繝舌・縺ｮ繝医Λ繝・け驛ｨ蛻・*/
 ::-webkit-scrollbar-track {
     background: var(--color-bg-main);
     border-left: 1px solid var(--color-border);
 }
-/* スクロールバーのつまみ部分 */
+/* 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繝舌・縺ｮ縺､縺ｾ縺ｿ驛ｨ蛻・*/
 ::-webkit-scrollbar-thumb {
     background: var(--color-primary-dim);
     border: 1px solid var(--color-primary);
     border-radius: 0;
 }
-/* つまみ部分のホバー時 */
+/* 縺､縺ｾ縺ｿ驛ｨ蛻・・繝帙ヰ繝ｼ譎・*/
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary);
     box-shadow: 0 0 10px var(--color-primary-glow);
 }
 
-/* 背景のグリッドパターン */
+/* 閭梧勹縺ｮ繧ｰ繝ｪ繝・ラ繝代ち繝ｼ繝ｳ */
 .cyber-bg {
     position: fixed;
     top: 0; left: 0;
@@ -96,42 +96,42 @@ body {
     background-position: center center;
 }
 
-/* 見出し要素の共通スタイル */
+/* 隕句・縺苓ｦ∫ｴ�縺ｮ蜈ｱ騾壹せ繧ｿ繧､繝ｫ */
 h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.1em; }
-/* メインタイトル */
+/* 繝｡繧､繝ｳ繧ｿ繧､繝医Ν */
 h1 { font-size: 2.5rem; color: #fff; text-shadow: 0 0 15px var(--color-primary-glow); }
-/* セクション見出し */
+/* 繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ隕句・縺・*/
 h2, .section-title { color: var(--color-heading); text-shadow: 0 0 10px var(--color-primary-glow); display: inline-block; margin-bottom: 2rem; }
-/* 見出し前の装飾記号 */
+/* 隕句・縺怜燕縺ｮ陬・｣ｾ險伜捷 */
 .section-title::before { content: "/> "; color: var(--color-accent); text-shadow: 0 0 5px var(--color-accent); }
-/* 小見出し */
+/* 蟆剰ｦ句・縺・*/
 h3 { color: var(--color-heading); text-shadow: 0 0 5px var(--color-primary-glow); }
 
-/* リンクの基本スタイル */
+/* 繝ｪ繝ｳ繧ｯ縺ｮ蝓ｺ譛ｬ繧ｹ繧ｿ繧､繝ｫ */
 a { color: var(--color-primary); text-decoration: none; transition: all var(--transition-speed); }
-/* リンクのホバー時 */
+/* 繝ｪ繝ｳ繧ｯ縺ｮ繝帙ヰ繝ｼ譎・*/
 a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 
-/* コンテンツの中央配置用コンテナ */
+/* 繧ｳ繝ｳ繝・Φ繝・・荳ｭ螟ｮ驟咲ｽｮ逕ｨ繧ｳ繝ｳ繝・リ */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 10; }
 
-/* ページ上部のナビゲーションヘッダー */
+/* 繝壹・繧ｸ荳企Κ縺ｮ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝倥ャ繝繝ｼ */
 .header {
     background-color: rgba(2, 6, 12, 0.85);
     border-bottom: 2px solid var(--color-primary);
     box-shadow: 0 0 20px var(--color-primary-dim);
-    position: relative; /* flex配置で上部に留まるため relative に変更 */
+    position: relative; /* flex驟咲ｽｮ縺ｧ荳企Κ縺ｫ逡吶∪繧九◆繧・relative 縺ｫ螟画峩 */
     z-index: 100; padding: 1rem 0;
     backdrop-filter: blur(8px);
-    flex-shrink: 0; /* ヘッダーの高さを維持 */
+    flex-shrink: 0; /* 繝倥ャ繝繝ｼ縺ｮ鬮倥＆繧堤ｶｭ謖・*/
 }
-/* ヘッダー内のフレックス配置 */
+/* 繝倥ャ繝繝ｼ蜀・・繝輔Ξ繝・け繧ｹ驟咲ｽｮ */
 .header .container { display: flex; justify-content: center; align-items: center; }
-/* ナビゲーションメニューのリスト */
+/* 繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝｡繝九Η繝ｼ縺ｮ繝ｪ繧ｹ繝・*/
 .nav ul { list-style: none; display: flex; gap: 2rem; }
-/* ナビゲーションリンク */
+/* 繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝ｪ繝ｳ繧ｯ */
 .nav a { font-size: 1rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; padding: 0.5rem 1rem; position: relative; }
-/* 現在のページまたはホバー時のナビリンク */
+/* 迴ｾ蝨ｨ縺ｮ繝壹・繧ｸ縺ｾ縺溘・繝帙ヰ繝ｼ譎ゅ・繝翫ン繝ｪ繝ｳ繧ｯ */
 .nav a.active, .nav a:hover { 
     color: var(--color-primary); 
     text-shadow: 0 0 10px var(--color-primary-glow);
@@ -147,17 +147,17 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     box-shadow: 0 0 10px var(--color-primary);
 }
 
-/* メインコンテンツエリア：ここがスクロール可能領域となる */
+/* 繝｡繧､繝ｳ繧ｳ繝ｳ繝・Φ繝・お繝ｪ繧｢・壹％縺薙′繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ蜿ｯ閭ｽ鬆伜沺縺ｨ縺ｪ繧・*/
 .main-content { 
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    scroll-behavior: smooth; /* アンカーリンクのスクロールを滑らかに */
+    scroll-behavior: smooth; /* 繧｢繝ｳ繧ｫ繝ｼ繝ｪ繝ｳ繧ｯ縺ｮ繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繧呈ｻ代ｉ縺九↓ */
 }
-/* 各セクションの余白 */
+/* 蜷・そ繧ｯ繧ｷ繝ｧ繝ｳ縺ｮ菴咏區 */
 .section { padding: 4rem 0; border-bottom: none; }
 
-/* サイバーパンク風のパネル外枠 */
+/* 繧ｵ繧､繝舌・繝代Φ繧ｯ鬚ｨ縺ｮ繝代ロ繝ｫ螟匁棧 */
 .hud-panel {
     background-color: var(--color-bg-panel);
     border: 1px solid var(--color-border);
@@ -168,7 +168,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     margin-bottom: 2rem;
     box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.05);
 }
-/* パネル内の内側ライン装飾 */
+/* 繝代ロ繝ｫ蜀・・蜀・・繝ｩ繧､繝ｳ陬・｣ｾ */
 .hud-panel::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     border: 1px solid var(--color-primary-dim);
@@ -176,19 +176,19 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     clip-path: polygon(0 24px, 24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
 }
 
-/* リスト形式のスタイルリセット */
+/* 繝ｪ繧ｹ繝亥ｽ｢蠑上・繧ｹ繧ｿ繧､繝ｫ繝ｪ繧ｻ繝・ヨ */
 .styled-list { list-style: none; }
-/* リストアイテムのボーダーと配置 */
+/* 繝ｪ繧ｹ繝医い繧､繝・Β縺ｮ繝懊・繝繝ｼ縺ｨ驟咲ｽｮ */
 .styled-list li { padding: 1.5rem 0; border-bottom: 1px solid var(--color-border); position: relative; }
-/* リストアイテム前の矢印装飾 */
+/* 繝ｪ繧ｹ繝医い繧､繝・Β蜑阪・遏｢蜊ｰ陬・｣ｾ */
 .styled-list li::before { content: '>'; position: absolute; left: -20px; top: 1.6rem; color: var(--color-accent); font-size: 1.2rem; text-shadow: 0 0 8px var(--color-accent); font-family: monospace; font-weight: bold; }
-/* リスト内の見出し */
+/* 繝ｪ繧ｹ繝亥・縺ｮ隕句・縺・*/
 .styled-list h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-/* グリッドレイアウトの定義 */
+/* 繧ｰ繝ｪ繝・ラ繝ｬ繧､繧｢繧ｦ繝医・螳夂ｾｩ */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-/* カード型要素の基本スタイル（ホログラム風） */
+/* 繧ｫ繝ｼ繝牙梛隕∫ｴ�縺ｮ蝓ｺ譛ｬ繧ｹ繧ｿ繧､繝ｫ・医・繝ｭ繧ｰ繝ｩ繝�鬚ｨ・・*/
 .card {
     position: relative;
     padding: 2rem;
@@ -207,7 +207,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     );
 }
 
-/* カード上部のグローバー */
+/* 繧ｫ繝ｼ繝我ｸ企Κ縺ｮ繧ｰ繝ｭ繝ｼ繝舌・ */
 .card::before {
     content: '';
     position: absolute;
@@ -226,7 +226,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     z-index: 2;
 }
 
-/* カード内を流れるスキャンラインアニメーション */
+/* 繧ｫ繝ｼ繝牙・繧呈ｵ√ｌ繧九せ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .card::after {
     content: '';
     position: absolute;
@@ -245,13 +245,13 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     z-index: 1;
 }
 
-/* スキャンラインの移動アニメーション */
+/* 繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ縺ｮ遘ｻ蜍輔い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes card-scan {
     0%   { top: -40%; }
     100% { top: 110%; }
 }
 
-/* カードのラベルテキスト */
+/* 繧ｫ繝ｼ繝峨・繝ｩ繝吶Ν繝・く繧ｹ繝・*/
 .card-window-label {
     font-size: 0.6rem;
     color: var(--color-primary);
@@ -261,18 +261,18 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     display: block;
     font-family: var(--font-family-sans);
 }
-/* ラベルの開始括弧 */
+/* 繝ｩ繝吶Ν縺ｮ髢句ｧ区峡蠑ｧ */
 .card-window-label::before {
     content: '[ ';
     opacity: 0.5;
 }
-/* ラベルの終了括弧 */
+/* 繝ｩ繝吶Ν縺ｮ邨ゆｺ・峡蠑ｧ */
 .card-window-label::after {
     content: ' ]';
     opacity: 0.5;
 }
 
-/* カード右上の角の装飾 */
+/* 繧ｫ繝ｼ繝牙承荳翫・隗偵・陬・｣ｾ */
 .card-corner {
     position: absolute;
     top: 0;
@@ -287,7 +287,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     z-index: 3;
 }
 
-/* カードホバー時の発光と浮き上がり */
+/* 繧ｫ繝ｼ繝峨・繝舌・譎ゅ・逋ｺ蜈峨→豬ｮ縺堺ｸ翫′繧・*/
 .card:hover {
     background: rgba(0, 243, 255, 0.07);
     border-color: var(--color-primary);
@@ -295,14 +295,14 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
         0 0 25px rgba(0, 243, 255, 0.12),
         inset 0 0 20px rgba(0, 243, 255, 0.05);
 }
-/* ホバー時の角装飾のハイライト */
+/* 繝帙ヰ繝ｼ譎ゅ・隗定｣・｣ｾ縺ｮ繝上う繝ｩ繧､繝・*/
 .card:hover .card-corner {
     opacity: 1;
     border-color: transparent #fff transparent transparent;
     filter: drop-shadow(0 0 6px var(--color-primary-glow));
 }
 
-/* カードの外枠フレーム */
+/* 繧ｫ繝ｼ繝峨・螟匁棧繝輔Ξ繝ｼ繝� */
 .card-frame {
     position: absolute;
     inset: 0;
@@ -320,13 +320,13 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     );
     z-index: 2;
 }
-/* カードホバー時にフレームを表示 */
+/* 繧ｫ繝ｼ繝峨・繝舌・譎ゅ↓繝輔Ξ繝ｼ繝�繧定｡ｨ遉ｺ */
 .card:hover .card-frame,
 .fav-card:hover .card-frame {
     opacity: 1;
 }
 
-/* お気に入りセクションのグリッド配置 */
+/* 縺頑ｰ励↓蜈･繧翫そ繧ｯ繧ｷ繝ｧ繝ｳ縺ｮ繧ｰ繝ｪ繝・ラ驟咲ｽｮ */
 .fav-scatter-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -336,7 +336,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     padding-bottom: 1.5rem;
 }
 
-/* お気に入りカードの個別スタイル */
+/* 縺頑ｰ励↓蜈･繧翫き繝ｼ繝峨・蛟句挨繧ｹ繧ｿ繧､繝ｫ */
 .fav-card {
     text-decoration: none;
     color: inherit;
@@ -359,7 +359,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     isolation: isolate;
 }
 
-/* お気に入りカード上部のグローバー */
+/* 縺頑ｰ励↓蜈･繧翫き繝ｼ繝我ｸ企Κ縺ｮ繧ｰ繝ｭ繝ｼ繝舌・ */
 .fav-card::before {
     content: '';
     position: absolute;
@@ -377,7 +377,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     pointer-events: none;
 }
 
-/* お気に入りカード内のスキャンライン */
+/* 縺頑ｰ励↓蜈･繧翫き繝ｼ繝牙・縺ｮ繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ */
 .fav-card::after {
     content: '';
     position: absolute;
@@ -395,14 +395,14 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     z-index: 1;
 }
 
-/* お気に入りカードの共通余白設定 */
+/* 縺頑ｰ励↓蜈･繧翫き繝ｼ繝峨・蜈ｱ騾壻ｽ咏區險ｭ螳・*/
 .fav-card {
     margin-top: 0 !important;
     margin-bottom: 1.5rem !important;
     z-index: 1 !important;
 }
 
-/* ホバー時に最前面へ浮き上がる効果 */
+/* 繝帙ヰ繝ｼ譎ゅ↓譛蜑埼擇縺ｸ豬ｮ縺堺ｸ翫′繧句柑譫・*/
 .fav-card:hover {
     z-index: 100 !important;
     background: rgba(0, 243, 255, 0.07);
@@ -413,24 +413,24 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
         inset 0 0 20px rgba(0, 243, 255, 0.05);
 }
 
-/* ホバー時の角の強調 */
+/* 繝帙ヰ繝ｼ譎ゅ・隗偵・蠑ｷ隱ｿ */
 .fav-card:hover .card-corner {
     opacity: 1;
     border-color: transparent #fff transparent transparent;
     filter: drop-shadow(0 0 6px var(--color-primary-glow));
 }
-/* ホバー時のフレーム表示 */
+/* 繝帙ヰ繝ｼ譎ゅ・繝輔Ξ繝ｼ繝�陦ｨ遉ｺ */
 .fav-card:hover .card-frame {
     opacity: 1;
 }
 
-/* カード内コンテンツの配置 */
+/* 繧ｫ繝ｼ繝牙・繧ｳ繝ｳ繝・Φ繝・・驟咲ｽｮ */
 .fav-card-content {
     position: relative;
     z-index: 1;
 }
 
-/* カード内のタイトルスタイル */
+/* 繧ｫ繝ｼ繝牙・縺ｮ繧ｿ繧､繝医Ν繧ｹ繧ｿ繧､繝ｫ */
 .fav-card .card-title {
     font-size: 1.3rem;
     color: #fff;
@@ -440,7 +440,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     text-shadow: 0 0 10px var(--color-primary-glow);
 }
 
-/* カード内の説明文スタイル */
+/* 繧ｫ繝ｼ繝牙・縺ｮ隱ｬ譏取枚繧ｹ繧ｿ繧､繝ｫ */
 .fav-card .card-text {
     font-size: 0.85rem;
     color: var(--color-text-muted);
@@ -453,41 +453,41 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 
 
 
-/* 技術タグのリストコンテナ */
+/* 謚陦薙ち繧ｰ縺ｮ繝ｪ繧ｹ繝医さ繝ｳ繝・リ */
 .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-/* 個別の技術タグ */
-.tag { background-color: var(--color-bg-alt); color: var(--color-primary); padding: 0.4rem 1rem; font-size: 0.85rem; border: 1px solid var(--color-primary-dim); text-transform: uppercase; letter-spacing: 0.1em; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); transition: all 0.2s; font-weight: 700; }
-/* タグのホバー時 */
-.tag:hover { border-color: var(--color-primary); background-color: var(--color-primary); color: var(--color-bg-main); box-shadow: 0 0 10px var(--color-primary-glow); }
+/* 蛟句挨縺ｮ謚陦薙ち繧ｰ */
+.tag { background-color: var(--color-bg-alt); color: var(--color-primary); padding: 0.4rem 1rem; font-size: 0.85rem; border: 1px solid var(--color-primary-dim); text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.2s; font-weight: 700; border-radius: 2px; }
+/* 繧ｿ繧ｰ縺ｮ繝帙ヰ繝ｼ譎・*/
+.tag:hover { border-color: var(--color-primary); background-color: rgba(0, 243, 255, 0.1); color: #fff; box-shadow: 0 0 10px var(--color-primary-dim); }
 
-/* ページ下部のフッター */
-.footer { background-color: var(--color-bg-alt); padding: 2rem 0; text-align: center; border-top: 1px solid var(--color-primary-dim); color: var(--color-text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; }
+/* 繝壹・繧ｸ荳矩Κ縺ｮ繝輔ャ繧ｿ繝ｼ */
+.footer { background-color: var(--color-bg-alt); padding: 2rem 0; margin-top: 4rem; text-align: center; border-top: 1px solid var(--color-primary-dim); color: var(--color-text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; }
 
-/* スクロール時に出現するアニメーション要素 */
+/* 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ譎ゅ↓蜃ｺ迴ｾ縺吶ｋ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ隕∫ｴ� */
 .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-/* 表示状態のアニメーション */
+/* 陦ｨ遉ｺ迥ｶ諷九・繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
-/* システム初期化風のテキストスタイル */
+/* 繧ｷ繧ｹ繝・Β蛻晄悄蛹夜｢ｨ縺ｮ繝・く繧ｹ繝医せ繧ｿ繧､繝ｫ */
 .sys-init { font-family: 'Share Tech Mono', monospace; color: #39ff14; font-size: 1rem; margin-bottom: 1rem; text-shadow: 0 0 8px #39ff14; }
 
-/* 時計回り回転アニメーション */
+/* 譎りｨ亥屓繧雁屓霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .spin-cw { animation: spin 40s linear infinite; transform-origin: center; }
-/* 反時計回り回転アニメーション */
+/* 蜿肴凾險亥屓繧雁屓霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .spin-ccw { animation: spin-reverse 30s linear infinite; transform-origin: center; }
-/* 高速回転アニメーション */
+/* 鬮倬溷屓霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .spin-cw-fast { animation: spin 15s linear infinite; transform-origin: center; }
-/* 高速逆回転アニメーション */
+/* 鬮倬滄・屓霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .spin-ccw-fast { animation: spin-reverse 10s linear infinite; transform-origin: center; }
-/* 低速回転アニメーション */
+/* 菴朱溷屓霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .spin-cw-slow { animation: spin 80s linear infinite; transform-origin: center; }
 
-/* 360度回転のキーフレーム */
+/* 360蠎ｦ蝗櫁ｻ｢縺ｮ繧ｭ繝ｼ繝輔Ξ繝ｼ繝� */
 @keyframes spin { 100% { transform: rotate(360deg); } }
-/* 逆360度回転のキーフレーム */
+/* 騾・60蠎ｦ蝗櫁ｻ｢縺ｮ繧ｭ繝ｼ繝輔Ξ繝ｼ繝� */
 @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
 
-/* 球体装飾のリングスタイル */
+/* 逅・ｽ楢｣・｣ｾ縺ｮ繝ｪ繝ｳ繧ｰ繧ｹ繧ｿ繧､繝ｫ */
 .sphere .ring {
     position: absolute; width: 100%; height: 100%; border-radius: 50%;
     border: 2px solid var(--color-primary);
@@ -495,20 +495,20 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     box-sizing: border-box;
     opacity: 0.4;
 }
-/* 球体回転アニメーションのキーフレーム */
+/* 逅・ｽ灘屓霆｢繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ繧ｭ繝ｼ繝輔Ξ繝ｼ繝� */
 @keyframes rotate-sphere {
     0% { transform: rotateX(0deg) rotateY(0deg); }
     100% { transform: rotateX(360deg) rotateY(360deg); }
 }
 
-/* 波形移動アニメーション */
+/* 豕｢蠖｢遘ｻ蜍輔い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes wave-slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-/* 高さパルスアニメーション */
+/* 鬮倥＆繝代Ν繧ｹ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes pulse-height { 0% { height: 10%; opacity: 0.3; } 100% { height: 100%; opacity: 1; } }
-/* 幅パルスアニメーション */
+/* 蟷・ヱ繝ｫ繧ｹ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes pulse-width { 0% { width: 10%; opacity: 0.3; } 100% { width: 100%; opacity: 1; } }
 
-/* 縦方向に流れるデータストリーム */
+/* 邵ｦ譁ｹ蜷代↓豬√ｌ繧九ョ繝ｼ繧ｿ繧ｹ繝医Μ繝ｼ繝� */
 .data-stream {
     position: absolute; top: 0; right: 10px; width: 80px; height: 100vh;
     font-family: var(--font-family-sans); font-size: 0.8rem; font-weight: 700;
@@ -519,7 +519,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 
 
 
-/* プロフィール情報のグリッド */
+/* 繝励Ο繝輔ぅ繝ｼ繝ｫ諠・�ｱ縺ｮ繧ｰ繝ｪ繝・ラ */
 .personnel-grid {
     display: grid;
     grid-template-columns: 1fr 190px;
@@ -528,16 +528,16 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 }
 
 
-/* プロフィール写真のコンテナ */
+/* 繝励Ο繝輔ぅ繝ｼ繝ｫ蜀咏悄縺ｮ繧ｳ繝ｳ繝・リ */
 .personnel-photo-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* 要素を上詰めで配置 */
-    gap: 1.2rem; /* オブジェクト間の余白は固定 */
+    justify-content: flex-start; /* 隕∫ｴ�繧剃ｸ願ｩｰ繧√〒驟咲ｽｮ */
+    gap: 1.2rem; /* 繧ｪ繝悶ず繧ｧ繧ｯ繝磯俣縺ｮ菴咏區縺ｯ蝗ｺ螳・*/
     height: 100%;
-    margin-top: 2rem; /* 全体を少し下にずらす */
+    margin-top: 2rem; /* 蜈ｨ菴薙ｒ蟆代＠荳九↓縺壹ｉ縺・*/
 }
-/* 写真を囲むサイバーフレーム */
+/* 蜀咏悄繧貞峇繧繧ｵ繧､繝舌・繝輔Ξ繝ｼ繝� */
 .photo-brackets {
     position: relative;
     width: 100%;
@@ -546,16 +546,16 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     padding: 10px;
     background: rgba(0, 243, 255, 0.05);
 }
-/* 四隅のブラケット装飾 */
+/* 蝗幃嚆縺ｮ繝悶Λ繧ｱ繝・ヨ陬・｣ｾ */
 .photo-brackets::before, .photo-brackets::after {
     content: ''; position: absolute; width: 30px; height: 30px; border: 3px solid var(--color-primary); pointer-events: none;
 }
-/* 左上のブラケット */
+/* 蟾ｦ荳翫・繝悶Λ繧ｱ繝・ヨ */
 .photo-brackets::before { top: -3px; left: -3px; border-right: none; border-bottom: none; }
-/* 右下のブラケット */
+/* 蜿ｳ荳九・繝悶Λ繧ｱ繝・ヨ */
 .photo-brackets::after { bottom: -3px; right: -3px; border-left: none; border-top: none; }
 
-/* プロフィール写真・アバターのスタイル */
+/* 繝励Ο繝輔ぅ繝ｼ繝ｫ蜀咏悄繝ｻ繧｢繝舌ち繝ｼ縺ｮ繧ｹ繧ｿ繧､繝ｫ */
 .personnel-photo, .personnel-avatar {
     width: 100%; height: 100%; object-fit: cover;
     opacity: 0.9;
@@ -571,36 +571,36 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     width: 100%;
     height: 100%;
 }
-/* 写真上を走るスキャンライン */
+/* 蜀咏悄荳翫ｒ襍ｰ繧九せ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ */
 .photo-scanline {
     position: absolute; top: 0; left: 0; width: 100%; height: 2px;
     background: var(--color-primary); box-shadow: 0 0 10px var(--color-primary);
     animation: sf-scan-vertical 3s linear infinite; pointer-events: none;
 }
-/* 写真のスキャンアニメーション */
+/* 蜀咏悄縺ｮ繧ｹ繧ｭ繝｣繝ｳ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes sf-scan-vertical {
     0% { top: 0; opacity: 0; }
     10% { opacity: 1; }
     90% { opacity: 1; }
     100% { top: 100%; opacity: 0; }
 }
-/* 写真に重なるラベルテキスト */
+/* 蜀咏悄縺ｫ驥阪↑繧九Λ繝吶Ν繝・く繧ｹ繝・*/
 .photo-overlay-text {
     position: absolute; bottom: 15px; right: 15px; font-family: var(--font-family-sans); font-size: 0.8rem;
     color: var(--color-bg-main); background: var(--color-primary); padding: 2px 8px; font-weight: bold;
 }
-/* バーコードコンテナ：枠線と背景を調整して明るく */
+/* 繝舌・繧ｳ繝ｼ繝峨さ繝ｳ繝・リ・壽棧邱壹→閭梧勹繧定ｪｿ謨ｴ縺励※譏弱ｋ縺・*/
 .profile-barcode-container {
-    opacity: 1.0; /* 不透明度を最大に */
+    opacity: 1.0; /* 荳埼乗・蠎ｦ繧呈怙螟ｧ縺ｫ */
     padding: 6px; 
     border: 1px solid var(--color-primary-dim); 
-    background: rgba(0, 243, 255, 0.08); /* 背景をわずかに明るく */
+    background: rgba(0, 243, 255, 0.08); /* 閭梧勹繧偵ｏ縺壹°縺ｫ譏弱ｋ縺・*/
     position: relative;
-    margin-top: auto; /* バーコードを下に寄せる */
-    margin-bottom: 2.5rem; /* 位置をわずかに上に調整 */
+    margin-top: auto; /* 繝舌・繧ｳ繝ｼ繝峨ｒ荳九↓蟇・○繧・*/
+    margin-bottom: 2.5rem; /* 菴咲ｽｮ繧偵ｏ縺壹°縺ｫ荳翫↓隱ｿ謨ｴ */
 }
 
-/* パネルの上部ヘッダー（タイトルと機密マークを並べる） */
+/* 繝代ロ繝ｫ縺ｮ荳企Κ繝倥ャ繝繝ｼ・医ち繧､繝医Ν縺ｨ讖溷ｯ・・繝ｼ繧ｯ繧剃ｸｦ縺ｹ繧具ｼ・*/
 .panel-header {
     display: flex;
     justify-content: space-between;
@@ -611,8 +611,8 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     margin-bottom: 0;
 }
 
-/* 機密マーク（CONFIDENTIAL）のスタイル定義 */
-/* 機密マーク（CONFIDENTIAL）：水平配置に変更し、サイバーエフェクトを追加 */
+/* 讖溷ｯ・・繝ｼ繧ｯ・・ONFIDENTIAL・峨・繧ｹ繧ｿ繧､繝ｫ螳夂ｾｩ */
+/* 讖溷ｯ・・繝ｼ繧ｯ・・ONFIDENTIAL・会ｼ壽ｰｴ蟷ｳ驟咲ｽｮ縺ｫ螟画峩縺励√し繧､繝舌・繧ｨ繝輔ぉ繧ｯ繝医ｒ霑ｽ蜉� */
 .confidential-mark {
     position: absolute;
     top: 25px;
@@ -629,11 +629,11 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     z-index: 10;
     opacity: 0.8;
     border-radius: 2px;
-    overflow: hidden; /* スキャンライン用 */
+    overflow: hidden; /* 繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ逕ｨ */
     animation: confidential-pulse 2s infinite alternate ease-in-out;
 }
 
-/* 内部を流れる赤い光のエフェクト */
+/* 蜀・Κ繧呈ｵ√ｌ繧玖ｵ､縺・・縺ｮ繧ｨ繝輔ぉ繧ｯ繝・*/
 .confidential-mark::after {
     content: '';
     position: absolute;
@@ -668,52 +668,52 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
         var(--color-primary) 8%, var(--color-primary) 12%,
         transparent 12%, transparent 15%
     );
-    opacity: 1.0; /* 不透明度を最大に */
+    opacity: 1.0; /* 荳埼乗・蠎ｦ繧呈怙螟ｧ縺ｫ */
 }
 
-/* 個人データのセクション */
+/* 蛟倶ｺｺ繝・・繧ｿ縺ｮ繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ */
 .personnel-data { display: flex; flex-direction: column; gap: 2rem; }
-/* データのヘッダー部分 */
+/* 繝・・繧ｿ縺ｮ繝倥ャ繝繝ｼ驛ｨ蛻・*/
 .data-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;}
 .name-block { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-/* ヘッダー内の名前 */
+/* 繝倥ャ繝繝ｼ蜀・・蜷榊燕 */
 .data-header h1 { font-size: 2rem; text-shadow: 0 0 10px var(--color-primary-glow); margin: 0; }
-/* ステータスを表示するバッジ */
+/* 繧ｹ繝・・繧ｿ繧ｹ繧定｡ｨ遉ｺ縺吶ｋ繝舌ャ繧ｸ */
 .status-badge {
     background: rgba(0, 243, 255, 0.2); border: 1px solid var(--color-primary); padding: 0.3rem 0.8rem;
     font-size: 0.85rem;
     font-weight: bold; font-family: var(--font-family-sans); letter-spacing: 0.1em;
     animation: pulse-opacity 2s infinite; color: var(--color-primary); text-shadow: 0 0 5px var(--color-primary);
     white-space: nowrap;
-    margin-left: 2.5rem; /* 名前から少し右にずらす */
+    margin-left: 2.5rem; /* 蜷榊燕縺九ｉ蟆代＠蜿ｳ縺ｫ縺壹ｉ縺・*/
 }
-/* バッジの点滅アニメーション */
+/* 繝舌ャ繧ｸ縺ｮ轤ｹ貊・い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes pulse-opacity { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
 
-/* データ表示用のテーブル */
+/* 繝・・繧ｿ陦ｨ遉ｺ逕ｨ縺ｮ繝・・繝悶Ν */
 .cyber-data-table { width: 100%; border-collapse: collapse; font-family: var(--font-family-sans); }
-/* テーブルのセルスタイル */
+/* 繝・・繝悶Ν縺ｮ繧ｻ繝ｫ繧ｹ繧ｿ繧､繝ｫ */
 .cyber-data-table th, .cyber-data-table td {
     padding: 1rem; border-bottom: 1px dashed var(--color-border); text-align: left;
 }
-/* テーブルの見出しセル */
+/* 繝・・繝悶Ν縺ｮ隕句・縺励そ繝ｫ */
 .cyber-data-table th {
     color: var(--color-text-muted); font-weight: normal; width: 180px; text-transform: uppercase;
 }
-/* 最後の行の境界線を消して余白を調整 */
+/* 譛蠕後・陦後・蠅・阜邱壹ｒ豸医＠縺ｦ菴咏區繧定ｪｿ謨ｴ */
 .cyber-data-table tr:last-child th, 
 .cyber-data-table tr:last-child td { 
     border-bottom: none; 
     padding-bottom: 0.5rem; 
 }
-/* テーブルのデータセル */
+/* 繝・・繝悶Ν縺ｮ繝・・繧ｿ繧ｻ繝ｫ */
 .cyber-data-table td { color: var(--color-text-main); font-family: monospace; font-size: 1.1rem; }
-/* 強調表示されるデータセル */
+/* 蠑ｷ隱ｿ陦ｨ遉ｺ縺輔ｌ繧九ョ繝ｼ繧ｿ繧ｻ繝ｫ */
 .cyber-data-table td.highlight { color: #fff; text-shadow: 0 0 8px var(--color-primary); font-weight: bold; }
 
-/* (重複していた定義を削除) */
+/* (驥崎､・＠縺ｦ縺・◆螳夂ｾｩ繧貞炎髯､) */
 
-/* ステータスグラフのコンテナ */
+/* 繧ｹ繝・・繧ｿ繧ｹ繧ｰ繝ｩ繝輔・繧ｳ繝ｳ繝・リ */
 .status-graph {
     display: flex;
     align-items: flex-end;
@@ -726,26 +726,26 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     transition: all 0.3s ease;
     position: relative;
 }
-/* グラフのホバー時 */
+/* 繧ｰ繝ｩ繝輔・繝帙ヰ繝ｼ譎・*/
 .status-graph:hover {
     background: rgba(0, 243, 255, 0.15);
     box-shadow: 0 0 10px var(--color-primary-dim);
 }
-/* グラフの個別の棒 */
+/* 繧ｰ繝ｩ繝輔・蛟句挨縺ｮ譽・*/
 .graph-bar {
     width: 6%;
     background: var(--color-primary);
     box-shadow: 0 0 5px var(--color-primary);
     animation: graph-bounce 1.5s infinite alternate ease-in-out;
 }
-/* 各棒の個別アニメーション設定 */
+/* 蜷・｣偵・蛟句挨繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ險ｭ螳・*/
 .graph-bar:nth-child(even) { animation-duration: 2s; animation-direction: alternate-reverse; }
 .graph-bar:nth-child(3n) { animation-duration: 1.2s; }
 .graph-bar:nth-child(5n) { animation-duration: 0.8s; }
-/* 認証プロ：最高精細のアイデンティティ・マトリクス・コア */
+/* 隱崎ｨｼ繝励Ο・壽怙鬮倡ｲｾ邏ｰ縺ｮ繧｢繧､繝・Φ繝・ぅ繝・ぅ繝ｻ繝槭ヨ繝ｪ繧ｯ繧ｹ繝ｻ繧ｳ繧｢ */
 .personnel-auth-module.pro-mode {
     width: 100%;
-    height: 130px; /* プロ仕様の存在感を持たせる高さ */
+    height: 130px; /* 繝励Ο莉墓ｧ倥・蟄伜惠諢溘ｒ謖√◆縺帙ｋ鬮倥＆ */
     background: linear-gradient(135deg, rgba(3, 10, 22, 0.95) 0%, rgba(5, 18, 38, 0.95) 100%);
     border: 1px solid var(--color-primary-dim);
     position: relative;
@@ -754,7 +754,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     flex-direction: column;
     box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
 }
-/* 背景：グリッドとパーティクル */
+/* 閭梧勹・壹げ繝ｪ繝・ラ縺ｨ繝代・繝・ぅ繧ｯ繝ｫ */
 .auth-pro-bg {
     position: absolute;
     inset: 0;
@@ -775,7 +775,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     animation: pro-float 4s infinite linear;
     opacity: 0;
 }
-/* パーティクルの個別アニメーション */
+/* 繝代・繝・ぅ繧ｯ繝ｫ縺ｮ蛟句挨繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .pro-particles span:nth-child(1) { left: 10%; animation-delay: 0s; }
 .pro-particles span:nth-child(2) { left: 40%; animation-delay: 1s; }
 .pro-particles span:nth-child(3) { left: 70%; animation-delay: 2.5s; }
@@ -787,7 +787,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     50% { opacity: 0.5; }
     100% { transform: translateY(-10px); opacity: 0; }
 }
-/* メインビジュアル：3Dコア */
+/* 繝｡繧､繝ｳ繝薙ず繝･繧｢繝ｫ・・D繧ｳ繧｢ */
 .auth-pro-visual {
     flex: 1;
     position: relative;
@@ -813,7 +813,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     background: rgba(0, 243, 255, 0.1);
     box-shadow: inset 0 0 8px var(--color-primary-glow);
 }
-/* 3D立方体（ヘキサゴンコアを模した構造）の各面 */
+/* 3D遶区婿菴難ｼ医・繧ｭ繧ｵ繧ｴ繝ｳ繧ｳ繧｢繧呈ｨ｡縺励◆讒矩�・峨・蜷・擇 */
 .hex-face.front  { transform: translateZ(20px); }
 .hex-face.back   { transform: rotateY(180deg) translateZ(20px); }
 .hex-face.left   { transform: rotateY(-90deg) translateZ(20px); }
@@ -825,7 +825,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
     100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
 }
-/* 周囲の回転リング */
+/* 蜻ｨ蝗ｲ縺ｮ蝗櫁ｻ｢繝ｪ繝ｳ繧ｰ */
 .core-ring {
     position: absolute;
     border: 1px solid var(--color-primary-dim);
@@ -835,7 +835,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 .core-ring.outer { width: 80px; height: 80px; border-style: dashed; animation: spin 15s linear infinite; }
 .core-ring.inner { width: 60px; height: 60px; border-style: dotted; animation: spin-reverse 8s linear infinite; }
 
-/* HUDオーバーレイ */
+/* HUD繧ｪ繝ｼ繝舌・繝ｬ繧､ */
 .auth-pro-hud {
     position: absolute;
     inset: 0;
@@ -870,7 +870,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 .mini-tag { font-size: 0.45rem; color: var(--color-primary); opacity: 0.5; letter-spacing: 1px; }
 .mini-val { font-size: 0.55rem; color: var(--color-primary); font-family: var(--font-family-mono); opacity: 0.9; text-shadow: 0 0 3px var(--color-primary-glow); }
 
-/* フッター：メインステータス */
+/* 繝輔ャ繧ｿ繝ｼ・壹Γ繧､繝ｳ繧ｹ繝・・繧ｿ繧ｹ */
 .auth-pro-footer {
     height: 32px;
     background: rgba(0, 243, 255, 0.08);
@@ -907,13 +907,13 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 
 
 
-/* グラフのバウンスアニメーション */
+/* 繧ｰ繝ｩ繝輔・繝舌え繝ｳ繧ｹ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes graph-bounce {
     0% { height: 10%; }
     100% { height: 100%; }
 }
 
-/* レーダーチャート表示用のポップアップ */
+/* 繝ｬ繝ｼ繝繝ｼ繝√Ε繝ｼ繝郁｡ｨ遉ｺ逕ｨ縺ｮ繝昴ャ繝励い繝・・ */
 .radar-popup {
     position: absolute;
     top: 20%;
@@ -931,7 +931,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 15px var(--color-primary-dim);
     backdrop-filter: blur(8px);
 }
-/* ポップアップの表示状態 */
+/* 繝昴ャ繝励い繝・・縺ｮ陦ｨ遉ｺ迥ｶ諷・*/
 .radar-popup.show {
     opacity: 1;
     visibility: visible;
@@ -940,29 +940,29 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 }
 
 
-/* ポップアップ内のタイトル */
+/* 繝昴ャ繝励い繝・・蜀・・繧ｿ繧､繝医Ν */
 .modal-title {
     color: var(--color-primary); margin-top: 0; margin-bottom: 1.5rem; font-family: var(--font-family-mono); text-align: center; border-bottom: 1px solid var(--color-primary-dim); padding-bottom: 10px;
 }
-/* レーダーチャートのコンテナ */
+/* 繝ｬ繝ｼ繝繝ｼ繝√Ε繝ｼ繝医・繧ｳ繝ｳ繝・リ */
 .status-radar-container { width: 100%; aspect-ratio: 1/1; position: relative; }
-/* レーダーデータの点滅アニメーション */
+/* 繝ｬ繝ｼ繝繝ｼ繝・・繧ｿ縺ｮ轤ｹ貊・い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 .radar-data { animation: radar-pulse 2s infinite alternate ease-in-out; }
-/* レーダーパルスのキーフレーム */
+/* 繝ｬ繝ｼ繝繝ｼ繝代Ν繧ｹ縺ｮ繧ｭ繝ｼ繝輔Ξ繝ｼ繝� */
 @keyframes radar-pulse { 0% { opacity: 0.5; } 100% { opacity: 1; filter: drop-shadow(0 0 8px var(--color-primary)); } }
 
-/* レーダーチャートのラベル */
+/* 繝ｬ繝ｼ繝繝ｼ繝√Ε繝ｼ繝医・繝ｩ繝吶Ν */
 .radar-label {
     transition: fill 0.3s ease;
 }
 
-/* 赤色の点滅アニメーション */
+/* 襍､濶ｲ縺ｮ轤ｹ貊・い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes pulse-red {
     0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(255, 51, 51, 0.8); }
     50% { opacity: 0.5; text-shadow: 0 0 2px rgba(255, 51, 51, 0.2); }
 }
 
-/* クリック時の波紋エフェクト */
+/* 繧ｯ繝ｪ繝・け譎ゅ・豕｢邏九お繝輔ぉ繧ｯ繝・*/
 .click-ripple {
     position: fixed;
     border: 1px solid var(--color-primary);
@@ -975,7 +975,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     box-shadow: 0 0 10px var(--color-primary-glow);
 }
 
-/* クリック時のフラッシュエフェクト */
+/* 繧ｯ繝ｪ繝・け譎ゅ・繝輔Λ繝・す繝･繧ｨ繝輔ぉ繧ｯ繝・*/
 .click-flash {
     position: fixed;
     width: 4px;
@@ -989,26 +989,26 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     animation: flash-out 0.5s ease-out forwards;
 }
 
-/* 波紋が広がるアニメーション */
+/* 豕｢邏九′蠎・′繧九い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes ripple-burst {
     0% { width: 0; height: 0; opacity: 0.8; border-width: 10px; }
     100% { width: 100px; height: 100px; opacity: 0; border-width: 2px; }
 }
 
-/* フラッシュが消えるアニメーション */
+/* 繝輔Λ繝・す繝･縺梧ｶ医∴繧九い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes flash-out {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
     100% { transform: translate(-50%, -50%) scale(6); opacity: 0; }
 }
 
-/* 戻るボタンのコンテナ */
+/* 謌ｻ繧九・繧ｿ繝ｳ縺ｮ繧ｳ繝ｳ繝・リ */
 .back-btn-container {
     padding: 2rem 0 1rem 0;
     display: flex;
     justify-content: flex-start;
 }
 
-/* サイバーパンク風の戻るボタン */
+/* 繧ｵ繧､繝舌・繝代Φ繧ｯ鬚ｨ縺ｮ謌ｻ繧九・繧ｿ繝ｳ */
 .back-btn {
     display: flex;
     align-items: center;
@@ -1031,7 +1031,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     box-shadow: inset 0 0 12px rgba(0, 243, 255, 0.05), 0 0 12px rgba(0, 243, 255, 0.08);
 }
 
-/* ボタン内の光の筋エフェクト */
+/* 繝懊ち繝ｳ蜀・・蜈峨・遲九お繝輔ぉ繧ｯ繝・*/
 .back-btn::before {
     content: '';
     position: absolute;
@@ -1041,7 +1041,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     transition: left 0.5s ease;
 }
 
-/* ボタンホバー時のスタイル */
+/* 繝懊ち繝ｳ繝帙ヰ繝ｼ譎ゅ・繧ｹ繧ｿ繧､繝ｫ */
 .back-btn:hover {
     background: rgba(0, 243, 255, 0.15);
     box-shadow: 0 0 20px var(--color-primary-dim);
@@ -1050,12 +1050,12 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     text-shadow: 0 0 8px var(--color-primary-glow);
 }
 
-/* ホバー時に光の筋を移動 */
+/* 繝帙ヰ繝ｼ譎ゅ↓蜈峨・遲九ｒ遘ｻ蜍・*/
 .back-btn:hover::before {
     left: 100%;
 }
 
-/* ボタン内のアイコン */
+/* 繝懊ち繝ｳ蜀・・繧｢繧､繧ｳ繝ｳ */
 .back-btn svg {
     width: 20px;
     height: 20px;
@@ -1063,12 +1063,12 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     transition: transform 0.3s ease;
 }
 
-/* ホバー時にアイコンをスライド */
+/* 繝帙ヰ繝ｼ譎ゅ↓繧｢繧､繧ｳ繝ｳ繧偵せ繝ｩ繧､繝・*/
 .back-btn:hover svg {
     transform: translateX(-3px);
 }
 
-/* ページ遷移時のウィンドウ閉鎖アニメーション */
+/* 繝壹・繧ｸ驕ｷ遘ｻ譎ゅ・繧ｦ繧｣繝ｳ繝峨え髢蛾事繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ */
 @keyframes window-collapse {
     0% {
         opacity: 1;
@@ -1080,7 +1080,7 @@ a:hover { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
     }
 }
 
-/* 閉鎖アニメーション中のbody状態 */
+/* 髢蛾事繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ荳ｭ縺ｮbody迥ｶ諷・*/
 body.closing {
     animation: window-collapse 0.22s ease-in forwards;
     overflow: hidden;
@@ -1088,22 +1088,22 @@ body.closing {
     transform-origin: center center;
 }
 
-/* 閉鎖アニメーション時の走査線を非表示 */
+/* 髢蛾事繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ譎ゅ・襍ｰ譟ｻ邱壹ｒ髱櫁｡ｨ遉ｺ */
 body.closing::before {
     opacity: 0;
     transition: none;
 }
 
-/* --- CONTACTセクション用追加スタイル --- */
+/* --- CONTACT繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ逕ｨ霑ｽ蜉�繧ｹ繧ｿ繧､繝ｫ --- */
 
-/* 連絡先情報のグリッドレイアウト：縦一列に変更 */
+/* 騾｣邨｡蜈域ュ蝣ｱ縺ｮ繧ｰ繝ｪ繝・ラ繝ｬ繧､繧｢繧ｦ繝茨ｼ夂ｸｦ荳蛻励↓螟画峩 */
 .contact-modules-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
 }
 
-/* 所在地・連絡先の個別サブモジュール */
+/* 謇蝨ｨ蝨ｰ繝ｻ騾｣邨｡蜈医・蛟句挨繧ｵ繝悶Δ繧ｸ繝･繝ｼ繝ｫ */
 .contact-sub-module {
     position: relative;
     padding: 2.5rem;
@@ -1113,14 +1113,14 @@ body.closing::before {
     transition: all var(--transition-speed);
 }
 
-/* ホバー時の発光エフェクト */
+/* 繝帙ヰ繝ｼ譎ゅ・逋ｺ蜈峨お繝輔ぉ繧ｯ繝・*/
 .contact-sub-module:hover {
     background: rgba(0, 243, 255, 0.07);
     border-color: var(--color-primary);
     box-shadow: 0 0 20px var(--color-primary-dim);
 }
 
-/* モジュール内のコンテンツ配置用コンテナ */
+/* 繝｢繧ｸ繝･繝ｼ繝ｫ蜀・・繧ｳ繝ｳ繝・Φ繝・・鄂ｮ逕ｨ繧ｳ繝ｳ繝・リ */
 .module-flex-container {
     display: flex;
     justify-content: space-between;
@@ -1128,12 +1128,12 @@ body.closing::before {
     gap: 2rem;
 }
 
-/* テキストコンテンツエリア */
+/* 繝・く繧ｹ繝医さ繝ｳ繝・Φ繝・お繝ｪ繧｢ */
 .contact-info-content {
     flex: 1;
 }
 
-/* 連絡先詳細の行 */
+/* 騾｣邨｡蜈郁ｩｳ邏ｰ縺ｮ陦・*/
 .contact-detail-row {
     display: flex;
     flex-direction: column;
@@ -1141,11 +1141,11 @@ body.closing::before {
     margin-bottom: 0.5rem;
 }
 
-/* ラベル (ADDR, MAIL等) */
+/* 繝ｩ繝吶Ν (ADDR, MAIL遲・ */
 .contact-detail-label {
     font-family: var(--font-family-mono);
     font-size: 0.65rem;
-    color: rgba(0, 243, 255, 0.65); /* 0.4から0.65へ上げて視認性向上 */
+    color: rgba(0, 243, 255, 0.65); /* 0.4縺九ｉ0.65縺ｸ荳翫￡縺ｦ隕冶ｪ肴ｧ蜷台ｸ・*/
     letter-spacing: 0.2em;
     display: flex;
     align-items: center;
@@ -1156,7 +1156,7 @@ body.closing::before {
     color: var(--color-primary);
 }
 
-/* 値の表示 */
+/* 蛟､縺ｮ陦ｨ遉ｺ */
 .contact-detail-value {
     font-size: 0.95rem;
     line-height: 1.6;
@@ -1165,20 +1165,20 @@ body.closing::before {
     border-left: 1px solid rgba(0, 243, 255, 0.15);
 }
 
-/* サイバーリンク（メールアドレス） */
+/* 繧ｵ繧､繝舌・繝ｪ繝ｳ繧ｯ・医Γ繝ｼ繝ｫ繧｢繝峨Ξ繧ｹ・・*/
 .contact-cyber-link {
     font-family: var(--font-family-mono);
-    font-size: 0.95rem; /* 1remから少し縮小 */
+    font-size: 0.95rem; /* 1rem縺九ｉ蟆代＠邵ｮ蟆・*/
     color: var(--color-text-main);
     text-decoration: none;
-    padding: 0.3rem 3rem 0.3rem 1.2rem; /* 右側の余白を大きく確保 */
+    padding: 0.3rem 3rem 0.3rem 1.2rem; /* 蜿ｳ蛛ｴ縺ｮ菴咏區繧貞､ｧ縺阪￥遒ｺ菫・*/
     background: rgba(0, 243, 255, 0.05);
     border: 1px solid rgba(0, 243, 255, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 420px; /* 適切な長さに調整 */
+    max-width: 420px; /* 驕ｩ蛻・↑髟ｷ縺輔↓隱ｿ謨ｴ */
     align-self: flex-start;
     transition: all 0.3s ease;
     word-break: break-all;
@@ -1187,7 +1187,7 @@ body.closing::before {
     cursor: pointer;
 }
 
-/* 右端の控えめなアクセント（タブ装飾） */
+/* 蜿ｳ遶ｯ縺ｮ謗ｧ縺医ａ縺ｪ繧｢繧ｯ繧ｻ繝ｳ繝茨ｼ医ち繝冶｣・｣ｾ・・*/
 .contact-cyber-link::after {
     content: '';
     position: absolute;
@@ -1209,7 +1209,7 @@ body.closing::before {
     transform: translateX(5px);
 }
 
-/* ステータスバー演出 */
+/* 繧ｹ繝・・繧ｿ繧ｹ繝舌・貍泌・ */
 .contact-status-bar {
     margin-top: 1.2rem;
     display: flex;
@@ -1230,11 +1230,11 @@ body.closing::before {
     animation: pulse-opacity 1.5s infinite;
 }
 .status-text {
-    color: rgba(0, 243, 255, 0.6); /* 少し明るく */
+    color: rgba(0, 243, 255, 0.6); /* 蟆代＠譏弱ｋ縺・*/
     letter-spacing: 0.1em;
 }
 
-/* SFオブジェクトのコンテナ */
+/* SF繧ｪ繝悶ず繧ｧ繧ｯ繝医・繧ｳ繝ｳ繝・リ */
 .sf-object-container {
     width: 140px;
     height: 140px;
@@ -1242,10 +1242,10 @@ body.closing::before {
     position: relative;
 }
 
-/* SVGベーススタイル */
+/* SVG繝吶・繧ｹ繧ｹ繧ｿ繧､繝ｫ */
 .sf-svg-base { width: 100%; height: 100%; overflow: visible; }
 
-/* オブジェクト共通の発光フィルター */
+/* 繧ｪ繝悶ず繧ｧ繧ｯ繝亥・騾壹・逋ｺ蜈峨ヵ繧｣繝ｫ繧ｿ繝ｼ */
 .sf-holographic-radar,
 .sf-quantum-comm {
     width: 100%; height: 100%;
@@ -1254,7 +1254,7 @@ body.closing::before {
     transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-/* マップオブジェクト（クリック可能） */
+/* 繝槭ャ繝励が繝悶ず繧ｧ繧ｯ繝茨ｼ医け繝ｪ繝・け蜿ｯ閭ｽ・・*/
 #mapObjectBtn { cursor: pointer; }
 #mapObjectBtn:hover .sf-holographic-radar {
     filter: drop-shadow(0 0 18px rgba(0,243,255,0.95));
@@ -1262,21 +1262,21 @@ body.closing::before {
 }
 #mapObjectBtn:hover .sf-obj-label { color: #fff; text-shadow: 0 0 10px var(--color-primary-glow); }
 
-/* オブジェクト下ラベル */
+/* 繧ｪ繝悶ず繧ｧ繧ｯ繝井ｸ九Λ繝吶Ν */
 .sf-obj-label {
     position: absolute;
     bottom: -20px; left: 50%;
     transform: translateX(-50%);
     font-size: 0.6rem;
     font-family: var(--font-family-mono);
-    color: rgba(0, 243, 255, 0.7); /* 視認性向上のため少し明るく */
+    color: rgba(0, 243, 255, 0.7); /* 隕冶ｪ肴ｧ蜷台ｸ翫・縺溘ａ蟆代＠譏弱ｋ縺・*/
     letter-spacing: 0.15em;
     white-space: nowrap;
     transition: all 0.3s ease;
 }
 .sf-label-bracket { opacity: 0.5; font-size: 0.7em; }
 
-/* オブジェクト内走査線 */
+/* 繧ｪ繝悶ず繧ｧ繧ｯ繝亥・襍ｰ譟ｻ邱・*/
 .sf-obj-scanline {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 3px;
@@ -1291,39 +1291,39 @@ body.closing::before {
     100% { top: 100%; opacity: 0; }
 }
 
-/* レーダースキャン扇形の回転 */
+/* 繝ｬ繝ｼ繝繝ｼ繧ｹ繧ｭ繝｣繝ｳ謇・ｽ｢縺ｮ蝗櫁ｻ｢ */
 .sf-radar-sweep { transform-origin: 60px 60px; animation: sf-radar-rot 3s linear infinite; }
 @keyframes sf-radar-rot { to { transform: rotate(360deg); } }
 
-/* ピングリング */
+/* 繝斐Φ繧ｰ繝ｪ繝ｳ繧ｰ */
 .sf-ping-ring { transform-origin: 60px 60px; animation: sf-ping 2s ease-out infinite; }
 @keyframes sf-ping { 0% { transform: scale(1); opacity:1; } 100% { transform: scale(4); opacity:0; } }
 
-/* ブリップ点滅 */
+/* 繝悶Μ繝・・轤ｹ貊・*/
 .sf-blip { animation: sf-blip-flash 2.4s ease-in-out infinite; }
 @keyframes sf-blip-flash { 0%,80%,100% { opacity:0; } 40% { opacity:1; } }
 
-/* 通信アーク */
+/* 騾壻ｿ｡繧｢繝ｼ繧ｯ */
 .sf-comm-arc { stroke-dasharray: 200; animation: sf-arc-pulse 2.4s ease-in-out infinite; }
 @keyframes sf-arc-pulse { 0%,100% { opacity:0; } 50% { opacity:1; } }
 
-/* 通信パルスリング */
+/* 騾壻ｿ｡繝代Ν繧ｹ繝ｪ繝ｳ繧ｰ */
 .sf-comm-pulse { transform-origin: 60px 72px; animation: sf-comm-expand 2s ease-out infinite; }
 @keyframes sf-comm-expand { 0% { transform:scale(1); opacity:0.8; } 100% { transform:scale(5); opacity:0; } }
 
-/* 量子ビット */
+/* 驥丞ｭ舌ン繝・ヨ */
 .sf-qbit { animation: sf-qbit-blink 1.5s ease-in-out infinite; }
 @keyframes sf-qbit-blink { 0%,100% { opacity:0.3; } 50% { opacity:1; filter:drop-shadow(0 0 4px var(--color-primary)); } }
 
-/* --- SFオブジェクトのアニメーション（既存） --- */
+/* --- SF繧ｪ繝悶ず繧ｧ繧ｯ繝医・繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ・域里蟄假ｼ・--- */
 
-/* パルス透明度 */
+/* 繝代Ν繧ｹ騾乗・蠎ｦ */
 .pulse-op { animation: pulse-op 2s infinite alternate ease-in-out; }
 @keyframes pulse-op { 0% { opacity: 0.3; } 100% { opacity: 1; } }
 
-/* ===== Googleマップ 近未来HUDモーダル ===== */
+/* ===== Google繝槭ャ繝・霑第悴譚･HUD繝｢繝ｼ繝繝ｫ ===== */
 
-/* オーバーレイ背景 */
+/* 繧ｪ繝ｼ繝舌・繝ｬ繧､閭梧勹 */
 .map-modal {
     position: fixed;
     inset: 0;
@@ -1340,28 +1340,28 @@ body.closing::before {
 }
 .map-modal.show { opacity: 1; visibility: visible; }
 
-/* スキャンライン（モーダル用） */
+/* 繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ・医Δ繝ｼ繝繝ｫ逕ｨ・・*/
 .map-modal-scanlines {
     position: absolute;
     inset: 0;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
     background-size: 100% 4px;
     pointer-events: none;
-    z-index: 1; /* 背景用は低く */
+    z-index: 1; /* 閭梧勹逕ｨ縺ｯ菴弱￥ */
 }
 
-/* モーダル内部のUI要素に乗せるスキャンライン */
+/* 繝｢繝ｼ繝繝ｫ蜀・Κ縺ｮUI隕∫ｴ�縺ｫ荵励○繧九せ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ */
 .map-modal-content > .map-modal-scanlines {
-    z-index: 5; /* サイドパネルやヘッダーの上に */
-    border-radius: inherit; /* 親の角丸に合わせる */
+    z-index: 5; /* 繧ｵ繧､繝峨ヱ繝阪Ν繧・・繝・ム繝ｼ縺ｮ荳翫↓ */
+    border-radius: inherit; /* 隕ｪ縺ｮ隗剃ｸｸ縺ｫ蜷医ｏ縺帙ｋ */
 }
 
-/* モーダルコンテンツ */
+/* 繝｢繝ｼ繝繝ｫ繧ｳ繝ｳ繝・Φ繝・*/
 .map-modal-content {
     position: relative;
-    width: min(85vw, 840px); /* 少し小さく */
-    height: min(75vh, 520px); /* 少し小さく */
-    background: rgba(3, 9, 20, 0.92); /* 少し透過 */
+    width: min(85vw, 840px); /* 蟆代＠蟆上＆縺・*/
+    height: min(75vh, 520px); /* 蟆代＠蟆上＆縺・*/
+    background: rgba(3, 9, 20, 0.92); /* 蟆代＠騾城℃ */
     border: 1px solid rgba(0,243,255,0.3);
     box-shadow: 0 0 0 1px rgba(0,243,255,0.08), 0 0 60px rgba(0,243,255,0.12), inset 0 0 40px rgba(0,243,255,0.04);
     display: flex;
@@ -1374,14 +1374,14 @@ body.closing::before {
     to   { transform: scale(1) translateY(0); opacity: 1; }
 }
 
-/* HUDブラケット */
+/* HUD繝悶Λ繧ｱ繝・ヨ */
 .hud-bracket { position: absolute; width: 22px; height: 22px; pointer-events: none; z-index: 10; }
 .hud-tl { top:-1px; left:-1px; border-top:2px solid var(--color-primary); border-left:2px solid var(--color-primary); }
 .hud-tr { top:-1px; right:-1px; border-top:2px solid var(--color-primary); border-right:2px solid var(--color-primary); }
 .hud-bl { bottom:-1px; left:-1px; border-bottom:2px solid var(--color-primary); border-left:2px solid var(--color-primary); }
 .hud-br { bottom:-1px; right:-1px; border-bottom:2px solid var(--color-primary); border-right:2px solid var(--color-primary); }
 
-/* ヘッダーバー */
+/* 繝倥ャ繝繝ｼ繝舌・ */
 .map-modal-header {
     display: flex;
     justify-content: space-between;
@@ -1394,7 +1394,7 @@ body.closing::before {
 .map-modal-header-left { display: flex; align-items: center; gap: 1rem; }
 .map-modal-header-right { display: flex; align-items: center; gap: 1.2rem; }
 
-/* ステータスLED */
+/* 繧ｹ繝・・繧ｿ繧ｹLED */
 .map-status-led {
     width: 10px; height: 10px;
     border-radius: 50%;
@@ -1404,16 +1404,16 @@ body.closing::before {
     flex-shrink: 0;
 }
 
-/* タイトルブロック */
+/* 繧ｿ繧､繝医Ν繝悶Ο繝・け */
 .map-modal-system-id { font-size:0.75rem; color:rgba(0,243,255,0.5); font-family:var(--font-family-mono); letter-spacing:0.2em; margin-bottom:2px; }
 .map-modal-title { font-size:1.25rem; font-family:'Orbitron',sans-serif; color:var(--color-primary); letter-spacing:0.2em; text-shadow:0 0 10px var(--color-primary-glow); }
 
-/* 座標表示 */
+/* 蠎ｧ讓呵｡ｨ遉ｺ */
 .map-coord-display { display:flex; flex-direction:column; align-items:center; gap:1px; }
 .map-coord-label { font-size:0.65rem; color:rgba(0,243,255,0.4); font-family:var(--font-family-mono); letter-spacing:0.2em; }
 .map-coord-value { font-size:0.9rem; color:var(--color-primary); font-family:var(--font-family-mono); font-weight:bold; text-shadow:0 0 6px var(--color-primary-glow); }
 
-/* 閉じるボタン */
+/* 髢峨§繧九・繧ｿ繝ｳ */
 .map-close-btn {
     background: rgba(0,243,255,0.06);
     border: 1px solid rgba(0,243,255,0.3);
@@ -1426,16 +1426,16 @@ body.closing::before {
 }
 .map-close-btn:hover { background:rgba(255,60,60,0.15); border-color:#ff3c3c; color:#ff3c3c; box-shadow:0 0 12px rgba(255,60,60,0.4); }
 
-/* マップボディ */
+/* 繝槭ャ繝励・繝・ぅ */
 .map-body { display:flex; flex:1; overflow:hidden; }
 
-/* 左サイドパネル */
+/* 蟾ｦ繧ｵ繧､繝峨ヱ繝阪Ν */
 .map-side-panel {
     width: 160px; flex-shrink: 0;
     border-right: 1px solid rgba(0,243,255,0.15);
     background: rgba(0,243,255,0.03);
     padding: 0.8rem 0.6rem;
-    display: flex; flex-direction: column; gap: 0.5rem; /* 余白をさらに最適化 */
+    display: flex; flex-direction: column; gap: 0.5rem; /* 菴咏區繧偵＆繧峨↓譛驕ｩ蛹・*/
     font-family: var(--font-family-mono); 
     overflow: hidden;
     position: relative;
@@ -1448,18 +1448,18 @@ body.closing::before {
 .map-side-divider { height:1px; background:rgba(0,243,255,0.1); margin:0.15rem 0; }
 .map-status-dot { width:6px; height:6px; border-radius:50%; background:var(--color-primary); box-shadow:0 0 6px var(--color-primary); animation:pulse-opacity 1.5s infinite; flex-shrink:0; }
 
-/* シグナルバー：サイズと位置を再調整 */
+/* 繧ｷ繧ｰ繝翫Ν繝舌・・壹し繧､繧ｺ縺ｨ菴咲ｽｮ繧貞・隱ｿ謨ｴ */
 .map-signal-bars { 
     display:flex; 
     align-items:flex-end; 
-    gap:4px; /* 太くした分、隙間を微調整 */
+    gap:4px; /* 螟ｪ縺上＠縺溷・縲・囮髢薙ｒ蠕ｮ隱ｿ謨ｴ */
     height:24px; 
     width: 80px; 
     margin-top:0.5rem; 
     margin-left: 5px; 
 }
 .signal-bar { 
-    width: 6px; /* バーを太く変更 */
+    width: 6px; /* 繝舌・繧貞､ｪ縺丞､画峩 */
     background:var(--color-primary); 
     box-shadow:0 0 3px var(--color-primary); 
     border-radius:1px; 
@@ -1477,23 +1477,23 @@ body.closing::before {
 .signal-bar:nth-child(4) { animation-delay: 0.1s; }
 .signal-bar:nth-child(5) { animation-delay: 0.3s; }
 
-/* iframeラッパー */
+/* iframe繝ｩ繝・ヱ繝ｼ */
 .map-iframe-wrapper { 
     flex: 1; 
     position: relative; 
     overflow: hidden;
-    z-index: 10; /* スキャンラインより上に配置 */
+    z-index: 10; /* 繧ｹ繧ｭ繝｣繝ｳ繝ｩ繧､繝ｳ繧医ｊ荳翫↓驟咲ｽｮ */
 }
 .map-iframe-wrapper iframe { position:absolute; inset:0; width:100%; height:100%; }
 
-/* iframeオーバーレイブラケット */
+/* iframe繧ｪ繝ｼ繝舌・繝ｬ繧､繝悶Λ繧ｱ繝・ヨ */
 .map-overlay-tl,.map-overlay-tr,.map-overlay-bl,.map-overlay-br { position:absolute; width:16px; height:16px; z-index:5; pointer-events:none; }
 .map-overlay-tl { top:8px; left:8px; border-top:2px solid rgba(0,243,255,0.8); border-left:2px solid rgba(0,243,255,0.8); }
 .map-overlay-tr { top:8px; right:8px; border-top:2px solid rgba(0,243,255,0.8); border-right:2px solid rgba(0,243,255,0.8); }
 .map-overlay-bl { bottom:8px; left:8px; border-bottom:2px solid rgba(0,243,255,0.8); border-left:2px solid rgba(0,243,255,0.8); }
 .map-overlay-br { bottom:8px; right:8px; border-bottom:2px solid rgba(0,243,255,0.8); border-right:2px solid rgba(0,243,255,0.8); }
 
-/* フッターステータス */
+/* 繝輔ャ繧ｿ繝ｼ繧ｹ繝・・繧ｿ繧ｹ */
 .map-modal-footer {
     display:flex; justify-content:space-between; align-items:center;
     padding:0.6rem 1.4rem;
@@ -1508,22 +1508,22 @@ body.closing::before {
 .map-footer-center { flex:1; text-align:center; color:rgba(0,243,255,0.6); overflow:hidden; white-space:nowrap; }
 .map-footer-right { flex-shrink:0; text-align:right; }
 
-/* 四隅のL字型コーナーブラケット */
+/* 蝗幃嚆縺ｮL蟄怜梛繧ｳ繝ｼ繝翫・繝悶Λ繧ｱ繝・ヨ */
 .contact-sub-module::before {
     content: '';
     position: absolute;
     inset: -1px;
     background: 
-        /* 左上 */
+        /* 蟾ｦ荳・*/
         linear-gradient(to right, var(--color-primary) 2px, transparent 2px) 0 0,
         linear-gradient(to bottom, var(--color-primary) 2px, transparent 2px) 0 0,
-        /* 右上 */
+        /* 蜿ｳ荳・*/
         linear-gradient(to left, var(--color-primary) 2px, transparent 2px) 100% 0,
         linear-gradient(to bottom, var(--color-primary) 2px, transparent 2px) 100% 0,
-        /* 左下 */
+        /* 蟾ｦ荳・*/
         linear-gradient(to right, var(--color-primary) 2px, transparent 2px) 0 100%,
         linear-gradient(to top, var(--color-primary) 2px, transparent 2px) 0 100%,
-        /* 右下 */
+        /* 蜿ｳ荳・*/
         linear-gradient(to left, var(--color-primary) 2px, transparent 2px) 100% 100%,
         linear-gradient(to top, var(--color-primary) 2px, transparent 2px) 100% 100%;
     background-repeat: no-repeat;
@@ -1531,7 +1531,7 @@ body.closing::before {
     pointer-events: none;
 }
 
-/* モジュール内の見出し微調整 */
+/* 繝｢繧ｸ繝･繝ｼ繝ｫ蜀・・隕句・縺怜ｾｮ隱ｿ謨ｴ */
 .contact-sub-module h3 {
     color: var(--color-primary);
     text-shadow: 0 0 5px var(--color-primary-glow);
@@ -1545,8 +1545,8 @@ body.closing::before {
 
 
 
-/* --- コンパクト・サイバーボタン (Micro SF) --- */
-/* --- サイバー・GitHubリンクボタン (Scanning Icon) --- */
+/* --- 繧ｳ繝ｳ繝代け繝医・繧ｵ繧､繝舌・繝懊ち繝ｳ (Micro SF) --- */
+/* --- 繧ｵ繧､繝舌・繝ｻGitHub繝ｪ繝ｳ繧ｯ繝懊ち繝ｳ (Scanning Icon) --- */
 .cyber-link-btn {
     display: inline-flex;
     align-items: center;
@@ -1609,23 +1609,23 @@ body.closing::before {
     gap: 2rem;
 }
 
-/* スキルカード：アシンメトリー・カプセルデザイン */
+/* 繧ｹ繧ｭ繝ｫ繧ｫ繝ｼ繝会ｼ壹い繧ｷ繝ｳ繝｡繝医Μ繝ｼ繝ｻ繧ｫ繝励そ繝ｫ繝・じ繧､繝ｳ */
 .skill-card {
     background: rgba(0, 243, 255, 0.03);
     border: 1px solid var(--color-border);
-    border-left: 2px solid var(--color-primary); /* 左側の強調ライン */
+    border-left: 2px solid var(--color-primary); /* 蟾ｦ蛛ｴ縺ｮ蠑ｷ隱ｿ繝ｩ繧､繝ｳ */
     padding: 25px;
     display: flex;
     align-items: center;
     gap: 20px;
     position: relative;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    /* カプセル形状の定義 */
+    /* 繧ｫ繝励そ繝ｫ蠖｢迥ｶ縺ｮ螳夂ｾｩ */
     border-radius: 30px 2px 30px 2px;
     overflow: hidden;
 }
 
-/* 二重線フレーム効果 */
+/* 莠碁㍾邱壹ヵ繝ｬ繝ｼ繝�蜉ｹ譫・*/
 .skill-card::before {
     content: '';
     position: absolute;
@@ -1642,7 +1642,7 @@ body.closing::before {
     transform: translateY(-5px);
 }
 
-/* スキルアイコン */
+/* 繧ｹ繧ｭ繝ｫ繧｢繧､繧ｳ繝ｳ */
 .skill-icon {
     width: 50px;
     height: 50px;
@@ -1658,18 +1658,18 @@ body.closing::before {
     height: 100%;
 }
 
-/* スキル詳細コンテナ */
+/* 繧ｹ繧ｭ繝ｫ隧ｳ邏ｰ繧ｳ繝ｳ繝・リ */
 .skill-details {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* スキル名とバリアント装飾 */
+/* 繧ｹ繧ｭ繝ｫ蜷阪→繝舌Μ繧｢繝ｳ繝郁｣・｣ｾ */
 .skill-name {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #ffffff; /* スキル名を白に設定 */
+    color: #ffffff; /* 繧ｹ繧ｭ繝ｫ蜷阪ｒ逋ｽ縺ｫ險ｭ螳・*/
     letter-spacing: 2px;
     position: relative;
     display: inline-block;
@@ -1677,7 +1677,7 @@ body.closing::before {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-/* スキル名の装飾を新しいもの（//）に変更 */
+/* 繧ｹ繧ｭ繝ｫ蜷阪・陬・｣ｾ繧呈眠縺励＞繧ゅ・・・/・峨↓螟画峩 */
 .skill-name::before {
     content: '// ';
     color: var(--color-accent);
@@ -1685,7 +1685,7 @@ body.closing::before {
     font-weight: 400;
 }
 
-/* 以前のバリアント装飾を無効化（統一されたため） */
+/* 莉･蜑阪・繝舌Μ繧｢繝ｳ繝郁｣・｣ｾ繧堤┌蜉ｹ蛹厄ｼ育ｵｱ荳縺輔ｌ縺溘◆繧・ｼ・*/
 .name-variant-alpha::before,
 .name-variant-beta::before,
 .name-variant-beta::after,
@@ -1693,23 +1693,23 @@ body.closing::before {
     display: none;
 }
 
-/* タクティカル・スキルレベルメーター（デザイン改良：歪みによる斜め化） */
+/* 繧ｿ繧ｯ繝・ぅ繧ｫ繝ｫ繝ｻ繧ｹ繧ｭ繝ｫ繝ｬ繝吶Ν繝｡繝ｼ繧ｿ繝ｼ・医ョ繧ｶ繧､繝ｳ謾ｹ濶ｯ・壽ｭｪ縺ｿ縺ｫ繧医ｋ譁懊ａ蛹厄ｼ・*/
 .skill-meter {
     position: relative;
     width: calc(100% - 10px);
     height: 12px;
     margin-top: 12px;
-    margin-left: 5px; /* 斜め化によるズレの調整 */
+    margin-left: 5px; /* 譁懊ａ蛹悶↓繧医ｋ繧ｺ繝ｬ縺ｮ隱ｿ謨ｴ */
     background: rgba(0, 243, 255, 0.03);
     border: 1px solid var(--color-border);
     padding: 2px;
     box-sizing: border-box;
     overflow: hidden;
-    /* 全体を斜めに歪ませることで、枠・目盛り・進捗端の角度を完全に一致させる */
+    /* 蜈ｨ菴薙ｒ譁懊ａ縺ｫ豁ｪ縺ｾ縺帙ｋ縺薙→縺ｧ縲∵棧繝ｻ逶ｮ逶帙ｊ繝ｻ騾ｲ謐礼ｫｯ縺ｮ隗貞ｺｦ繧貞ｮ悟・縺ｫ荳閾ｴ縺輔○繧・*/
     transform: skewX(-15deg);
 }
 
-/* メーター内部のセグメント（背景）：親のskewにより自動的に斜めになる */
+/* 繝｡繝ｼ繧ｿ繝ｼ蜀・Κ縺ｮ繧ｻ繧ｰ繝｡繝ｳ繝茨ｼ郁レ譎ｯ・会ｼ夊ｦｪ縺ｮskew縺ｫ繧医ｊ閾ｪ蜍慕噪縺ｫ譁懊ａ縺ｫ縺ｪ繧・*/
 .skill-meter::before {
     content: '';
     position: absolute;
@@ -1722,12 +1722,12 @@ body.closing::before {
     z-index: 1;
 }
 
-/* メーターの充填部分：親のskewにより端も自動的に斜めになる */
+/* 繝｡繝ｼ繧ｿ繝ｼ縺ｮ蜈・｡ｫ驛ｨ蛻・ｼ夊ｦｪ縺ｮskew縺ｫ繧医ｊ遶ｯ繧り・蜍慕噪縺ｫ譁懊ａ縺ｫ縺ｪ繧・*/
 .skill-meter span {
     display: block;
     height: 100%;
     width: 0;
-    /* ブロック状セグメント：親のskewにより斜めに表示される */
+    /* 繝悶Ο繝・け迥ｶ繧ｻ繧ｰ繝｡繝ｳ繝茨ｼ夊ｦｪ縺ｮskew縺ｫ繧医ｊ譁懊ａ縺ｫ陦ｨ遉ｺ縺輔ｌ繧・*/
     background: repeating-linear-gradient(
         90deg,
         var(--color-primary),
@@ -1741,12 +1741,12 @@ body.closing::before {
     z-index: 2;
 }
 
-/* ホバー時に指定レベルまでチャージ */
+/* 繝帙ヰ繝ｼ譎ゅ↓謖・ｮ壹Ξ繝吶Ν縺ｾ縺ｧ繝√Ε繝ｼ繧ｸ */
 .skill-card:hover .skill-meter span {
     width: var(--level);
 }
 
-/* スキャン中のような流れる光の演出 */
+/* 繧ｹ繧ｭ繝｣繝ｳ荳ｭ縺ｮ繧医≧縺ｪ豬√ｌ繧句・縺ｮ貍泌・ */
 .skill-meter span::after {
     content: '';
     position: absolute;
@@ -1763,7 +1763,7 @@ body.closing::before {
     100% { transform: translateX(400%); }
 }
 
-/* ホバー時の全体的な強調 */
+/* 繝帙ヰ繝ｼ譎ゅ・蜈ｨ菴鍋噪縺ｪ蠑ｷ隱ｿ */
 .skill-card:hover .skill-icon {
     opacity: 1;
     filter: drop-shadow(0 0 10px var(--color-primary-glow));
@@ -1785,21 +1785,21 @@ body.closing::before {
 
 
 
-/* --- ミニマル・ノーデータ（究極の簡素化） --- */
+/* --- 繝溘ル繝槭Ν繝ｻ繝弱・繝・・繧ｿ・育ｩｶ讌ｵ縺ｮ邁｡邏�蛹厄ｼ・--- */
 
-/* NO DATAテキストの大胆な強調（高精度・大サイズ） */
+/* NO DATA繝・く繧ｹ繝医・螟ｧ閭・↑蠑ｷ隱ｿ・磯ｫ倡ｲｾ蠎ｦ繝ｻ螟ｧ繧ｵ繧､繧ｺ・・*/
 .nodata-label {
     font-family: var(--font-family-mono);
-    font-size: 14px; /* サイズを大幅に拡大 */
+    font-size: 14px; /* 繧ｵ繧､繧ｺ繧貞､ｧ蟷・↓諡｡螟ｧ */
     fill: var(--color-primary);
     font-weight: 900;
-    letter-spacing: 1.2px; /* 間隔は自然に保持 */
+    letter-spacing: 1.2px; /* 髢馴囈縺ｯ閾ｪ辟ｶ縺ｫ菫晄戟 */
     dominant-baseline: central;
     text-anchor: middle;
-    filter: drop-shadow(0 0 8px var(--color-primary-glow)); /* グローを強化して存在感を出す */
+    filter: drop-shadow(0 0 8px var(--color-primary-glow)); /* 繧ｰ繝ｭ繝ｼ繧貞ｼｷ蛹悶＠縺ｦ蟄伜惠諢溘ｒ蜃ｺ縺・*/
 }
 
-/* タクティカル・アンダーライン（ステータス強調用） */
+/* 繧ｿ繧ｯ繝・ぅ繧ｫ繝ｫ繝ｻ繧｢繝ｳ繝繝ｼ繝ｩ繧､繝ｳ・医せ繝・・繧ｿ繧ｹ蠑ｷ隱ｿ逕ｨ・・*/
 .nodata-underline {
     stroke: var(--color-primary);
     stroke-width: 0.6;
@@ -1808,17 +1808,17 @@ body.closing::before {
     filter: drop-shadow(0 0 2px var(--color-primary-glow));
 }
 
-/* アイコンの控えめな表示 */
+/* 繧｢繧､繧ｳ繝ｳ縺ｮ謗ｧ縺医ａ縺ｪ陦ｨ遉ｺ */
 .minimal-icon-bg {
     fill: var(--color-primary);
     opacity: 0.15;
 }
 
-/* モバイル専用要素のデフォルト非表示設定（PC表示を維持するため） */
+/* 繝｢繝舌う繝ｫ蟆ら畑隕∫ｴ�縺ｮ繝・ヵ繧ｩ繝ｫ繝磯撼陦ｨ遉ｺ險ｭ螳夲ｼ・C陦ｨ遉ｺ繧堤ｶｭ謖√☆繧九◆繧・ｼ・*/
 .mobile-avatar-mini {
     display: none;
 }
-/* タイムラインの見出しを控えめに調整（モバイル版と同様の2行レイアウトを採用） */
+/* 繧ｿ繧､繝�繝ｩ繧､繝ｳ縺ｮ隕句・縺励ｒ謗ｧ縺医ａ縺ｫ隱ｿ謨ｴ・医Δ繝舌う繝ｫ迚医→蜷梧ｧ倥・2陦後Ξ繧､繧｢繧ｦ繝医ｒ謗｡逕ｨ・・*/
 .timeline-item {
     display: flex;
     flex-direction: column;
@@ -1828,21 +1828,21 @@ body.closing::before {
 }
 .timeline-label {
     flex-shrink: 0;
-    color: #00dce6; /* メイン色より「ほんの少し暗く」調整 */
+    color: #00dce6; /* 繝｡繧､繝ｳ濶ｲ繧医ｊ縲後⊇繧薙・蟆代＠證励￥縲崎ｪｿ謨ｴ */
     font-size: 1.1rem;
     font-weight: bold;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 .timeline-content {
-    font-size: 1.1rem; /* テーブルの他のセル (1.1rem) と完全に統一 */
+    font-size: 1.1rem; /* 繝・・繝悶Ν縺ｮ莉悶・繧ｻ繝ｫ (1.1rem) 縺ｨ螳悟・縺ｫ邨ｱ荳 */
     color: var(--color-text-main);
-    font-family: monospace; /* テーブルセルと同じ等幅フォントを明示 */
+    font-family: monospace; /* 繝・・繝悶Ν繧ｻ繝ｫ縺ｨ蜷後§遲牙ｹ・ヵ繧ｩ繝ｳ繝医ｒ譏守､ｺ */
     padding-left: 0.5rem;
     border-left: 1px solid var(--color-primary-dim);
 }
 
-/* 遷移ページのヘッダー調整 */
+/* 驕ｷ遘ｻ繝壹・繧ｸ縺ｮ繝倥ャ繝繝ｼ隱ｿ謨ｴ */
 .header {
     position: sticky;
     top: 0;
@@ -1852,9 +1852,357 @@ body.closing::before {
     z-index: 100;
 }
 .main-content {
-    padding-top: 1.5rem; /* さらなるバランス調整 */
+    padding-top: 1.5rem; /* 縺輔ｉ縺ｪ繧九ヰ繝ｩ繝ｳ繧ｹ隱ｿ謨ｴ */
 }
 
 
 
+
+
+/* --- Travel Archive List Styles --- */
+.travel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem 0;
+}
+
+.travel-card {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    padding: 2.5rem;
+    background: rgba(5, 15, 30, 0.4);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s ease;
+    isolation: isolate;
+    border-radius: 4px; /* 繧ｯ繝ｪ繝・・繝代せ縺ｮ莉｣繧上ｊ縺ｫ繧上★縺九↑隗剃ｸｸ */
+}
+
+/* 蝗幃嚆縺ｮ繝悶Λ繧ｱ繝・ヨ陬・｣ｾ・亥ｽ｢迥ｶ繧鱈蟄励↓螟画峩・・*/
+.travel-card::before, .travel-card::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--color-primary);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.travel-card::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.travel-card::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+}
+
+.travel-card:hover {
+    border-color: var(--color-primary);
+    background: rgba(5, 15, 30, 0.6);
+    box-shadow: 
+        0 0 20px var(--color-primary-dim),
+        inset 0 0 15px var(--color-primary-dim);
+}
+
+.travel-card.layout-right {
+    flex-direction: row-reverse;
+}
+
+/* 譌・｡檎判蜒上せ繝ｩ繧､繝繝ｼ縺ｮ繧ｳ繝ｳ繝・リ */
+.travel-slider-container {
+    flex: 1;
+    max-width: 450px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.travel-slider-main {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: #000;
+    border-radius: 2px;
+}
+
+.travel-slider-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease, transform 0.6s ease;
+    cursor: pointer;
+    /* デフォルトの彩度低下を削除 */
+}
+
+.travel-slider-main:hover img {
+    transform: scale(1.05);
+    /* ホバー時の彩度上昇も必要に応じて調整または削除 */
+    filter: saturate(1.1);
+}
+
+/* 繧ｹ繝ｩ繧､繝繝ｼ縺ｮ荳矩Κ繧ｳ繝ｳ繝医Ο繝ｼ繝ｫ */
+.slider-controls-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.slider-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(2, 6, 12, 0.4);
+    border: 1px solid var(--color-primary-dim);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+.slider-btn:hover {
+    border-color: var(--color-primary);
+    color: #fff;
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 15px var(--color-primary-dim);
+    transform: scale(1.1);
+}
+
+.slider-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* 繧ｹ繝ｩ繧､繝繝ｼ繧､繝ｳ繧ｸ繧ｱ繝ｼ繧ｿ繝ｼ・医ラ繝・ヨ・・*/
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.dot {
+    width: 20px;
+    height: 4px;
+    background: var(--color-primary-dim);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--color-primary);
+    box-shadow: 0 0 8px var(--color-primary);
+}
+
+.travel-card-content {
+    flex: 1.3;
+    display: flex;
+    flex-direction: column;
+}
+
+.travel-card-header {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.travel-card-header::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+.travel-card.layout-right .travel-card-header::after {
+    left: auto;
+    right: 0;
+}
+
+.travel-date {
+    display: block;
+    font-family: var(--font-family-mono);
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+.travel-title {
+    font-size: 2rem;
+    color: var(--color-heading);
+    text-shadow: 0 0 15px var(--color-primary-glow);
+    margin: 0;
+}
+
+.travel-episode {
+    color: var(--color-text-main);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    position: relative;
+    padding-top: 1rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+    text-align: justify;
+}
+
+.travel-tags {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.travel-card.layout-right .travel-card-content {
+    text-align: right;
+}
+
+.travel-card.layout-right .travel-tags {
+    justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+    .travel-card {
+        gap: 2rem;
+        padding: 1.8rem;
+    }
+    .travel-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .travel-list {
+        gap: 3rem;
+    }
+    .travel-card, .travel-card.layout-right {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: left;
+        padding: 1.5rem;
+    }
+    .travel-card.layout-right .travel-card-content,
+    .travel-card.layout-right .travel-tags {
+        text-align: left;
+        justify-content: flex-start;
+    }
+    .travel-card.layout-right .travel-card-header::after {
+        right: auto;
+        left: 0;
+    }
+    .travel-slider-container {
+        max-width: 100%;
+    }
+    .slider-controls-bottom {
+        gap: 1rem;
+    }
+}
+
+
+/* --- Image Modal Styles --- */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 80px; /* 繝懊ち繝ｳ縺ｮ縺溘ａ縺ｮ蜊∝・縺ｪ繧ｹ繝壹・繧ｹ */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(2, 6, 12, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 85%;
+    max-width: 1000px;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 30px var(--color-primary-dim);
+    animation: zoom 0.6s;
+    border-radius: 4px;
+}
+
+@keyframes zoom {
+    from {transform:scale(0.8); opacity: 0;}
+    to {transform:scale(1); opacity: 1;}
+}
+
+.close-modal {
+    position: fixed; /* 蟶ｸ縺ｫ蜿ｳ荳翫√せ繧ｯ繝ｭ繝ｼ繝ｫ縺励※繧ょ崋螳・*/
+    top: 20px;
+    right: 20px;
+    color: var(--color-primary);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1010;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 6, 12, 0.8);
+    border: 1px solid var(--color-primary-dim);
+    border-radius: 4px;
+}
+
+.close-modal:hover {
+    color: #fff;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow);
+    background: rgba(0, 243, 255, 0.1);
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 85%;
+    max-width: 1000px;
+    text-align: center;
+    color: var(--color-text-main);
+    padding: 20px 0;
+    font-family: var(--font-family-mono);
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .image-modal {
+        padding-top: 100px;
+    }
+    .modal-content {
+        width: 95%;
+    }
+    .close-modal {
+        top: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 32px;
+    }
+}
 

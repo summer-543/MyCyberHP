@@ -83,9 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    /* 対象クラスを持つ全要素を監視に登録 */
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach(el => observer.observe(el));
+    /* グローバルに関数を公開（動的な要素追加時に呼び出せるようにする） */
+    window.observeElements = () => {
+        const animatedElements = document.querySelectorAll('.animate-on-scroll:not(.is-visible)');
+        animatedElements.forEach(el => observer.observe(el));
+    };
+
+    /* 初回実行 */
+    window.observeElements();
 
     /* ステータスグラフのクリックポップアップ制御 */
     const graphBtn = document.getElementById('statusGraphBtn');
