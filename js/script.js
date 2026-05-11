@@ -795,18 +795,33 @@ function initCyberHUD() {
     window.addEventListener('resize', updateHUDScale);
 
     // 背景HUDのトグル機能（PC版専用）
-    bg.classList.add('hud-hidden'); // 初期状態を非表示にする
     const hudToggleBtn = document.getElementById('hudToggleBtn');
+    
+    // localStorageから設定を読み込む（デフォルトは非表示 'true'）
+    const isHudHidden = localStorage.getItem('cyberHudHidden') !== 'false';
+    
+    if (isHudHidden) {
+        bg.classList.add('hud-hidden');
+        if (hudToggleBtn) hudToggleBtn.classList.add('off');
+    } else {
+        bg.classList.remove('hud-hidden');
+        if (hudToggleBtn) hudToggleBtn.classList.remove('off');
+        // 表示設定が引き継がれた場合は即座に初期化
+        initExtraObjects();
+    }
+
     if (hudToggleBtn) {
-        hudToggleBtn.classList.add('off'); // 初期状態は非表示
         hudToggleBtn.addEventListener('click', () => {
             if (!extraObjectsInitialized) {
                 initExtraObjects();
                 // DOM追加後にフェードを効かせるための強制リフロー
                 void bg.offsetWidth;
             }
+            const willBeHidden = !bg.classList.contains('hud-hidden');
             bg.classList.toggle('hud-hidden');
             hudToggleBtn.classList.toggle('off');
+            // 設定を保存
+            localStorage.setItem('cyberHudHidden', willBeHidden);
         });
     }
 }
