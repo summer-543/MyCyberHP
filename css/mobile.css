@@ -315,12 +315,10 @@
         text-overflow: ellipsis !important;
     }
 
-    /* MUSIC PAGE - ARTIST PANEL MOBILE */
-    .artist-panel {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        margin-bottom: 3rem !important;
-        padding-bottom: 2rem !important;
+    /* MUSIC PAGE - ARTIST SECTION MOBILE */
+    .artist-sub-window {
+        padding: 2rem 0 !important;
+        margin-bottom: 0 !important;
     }
     .artist-media {
         width: 100% !important;

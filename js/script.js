@@ -869,9 +869,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(style);
     }
 
-    /* 遷移対象となるリンク要素を取得 */
-    const transitionLinks = document.querySelectorAll('a.fav-card');
-    const backLinks = document.querySelectorAll('a.back-btn');
+    /* 遷移対象となるリンク要素を取得 (演出無効化のためコメントアウト) */
+    // const transitionLinks = document.querySelectorAll('a.fav-card');
+    // const backLinks = document.querySelectorAll('a.back-btn');
 
     /* 次のページへ進む際のSFウィンドウ展開演出を制御 */
     const handleForwardTransition = (e, link) => {
@@ -1011,7 +1011,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { window.location.href = targetUrl; }, 230);
     };
 
-    /* 各リンク要素にイベントリスナーを登録 */
+    /* 遷移対象となるリンク要素を取得 (演出無効化のためコメントアウト) */
+    // const transitionLinks = document.querySelectorAll('a.fav-card');
+    // const backLinks = document.querySelectorAll('a.back-btn');
+
+    /* 各リンク要素にイベントリスナーを登録 (演出無効化のためコメントアウト)
+       演出を元に戻す場合は、以下のコメントアウトを解除してください。 */
+    /*
     transitionLinks.forEach(link => {
         link.addEventListener('click', (e) => handleForwardTransition(e, link));
     });
@@ -1019,6 +1025,7 @@ document.addEventListener('DOMContentLoaded', () => {
     backLinks.forEach(link => {
         link.addEventListener('click', (e) => handleBackTransition(e, link));
     });
+    */
 });
 
 

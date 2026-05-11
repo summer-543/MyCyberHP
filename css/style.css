@@ -1833,15 +1833,16 @@ body.closing::before {
 
 /* --- 繝溘ル繝槭Ν繝ｻ繝弱・繝・・繧ｿ・育ｩｶ讌ｵ縺ｮ邁｡邏蛹厄ｼ・--- */
 
-/* NO DATA繝・く繧ｹ繝医・螟ｧ閭・↑蠑ｷ隱ｿ・磯ｫ倡ｲｾ蠎ｦ繝ｻ螟ｧ繧ｵ繧､繧ｺ・・*/
+/* NO DATAラベルの大胆な強調（高精度・大サイズ） */
 .nodata-label {
     font-family: var(--font-family-mono);
-    font-size: 14px; /* 繧ｵ繧､繧ｺ繧貞､ｧ蟷・↓諡｡螟ｧ */
+    font-size: 14px; /* サイズを大幅に拡大 */
     fill: var(--color-primary);
     font-weight: 900;
-    letter-spacing: 1.2px; /* 髢馴囈縺ｯ閾ｪ辟ｶ縺ｫ菫晄戟 */
+    letter-spacing: 1.2px; /* 間隔は自然に保持 */
     dominant-baseline: central;
     text-anchor: middle;
+
     filter: drop-shadow(0 0 8px var(--color-primary-glow)); /* 繧ｰ繝ｭ繝ｼ繧貞ｼｷ蛹悶＠縺ｦ蟄伜惠諢溘ｒ蜃ｺ縺・*/
 }
 
@@ -2080,20 +2081,6 @@ body.closing::before {
     box-shadow: 0 0 10px var(--color-primary);
 }
 
-/* Artist Sub Window (Simpler Design) */
-.artist-sub-window {
-    background: transparent;
-    border: 1px solid rgba(0, 243, 255, 0.25);
-    padding: 2.5rem 3rem; /* パディングを拡大 1.5 -> 2.5/3 */
-    margin-bottom: 4.5rem; /* 子ウィンドウ間のマージンを拡大 2.5 -> 4.5 */
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.artist-sub-window:hover {
-    border-color: rgba(0, 243, 255, 0.5);
-    
-}
 
 .artist-header-row {
     display: flex;
@@ -2246,7 +2233,7 @@ body.closing::before {
 }
 
 .close-modal {
-    position: fixed; /* 蟶ｸ縺ｫ蜿ｳ荳翫√せ繧ｯ繝ｭ繝ｼ繝ｫ縺励※繧ょ崋螳・*/
+    position: fixed; /* 蟶ｸ縺ｫ蜿ｳ荳翫€√せ繧ｯ繝ｭ繝ｼ繝ｫ縺励※繧ょ崋螳・*/
     top: 20px;
     right: 20px;
     color: var(--color-primary);
@@ -2303,21 +2290,6 @@ body.closing::before {
 /* ==========================================================================
    MUSIC PAGE - ARTIST PANEL STYLES
    ========================================================================== */
-
-.artist-panel {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 3rem;
-    align-items: start;
-    margin-bottom: 5rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.artist-panel:last-child {
-    border-bottom: none;
-    margin-bottom: 2rem;
-}
 
 .artist-media {
     width: 350px;
@@ -2634,46 +2606,21 @@ body.closing::before {
 }
 
 
-/* Artist Sub Window (Simpler Design) */
+/* Artist Sub Window (Line Separator Design) */
 .artist-sub-window {
     background: transparent;
-    border: 1px solid rgba(0, 243, 255, 0.25);
-    padding: 3rem;
-    margin-bottom: 5.5rem;
+    border: none;
+    padding: 4rem 0; /* 線がないため余白を少し広げて調整 */
+    margin-bottom: 0;
     position: relative;
-    transition: all 0.3s ease;
 }
 
-/* L字装飾の追加 */
-.artist-sub-window::before,
-.artist-sub-window::after {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border: 2px solid var(--color-primary);
-    pointer-events: none;
-    z-index: 2;
-    filter: drop-shadow(0 0 5px var(--color-primary-glow));
+.artist-sub-window:first-of-type {
+    padding-top: 0;
 }
 
-.artist-sub-window::before {
-    top: -1px;
-    left: -1px;
-    border-right: none;
-    border-bottom: none;
-}
-
-.artist-sub-window::after {
-    bottom: -1px;
-    right: -1px;
-    border-left: none;
-    border-top: none;
-}
-
-/* ホバー時に枠線のみが明るくなる演出 */
-.artist-sub-window:hover {
-    border-color: var(--color-primary);
+.artist-sub-window:last-of-type {
+    padding-bottom: 0;
 }
 
 .artist-header-row {
