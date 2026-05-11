@@ -1,7 +1,7 @@
 /* サイト全体に動きとインタラクションを追加するメインスクリプト */
 
 document.addEventListener('DOMContentLoaded', () => {
-    /* システム起動時のタイピングエフェクトとロード画面 (一時的にコメントアウト)
+    /* [意図的] 今後追加予定のため残置 : システム起動時のタイピングエフェクトとロード画面
     if (!sessionStorage.getItem('sysInitDone')) {
         const overlay = document.createElement('div');
         overlay.id = 'loading-overlay';

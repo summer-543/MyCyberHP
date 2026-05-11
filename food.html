@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <!-- ドキュメント設定とメタ情報 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
-    <title>Food | Laboratory Archive</title>
+    <title>Food | Sei Ooe</title>
     <meta name="description" content="好きな食べ物やお店の記録">
     <!-- 外部フォントとスタイルシートの読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mobile.css">
 </head>
+
 <body>
     <!-- サイバースタイルの背景装飾要素 -->
     <div id="cyber-bg" class="cyber-bg"></div>
@@ -36,7 +40,8 @@
         <button id="hudToggleBtn" class="hud-toggle-btn" aria-label="Toggle HUD">
             <svg viewBox="0 0 24 24" width="20" height="20">
                 <!-- 目のアイコン (Eye Icon) -->
-                <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                <path fill="currentColor"
+                    d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
             </svg>
         </button>
     </header>
@@ -58,150 +63,213 @@
         <section class="section">
             <div class="container animate-on-scroll">
                 <div class="hud-panel">
-                <h2 class="section-title">Food Archive</h2>
-                <p style="margin-bottom: 3rem; color: var(--color-text-muted);">
-                    好きな食べ物の記録。特にお気に入りのうどん屋を紹介します。
-                </p>
+                    <h2 class="section-title">Food Archive</h2>
+                    <p style="margin-bottom: 3rem; color: var(--color-text-muted);">
+                        好きな食べ物の記録。特にお気に入りのうどん屋を紹介します。
+                    </p>
 
-                <!-- 縦1列の店舗リスト -->
-                <div class="udon-list" style="display: flex; flex-direction: column; gap: 4rem;">
-                    
-                    <!-- 石井商店 -->
-                    <div class="udon-card" style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
-                        <div class="card-corner"></div>
-                        <h3 class="card-title" style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/></svg>
-                            石井商店
-                        </h3>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                            <div style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
-                                <img src="images/food/ishii_exterior.jpg" alt="石井商店 外観" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
-                            </div>
-                            <div style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
-                                <img src="images/food/ishii_udon.jpg" alt="石井商店 うどん" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
-                            </div>
-                        </div>
-                        
-                        <p class="card-text" style="line-height: 1.8; margin-bottom: 1rem; color: #eee;">
-                            直島にあったうどん屋さんです。とある作品の聖地でもありますが、残念ながら現在は閉店してしまいました。
-                        </p>
-                    </div>
+                    <!-- 縦1列の店舗リスト -->
+                    <div class="udon-list" style="display: flex; flex-direction: column; gap: 4rem;">
 
-                    <!-- 手打ちうどん つるや -->
-                    <div class="udon-card" style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
-                        <div class="card-corner"></div>
-                        <h3 class="card-title" style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/></svg>
-                            手打ちうどん つるや
-                        </h3>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                            <div style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
-                                <img src="images/food/tsuruya_exterior.jpg" alt="手打ちうどん つるや 外観" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                        <!-- 石井商店 -->
+                        <div class="udon-card"
+                            style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
+                            <div class="card-corner"></div>
+                            <h3 class="card-title"
+                                style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path
+                                        d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z" />
+                                </svg>
+                                石井商店
+                            </h3>
+
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                                <div
+                                    style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+                                    <img src="images/food/ishii_exterior.jpg" alt="石井商店 外観"
+                                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                </div>
+                                <div
+                                    style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+                                    <img src="images/food/ishii_udon.jpg" alt="石井商店 うどん"
+                                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                </div>
                             </div>
-                            <div style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
-                                <img src="images/food/tsuruya_udon.jpg" alt="手打ちうどん つるや うどん" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
-                            </div>
+
+                            <p class="card-text" style="line-height: 1.8; margin-bottom: 1rem; color: #eee;">
+                                直島にあったうどん屋さんです。とある作品の聖地でもありますが、残念ながら現在は閉店してしまいました。
+                            </p>
                         </div>
-                        
-                        <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
-                            観音寺町にある人気のうどんさんです。こちらもある作品の聖地になっています。
-                        </p>
-                        
-                        <div class="location-link" style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
-                            <button class="cyber-link-btn open-map-btn" 
-                                    data-target="手打ちうどん つるや" 
-                                    data-query="つるや+うどん" 
-                                    data-lat="34.1311" 
-                                    data-lng="133.6541" 
+
+                        <!-- 手打ちうどん つるや -->
+                        <div class="udon-card"
+                            style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
+                            <div class="card-corner"></div>
+                            <h3 class="card-title"
+                                style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path
+                                        d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z" />
+                                </svg>
+                                手打ちうどん つるや
+                            </h3>
+
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                                <div
+                                    style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+                                    <img src="images/food/tsuruya_exterior.jpg" alt="手打ちうどん つるや 外観"
+                                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                </div>
+                                <div
+                                    style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+                                    <img src="images/food/tsuruya_udon.jpg" alt="手打ちうどん つるや うどん"
+                                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                </div>
+                            </div>
+
+                            <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
+                                観音寺町にある人気のお店で、平日ながら大盛況でした。こちらもある作品の聖地になっています。
+                            </p>
+
+                            <div class="location-link"
+                                style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                                <button class="cyber-link-btn open-map-btn" data-target="手打ちうどん つるや"
+                                    data-query="つるや+うどん" data-lat="34.1311" data-lng="133.6541"
                                     data-embed-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.75685768495!2d133.66454787571962!3d34.1269738731289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35518302b8fb2a2d%3A0x52571484e789b1a4!2z5omL5omT44Gh44GG44Gp44KTIOOBpOOCi-OChA!5e0!3m2!1sja!2sjp!4v1778527723402!5m2!1sja!2sjp"
                                     style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; background: none; border: 1px solid var(--color-primary); cursor: pointer;">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                ACCESS MAP
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- 讃岐うどん えん家 -->
-                    <div class="udon-card" style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
-                        <div class="card-corner"></div>
-                        <h3 class="card-title" style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/></svg>
-                            讃岐うどん えん家
-                        </h3>
-                        
-                        <div class="udon-image-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                            <div class="single-image-wrapper" style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
-                                <img src="images/food/enya.jpg" alt="讃岐うどん えん家" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                        <path
+                                            d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                    </svg>
+                                    ACCESS MAP
+                                </button>
                             </div>
                         </div>
-                        
-                        <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
-                            高松にあるお店です。遅い時間だったためちょうど最後の一杯でした。かしわ天が有名で美味しかったです。
-                        </p>
-                        
-                        <div class="location-link" style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
-                            <button class="cyber-link-btn open-map-btn" data-target="讃岐うどん えん家" data-query="えん家+うどん" data-lat="34.3414" data-lng="134.0521" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; background: none; border: 1px solid var(--color-primary); cursor: pointer;">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                ACCESS MAP
-                            </button>
-                        </div>
-                    </div>
 
-                    <!-- さぬき麺業 兵庫町店 -->
-                    <div class="udon-card" style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
-                        <div class="card-corner"></div>
-                        <h3 class="card-title" style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/></svg>
-                            さぬき麺業 兵庫町店
-                        </h3>
-                        
-                        <div class="udon-image-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                            <div class="single-image-wrapper" style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
-                                <img src="images/food/sanuki_hyogomachi.jpg" alt="さぬき麺業 兵庫町店" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                        <!-- 讃岐うどん えん家 -->
+                        <div class="udon-card"
+                            style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
+                            <div class="card-corner"></div>
+                            <h3 class="card-title"
+                                style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path
+                                        d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z" />
+                                </svg>
+                                讃岐うどん えん家
+                            </h3>
+
+                            <div class="udon-image-grid"
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                                <div class="single-image-wrapper"
+                                    style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+                                    <img src="images/food/enya.jpg" alt="讃岐うどん えん家"
+                                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                </div>
+                            </div>
+
+                            <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
+                                高松にあるお店です。遅い時間だったためちょうど最後の一杯でした。かしわ天が有名で美味しかったです。
+                            </p>
+
+                            <div class="location-link"
+                                style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                                <button class="cyber-link-btn open-map-btn" data-target="讃岐うどん えん家" data-query="えん家+うどん"
+                                    data-lat="34.3414" data-lng="134.0521"
+                                    style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; background: none; border: 1px solid var(--color-primary); cursor: pointer;">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                        <path
+                                            d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                    </svg>
+                                    ACCESS MAP
+                                </button>
                             </div>
                         </div>
-                        
-                        <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
-                            高松の商店街にある人気店です。セルフではなく、のんびり注文して食べることができます。
-                        </p>
-                        
-                        <div class="location-link" style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
-                            <button class="cyber-link-btn open-map-btn" data-target="さぬき麺業 兵庫町店" data-query="さぬき麺業+兵庫町店" data-lat="34.3468" data-lng="134.0485" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; background: none; border: 1px solid var(--color-primary); cursor: pointer;">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                ACCESS MAP
-                            </button>
-                        </div>
-                    </div>
 
-                    <!-- めりけんや 高松駅前店 -->
-                    <div class="udon-card" style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
-                        <div class="card-corner"></div>
-                        <h3 class="card-title" style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/></svg>
-                            めりけんや 高松駅前店
-                        </h3>
-                        
-                        <div class="udon-image-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                            <div class="single-image-wrapper" style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
-                                <img src="images/food/merikenya_takamatsu.jpg" alt="めりけんや 高松駅前店" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                        <!-- さぬき麺業 兵庫町店 -->
+                        <div class="udon-card"
+                            style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
+                            <div class="card-corner"></div>
+                            <h3 class="card-title"
+                                style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path
+                                        d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z" />
+                                </svg>
+                                さぬき麺業 兵庫町店
+                            </h3>
+
+                            <div class="udon-image-grid"
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                                <div class="single-image-wrapper"
+                                    style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+                                    <img src="images/food/sanuki_hyogomachi.jpg" alt="さぬき麺業 兵庫町店"
+                                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                </div>
+                            </div>
+
+                            <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
+                                高松の商店街にある人気店です。セルフではなく、のんびり注文して食べることができます。
+                            </p>
+
+                            <div class="location-link"
+                                style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                                <button class="cyber-link-btn open-map-btn" data-target="さぬき麺業 兵庫町店"
+                                    data-query="さぬき麺業+兵庫町店" data-lat="34.3468" data-lng="134.0485"
+                                    style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; background: none; border: 1px solid var(--color-primary); cursor: pointer;">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                        <path
+                                            d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                    </svg>
+                                    ACCESS MAP
+                                </button>
                             </div>
                         </div>
-                        
-                        <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
-                            高松駅前にありアクセスが良いです。チェーン店ながら名店ランキングでは毎回上位に入っています。
-                        </p>
-                        
-                        <div class="location-link" style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
-                            <button class="cyber-link-btn open-map-btn" data-target="めりけんや 高松駅前店" data-query="めりけんや+高松駅前店" data-lat="34.3503" data-lng="134.0468" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; background: none; border: 1px solid var(--color-primary); cursor: pointer;">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                ACCESS MAP
-                            </button>
-                        </div>
-                    </div>
 
-                </div>
+                        <!-- めりけんや 高松駅前店 -->
+                        <div class="udon-card"
+                            style="border: 1px solid var(--color-primary-dim); background: rgba(0, 243, 255, 0.02); padding: 2rem; position: relative; border-left: 4px solid var(--color-primary);">
+                            <div class="card-corner"></div>
+                            <h3 class="card-title"
+                                style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-family-mono);">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path
+                                        d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z" />
+                                </svg>
+                                めりけんや 高松駅前店
+                            </h3>
+
+                            <div class="udon-image-grid"
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                                <div class="single-image-wrapper"
+                                    style="aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+                                    <img src="images/food/merikenya_takamatsu.jpg" alt="めりけんや 高松駅前店"
+                                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+                                </div>
+                            </div>
+
+                            <p class="card-text" style="line-height: 1.8; margin-bottom: 2rem; color: #eee;">
+                                高松駅前にありアクセスが良いです。チェーン店ながら名店ランキングでは毎回上位に入っています。
+                            </p>
+
+                            <div class="location-link"
+                                style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                                <button class="cyber-link-btn open-map-btn" data-target="めりけんや 高松駅前店"
+                                    data-query="めりけんや+高松駅前店" data-lat="34.3503" data-lng="134.0468"
+                                    style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; background: none; border: 1px solid var(--color-primary); cursor: pointer;">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                        <path
+                                            d="M14,3V5H17.59L7,15.59L8.41,17L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                    </svg>
+                                    ACCESS MAP
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
@@ -242,8 +310,8 @@
                     </div>
                     <button id="closeMapBtn" class="map-close-btn" aria-label="閉じる">
                         <svg viewBox="0 0 24 24" width="20" height="20">
-                            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2"/>
-                            <line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" stroke-width="2"/>
+                            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2" />
+                            <line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" stroke-width="2" />
                         </svg>
                     </button>
                 </div>
@@ -275,7 +343,8 @@
                     <div class="map-overlay-tr"></div>
                     <div class="map-overlay-bl"></div>
                     <div class="map-overlay-br"></div>
-                    <iframe id="mapIframe" src="" width="100%" height="100%" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe id="mapIframe" src="" width="100%" height="100%" style="border:0; display:block;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="map-modal-footer">
@@ -298,9 +367,11 @@
         @media (min-width: 769px) {
             .single-image-wrapper {
                 max-width: 60%;
-                margin: 0; /* 左寄せ */
+                margin: 0;
+                /* 左寄せ */
             }
         }
+
         /* モーダル内の地図部分をスキャンラインより上に表示 */
         .map-body {
             position: relative;
@@ -311,4 +382,5 @@
     <script src="js/script.js"></script>
     <script src="js/food.js"></script>
 </body>
+
 </html>
