@@ -51,9 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const isEven = index % 2 === 0;
         card.classList.add(isEven ? 'layout-left' : 'layout-right');
 
+        // タイトルの整形（ハイフンで分割してサブタイトルをスパンで囲む）
+        const titleParts = data.title.split(' - ');
+        const titleHtml = titleParts.length > 1 
+            ? `${titleParts[0]} <span class="travel-subtitle">- ${titleParts[1]}</span>`
+            : data.title;
+
         // スライダー構造の生成
         const hasMultipleImages = data.images.length > 1;
-
+        
         card.innerHTML = `
             <div class="travel-slider-container" data-current="0" data-total="${data.images.length}">
                 <div class="travel-slider-main">
@@ -77,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="travel-card-content">
                 <div class="travel-card-header">
                     <span class="travel-date">${data.date}</span>
-                    <h3 class="travel-title">${data.title}</h3>
+                    <h3 class="travel-title">${titleHtml}</h3>
                 </div>
                 <p class="travel-episode">${data.episode}</p>
                 <div class="travel-tags">
@@ -111,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateSliderUI(container, idx, images) {
         container.setAttribute('data-current', idx);
-
+        
         const img = container.querySelector('.active-slide');
         img.style.opacity = '0';
-
+        
         setTimeout(() => {
             img.src = images[idx];
             img.style.opacity = '1';

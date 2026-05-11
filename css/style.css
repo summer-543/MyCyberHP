@@ -2020,22 +2020,25 @@ body.closing::before {
 .travel-card-header {
     margin-bottom: 1.5rem;
     position: relative;
+    padding-bottom: 0.5rem;
 }
 
+/* アンダーライン装飾（一本のグラデーションライン） */
 .travel-card-header::after {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: -2px;
     left: 0;
-    width: 60px;
-    height: 2px;
-    background: var(--color-primary);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-primary), transparent);
     box-shadow: 0 0 10px var(--color-primary);
 }
 
 .travel-card.layout-right .travel-card-header::after {
     left: auto;
     right: 0;
+    background: linear-gradient(-90deg, var(--color-primary), transparent);
 }
 
 .travel-date {
@@ -2053,6 +2056,12 @@ body.closing::before {
     color: var(--color-heading);
     text-shadow: 0 0 15px var(--color-primary-glow);
     margin: 0;
+}
+
+.travel-subtitle {
+    font-size: 0.9em;
+    opacity: 0.9;
+    color: var(--color-primary);
 }
 
 .travel-episode {
@@ -2110,9 +2119,18 @@ body.closing::before {
     .travel-card.layout-right .travel-card-header::after {
         right: auto;
         left: 0;
+        background: linear-gradient(90deg, var(--color-primary), transparent);
     }
     .travel-slider-container {
         max-width: 100%;
+    }
+    .travel-subtitle {
+        display: inline; /* 1行に収めるため inline に戻す */
+        font-size: 0.85em;
+        margin-left: 0.5rem;
+    }
+    .travel-title {
+        font-size: 1.25rem; /* 1行に収まりやすいようサイズダウン */
     }
     .slider-controls-bottom {
         gap: 1rem;
